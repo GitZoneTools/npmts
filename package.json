@@ -1,0 +1,23 @@
+{
+  "name": "npmts",
+  "version": "0.0.0",
+  "description": "write npm modules with TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npmts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pushrocks/npmts.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Declaration"
+  ],
+  "author": "Lossless Digital UG (haftungsbeschraenkt)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pushrocks/npmts/issues"
+  },
+  "homepage": "https://github.com/pushrocks/npmts#readme"
+}
