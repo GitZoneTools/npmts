@@ -8,7 +8,6 @@ var plugins = {
 };
 var paths = {};
 paths.cwd = plugins.smartcli.get.cwd().path;
-console.log(paths.cwd);
 paths.indexTS = plugins.path.join(paths.cwd, "ts/index.ts");
 paths.testTS = plugins.path.join(paths.cwd, "ts/test.ts");
 plugins.gulp.task("indexTS", function () {
@@ -25,4 +24,8 @@ plugins.gulp.task("indexTS", function () {
     }))
         .pipe(plugins.gulp.dest(paths.cwd));
 });
+plugins.gulp.task("default", [], function () {
+    plugins.beautylog.success("TypeScript for this module was compiled successfully.");
+});
+plugins.gulp.start.apply(plugins.gulp, ['default']);
 //# sourceMappingURL=index.js.map
