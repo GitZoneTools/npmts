@@ -6,24 +6,22 @@ var plugins = {
     path: require("path"),
     smartcli: require("smartcli")
 };
-
-var paths:any = {};
+var paths = {};
 paths.cwd = plugins.smartcli.get.cwd().path;
-paths.indexTS = plugins.path.join(paths.cwd,"ts/index.ts");
-paths.testTS = plugins.path.join(paths.cwd,"ts/test.ts");
-
-plugins.gulp.task("indexTS", function(){
+paths.indexTS = plugins.path.join(paths.cwd, "ts/index.ts");
+paths.testTS = plugins.path.join(paths.cwd, "ts/test.ts");
+plugins.gulp.task("indexTS", function () {
     plugins.gulp.src(paths.indexTS)
         .pipe(plugins.gulpTypeScript({
-            out: "index.js"
-        }))
-        .pipe(plugins.gulp.dest(paths.cwd))
+        out: "index.js"
+    }))
+        .pipe(plugins.gulp.dest(paths.cwd));
 });
-
-plugins.gulp.task("indexTS", function(){
+plugins.gulp.task("indexTS", function () {
     plugins.gulp.src(paths.indexTS)
         .pipe(plugins.gulpTypeScript({
-            out: "test.js"
-        }))
-        .pipe(plugins.gulp.dest(paths.cwd))
+        out: "test.js"
+    }))
+        .pipe(plugins.gulp.dest(paths.cwd));
 });
+//# sourceMappingURL=index.js.map
