@@ -24,7 +24,7 @@ plugins.gulp.task("indexTS", function () {
     }))
         .pipe(plugins.gulp.dest(paths.cwd));
 });
-plugins.gulp.task("default", [], function () {
+plugins.gulp.task("default", ["indexTS"], function () {
     plugins.beautylog.success("TypeScript for this module was compiled successfully.");
 });
 plugins.gulp.start.apply(plugins.gulp, ['default']);

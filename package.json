@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "(cd compile && node compile.js)",
+    "release": "(git add -A && git commit -m 'update' && git push origin master && npm version patch && npm publish)",
     "testm": "(cd test/ && npm update && npm test)"
   },
   "repository": {
