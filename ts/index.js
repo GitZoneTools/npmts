@@ -10,8 +10,6 @@ var paths = {};
 paths.cwd = plugins.smartcli.get.cwd().path;
 paths.indexTS = plugins.path.join(paths.cwd, "ts/index.ts");
 paths.testTS = plugins.path.join(paths.cwd, "ts/test.ts");
-
-
 plugins.gulp.task("indexTS", function () {
     plugins.gulp.src(paths.indexTS)
         .pipe(plugins.gulpTypeScript({
