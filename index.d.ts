@@ -4,8 +4,10 @@ declare module NpmtsPlugins {
         beautylog: any;
         gulp: any;
         g: {
-            typescript: any;
             insert: any;
+            sequence: any;
+            tsd: any;
+            typescript: any;
         };
         mergeStream: any;
         path: any;
@@ -22,8 +24,10 @@ declare var plugins: {
     beautylog: any;
     gulp: any;
     g: {
-        typescript: any;
         insert: any;
+        sequence: any;
+        tsd: any;
+        typescript: any;
     };
     mergeStream: any;
     path: any;
