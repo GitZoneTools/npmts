@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "4.2.4"
+deploy:
+  provider: npm
+  email: npm@lossless.digital
+  api_key:
+    secure: k075QdAcmEdmAoVaP5vclLnZmhbZB39v85VIUMWAKXbIAU+liHrYZRlIEYfAaIUrf6sha+zAo/U/vjAN7c5ArB7J/HjCLJ3lsi2fWtaSRlYQrYX9/EhU0S+YZjRE8Jrn4hGTcce6I2mANBnEzvzlXrlKaqVvSqOqTO9nJ5aDBCGa5XT3EwlHKkRlAlL3ZOLrRg38R343E8ifZBsbn9G0e+RgDt0sic3WD8NME9lpsQ/99UZKH00duHbhF9nme5Sjdh86y01hvsaBf+CLR4gfS2IntnrCSrZbETFrsOBUyMnJZDQ3qlrjcEaiTkpJ4iSIqr+ftwGMMD6S1MxCTPqkp64UIeMz2Tg41HqoaeIg7z8cF0APv6M9ZAdWhsU43GqsMe70dK900JZpQAkQxMf/6NpPpGfZug6TwqLYSIRzvjvNrhYfuyoGfXdAxrM3SJMkIq6rwE+T/y36kZaC3CrQRyNZypNz0vW1M9HLjJUi2vO0U/CDn8tvi1p6ChrDXDfV3H2UIAMHFlAF+GrT7dMWwD+p+d8mc9gpAFEF9zMqAIJamPhwboJxoHjKQrqrq5czNm75ETL77AzfnU6CfQlG5dTIFnGId8y0ZxXvtpBruDoyC1+ZF23MYZmb+ipxQZM2oLCjNLeL3aEePc/JlSm6Gn8w3sIkZTG261F0XZxdApw=
+  on:
+    tags: true
+    repo: pushrocks/npmts
