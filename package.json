@@ -3,8 +3,9 @@
   "version": "1.0.4",
   "description": "write npm modules with TypeScript",
   "main": "index.js",
+  "typings": "./index.d.ts",
   "bin": {
-    "npmts": "index.js"
+    "npmts": "./index.js"
   },
   "scripts": {
     "test": "(cd compile && node compile.js)",

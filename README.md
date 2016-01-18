@@ -22,6 +22,17 @@ Then use it in package.json's script section to trigger a build:
 by default npmts looks for `./ts/index.ts` and `./ts/test.ts` that will compile to
 `./index.js` and `./test.js`
 
+npmts also creates a index.d.ts declaration file.
+You can reference it in your package.json like this:
+
+```json
+"main": "index.js",
+"typings": "./index.d.ts",
+```
+
+When requiring the module from other TypeScript files,
+the TypeScript Compiler will use the declaration file to resolve typings.
+
 #### Declaration files
 
 ### Custom behaviour
