@@ -3,15 +3,21 @@ var NpmtsDefault;
 (function (NpmtsDefault) {
     NpmtsDefault.init = function () {
         plugins.gulp.task("indexTS", function () {
-            plugins.gulp.src(paths.indexTS)
-                .pipe(plugins.gulpTypeScript({
-                out: "index.js"
-            }))
-                .pipe(plugins.gulp.dest(paths.cwd));
+            var tsResult = plugins.gulp.src(paths.indexTS)
+                .pipe(plugins.g.typescript({
+                out: "index.js",
+                declaration: true
+            }));
+            return plugins.mergeStream([
+                tsResult.dts.pipe(plugins.gulp.dest(paths.cwd)),
+                tsResult.js
+                    .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
+                    .pipe(plugins.gulp.dest(paths.cwd))
+            ]);
         });
         plugins.gulp.task("testTS", function () {
             plugins.gulp.src(paths.testTS)
-                .pipe(plugins.gulpTypeScript({
+                .pipe(plugins.g.typescript({
                 out: "test.js"
             }))
                 .pipe(plugins.gulp.dest(paths.cwd));

@@ -1,25 +1,35 @@
 // import gulp
-var gulp = require("gulp");
-var gulpTypescript = require("gulp-typescript");
-var gulpInsert = require("gulp-insert");
 var plugins = {
-	beautylog: require("beautylog")
+    beautylog: require("beautylog"),
+    gulp: require("gulp"),
+    g:{
+        typescript: require("gulp-typescript"),
+        insert: require("gulp-insert")
+    },
+    mergeStream: require("merge2")
+
 };
+
 
 plugins.beautylog.log('now compiling the mojo.io gulp tasks');
 
-gulp.task('indexTS', function() {
-	var stream = gulp.src('../ts/index.ts')
-	  	.pipe(gulpTypescript({
-			out: "index.js"
-		}))
-		.pipe(gulpInsert.prepend('#!/usr/bin/env node\n\n'))
-	  	.pipe(gulp.dest("../"));
-	return stream;
+plugins.gulp.task('indexTS', function() {
+    var tsResult = plugins.gulp.src('../ts/index.ts')
+        .pipe(plugins.g.typescript({
+            out:"index.js",
+            declaration:true
+        }));
+
+    return plugins.mergeStream([
+        tsResult.dts.pipe(plugins.gulp.dest('../')),
+        tsResult.js
+            .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
+            .pipe(plugins.gulp.dest('../'))
+    ]);
 });
 
-gulp.task('default',['indexTS'], function() {
+plugins.gulp.task('default',['indexTS'], function() {
 	plugins.beautylog.success('Typescript compiled');
 });
 
-gulp.start.apply(gulp, ['default']);
+plugins.gulp.start.apply(plugins.gulp, ['default']);
