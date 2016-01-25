@@ -5,7 +5,6 @@ module NpmtsPlugins {
             beautylog: require("beautylog"),
             gulp: require("gulp"),
             g: {
-                if: require("gulp-if"),
                 insert: require("gulp-insert"),
                 sequence: require("gulp-sequence"),
                 tsd: require("gulp-tsd"),
