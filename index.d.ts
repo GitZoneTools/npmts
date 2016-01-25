@@ -18,9 +18,6 @@ declare module NpmtsPlugins {
 declare module NpmtsPaths {
     var init: () => any;
 }
-declare module NpmtsInfo {
-    var init: () => void;
-}
 declare module NpmtsDefault {
     var init: () => void;
 }

@@ -3,14 +3,17 @@
 module NpmtsDefault {
     export var init = function() {
         plugins.gulp.task("defaultTsd",function(cb){
-            plugins.beautylog.log("now installing typings from" + " ts/tsd.json".blue);
-            plugins.g.if(process.env.TRAVIS,
+            if(!process.env.TRAVIS) {
                 plugins.g.tsd({
                     command: 'reinstall',
                     config: paths.tsd
-                }, cb)
-            )
-            ;
+                }, cb);
+                plugins.beautylog.log("now installing typings from" + " ts/tsd.json".blue);
+            } else {
+                plugins.beautylog.warn("We are on TRAVIS. Typings will not be installed due to GitHub API restrictions.");
+                plugins.beautylog.log("Make sure the repo tracks " + "typings".blue + " directories")
+            }
+
         });
 
 

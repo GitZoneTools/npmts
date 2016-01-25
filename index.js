@@ -34,30 +34,23 @@ var NpmtsPaths;
         return paths;
     };
 })(NpmtsPaths || (NpmtsPaths = {}));
-/// <reference path="./index.ts" />
-var NpmtsInfo;
-(function (NpmtsInfo) {
-    NpmtsInfo.init = function () {
-        if (process.env.TRAVIS) {
-            plugins.beautylog.warn("We are on TRAVIS. Typings will not be installed due to GitHub API restrictions.");
-            plugins.beautylog.log("Make sure the repo tracks ting directories");
-        }
-        else {
-            plugins.beautylog.log("We are on a dev machine. Typings will be installed prior to TypeScript compilation.");
-        }
-    };
-})(NpmtsInfo || (NpmtsInfo = {}));
 /// <reference path="./index.ts" /> 
 /// <reference path="./index.ts" />
 var NpmtsDefault;
 (function (NpmtsDefault) {
     NpmtsDefault.init = function () {
         plugins.gulp.task("defaultTsd", function (cb) {
-            plugins.beautylog.log("now installing typings from" + " ts/tsd.json".blue);
-            plugins.g.if(process.env.TRAVIS, plugins.g.tsd({
-                command: 'reinstall',
-                config: paths.tsd
-            }, cb));
+            if (!process.env.TRAVIS) {
+                plugins.g.tsd({
+                    command: 'reinstall',
+                    config: paths.tsd
+                }, cb);
+                plugins.beautylog.log("now installing typings from" + " ts/tsd.json".blue);
+            }
+            else {
+                plugins.beautylog.warn("We are on TRAVIS. Typings will not be installed due to GitHub API restrictions.");
+                plugins.beautylog.log("Make sure the repo tracks " + "typings".blue + " directories");
+            }
         });
         plugins.gulp.task("defaultIndexTS", function () {
             plugins.beautylog.log("now compiling" + " ts/index.ts".blue);
@@ -95,10 +88,9 @@ var NpmtsDefault;
 /// <reference path="./npmts.plugins.ts" />
 /// <reference path="./npmts.cli.ts" />
 /// <reference path="./npmts.paths.ts" />
-/// <reference path="./npmts.info.ts" />
+/// <reference path="./npmts.options.ts" />
 /// <reference path="./npmts.custom.ts" />
 /// <reference path="./npmts.default.ts" />
 var plugins = NpmtsPlugins.init();
 var paths = NpmtsPaths.init();
-NpmtsInfo.init();
 NpmtsDefault.init();
