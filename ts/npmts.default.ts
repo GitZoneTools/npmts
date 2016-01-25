@@ -4,10 +4,13 @@ module NpmtsDefault {
     export var init = function() {
         plugins.gulp.task("defaultTsd",function(cb){
             plugins.beautylog.log("now installing typings from" + " ts/tsd.json".blue);
-            plugins.g.tsd({
-                command: 'reinstall',
-                config: paths.tsd
-            }, cb);
+            plugins.g.if(process.env.TRAVIS,
+                plugins.g.tsd({
+                    command: 'reinstall',
+                    config: paths.tsd
+                }, cb)
+            )
+            ;
         });
 
 

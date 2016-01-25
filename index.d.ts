@@ -4,6 +4,7 @@ declare module NpmtsPlugins {
         beautylog: any;
         gulp: any;
         g: {
+            if: any;
             insert: any;
             sequence: any;
             tsd: any;
@@ -17,6 +18,9 @@ declare module NpmtsPlugins {
 declare module NpmtsPaths {
     var init: () => any;
 }
+declare module NpmtsInfo {
+    var init: () => void;
+}
 declare module NpmtsDefault {
     var init: () => void;
 }
@@ -24,6 +28,7 @@ declare var plugins: {
     beautylog: any;
     gulp: any;
     g: {
+        if: any;
         insert: any;
         sequence: any;
         tsd: any;
