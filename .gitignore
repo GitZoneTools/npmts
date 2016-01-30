@@ -1,6 +1,7 @@
 .idea/
 .c9/
 node_modules/
-test/node_modules
+test/**/node_modules/
+test/**/typings/
 ts/*.js
 ts/*.js.map

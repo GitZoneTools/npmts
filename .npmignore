@@ -1,6 +1,6 @@
 .idea/
 support
 compile
-test
+test/
 examples
 .gitignore

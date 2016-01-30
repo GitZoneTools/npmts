@@ -5,6 +5,8 @@
 /// <reference path="./npmts.options.ts" />
 /// <reference path="./npmts.custom.ts" />
 /// <reference path="./npmts.default.ts" />
+/// <reference path="./npmts.tests.ts" />
+/// <reference path="./npmts.promisechain.ts" />
 
 var plugins = NpmtsPlugins.init();
 var paths = NpmtsPaths.init();

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "(cd compile && node compile.js)",
-    "testm": "(npm test) && (cd test/ && node ../index.js)",
+    "testm": "(npm test) && (cd test/assets && node ../../index.js)",
     "release": "(git add -A && git commit -m 'update' && git push origin master && npm version patch && npm publish)"
   },
   "repository": {
@@ -34,6 +34,8 @@
     "gulp-tsd": "^0.1.0",
     "gulp-typescript": "2.10.0",
     "merge2": "0.3.6",
+    "mocha": "^2.4.5",
+    "q": "^1.4.1",
     "smartcli": "0.0.11"
   }
 }

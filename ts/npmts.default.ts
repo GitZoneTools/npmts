@@ -39,7 +39,7 @@ module NpmtsDefault {
                 .pipe(plugins.g.typescript({
                     out: "test.js"
                 }))
-                .pipe(plugins.gulp.dest(paths.cwd))
+                .pipe(plugins.gulp.dest(paths.testDir))
         });
 
         plugins.gulp.task("defaultCleanup",function(cb){

@@ -6,6 +6,7 @@ module NpmtsPaths {
         paths.tsd = plugins.path.join(paths.cwd,"ts/tsd.json");
         paths.indexTS = plugins.path.join(paths.cwd,"ts/index.ts");
         paths.testTS = plugins.path.join(paths.cwd,"ts/test.ts");
+        paths.testDir = plugins.path.join(paths.cwd,"test/");
         return paths;
     }
 }
