@@ -1,7 +1,8 @@
 /// <reference path="./index.ts" />
 
 module NpmtsDefault {
-    export var init = function() {
+    export var run = function() {
+        var done = plugins.q.defer();
         plugins.gulp.task("defaultTsd",function(cb){
             if(!process.env.TRAVIS) {
                 plugins.g.tsd({
@@ -44,6 +45,7 @@ module NpmtsDefault {
 
         plugins.gulp.task("defaultCleanup",function(cb){
             plugins.beautylog.success("TypeScript for this module compiled successfully.");
+            done.resolve();
             cb();
         });
 
@@ -52,5 +54,6 @@ module NpmtsDefault {
         });
 
         plugins.gulp.start.apply(plugins.gulp, ['default']);
+        return done.promise;
     }
 }

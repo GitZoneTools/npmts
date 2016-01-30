@@ -10,4 +10,4 @@
 
 var plugins = NpmtsPlugins.init();
 var paths = NpmtsPaths.init();
-NpmtsDefault.init();
+var promisechain = NpmtsPromisechain.init();
