@@ -11,7 +11,7 @@ var plugins = {
 };
 
 
-plugins.beautylog.log('now compiling the mojo.io gulp tasks');
+plugins.beautylog.log('now compiling NPMTS');
 
 plugins.gulp.task('indexTS', function() {
     var tsResult = plugins.gulp.src('../ts/index.ts')

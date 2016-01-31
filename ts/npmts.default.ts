@@ -3,19 +3,6 @@
 module NpmtsDefault {
     export var run = function() {
         var done = plugins.q.defer();
-        plugins.gulp.task("defaultTsd",function(cb){
-            if(!process.env.TRAVIS) {
-                plugins.g.tsd({
-                    command: 'reinstall',
-                    config: paths.tsd
-                }, cb);
-                plugins.beautylog.log("now installing typings from" + " ts/tsd.json".blue);
-            } else {
-                plugins.beautylog.warn("We are on TRAVIS. Typings will not be installed due to GitHub API restrictions.");
-                plugins.beautylog.log("Make sure the repo tracks " + "typings".blue + " directories")
-            }
-
-        });
 
 
         plugins.gulp.task("defaultIndexTS", function(){
@@ -50,7 +37,7 @@ module NpmtsDefault {
         });
 
         plugins.gulp.task("default",function(cb){
-            plugins.g.sequence("defaultTsd","defaultIndexTS","defaultTestTS","defaultCleanup",cb);
+            plugins.g.sequence("defaultIndexTS","defaultTestTS","defaultCleanup",cb);
         });
 
         plugins.gulp.start.apply(plugins.gulp, ['default']);

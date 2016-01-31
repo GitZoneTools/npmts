@@ -2,20 +2,18 @@
 module NpmtsTests {
     export var run = function() {
         var done = plugins.q.defer();
+        plugins.fs.ensureDirSync(paths.testDir); //make sure that mocha has a directory to look for tests
         plugins.beautylog.info("Now running mocha tests");
-        // Instantiate a Mocha instance.
-        var mocha = new plugins.mocha();
-
-        var testDir = paths.testDir;
+        var mocha = new plugins.mocha(); // Instantiate a Mocha instance.
 
         // Add each .js file to the mocha instance
-        plugins.fs.readdirSync(testDir).filter(function(file){
+        plugins.fs.readdirSync(paths.testDir).filter(function(file){
             // Only keep the .js files
             return file.substr(-3) === '.js';
 
         }).forEach(function(file){
             mocha.addFile(
-                plugins.path.join(testDir, file)
+                plugins.path.join(paths.testDir, file)
             );
         });
 

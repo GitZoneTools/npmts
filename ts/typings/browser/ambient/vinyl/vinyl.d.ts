@@ -1,9 +1,10 @@
+// Compiled using typings@0.6.3
+// Source: https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/78d36dd49b6b55b9fdfe61776a12bf05c8b07777/vinyl/vinyl.d.ts
 // Type definitions for vinyl 0.4.3
 // Project: https://github.com/wearefractal/vinyl
 // Definitions by: vvakame <https://github.com/vvakame/>, jedmao <https://github.com/jedmao>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="../node/node.d.ts" />
 
 declare module 'vinyl' {
 

@@ -1,4 +1,4 @@
-/// <reference path="../ts/typings/tsd.d.ts" />
+/// <reference path="../ts/typings/main.d.ts" />
 declare module NpmtsPlugins {
     var init: () => {
         beautylog: any;
@@ -7,7 +7,6 @@ declare module NpmtsPlugins {
         g: {
             insert: any;
             sequence: any;
-            tsd: any;
             typescript: any;
         };
         mergeStream: any;
@@ -15,12 +14,16 @@ declare module NpmtsPlugins {
         path: any;
         q: any;
         smartcli: any;
+        typings: any;
     };
 }
 declare module NpmtsPaths {
     var init: () => any;
 }
 declare module NpmtsOptions {
+    var run: () => any;
+}
+declare module NpmtsTypings {
     var run: () => any;
 }
 declare module NpmtsDefault {
@@ -39,7 +42,6 @@ declare var plugins: {
     g: {
         insert: any;
         sequence: any;
-        tsd: any;
         typescript: any;
     };
     mergeStream: any;
@@ -47,6 +49,7 @@ declare var plugins: {
     path: any;
     q: any;
     smartcli: any;
+    typings: any;
 };
 declare var paths: any;
 declare var promisechain: any;

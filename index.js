@@ -6,19 +6,19 @@ var NpmtsPlugins;
     NpmtsPlugins.init = function () {
         var plugins = {
             beautylog: require("beautylog"),
-            fs: require("fs"),
+            fs: require("fs-extra"),
             gulp: require("gulp"),
             g: {
                 insert: require("gulp-insert"),
                 sequence: require("gulp-sequence"),
-                tsd: require("gulp-tsd"),
                 typescript: require("gulp-typescript")
             },
             mergeStream: require("merge2"),
             mocha: require("mocha"),
             path: require("path"),
             q: require("q"),
-            smartcli: require("smartcli")
+            smartcli: require("smartcli"),
+            typings: require("typings")
         };
         return plugins;
     };
@@ -30,7 +30,7 @@ var NpmtsPaths;
     NpmtsPaths.init = function () {
         var paths = {};
         paths.cwd = plugins.smartcli.get.cwd().path;
-        paths.tsd = plugins.path.join(paths.cwd, "ts/tsd.json");
+        paths.tsDir = plugins.path.join(paths.cwd, "ts/");
         paths.indexTS = plugins.path.join(paths.cwd, "ts/index.ts");
         paths.testTS = plugins.path.join(paths.cwd, "ts/test.ts");
         paths.testDir = plugins.path.join(paths.cwd, "test/");
@@ -46,25 +46,25 @@ var NpmtsOptions;
         return done.promise;
     };
 })(NpmtsOptions || (NpmtsOptions = {}));
+/// <reference path="./index.ts" />
+var NpmtsTypings;
+(function (NpmtsTypings) {
+    NpmtsTypings.run = function () {
+        var done = plugins.q.defer();
+        plugins.beautylog.log("now installing typings");
+        plugins.typings.install({ production: false, cwd: paths.tsDir })
+            .then(function () {
+            done.resolve();
+        });
+        return done.promise;
+    };
+})(NpmtsTypings || (NpmtsTypings = {}));
 /// <reference path="./index.ts" /> 
 /// <reference path="./index.ts" />
 var NpmtsDefault;
 (function (NpmtsDefault) {
     NpmtsDefault.run = function () {
         var done = plugins.q.defer();
-        plugins.gulp.task("defaultTsd", function (cb) {
-            if (!process.env.TRAVIS) {
-                plugins.g.tsd({
-                    command: 'reinstall',
-                    config: paths.tsd
-                }, cb);
-                plugins.beautylog.log("now installing typings from" + " ts/tsd.json".blue);
-            }
-            else {
-                plugins.beautylog.warn("We are on TRAVIS. Typings will not be installed due to GitHub API restrictions.");
-                plugins.beautylog.log("Make sure the repo tracks " + "typings".blue + " directories");
-            }
-        });
         plugins.gulp.task("defaultIndexTS", function () {
             plugins.beautylog.log("now compiling" + " ts/index.ts".blue);
             var tsResult = plugins.gulp.src(paths.indexTS)
@@ -93,7 +93,7 @@ var NpmtsDefault;
             cb();
         });
         plugins.gulp.task("default", function (cb) {
-            plugins.g.sequence("defaultTsd", "defaultIndexTS", "defaultTestTS", "defaultCleanup", cb);
+            plugins.g.sequence("defaultIndexTS", "defaultTestTS", "defaultCleanup", cb);
         });
         plugins.gulp.start.apply(plugins.gulp, ['default']);
         return done.promise;
@@ -104,16 +104,15 @@ var NpmtsTests;
 (function (NpmtsTests) {
     NpmtsTests.run = function () {
         var done = plugins.q.defer();
+        plugins.fs.ensureDirSync(paths.testDir); //make sure that mocha has a directory to look for tests
         plugins.beautylog.info("Now running mocha tests");
-        // Instantiate a Mocha instance.
-        var mocha = new plugins.mocha();
-        var testDir = paths.testDir;
+        var mocha = new plugins.mocha(); // Instantiate a Mocha instance.
         // Add each .js file to the mocha instance
-        plugins.fs.readdirSync(testDir).filter(function (file) {
+        plugins.fs.readdirSync(paths.testDir).filter(function (file) {
             // Only keep the .js files
             return file.substr(-3) === '.js';
         }).forEach(function (file) {
-            mocha.addFile(plugins.path.join(testDir, file));
+            mocha.addFile(plugins.path.join(paths.testDir, file));
         });
         // Run the tests.
         mocha.run(function (failures) {
@@ -130,20 +129,23 @@ var NpmtsPromisechain;
     NpmtsPromisechain.init = function () {
         var promisechain;
         NpmtsOptions.run()
+            .then(NpmtsTypings.run)
             .then(NpmtsDefault.run)
             .then(NpmtsTests.run);
         return promisechain;
     };
 })(NpmtsPromisechain || (NpmtsPromisechain = {}));
-/// <reference path="./typings/tsd.d.ts" />
+/// <reference path="./typings/main.d.ts" />
 /// <reference path="./npmts.plugins.ts" />
 /// <reference path="./npmts.cli.ts" />
 /// <reference path="./npmts.paths.ts" />
 /// <reference path="./npmts.options.ts" />
+/// <reference path="./npmts.typings.ts" />
 /// <reference path="./npmts.custom.ts" />
 /// <reference path="./npmts.default.ts" />
 /// <reference path="./npmts.tests.ts" />
 /// <reference path="./npmts.promisechain.ts" />
+console.log("** starting NPMTS **");
 var plugins = NpmtsPlugins.init();
 var paths = NpmtsPaths.init();
 var promisechain = NpmtsPromisechain.init();
