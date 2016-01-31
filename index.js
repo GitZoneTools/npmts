@@ -107,13 +107,7 @@ var NpmtsTests;
         plugins.fs.ensureDirSync(paths.testDir); //make sure that mocha has a directory to look for tests
         plugins.beautylog.info("Now running mocha tests");
         var mocha = new plugins.mocha(); // Instantiate a Mocha instance.
-        // Add each .js file to the mocha instance
-        plugins.fs.readdirSync(paths.testDir).filter(function (file) {
-            // Only keep the .js files
-            return file.substr(-3) === '.js';
-        }).forEach(function (file) {
-            mocha.addFile(plugins.path.join(paths.testDir, file));
-        });
+        mocha.addFile(plugins.path.join(paths.testDir, "test.js"));
         // Run the tests.
         mocha.run(function (failures) {
             process.on('exit', function () {
@@ -145,7 +139,7 @@ var NpmtsPromisechain;
 /// <reference path="./npmts.default.ts" />
 /// <reference path="./npmts.tests.ts" />
 /// <reference path="./npmts.promisechain.ts" />
-console.log("** starting NPMTS **");
+console.log("**** starting NPMTS ****");
 var plugins = NpmtsPlugins.init();
 var paths = NpmtsPaths.init();
 var promisechain = NpmtsPromisechain.init();

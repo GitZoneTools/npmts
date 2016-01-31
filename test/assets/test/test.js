@@ -1,1 +1,1 @@
-
+console.log("**** starting test ****");
