@@ -81,11 +81,12 @@ var NpmtsDefault;
         });
         plugins.gulp.task("defaultTestTS", function () {
             plugins.beautylog.log("now compiling" + " ts/test.ts".blue);
-            plugins.gulp.src(paths.testTS)
+            var stream = plugins.gulp.src(paths.testTS)
                 .pipe(plugins.g.typescript({
                 out: "test.js"
             }))
                 .pipe(plugins.gulp.dest(paths.testDir));
+            return stream;
         });
         plugins.gulp.task("defaultCleanup", function (cb) {
             plugins.beautylog.success("TypeScript for this module compiled successfully.");
@@ -108,7 +109,6 @@ var NpmtsTests;
         plugins.beautylog.info("Now running mocha tests");
         var mocha = new plugins.mocha(); // Instantiate a Mocha instance.
         mocha.addFile(plugins.path.join(paths.testDir, "test.js"));
-        // Run the tests.
         mocha.run(function (failures) {
             process.on('exit', function () {
                 process.exit(failures);

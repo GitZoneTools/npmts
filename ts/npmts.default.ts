@@ -23,11 +23,12 @@ module NpmtsDefault {
 
         plugins.gulp.task("defaultTestTS", function(){
             plugins.beautylog.log("now compiling" + " ts/test.ts".blue);
-            plugins.gulp.src(paths.testTS)
+            var stream = plugins.gulp.src(paths.testTS)
                 .pipe(plugins.g.typescript({
                     out: "test.js"
                 }))
-                .pipe(plugins.gulp.dest(paths.testDir))
+                .pipe(plugins.gulp.dest(paths.testDir));
+            return stream;
         });
 
         plugins.gulp.task("defaultCleanup",function(cb){
