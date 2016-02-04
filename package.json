@@ -8,8 +8,7 @@
     "npmts": "./index.js"
   },
   "scripts": {
-    "test": "(cd compile && node compile.js)",
-    "testm": "(npm test) && (cd test/assets && node ../../index.js)",
+    "test": "(cd compile && node compile.js) && (cd test/assets && node ../../index.js)",
     "release": "(git add -A && git commit -m 'update' && git push origin master && npm version patch && npm publish)"
   },
   "repository": {
