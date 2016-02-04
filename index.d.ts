@@ -14,6 +14,7 @@ declare module NpmtsPlugins {
         path: any;
         q: any;
         smartcli: any;
+        smartfile: any;
         typings: any;
     };
 }
@@ -21,9 +22,10 @@ declare module NpmtsPaths {
     var init: () => any;
 }
 declare module NpmtsOptions {
+    var config: any;
     var run: () => any;
 }
-declare module NpmtsTypings {
+declare module NpmtsCustom {
     var run: () => any;
 }
 declare module NpmtsDefault {
@@ -49,6 +51,7 @@ declare var plugins: {
     path: any;
     q: any;
     smartcli: any;
+    smartfile: any;
     typings: any;
 };
 declare var paths: any;

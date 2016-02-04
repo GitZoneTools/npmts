@@ -37,8 +37,23 @@ the TypeScript Compiler will use the declaration file to resolve typings.
 
 
 ### Custom behaviour
-We are currently building support for custom behaviour with a super simple config file.
-Check back soon.
+NPMTS looks for an npmts.json at the root of your package.
+
+```json
+{
+  "mode":"custom",
+  "ts":{
+    "./customdir/custom.ts":"./customcompiled.js"
+  },
+  "typings":[
+    "./customdir"
+  ]
+}
+```
+
+* **mode** can be "default" or "custom"
+* **ts** You can list as many TypeScript files as you like. The key represents the source TypeScript file, the value the output file.
+* **typings** is an array of all direcories that have a typings.json present. Uses the new typings tool from npm.
 
 ## Readme for Devs
 There is a [README-dev.md](README-dev.md) in the repo.

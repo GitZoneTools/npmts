@@ -3,13 +3,18 @@
 module NpmtsDefault {
     export var run = function() {
         var done = plugins.q.defer();
-
-
+        plugins.gulp.task("defaultTypings",function(cb){
+            plugins.beautylog.log("now installing default typings");
+            plugins.typings.install({production: false, cwd: paths.tsDir})
+                .then(function(){
+                    cb();
+                });
+        });
         plugins.gulp.task("defaultIndexTS", function(){
             plugins.beautylog.log("now compiling" + " ts/index.ts".blue);
             var tsResult = plugins.gulp.src(paths.indexTS)
                 .pipe(plugins.g.typescript({
-                    out:"index.js",
+                    out:"./index.js",
                     declaration:true
                 }));
 
@@ -32,13 +37,19 @@ module NpmtsDefault {
         });
 
         plugins.gulp.task("defaultCleanup",function(cb){
-            plugins.beautylog.success("TypeScript for this module compiled successfully.");
+            plugins.beautylog.success("default TypeScript for this module compiled successfully.");
             done.resolve();
             cb();
         });
 
         plugins.gulp.task("default",function(cb){
-            plugins.g.sequence("defaultIndexTS","defaultTestTS","defaultCleanup",cb);
+            if(NpmtsOptions.config.mode == "default"){
+                plugins.g.sequence("defaultTypings","defaultIndexTS","defaultTestTS","defaultCleanup",cb);
+            } else {
+                cb();
+                done.resolve();
+            }
+
         });
 
         plugins.gulp.start.apply(plugins.gulp, ['default']);

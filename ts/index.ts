@@ -3,7 +3,6 @@
 /// <reference path="./npmts.cli.ts" />
 /// <reference path="./npmts.paths.ts" />
 /// <reference path="./npmts.options.ts" />
-/// <reference path="./npmts.typings.ts" />
 /// <reference path="./npmts.custom.ts" />
 /// <reference path="./npmts.default.ts" />
 /// <reference path="./npmts.tests.ts" />

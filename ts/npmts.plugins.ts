@@ -16,6 +16,7 @@ module NpmtsPlugins {
             path: require("path"),
             q:require("q"),
             smartcli: require("smartcli"),
+            smartfile: require("smartfile"),
             typings: require("typings")
         };
         return plugins;
