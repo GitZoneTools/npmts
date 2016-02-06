@@ -11,6 +11,7 @@ module NpmtsPlugins {
                 typescript: require("gulp-typescript")
 
             },
+            mathjs: require("mathjs"),
             mergeStream: require("merge2"),
             mocha: require("mocha"),
             path: require("path"),

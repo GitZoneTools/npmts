@@ -9,6 +9,7 @@ declare module NpmtsPlugins {
             sequence: any;
             typescript: any;
         };
+        mathjs: any;
         mergeStream: any;
         mocha: any;
         path: any;
@@ -46,6 +47,7 @@ declare var plugins: {
         sequence: any;
         typescript: any;
     };
+    mathjs: any;
     mergeStream: any;
     mocha: any;
     path: any;

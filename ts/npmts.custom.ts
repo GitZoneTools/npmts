@@ -10,19 +10,27 @@ module NpmtsCustom {
              * ----------- first install typings ---------------
              * ----------------------------------------------- */
             var typingsDone = plugins.q.defer();
-            var checkTypingsDone = function(indexArg:number,compareArray){
-                if((indexArg + 1) == compareArray.length){
+            var typingsCounter:number = 0;
+            var typingsCounterAdvance = function(){
+                typingsCounter++;
+                if(typeof config.typings[typingsCounter] != "undefined"){
+                    installTypings();
+                } else {
                     plugins.beautylog.success("custom typings installed successfully");
                     typingsDone.resolve();
                 }
             };
-            for (var key in config.typings) {
-                plugins.beautylog.log("now installing " + "typings.json".yellow + " from " + config.typings[key].blue);
-                plugins.typings.install({production: false, cwd: plugins.path.join(paths.cwd,config.typings[key])})
+            var installTypings = function() {
+                plugins.beautylog.log("now installing " + "typings.json".yellow + " from " + config.typings[typingsCounter].blue);
+                plugins.typings.install({production: false, cwd: plugins.path.join(paths.cwd,config.typings[typingsCounter])})
                     .then(function(){
-                        checkTypingsDone(key,config.typings);
+                        typingsCounterAdvance();
+                    },function(){
+                        plugins.beautylog.error("something went wrong: Check if path is correct: " + config.typings[typingsCounter].blue);
+                        typingsCounterAdvance();
                     });
-            }
+            };
+            installTypings();
             /* -------------------------------------------------
              * ----------- second compile TS -------------------
              * ----------------------------------------------- */

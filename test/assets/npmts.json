@@ -4,6 +4,9 @@
     "./customdir/*.ts":"./"
   },
   "typings":[
+    "./ts",
+    "./subts1/",
+    "./subts2/",
     "./customdir"
   ]
 }
