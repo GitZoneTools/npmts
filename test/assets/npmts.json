@@ -1,7 +1,7 @@
 {
   "mode":"custom",
   "ts":{
-    "./customdir/custom.ts":"./customcompiled.js"
+    "./customdir/*.ts":"./"
   },
   "typings":[
     "./customdir"

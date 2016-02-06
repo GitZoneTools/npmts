@@ -103,16 +103,45 @@ var NpmtsCustom;
             typingsDone.promise.then(function () {
                 for (var key in config.ts) {
                     plugins.beautylog.log("now compiling" + key.blue);
+                    var outputPathIsDir;
+                    try {
+                        if (plugins.fs.statSync(plugins.path.join(paths.cwd, config.ts[key])).isDirectory()) {
+                            outputPathIsDir = true;
+                        }
+                    }
+                    catch (err) {
+                        outputPathIsDir = false;
+                    }
+                    //do some evaluation of the environment
+                    var outputNameSpecified = (!outputPathIsDir
+                        && (plugins.path.extname(config.ts[key]) == ".js"));
+                    console.log("outputNameSpecified");
+                    var outputName = (function () {
+                        if (outputNameSpecified) {
+                            return plugins.path.basename(config.ts[key]);
+                        }
+                        else {
+                            return undefined;
+                        }
+                    })();
+                    var outputDir = (function () {
+                        if (outputNameSpecified) {
+                            return plugins.path.dirname(plugins.path.join(paths.cwd, config.ts[key]));
+                        }
+                        else {
+                            return plugins.path.join(paths.cwd, config.ts[key]);
+                        }
+                    })();
                     var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd, key))
                         .pipe(plugins.g.typescript({
-                        out: plugins.path.basename(config.ts[key]),
+                        out: outputName,
                         declaration: true
                     }));
                     var stream = plugins.mergeStream([
-                        tsStream.dts.pipe(plugins.gulp.dest(paths.cwd)),
+                        tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
                         tsStream.js
                             .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
-                            .pipe(plugins.gulp.dest(plugins.path.dirname(plugins.path.join(paths.cwd, config.ts[key]))))
+                            .pipe(plugins.gulp.dest(outputDir))
                     ]);
                     moduleStream.add(stream);
                 }
