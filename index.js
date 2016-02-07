@@ -125,7 +125,6 @@ var NpmtsCustom;
                     //do some evaluation of the environment
                     var outputNameSpecified = (!outputPathIsDir
                         && (plugins.path.extname(config.ts[key]) == ".js"));
-                    console.log("outputNameSpecified");
                     var outputName = (function () {
                         if (outputNameSpecified) {
                             return plugins.path.basename(config.ts[key]);
