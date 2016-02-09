@@ -205,7 +205,7 @@ var NpmtsTests;
             return plugins.gulp.src(['test/test.js'])
                 .pipe(plugins.g.mocha())
                 .pipe(plugins.g.istanbul.writeReports())
-                .pipe(plugins.g.istanbul.enforceThresholds({ thresholds: { global: 90 } }));
+                .pipe(plugins.g.istanbul.enforceThresholds({ thresholds: { global: 30 } }));
         });
         plugins.gulp.task("coveralls", function () {
             return plugins.gulp.src('coverage/**/lcov.info')
