@@ -181,7 +181,7 @@ var NpmtsCompile;
             moduleStream.on("queueDrain", function () {
                 plugins.beautylog.success("custom TypeScript installed successfully");
                 moduleStream.on("finish", function () {
-                    done.resolve();
+                    done.resolve(config);
                 });
                 moduleStream.end();
             });
