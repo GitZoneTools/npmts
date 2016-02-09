@@ -23,19 +23,20 @@ module NpmtsTests {
         };
 
         var coveralls = function(){
-            var stream = plugins.gulp.src("./coverage/**/lcov.info")
-                .pipe(plugins.g.if(
-                    (process.env.TRAVIS && config.coveralls),
-                    plugins.g.coveralls()
-                ));
+            var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"./coverage/lcov.info")])
+                .pipe(plugins.g.coveralls());
             return stream;
         };
 
         istanbul().on("finish",function(){
             mocha().on("finish",function(){
-                coveralls().on("finish",function(){
+                if(process.env.TRAVIS && config.coveralls){
+                    coveralls().on("finish",function(){
+                        done.resolve(config);
+                    })
+                } else {
                     done.resolve(config);
-                })
+                }
             })
         });
         return done.promise;

@@ -7,7 +7,6 @@ module NpmtsPlugins {
             gulp: require("gulp"),
             g: {
                 coveralls: require("gulp-coveralls"),
-                if: require("gulp-if"),
                 insert: require("gulp-insert"),
                 istanbul: require("gulp-istanbul"),
                 mocha: require("gulp-mocha"),

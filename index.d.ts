@@ -6,7 +6,6 @@ declare module NpmtsPlugins {
         gulp: any;
         g: {
             coveralls: any;
-            if: any;
             insert: any;
             istanbul: any;
             mocha: any;
@@ -44,7 +43,6 @@ declare var plugins: {
     gulp: any;
     g: {
         coveralls: any;
-        if: any;
         insert: any;
         istanbul: any;
         mocha: any;
