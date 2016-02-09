@@ -1,8 +1,8 @@
 /// <reference path="./index.ts" />
 module NpmtsTests {
-    export var run = function() {
+    export var run = function(configArg) {
         var done = plugins.q.defer();
-
+        var config = configArg;
         plugins.gulp.task('istanbul', function () {
             return plugins.gulp.src([plugins.path.join(paths.cwd,"index.js")])
                 // Covering files
@@ -23,7 +23,7 @@ module NpmtsTests {
         plugins.gulp.task("coveralls",function(){
             return plugins.gulp.src('coverage/**/lcov.info')
                 .pipe(plugins.g.if(
-                    process.env.TRAVIS,
+                    (process.env.TRAVIS && config.coveralls),
                     plugins.g.coveralls()
                 ));
         });

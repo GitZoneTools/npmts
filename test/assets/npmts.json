@@ -8,5 +8,6 @@
     "./subts1/",
     "./subts2/",
     "./customdir"
-  ]
+  ],
+  "coveralls":"false"
 }

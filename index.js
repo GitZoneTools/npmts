@@ -77,6 +77,9 @@ var NpmtsOptions;
     NpmtsOptions.run = function (configArg) {
         var done = plugins.q.defer();
         var config = configArg;
+        if (typeof config.coveralls === "undefined") {
+            config.coveralls = true;
+        }
         if (config.mode == "default") {
             config.typings = [
                 "./ts/"
@@ -190,8 +193,9 @@ var NpmtsCompile;
 /// <reference path="./index.ts" />
 var NpmtsTests;
 (function (NpmtsTests) {
-    NpmtsTests.run = function () {
+    NpmtsTests.run = function (configArg) {
         var done = plugins.q.defer();
+        var config = configArg;
         plugins.gulp.task('istanbul', function () {
             return plugins.gulp.src([plugins.path.join(paths.cwd, "index.js")])
                 .pipe(plugins.g.istanbul())
@@ -205,7 +209,7 @@ var NpmtsTests;
         });
         plugins.gulp.task("coveralls", function () {
             return plugins.gulp.src('coverage/**/lcov.info')
-                .pipe(plugins.g.if(process.env.TRAVIS, plugins.g.coveralls()));
+                .pipe(plugins.g.if((process.env.TRAVIS && config.coveralls), plugins.g.coveralls()));
         });
         plugins.gulp.task("test", function () {
             plugins.g.sequence("istanbul", "mocha", "coveralls", function () {

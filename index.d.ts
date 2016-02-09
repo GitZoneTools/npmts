@@ -34,7 +34,7 @@ declare module NpmtsCompile {
     var run: (configArg: any) => any;
 }
 declare module NpmtsTests {
-    var run: () => any;
+    var run: (configArg: any) => any;
 }
 declare module NpmtsPromisechain {
     var init: () => any;

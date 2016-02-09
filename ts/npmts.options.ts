@@ -3,6 +3,9 @@ module NpmtsOptions {
     export var run = function(configArg){
         var done = plugins.q.defer();
         var config = configArg;
+        if (typeof config.coveralls === "undefined"){
+            config.coveralls = true;
+        }
         if (config.mode == "default"){
             config.typings = [
                 "./ts/"
