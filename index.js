@@ -9,13 +9,15 @@ var NpmtsPlugins;
             fs: require("fs-extra"),
             gulp: require("gulp"),
             g: {
+                coveralls: require("gulp-coveralls"),
+                if: require("gulp-if"),
                 insert: require("gulp-insert"),
+                istanbul: require("gulp-istanbul"),
+                mocha: require("gulp-mocha"),
                 sequence: require("gulp-sequence"),
                 typescript: require("gulp-typescript")
             },
-            mathjs: require("mathjs"),
             mergeStream: require("merge2"),
-            mocha: require("mocha"),
             path: require("path"),
             q: require("q"),
             smartcli: require("smartcli"),
@@ -40,199 +42,177 @@ var NpmtsPaths;
     };
 })(NpmtsPaths || (NpmtsPaths = {}));
 /// <reference path="./index.ts" />
-var NpmtsOptions;
-(function (NpmtsOptions) {
-    NpmtsOptions.config = {};
-    NpmtsOptions.run = function () {
+var NpmtsConfigFile;
+(function (NpmtsConfigFile) {
+    NpmtsConfigFile.run = function () {
         var done = plugins.q.defer();
+        var config = {};
         var configPath = plugins.path.join(paths.cwd, "npmts.json");
         if (plugins.smartfile.checks.fileExistsSync(configPath)) {
             plugins.beautylog.info("npmts.json".blue + " config file found!");
-            NpmtsOptions.config = plugins.smartfile.readFileToObject(configPath);
-            switch (NpmtsOptions.config.mode) {
+            config = plugins.smartfile.readFileToObject(configPath);
+            switch (config.mode) {
                 case "default":
-                    plugins.beautylog.log("mode is " + NpmtsOptions.config.mode.yellow);
-                    done.resolve();
-                    break;
                 case "custom":
-                    plugins.beautylog.log("mode is " + NpmtsOptions.config.mode.yellow);
-                    done.resolve();
+                    plugins.beautylog.log("mode is " + config.mode.yellow);
+                    done.resolve(config);
                     break;
                 default:
-                    plugins.beautylog.error("mode " + NpmtsOptions.config.mode.yellow + " not recognised!".red);
+                    plugins.beautylog.error("mode " + config.mode.yellow + " not recognised!".red);
             }
             ;
         }
         else {
             plugins.beautylog.log("no config file found: so mode is " + "default".yellow);
-            NpmtsOptions.config.mode = "default";
-            done.resolve();
+            config.mode = "default";
+            done.resolve(config);
         }
         ;
         return done.promise;
     };
-})(NpmtsOptions || (NpmtsOptions = {}));
+})(NpmtsConfigFile || (NpmtsConfigFile = {}));
 /// <reference path="./index.ts" />
-var NpmtsCustom;
-(function (NpmtsCustom) {
-    NpmtsCustom.run = function () {
+var NpmtsOptions;
+(function (NpmtsOptions) {
+    NpmtsOptions.run = function (configArg) {
         var done = plugins.q.defer();
-        var config = NpmtsOptions.config;
-        if (config.mode === "custom") {
-            plugins.beautylog.log("now running custom tasks");
-            var moduleStream = plugins.mergeStream({ end: false });
-            /* -------------------------------------------------
-             * ----------- first install typings ---------------
-             * ----------------------------------------------- */
-            var typingsDone = plugins.q.defer();
-            var typingsCounter = 0;
-            var typingsCounterAdvance = function () {
-                typingsCounter++;
-                if (typeof config.typings[typingsCounter] != "undefined") {
-                    installTypings();
-                }
-                else {
-                    plugins.beautylog.success("custom typings installed successfully");
-                    typingsDone.resolve();
-                }
-            };
-            var installTypings = function () {
-                plugins.beautylog.log("now installing " + "typings.json".yellow + " from " + config.typings[typingsCounter].blue);
-                plugins.typings.install({ production: false, cwd: plugins.path.join(paths.cwd, config.typings[typingsCounter]) })
-                    .then(function () {
-                    typingsCounterAdvance();
-                }, function () {
-                    plugins.beautylog.error("something went wrong: Check if path is correct: " + config.typings[typingsCounter].blue);
-                    typingsCounterAdvance();
-                });
-            };
-            installTypings();
-            /* -------------------------------------------------
-             * ----------- second compile TS -------------------
-             * ----------------------------------------------- */
-            typingsDone.promise.then(function () {
-                for (var key in config.ts) {
-                    plugins.beautylog.log("now compiling" + key.blue);
-                    var outputPathIsDir;
-                    try {
-                        if (plugins.fs.statSync(plugins.path.join(paths.cwd, config.ts[key])).isDirectory()) {
-                            outputPathIsDir = true;
-                        }
-                    }
-                    catch (err) {
-                        outputPathIsDir = false;
-                    }
-                    //do some evaluation of the environment
-                    var outputNameSpecified = (!outputPathIsDir
-                        && (plugins.path.extname(config.ts[key]) == ".js"));
-                    var outputName = (function () {
-                        if (outputNameSpecified) {
-                            return plugins.path.basename(config.ts[key]);
-                        }
-                        else {
-                            return undefined;
-                        }
-                    })();
-                    var outputDir = (function () {
-                        if (outputNameSpecified) {
-                            return plugins.path.dirname(plugins.path.join(paths.cwd, config.ts[key]));
-                        }
-                        else {
-                            return plugins.path.join(paths.cwd, config.ts[key]);
-                        }
-                    })();
-                    var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd, key))
-                        .pipe(plugins.g.typescript({
-                        out: outputName,
-                        declaration: true
-                    }));
-                    var stream = plugins.mergeStream([
-                        tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
-                        tsStream.js
-                            .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
-                            .pipe(plugins.gulp.dest(outputDir))
-                    ]);
-                    moduleStream.add(stream);
-                }
-                moduleStream.on("queueDrain", function () {
-                    plugins.beautylog.success("custom TypeScript installed successfully");
-                    moduleStream.on("finish", function () {
-                        done.resolve();
-                    });
-                    moduleStream.end();
-                });
-            });
+        var config = configArg;
+        if (config.mode == "default") {
+            config.typings = [
+                "./ts/"
+            ];
+            config.ts = (_a = {},
+                _a["./ts/index.ts"] = "./index.js",
+                _a
+            );
+            config.test = ["./index.js"];
+            done.resolve(config);
+        }
+        else {
+            done.resolve(config);
         }
         return done.promise;
+        var _a;
     };
-})(NpmtsCustom || (NpmtsCustom = {}));
+})(NpmtsOptions || (NpmtsOptions = {}));
 /// <reference path="./index.ts" />
-var NpmtsDefault;
-(function (NpmtsDefault) {
-    NpmtsDefault.run = function () {
+var NpmtsCompile;
+(function (NpmtsCompile) {
+    NpmtsCompile.run = function (configArg) {
         var done = plugins.q.defer();
-        plugins.gulp.task("defaultTypings", function (cb) {
-            plugins.beautylog.log("now installing default typings");
-            plugins.typings.install({ production: false, cwd: paths.tsDir })
-                .then(function () {
-                cb();
-            });
-        });
-        plugins.gulp.task("defaultIndexTS", function () {
-            plugins.beautylog.log("now compiling" + " ts/index.ts".blue);
-            var tsResult = plugins.gulp.src(paths.indexTS)
-                .pipe(plugins.g.typescript({
-                out: "./index.js",
-                declaration: true
-            }));
-            return plugins.mergeStream([
-                tsResult.dts.pipe(plugins.gulp.dest(paths.cwd)),
-                tsResult.js
-                    .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
-                    .pipe(plugins.gulp.dest(paths.cwd))
-            ]);
-        });
-        plugins.gulp.task("defaultTestTS", function () {
-            plugins.beautylog.log("now compiling" + " ts/test.ts".blue);
-            var stream = plugins.gulp.src(paths.testTS)
-                .pipe(plugins.g.typescript({
-                out: "test.js"
-            }))
-                .pipe(plugins.gulp.dest(paths.testDir));
-            return stream;
-        });
-        plugins.gulp.task("defaultCleanup", function (cb) {
-            plugins.beautylog.success("default TypeScript for this module compiled successfully.");
-            done.resolve();
-            cb();
-        });
-        plugins.gulp.task("default", function (cb) {
-            if (NpmtsOptions.config.mode == "default") {
-                plugins.g.sequence("defaultTypings", "defaultIndexTS", "defaultTestTS", "defaultCleanup", cb);
+        var config = configArg;
+        plugins.beautylog.log("now running custom tasks");
+        var moduleStream = plugins.mergeStream({ end: false });
+        /* -------------------------------------------------
+         * ----------- first install typings ---------------
+         * ----------------------------------------------- */
+        var typingsDone = plugins.q.defer();
+        var typingsCounter = 0;
+        var typingsCounterAdvance = function () {
+            typingsCounter++;
+            if (typeof config.typings[typingsCounter] != "undefined") {
+                installTypings();
             }
             else {
-                cb();
-                done.resolve();
+                plugins.beautylog.success("custom typings installed successfully");
+                typingsDone.resolve();
             }
+        };
+        var installTypings = function () {
+            plugins.beautylog.log("now installing " + "typings.json".yellow + " from " + config.typings[typingsCounter].blue);
+            plugins.typings.install({ production: false, cwd: plugins.path.join(paths.cwd, config.typings[typingsCounter]) })
+                .then(function () {
+                typingsCounterAdvance();
+            }, function () {
+                plugins.beautylog.error("something went wrong: Check if path is correct: " + config.typings[typingsCounter].blue);
+                typingsCounterAdvance();
+            });
+        };
+        installTypings();
+        /* -------------------------------------------------
+         * ----------- second compile TS -------------------
+         * ----------------------------------------------- */
+        typingsDone.promise.then(function () {
+            for (var key in config.ts) {
+                plugins.beautylog.log("now compiling" + key.blue);
+                var outputPathIsDir;
+                try {
+                    if (plugins.fs.statSync(plugins.path.join(paths.cwd, config.ts[key])).isDirectory()) {
+                        outputPathIsDir = true;
+                    }
+                }
+                catch (err) {
+                    outputPathIsDir = false;
+                }
+                //do some evaluation of the environment
+                var outputNameSpecified = (!outputPathIsDir
+                    && (plugins.path.extname(config.ts[key]) == ".js"));
+                var outputName = (function () {
+                    if (outputNameSpecified) {
+                        return plugins.path.basename(config.ts[key]);
+                    }
+                    else {
+                        return undefined;
+                    }
+                })();
+                var outputDir = (function () {
+                    if (outputNameSpecified) {
+                        return plugins.path.dirname(plugins.path.join(paths.cwd, config.ts[key]));
+                    }
+                    else {
+                        return plugins.path.join(paths.cwd, config.ts[key]);
+                    }
+                })();
+                var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd, key))
+                    .pipe(plugins.g.typescript({
+                    out: outputName,
+                    declaration: true
+                }));
+                var stream = plugins.mergeStream([
+                    tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
+                    tsStream.js
+                        .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
+                        .pipe(plugins.gulp.dest(outputDir))
+                ]);
+                moduleStream.add(stream);
+            }
+            moduleStream.on("queueDrain", function () {
+                plugins.beautylog.success("custom TypeScript installed successfully");
+                moduleStream.on("finish", function () {
+                    done.resolve();
+                });
+                moduleStream.end();
+            });
         });
-        plugins.gulp.start.apply(plugins.gulp, ['default']);
         return done.promise;
     };
-})(NpmtsDefault || (NpmtsDefault = {}));
+})(NpmtsCompile || (NpmtsCompile = {}));
 /// <reference path="./index.ts" />
 var NpmtsTests;
 (function (NpmtsTests) {
     NpmtsTests.run = function () {
         var done = plugins.q.defer();
-        plugins.fs.ensureDirSync(paths.testDir); //make sure that mocha has a directory to look for tests
-        plugins.beautylog.info("Now running mocha tests");
-        var mocha = new plugins.mocha(); // Instantiate a Mocha instance.
-        mocha.addFile(plugins.path.join(paths.testDir, "test.js"));
-        mocha.run(function (failures) {
-            process.on('exit', function () {
-                process.exit(failures);
+        plugins.gulp.task('istanbul', function () {
+            return plugins.gulp.src([plugins.path.join(paths.cwd, "index.js")])
+                .pipe(plugins.g.istanbul())
+                .pipe(plugins.g.istanbul.hookRequire());
+        });
+        plugins.gulp.task('mocha', function () {
+            return plugins.gulp.src(['test/test.js'])
+                .pipe(plugins.g.mocha())
+                .pipe(plugins.g.istanbul.writeReports())
+                .pipe(plugins.g.istanbul.enforceThresholds({ thresholds: { global: 90 } }));
+        });
+        plugins.gulp.task("coveralls", function () {
+            return plugins.gulp.src('coverage/**/lcov.info')
+                .pipe(plugins.g.if(process.env.TRAVIS, plugins.g.coveralls()));
+        });
+        plugins.gulp.task("test", function () {
+            plugins.g.sequence("istanbul", "mocha", "coveralls", function () {
+                done.resolve();
             });
         });
+        plugins.gulp.start.apply(plugins.gulp, ['test']);
         return done.promise;
     };
 })(NpmtsTests || (NpmtsTests = {}));
@@ -241,9 +221,9 @@ var NpmtsPromisechain;
 (function (NpmtsPromisechain) {
     NpmtsPromisechain.init = function () {
         var promisechain;
-        NpmtsOptions.run()
-            .then(NpmtsDefault.run)
-            .then(NpmtsCustom.run)
+        NpmtsConfigFile.run()
+            .then(NpmtsOptions.run)
+            .then(NpmtsCompile.run)
             .then(NpmtsTests.run);
         return promisechain;
     };
@@ -252,9 +232,9 @@ var NpmtsPromisechain;
 /// <reference path="./npmts.plugins.ts" />
 /// <reference path="./npmts.cli.ts" />
 /// <reference path="./npmts.paths.ts" />
+/// <reference path="./npmts.configfile.ts" />
 /// <reference path="./npmts.options.ts" />
-/// <reference path="./npmts.custom.ts" />
-/// <reference path="./npmts.default.ts" />
+/// <reference path="./npmts.compile.ts" />
 /// <reference path="./npmts.tests.ts" />
 /// <reference path="./npmts.promisechain.ts" />
 console.log("**** starting NPMTS ****");

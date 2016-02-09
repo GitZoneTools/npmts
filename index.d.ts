@@ -5,13 +5,15 @@ declare module NpmtsPlugins {
         fs: any;
         gulp: any;
         g: {
+            coveralls: any;
+            if: any;
             insert: any;
+            istanbul: any;
+            mocha: any;
             sequence: any;
             typescript: any;
         };
-        mathjs: any;
         mergeStream: any;
-        mocha: any;
         path: any;
         q: any;
         smartcli: any;
@@ -22,15 +24,14 @@ declare module NpmtsPlugins {
 declare module NpmtsPaths {
     var init: () => any;
 }
+declare module NpmtsConfigFile {
+    var run: () => any;
+}
 declare module NpmtsOptions {
-    var config: any;
-    var run: () => any;
+    var run: (configArg: any) => any;
 }
-declare module NpmtsCustom {
-    var run: () => any;
-}
-declare module NpmtsDefault {
-    var run: () => any;
+declare module NpmtsCompile {
+    var run: (configArg: any) => any;
 }
 declare module NpmtsTests {
     var run: () => any;
@@ -43,13 +44,15 @@ declare var plugins: {
     fs: any;
     gulp: any;
     g: {
+        coveralls: any;
+        if: any;
         insert: any;
+        istanbul: any;
+        mocha: any;
         sequence: any;
         typescript: any;
     };
-    mathjs: any;
     mergeStream: any;
-    mocha: any;
     path: any;
     q: any;
     smartcli: any;

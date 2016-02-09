@@ -6,14 +6,16 @@ module NpmtsPlugins {
             fs: require("fs-extra"),
             gulp: require("gulp"),
             g: {
+                coveralls: require("gulp-coveralls"),
+                if: require("gulp-if"),
                 insert: require("gulp-insert"),
+                istanbul: require("gulp-istanbul"),
+                mocha: require("gulp-mocha"),
                 sequence: require("gulp-sequence"),
                 typescript: require("gulp-typescript")
 
             },
-            mathjs: require("mathjs"),
             mergeStream: require("merge2"),
-            mocha: require("mocha"),
             path: require("path"),
             q:require("q"),
             smartcli: require("smartcli"),

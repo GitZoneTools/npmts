@@ -1,29 +1,20 @@
 /// <reference path="./index.ts" />
 module NpmtsOptions {
-    export var config:any = {};
-    export var run = function(){
+    export var run = function(configArg){
         var done = plugins.q.defer();
-        var configPath = plugins.path.join(paths.cwd,"npmts.json");
-        if(plugins.smartfile.checks.fileExistsSync(configPath)){
-            plugins.beautylog.info("npmts.json".blue + " config file found!");
-            config = plugins.smartfile.readFileToObject(configPath);
-            switch (config.mode){
-                case "default":
-                    plugins.beautylog.log("mode is " + config.mode.yellow);
-                    done.resolve();
-                    break;
-                case "custom":
-                    plugins.beautylog.log("mode is " + config.mode.yellow);
-                    done.resolve();
-                    break;
-                default:
-                    plugins.beautylog.error("mode " + config.mode.yellow + " not recognised!".red);
+        var config = configArg;
+        if (config.mode == "default"){
+            config.typings = [
+                "./ts/"
+            ];
+            config.ts = {
+                ["./ts/index.ts"]: "./index.js"
             };
+            config.test = ["./index.js"];
+            done.resolve(config);
         } else {
-            plugins.beautylog.log("no config file found: so mode is " + "default".yellow);
-            config.mode = "default";
-            done.resolve();
-        };
+            done.resolve(config);
+        }
         return done.promise;
     }
 }

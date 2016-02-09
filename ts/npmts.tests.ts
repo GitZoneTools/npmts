@@ -2,18 +2,38 @@
 module NpmtsTests {
     export var run = function() {
         var done = plugins.q.defer();
-        plugins.fs.ensureDirSync(paths.testDir); //make sure that mocha has a directory to look for tests
-        plugins.beautylog.info("Now running mocha tests");
 
-        var mocha = new plugins.mocha(); // Instantiate a Mocha instance.
-        mocha.addFile(
-            plugins.path.join(paths.testDir, "test.js")
-        );
-        mocha.run(function(failures){
-            process.on('exit', function () {
-                process.exit(failures);
-            });
+        plugins.gulp.task('istanbul', function () {
+            return plugins.gulp.src([plugins.path.join(paths.cwd,"index.js")])
+                // Covering files
+                .pipe(plugins.g.istanbul())
+                // Force `require` to return covered files
+                .pipe(plugins.g.istanbul.hookRequire());
         });
+
+        plugins.gulp.task('mocha', function () {
+            return plugins.gulp.src(['test/test.js'])
+                .pipe(plugins.g.mocha())
+                // Creating the reports after tests ran
+                .pipe(plugins.g.istanbul.writeReports())
+                // Enforce a coverage of at least 90%
+                .pipe(plugins.g.istanbul.enforceThresholds({ thresholds: { global: 90 } }));
+        });
+
+        plugins.gulp.task("coveralls",function(){
+            return plugins.gulp.src('coverage/**/lcov.info')
+                .pipe(plugins.g.if(
+                    process.env.TRAVIS,
+                    plugins.g.coveralls()
+                ));
+        });
+
+        plugins.gulp.task("test",function(){
+            plugins.g.sequence("istanbul","mocha","coveralls",function(){
+                done.resolve();
+            })
+        });
+        plugins.gulp.start.apply(plugins.gulp, ['test']);
         return done.promise;
     }
 }

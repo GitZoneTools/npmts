@@ -2,9 +2,9 @@
 module NpmtsPromisechain {
     export var init = function(){
         var promisechain;
-        NpmtsOptions.run()
-            .then(NpmtsDefault.run)
-            .then(NpmtsCustom.run)
+        NpmtsConfigFile.run()
+            .then(NpmtsOptions.run)
+            .then(NpmtsCompile.run)
             .then(NpmtsTests.run);
         return promisechain;
     }
