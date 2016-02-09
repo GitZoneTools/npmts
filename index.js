@@ -14,7 +14,6 @@ var NpmtsPlugins;
                 insert: require("gulp-insert"),
                 istanbul: require("gulp-istanbul"),
                 mocha: require("gulp-mocha"),
-                sequence: require("gulp-sequence"),
                 typescript: require("gulp-typescript")
             },
             mergeStream: require("merge2"),
@@ -196,27 +195,31 @@ var NpmtsTests;
     NpmtsTests.run = function (configArg) {
         var done = plugins.q.defer();
         var config = configArg;
-        plugins.gulp.task('istanbul', function () {
-            return plugins.gulp.src([plugins.path.join(paths.cwd, "index.js")])
+        var istanbul = function () {
+            var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "index.js")])
                 .pipe(plugins.g.istanbul())
                 .pipe(plugins.g.istanbul.hookRequire());
-        });
-        plugins.gulp.task('mocha', function () {
-            return plugins.gulp.src(["./test/test.js"])
+            return stream;
+        };
+        var mocha = function () {
+            var stream = plugins.gulp.src(["./test/test.js"])
                 .pipe(plugins.g.mocha())
                 .pipe(plugins.g.istanbul.writeReports())
                 .pipe(plugins.g.istanbul.enforceThresholds({ thresholds: { global: 30 } }));
-        });
-        plugins.gulp.task("coveralls", function () {
-            return plugins.gulp.src("./coverage/**/lcov.info")
+            return stream;
+        };
+        var coveralls = function () {
+            var stream = plugins.gulp.src("./coverage/**/lcov.info")
                 .pipe(plugins.g.if((process.env.TRAVIS && config.coveralls), plugins.g.coveralls()));
-        });
-        plugins.gulp.task("test", function () {
-            plugins.g.sequence("istanbul", "mocha", "coveralls", function () {
-                done.resolve();
+            return stream;
+        };
+        istanbul().on("finish", function () {
+            mocha().on("finish", function () {
+                coveralls().on("finish", function () {
+                    done.resolve(config);
+                });
             });
         });
-        plugins.gulp.start.apply(plugins.gulp, ['test']);
         return done.promise;
     };
 })(NpmtsTests || (NpmtsTests = {}));

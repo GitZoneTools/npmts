@@ -10,7 +10,6 @@ declare module NpmtsPlugins {
             insert: any;
             istanbul: any;
             mocha: any;
-            sequence: any;
             typescript: any;
         };
         mergeStream: any;
@@ -49,7 +48,6 @@ declare var plugins: {
         insert: any;
         istanbul: any;
         mocha: any;
-        sequence: any;
         typescript: any;
     };
     mergeStream: any;

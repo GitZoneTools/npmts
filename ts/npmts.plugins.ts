@@ -11,7 +11,6 @@ module NpmtsPlugins {
                 insert: require("gulp-insert"),
                 istanbul: require("gulp-istanbul"),
                 mocha: require("gulp-mocha"),
-                sequence: require("gulp-sequence"),
                 typescript: require("gulp-typescript")
 
             },
