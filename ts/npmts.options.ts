@@ -4,7 +4,7 @@ module NpmtsOptions {
         var done = plugins.q.defer();
         var config = configArg;
         if (typeof config.coveralls === "undefined"){
-            config.coveralls = true;
+            config.coveralls = false;
         }
         if (config.mode == "default"){
             config.typings = [
