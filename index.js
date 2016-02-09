@@ -76,7 +76,7 @@ var NpmtsOptions;
         var done = plugins.q.defer();
         var config = configArg;
         if (typeof config.coveralls === "undefined") {
-            config.coveralls = true;
+            config.coveralls = false;
         }
         if (config.mode == "default") {
             config.typings = [
@@ -84,6 +84,7 @@ var NpmtsOptions;
             ];
             config.ts = (_a = {},
                 _a["./ts/index.ts"] = "./index.js",
+                _a["./ts/test.ts"] = "./test/test.js",
                 _a
             );
             config.test = ["./index.js"];

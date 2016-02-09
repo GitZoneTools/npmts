@@ -11,7 +11,8 @@ module NpmtsOptions {
                 "./ts/"
             ];
             config.ts = {
-                ["./ts/index.ts"]: "./index.js"
+                ["./ts/index.ts"]: "./index.js",
+                ["./ts/test.ts"]: "./test/test.js"
             };
             config.test = ["./index.js"];
             done.resolve(config);
