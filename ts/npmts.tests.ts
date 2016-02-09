@@ -12,7 +12,7 @@ module NpmtsTests {
         });
 
         plugins.gulp.task('mocha', function () {
-            return plugins.gulp.src(['test/test.js'])
+            return plugins.gulp.src(["./test/test.js"])
                 .pipe(plugins.g.mocha())
                 // Creating the reports after tests ran
                 .pipe(plugins.g.istanbul.writeReports())
@@ -21,7 +21,7 @@ module NpmtsTests {
         });
 
         plugins.gulp.task("coveralls",function(){
-            return plugins.gulp.src('coverage/**/lcov.info')
+            return plugins.gulp.src("./coverage/**/lcov.info")
                 .pipe(plugins.g.if(
                     (process.env.TRAVIS && config.coveralls),
                     plugins.g.coveralls()
