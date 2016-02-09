@@ -1,6 +1,9 @@
 # npmts
 Write npm modules with TypeScript without hassle.
 
+## Status
+[![Coverage Status](https://coveralls.io/repos/github/pushrocks/npmts/badge.svg?branch=master)](https://coveralls.io/github/pushrocks/npmts?branch=master)
+
 ## How to use npmts
 
 ### Install
