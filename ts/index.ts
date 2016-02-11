@@ -7,7 +7,8 @@
 /// <reference path="./npmts.compile.ts" />
 /// <reference path="./npmts.tests.ts" />
 /// <reference path="./npmts.promisechain.ts" />
-console.log("**** starting NPMTS ****")
+console.log("**** starting NPMTS ****");
 var plugins = NpmtsPlugins.init();
+plugins.beautylog.figletSync("NPMTS");
 var paths = NpmtsPaths.init();
 var promisechain = NpmtsPromisechain.init();
