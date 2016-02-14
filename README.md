@@ -34,7 +34,7 @@ Then use it in package.json's script section to trigger a build:
 7. Upload Coverage reports to travis (must be activated, only triggers on travis)
 
 
-##### Typings
+#### Typings
 **npmts** looks for `./ts/typings.json` by default and installs any defined typings to `.ts/typings/`.
 You can then reference the ./ts/typings/main.d.ts file in your TypeScript code.
 
@@ -42,7 +42,7 @@ You can then reference the ./ts/typings/main.d.ts file in your TypeScript code.
 by default npmts looks for `./ts/index.ts` and `./ts/test.ts` that will compile to
 `./index.js` and `./test.js`
 
-##### Declaration files
+#### Declaration files
 **npmts** also creates an `index.d.ts` declaration file by default.
 You can reference it in your package.json like this:
 
@@ -51,10 +51,10 @@ You can reference it in your package.json like this:
 "typings": "./index.d.ts",
 ```
 
-##### Instrumentalize Code
+#### Instrumentalize Code
 npmts instrumentalizes the created JavaScript code to create a coverage report.
 
-##### Tests
+#### Tests
 When Typings have been installed, TypeScript + Declaration files have been transpiled and the resulting JS has been instrumentalized,
 npmts runs `.test/test.js` with mocha. 
 
