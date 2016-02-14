@@ -5,8 +5,8 @@ Write npm modules with TypeScript without hassle.
 [![Build Status](https://travis-ci.org/pushrocks/npmts.svg?branch=master)](https://travis-ci.org/pushrocks/npmts)
 [![Dependency Status](https://david-dm.org/pushrocks/npmts.svg)](https://david-dm.org/pushrocks/npmts)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/npmts/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/npmts/master/dependencies/npm)
-[![Coverage Status](https://coveralls.io/repos/github/pushrocks/npmts/badge.svg?branch=master)](https://coveralls.io/github/pushrocks/npmts?branch=master)
 [![bitHound Code](https://www.bithound.io/github/pushrocks/npmts/badges/code.svg)](https://www.bithound.io/github/pushrocks/npmts)
+[![Coverage Status](https://coveralls.io/repos/github/pushrocks/npmts/badge.svg?branch=master)](https://coveralls.io/github/pushrocks/npmts?branch=master)
 
 ## How to use npmts
 
