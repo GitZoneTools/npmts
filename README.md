@@ -22,10 +22,27 @@ Then use it in package.json's script section to trigger a build:
 ```
 
 ### Default behaviour
+
+**Execution order of tasks**
+
+1. Install typings
+2. Compile TypeScript
+3. Create Declartion Files
+4. Instrumentalize created JavaScript files with istanbul
+5. Run Tests
+6. Create Coverage report
+7. Upload Coverage reports to travis (must be activated, only triggers on travis)
+
+
+##### Typings
+**npmts** looks for `./ts/typings.json` by default and installs any defined typings to `.ts/typings/`.
+You can then reference the ./ts/typings/main.d.ts file in your TypeScript code.
+
+#### TypeScript
 by default npmts looks for `./ts/index.ts` and `./ts/test.ts` that will compile to
 `./index.js` and `./test.js`
 
-#### Declaration files
+##### Declaration files
 **npmts** also creates an `index.d.ts` declaration file by default.
 You can reference it in your package.json like this:
 
@@ -34,13 +51,21 @@ You can reference it in your package.json like this:
 "typings": "./index.d.ts",
 ```
 
+##### Instrumentalize Code
+npmts instrumentalizes the created JavaScript code to create a coverage report.
+
+##### Tests
+When Typings have been installed, TypeScript + Declaration files have been transpiled and the resulting JS has been instrumentalized,
+npmts runs `.test/test.js` with mocha. 
+
 When requiring the module from other TypeScript files,
 the TypeScript Compiler will use the declaration file to resolve typings.
 
 
 
 ### Custom behaviour
-NPMTS looks for an npmts.json at the root of your package.
+Custom behaviour can be achieved through a config file at the root of your package.
+The file must be named **npmts.json**
 
 ```json
 {
@@ -57,6 +82,7 @@ NPMTS looks for an npmts.json at the root of your package.
 * **mode** can be "default" or "custom"
 * **ts** You can list as many TypeScript files as you like. The key represents the source TypeScript file, the value the output file.
 * **typings** is an array of all direcories that have a typings.json present. Uses the new typings tool from npm.
+
 
 ## Readme for Devs
 There is a [README-dev.md](README-dev.md) in the repo.
