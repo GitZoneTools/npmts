@@ -3,5 +3,6 @@
 node_modules/
 test/**/node_modules/
 test/**/typings/
+test/**/coverage/
 ts/*.js
 ts/*.js.map

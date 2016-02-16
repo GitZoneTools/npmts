@@ -10,7 +10,7 @@ var NpmtsPlugins;
             gulp: require("gulp"),
             g: {
                 coveralls: require("gulp-coveralls"),
-                insert: require("gulp-insert"),
+                header: require("gulp-header"),
                 istanbul: require("gulp-istanbul"),
                 mocha: require("gulp-mocha"),
                 typescript: require("gulp-typescript")
@@ -174,7 +174,7 @@ var NpmtsCompile;
                 var stream = plugins.mergeStream([
                     tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
                     tsStream.js
-                        .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
+                        .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
                         .pipe(plugins.gulp.dest(outputDir))
                 ]);
                 moduleStream.add(stream);
