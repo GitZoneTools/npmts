@@ -4,7 +4,7 @@ var plugins = {
     gulp: require("gulp"),
     g:{
         typescript: require("gulp-typescript"),
-        insert: require("gulp-insert")
+        header: require("gulp-header")
     },
     mergeStream: require("merge2")
 
@@ -23,7 +23,7 @@ plugins.gulp.task('indexTS', function() {
     return plugins.mergeStream([
         tsResult.dts.pipe(plugins.gulp.dest('../')),
         tsResult.js
-            .pipe(plugins.g.insert.prepend('#!/usr/bin/env node\n\n'))
+            .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
             .pipe(plugins.gulp.dest('../'))
     ]);
 });
