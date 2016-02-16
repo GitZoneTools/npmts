@@ -31,7 +31,7 @@ Then use it in package.json's script section to trigger a build:
 
 1. Install typings
 2. Compile TypeScript
-3. Create Declartion Files
+3. Create Declaration Files
 4. Instrumentalize created JavaScript files with istanbul
 5. Run Tests
 6. Create Coverage report
