@@ -168,7 +168,8 @@ var NpmtsCompile;
                 var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd, key))
                     .pipe(plugins.g.typescript({
                     out: outputName,
-                    declaration: true
+                    declaration: true,
+                    target: "ES5"
                 }));
                 var stream = plugins.mergeStream([
                     tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
