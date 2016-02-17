@@ -30,7 +30,7 @@ Then use it in package.json's script section to trigger a build:
 **Execution order of tasks**
 
 1. Install typings
-2. Compile TypeScript
+2. Transpile TypeScript with inline sourcemaps
 3. Create Declaration Files
 4. Instrumentalize created JavaScript files with istanbul
 5. Run Tests
@@ -61,6 +61,8 @@ npmts instrumentalizes the created JavaScript code to create a coverage report.
 #### Tests
 When Typings have been installed, TypeScript + Declaration files have been transpiled and the resulting JS has been instrumentalized,
 npmts runs `.test/test.js` with mocha. 
+
+Any errors will be shown with reference to their originating source in TypeScript.
 
 When requiring the module from other TypeScript files,
 the TypeScript Compiler will use the declaration file to resolve typings.
