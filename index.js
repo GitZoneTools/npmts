@@ -202,7 +202,7 @@ var NpmtsTests;
         var done = plugins.q.defer();
         var config = configArg;
         var istanbul = function () {
-            var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "index.js")])
+            var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "dist/index.js")])
                 .pipe(plugins.g.istanbul())
                 .pipe(plugins.g.istanbul.hookRequire());
             return stream;
