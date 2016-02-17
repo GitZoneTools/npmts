@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "write npm modules with TypeScript",
   "main": "index.js",
   "typings": "./index.d.ts",
