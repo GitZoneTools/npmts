@@ -72,7 +72,8 @@ module NpmtsCompile {
                     .pipe(plugins.g.typescript({
                         out: outputName,
                         declaration: true,
-                        target: "ES5"
+                        target: "ES5",
+                        module: "commonjs"
                     }));
                 var stream = plugins.mergeStream([
                     tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
