@@ -1,2 +1,2 @@
-/// <reference path="ts/typings/main.d.ts" />
+/// <reference path="../ts/typings/main.d.ts" />
 declare var testplugin: any;

@@ -43,8 +43,10 @@ Then use it in package.json's script section to trigger a build:
 You can then reference the ./ts/typings/main.d.ts file in your TypeScript code.
 
 #### TypeScript
-by default npmts looks for `./ts/index.ts` and `./ts/test.ts` that will compile to
-`./index.js` and `./test.js`
+by default npmts looks for `./ts/*.ts` and `./test/test.ts` that will compile to
+`./dist/*.js` and `./test/test.js`
+
+Use commonjs module system for wiring up files.
 
 #### Declaration files
 **npmts** also creates an `index.d.ts` declaration file by default.

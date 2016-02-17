@@ -67,7 +67,7 @@ module NpmtsCompile {
                     }
                 })();
 
-                var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd,key))
+                var tsStream = plugins.gulp.src([plugins.path.join(paths.cwd,key),"!**/typings/**"])
                     .pipe(plugins.g.sourcemaps.init()) // This means sourcemaps will be generated
                     .pipe(plugins.g.typescript({
                         out: outputName,

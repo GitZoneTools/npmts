@@ -85,8 +85,8 @@ var NpmtsOptions;
                 "./ts/"
             ];
             config.ts = (_a = {},
-                _a["./ts/index.ts"] = "./index.js",
-                _a["./ts/test.ts"] = "./test/test.js",
+                _a["./ts/**/*.ts"] = "./dist/",
+                _a["./test/test.ts"] = "./test/",
                 _a
             );
             config.test = ["./index.js"];
@@ -167,7 +167,7 @@ var NpmtsCompile;
                         return plugins.path.join(paths.cwd, config.ts[key]);
                     }
                 })();
-                var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd, key))
+                var tsStream = plugins.gulp.src([plugins.path.join(paths.cwd, key), "!**/typings/**"])
                     .pipe(plugins.g.sourcemaps.init()) // This means sourcemaps will be generated
                     .pipe(plugins.g.typescript({
                     out: outputName,
