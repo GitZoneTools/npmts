@@ -9,9 +9,11 @@ declare module NpmtsPlugins {
             header: any;
             istanbul: any;
             mocha: any;
+            sourcemaps: any;
             typescript: any;
         };
         mergeStream: any;
+        sourceMapSupport: any;
         path: any;
         q: any;
         smartcli: any;
@@ -46,9 +48,11 @@ declare var plugins: {
         header: any;
         istanbul: any;
         mocha: any;
+        sourcemaps: any;
         typescript: any;
     };
     mergeStream: any;
+    sourceMapSupport: any;
     path: any;
     q: any;
     smartcli: any;

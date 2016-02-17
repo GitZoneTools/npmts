@@ -13,9 +13,11 @@ var NpmtsPlugins;
                 header: require("gulp-header"),
                 istanbul: require("gulp-istanbul"),
                 mocha: require("gulp-mocha"),
+                sourcemaps: require("gulp-sourcemaps"),
                 typescript: require("gulp-typescript")
             },
             mergeStream: require("merge2"),
+            sourceMapSupport: require("source-map-support").install(),
             path: require("path"),
             q: require("q"),
             smartcli: require("smartcli"),
@@ -166,6 +168,7 @@ var NpmtsCompile;
                     }
                 })();
                 var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd, key))
+                    .pipe(plugins.g.sourcemaps.init()) // This means sourcemaps will be generated
                     .pipe(plugins.g.typescript({
                     out: outputName,
                     declaration: true,
@@ -174,6 +177,7 @@ var NpmtsCompile;
                 var stream = plugins.mergeStream([
                     tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
                     tsStream.js
+                        .pipe(plugins.g.sourcemaps.write()) // Now the sourcemaps are added to the .js file
                         .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
                         .pipe(plugins.gulp.dest(outputDir))
                 ]);

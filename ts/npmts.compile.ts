@@ -68,6 +68,7 @@ module NpmtsCompile {
                 })();
 
                 var tsStream = plugins.gulp.src(plugins.path.join(paths.cwd,key))
+                    .pipe(plugins.g.sourcemaps.init()) // This means sourcemaps will be generated
                     .pipe(plugins.g.typescript({
                         out: outputName,
                         declaration: true,
@@ -76,6 +77,7 @@ module NpmtsCompile {
                 var stream = plugins.mergeStream([
                     tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
                     tsStream.js
+                        .pipe(plugins.g.sourcemaps.write()) // Now the sourcemaps are added to the .js file
                         .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
                         .pipe(plugins.gulp.dest(outputDir))
                 ]);
