@@ -79,7 +79,7 @@ module NpmtsCompile {
                     //tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
                     tsStream.js
                         .pipe(plugins.g.sourcemaps.write()) // Now the sourcemaps are added to the .js file
-                        .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
+                        //.pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
                         .pipe(plugins.gulp.dest(outputDir))
                 ]);
                 moduleStream.add(stream);
