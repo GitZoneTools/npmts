@@ -76,7 +76,7 @@ module NpmtsCompile {
                         module: "commonjs"
                     }));
                 var stream = plugins.mergeStream([
-                    tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
+                    //tsStream.dts.pipe(plugins.gulp.dest(outputDir)),
                     tsStream.js
                         .pipe(plugins.g.sourcemaps.write()) // Now the sourcemaps are added to the .js file
                         .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
