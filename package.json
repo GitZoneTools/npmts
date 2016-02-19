@@ -41,5 +41,8 @@
     "smartfile": "0.0.11",
     "source-map-support": "^0.4.0",
     "typings": "^0.6.8"
+  },
+  "devDependencies": {
+    "gulp-header": "^1.7.1"
   }
 }
