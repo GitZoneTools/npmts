@@ -10,7 +10,6 @@ var NpmtsPlugins;
             gulp: require("gulp"),
             g: {
                 coveralls: require("gulp-coveralls"),
-                header: require("gulp-header"),
                 istanbul: require("gulp-istanbul"),
                 mocha: require("gulp-mocha"),
                 sourcemaps: require("gulp-sourcemaps"),

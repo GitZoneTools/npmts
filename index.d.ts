@@ -6,7 +6,6 @@ declare module NpmtsPlugins {
         gulp: any;
         g: {
             coveralls: any;
-            header: any;
             istanbul: any;
             mocha: any;
             sourcemaps: any;
@@ -45,7 +44,6 @@ declare var plugins: {
     gulp: any;
     g: {
         coveralls: any;
-        header: any;
         istanbul: any;
         mocha: any;
         sourcemaps: any;
