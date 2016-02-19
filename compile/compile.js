@@ -6,26 +6,30 @@ var plugins = {
         typescript: require("gulp-typescript"),
         header: require("gulp-header")
     },
-    mergeStream: require("merge2")
-
+    mergeStream: require("merge2"),
+    path: require("path")
 };
 
+paths = {
+    packageBase: plugins.path.resolve(
+        plugins.path.join(__dirname,"../")
+    )
+};
 
 plugins.beautylog.log('now compiling NPMTS');
 
 plugins.gulp.task('indexTS', function() {
-    var tsResult = plugins.gulp.src('../ts/index.ts')
+    var stream = plugins.gulp.src([
+            plugins.path.join(paths.packageBase,'ts/**/*.ts'),
+            "!" + plugins.path.join(paths.packageBase,'ts/typings/**/*.d.ts')
+        ])
         .pipe(plugins.g.typescript({
-            out:"index.js",
-            declaration:true
-        }));
-
-    return plugins.mergeStream([
-        tsResult.dts.pipe(plugins.gulp.dest('../')),
-        tsResult.js
-            .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
-            .pipe(plugins.gulp.dest('../'))
-    ]);
+            target:"ES5",
+            module:"commonjs"
+        }))
+        .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
+        .pipe(plugins.gulp.dest(plugins.path.join(paths.packageBase, 'dist/')));
+    return stream;
 });
 
 plugins.gulp.task('default',['indexTS'], function() {

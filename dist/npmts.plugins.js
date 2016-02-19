@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /// <reference path="./typings/main.d.ts" />
 var plugins = {
     beautylog: require("beautylog"),
@@ -9,14 +11,13 @@ var plugins = {
         mocha: require("gulp-mocha"),
         sourcemaps: require("gulp-sourcemaps"),
         typescript: require("gulp-typescript")
-
     },
     mergeStream: require("merge2"),
-    sourceMapSupport:require("source-map-support").install(),
+    sourceMapSupport: require("source-map-support").install(),
     path: require("path"),
-    q:require("q"),
+    q: require("q"),
     smartcli: require("smartcli"),
     smartfile: require("smartfile"),
     typings: require("typings")
 };
-export = plugins;
+module.exports = plugins;

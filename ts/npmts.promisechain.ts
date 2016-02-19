@@ -1,11 +1,13 @@
-/// <reference path="./index.ts" />
-module NpmtsPromisechain {
-    export var init = function(){
-        var promisechain;
-        NpmtsConfigFile.run()
-            .then(NpmtsOptions.run)
-            .then(NpmtsCompile.run)
-            .then(NpmtsTests.run);
-        return promisechain;
-    }
-}
+/// <reference path="./typings/main.d.ts" />
+import NpmtsConfigFile = require("./npmts.configfile");
+import NpmtsOptions = require("./npmts.options");
+import NpmtsCompile = require("./npmts.compile");
+import NpmtsTests = require("./npmts.tests");
+export var run = function(){
+    var promisechain;
+    NpmtsConfigFile.run()
+        .then(NpmtsOptions.run)
+        .then(NpmtsCompile.run)
+        .then(NpmtsTests.run);
+    return promisechain;
+};
