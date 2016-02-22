@@ -21,7 +21,12 @@ var publishDocs = function () {
     var done = plugins.Q.defer();
     var deployScript = "" +
         "cd " + paths.docsDir + " " +
-        "&& mkdir hello";
+        "&& git init " +
+        "&& git config user.name \"TRAVIS CI\" " +
+        "&& git config user.email \"travis@shipzone.io\" " +
+        "&& git add . " +
+        "&& git commit -m \"Deploy to GitHub Pages\" " +
+        "&& git push --force --quiet \"https://${GH_TOKEN}@${GH_REF}\" master:gh-pages > /dev/null 2>&1";
     if (true || plugins.smartenv.getEnv().isTravis) {
         plugins.beautylog.log("now publishing docs to GitHub");
         if (!plugins.shelljs.which('git')) {
@@ -29,7 +34,7 @@ var publishDocs = function () {
             plugins.shelljs.exit(1);
         }
         else if (plugins.shelljs.exec(deployScript).code !== 0) {
-            plugins.beautylog.error('Error: Git commit failed');
+            plugins.beautylog.error('Error: Git failed');
             plugins.shelljs.exit(1);
         }
         done.resolve();

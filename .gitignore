@@ -2,10 +2,12 @@
 .c9/
 node_modules/
 test/**/node_modules/
+test/assets/docs/
 test/**/typings/
 test/**/coverage/
 ts/*.js
 ts/*.js.map
 ts/typings/
+docs/
 
 .DS_Store
