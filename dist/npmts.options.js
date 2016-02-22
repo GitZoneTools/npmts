@@ -3,7 +3,7 @@
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 exports.run = function (configArg) {
-    var done = plugins.q.defer();
+    var done = plugins.Q.defer();
     var config = configArg;
     if (typeof config.coveralls === "undefined") {
         config.coveralls = false;

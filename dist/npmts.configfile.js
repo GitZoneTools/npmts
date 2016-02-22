@@ -4,7 +4,7 @@
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 exports.run = function () {
-    var done = plugins.q.defer();
+    var done = plugins.Q.defer();
     var config = {};
     var configPath = plugins.path.join(paths.cwd, "npmts.json");
     if (plugins.smartfile.checks.fileExistsSync(configPath)) {

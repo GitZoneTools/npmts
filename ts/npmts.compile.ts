@@ -2,14 +2,14 @@
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
 export var run = function(configArg){
-    var done = plugins.q.defer();
+    var done = plugins.Q.defer();
     var config = configArg;
     plugins.beautylog.log("now running custom tasks");
-    var moduleStream = plugins.mergeStream({end: false});
+    var moduleStream = plugins.merge2({end: false});
     /* -------------------------------------------------
      * ----------- first install typings ---------------
      * ----------------------------------------------- */
-    var typingsDone = plugins.q.defer();
+    var typingsDone = plugins.Q.defer();
     var typingsCounter:number = 0;
     var typingsCounterAdvance = function(){
         typingsCounter++;

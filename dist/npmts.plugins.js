@@ -7,16 +7,21 @@ var plugins = {
     gulp: require("gulp"),
     g: {
         coveralls: require("gulp-coveralls"),
+        gFunction: require("gulp-function"),
         istanbul: require("gulp-istanbul"),
+        jsdoc3: require("gulp-jsdoc3"),
         mocha: require("gulp-mocha"),
         sourcemaps: require("gulp-sourcemaps"),
         typescript: require("gulp-typescript")
     },
-    mergeStream: require("merge2"),
+    merge2: require("merge2"),
+    projectinfo: require("projectinfo"),
     sourceMapSupport: require("source-map-support").install(),
     path: require("path"),
-    q: require("q"),
+    Q: require("q"),
+    shelljs: require("shelljs"),
     smartcli: require("smartcli"),
+    smartenv: require("smartenv"),
     smartfile: require("smartfile"),
     typings: require("typings")
 };

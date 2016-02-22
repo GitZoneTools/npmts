@@ -2,7 +2,7 @@
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
 export var run = function(configArg) {
-    var done = plugins.q.defer();
+    var done = plugins.Q.defer();
     var config = configArg;
     var istanbul = function () {
         var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
@@ -24,6 +24,7 @@ export var run = function(configArg) {
     };
 
     var coveralls = function(){
+        plugins.beautylog.log("now uploading coverage data to coveralls");
         var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"./coverage/lcov.info")])
             .pipe(plugins.g.coveralls());
         return stream;
@@ -31,7 +32,7 @@ export var run = function(configArg) {
 
     istanbul().on("finish",function(){
         mocha().on("finish",function(){
-            if(process.env.TRAVIS && config.coveralls){
+            if(plugins.smartenv.getEnv().isTravis && config.coveralls){
                 coveralls().on("finish",function(){
                     done.resolve(config);
                 })

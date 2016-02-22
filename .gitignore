@@ -6,5 +6,6 @@ test/**/typings/
 test/**/coverage/
 ts/*.js
 ts/*.js.map
+ts/typings/
 
 .DS_Store
