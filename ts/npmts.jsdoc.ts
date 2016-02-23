@@ -37,7 +37,7 @@ var publishDocs = function(){
             + "&& git push --force --quiet "
             + "\"" + gitUrl + "\" "
             + "master:gh-pages "
-        //+ "> /dev/null 2>&1";
+            + "> /dev/null 2>&1";
     }
     catch (err){
         console.log(err);

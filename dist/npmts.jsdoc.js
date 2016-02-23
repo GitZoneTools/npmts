@@ -32,7 +32,8 @@ var publishDocs = function () {
             + "&& git commit -m \"Deploy to GitHub Pages\" "
             + "&& git push --force --quiet "
             + "\"" + gitUrl + "\" "
-            + "master:gh-pages ";
+            + "master:gh-pages "
+            + "> /dev/null 2>&1";
     }
     catch (err) {
         console.log(err);
