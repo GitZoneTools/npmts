@@ -26,16 +26,14 @@ var publishDocs = function (configArg) {
     }).git.httpsUrl;
     var deployScript = ""
         + "cd " + paths.docsDir + " "
-        + "&& git init "
-        + "&& git config user.name \"TRAVIS CI\" "
-        + "&& git config user.email \"travis@shipzone.io\" "
-        + "&& git add . "
-        + "&& git commit -m \"Deploy to GitHub Pages\" "
+        + "&& git init " + "> /dev/null 2>&1 "
+        + "&& git config user.name \"TRAVIS CI\" " + "> /dev/null 2>&1 "
+        + "&& git config user.email \"travis@shipzone.io\" " + "> /dev/null 2>&1 "
+        + "&& git add . " + "> /dev/null 2>&1 "
+        + "&& git commit -m \"Deploy to GitHub Pages\" " + "> /dev/null 2>&1 "
         + "&& git push --force --quiet "
         + "\"" + gitUrl + "\" "
-        + "master:gh-pages "
-        + "> /dev/null 2>&1";
-    console.log(deployScript);
+        + "master:gh-pages " + "> /dev/null 2>&1";
     if (plugins.smartenv.getEnv().isTravis) {
         plugins.beautylog.log("now publishing docs to GitHub");
         if (!plugins.shelljs.which('git')) {
