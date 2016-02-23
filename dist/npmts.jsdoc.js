@@ -19,15 +19,25 @@ var genJsdoc = function () {
 };
 var publishDocs = function () {
     var done = plugins.Q.defer();
-    var deployScript = "" +
-        "cd " + paths.docsDir + " " +
-        "&& git init " +
-        "&& git config user.name \"TRAVIS CI\" " +
-        "&& git config user.email \"travis@shipzone.io\" " +
-        "&& git add . " +
-        "&& git commit -m \"Deploy to GitHub Pages\" " +
-        "&& git push --force --quiet \"https://${GH_TOKEN}@${GH_REF}\" master:gh-pages > /dev/null 2>&1";
-    if (true || plugins.smartenv.getEnv().isTravis) {
+    try {
+        var gitUrl = plugins.projectinfo.npm(paths.cwd, {
+            gitAccessToken: process.env.GITHUB_TOKEN
+        }).git.httpsUrl;
+        var deployScript = ""
+            + "cd " + paths.docsDir + " "
+            + "&& git init "
+            + "&& git config user.name \"TRAVIS CI\" "
+            + "&& git config user.email \"travis@shipzone.io\" "
+            + "&& git add . "
+            + "&& git commit -m \"Deploy to GitHub Pages\" "
+            + "&& git push --force --quiet "
+            + "\"" + gitUrl + "\" "
+            + "master:gh-pages ";
+    }
+    catch (err) {
+        console.log(err);
+    }
+    if (plugins.smartenv.getEnv().isTravis) {
         plugins.beautylog.log("now publishing docs to GitHub");
         if (!plugins.shelljs.which('git')) {
             plugins.beautylog.error('Git is not installed');

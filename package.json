@@ -40,7 +40,7 @@
     "gulp-typescript": "2.11.0",
     "gulp-typings": "1.1.0",
     "merge2": "1.0.1",
-    "projectinfo": "0.0.5",
+    "projectinfo": "1.0.1",
     "q": "^1.4.1",
     "shelljs": "^0.6.0",
     "smartcli": "0.0.11",
