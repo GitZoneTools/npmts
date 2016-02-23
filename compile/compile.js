@@ -4,7 +4,8 @@ var plugins = {
     gulp: require("gulp"),
     g:{
         typescript: require("gulp-typescript"),
-        header: require("gulp-header")
+        header: require("gulp-header"),
+        typings:require("gulp-typings")
     },
     mergeStream: require("merge2"),
     path: require("path")
@@ -18,7 +19,13 @@ paths = {
 
 plugins.beautylog.log('now compiling NPMTS');
 
-plugins.gulp.task('indexTS', function() {
+plugins.gulp.task("typings",function(){
+    var stream = plugins.gulp.src(plugins.path.join(paths.packageBase,"ts/typings.json"))
+        .pipe(plugins.g.typings());
+    return stream;
+});
+
+plugins.gulp.task("indexTS",["typings"], function() {
     var stream = plugins.gulp.src([
             plugins.path.join(paths.packageBase,'ts/**/*.ts'),
             "!" + plugins.path.join(paths.packageBase,'ts/typings/**/*.d.ts')
