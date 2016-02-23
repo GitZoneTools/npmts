@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - "4.3.1"
-  - "stable"
+- 4.3.1
+- stable
 deploy:
   provider: npm
   email: npm@lossless.digital
@@ -10,3 +10,6 @@ deploy:
   on:
     tags: true
     repo: pushrocks/npmts
+env:
+  global:
+    secure: lRpS8nmy/41Mi71wSiCNIeXzuLRWCulDiZeZt3NJL9uDVAZCVOn19vrTkldN9qILs70iV8zDQclHdTLH/ru1gYs0YP6jMjmQPFpAV+AfZMQS8vXBNYNUrcsgqx62cJVk3i6oFn0gL42j+9jhxlq5c6AiyhDMQSi1y5aAcqaYwWnHzxEif7EV+rbINXZVs22VGNBL3WW1su6wU/IfyUQppgdvVygWC0T9RVJbfwIDd7l7mDXBKwVt3lSWlwJSSwcQGLlssRunlBjc8sHY9TAwvC++PZ27fPhT2F5142b5WVBIArA1fzlXyQnmk1+rT6fY9SKY9EQUV49w5IILl1OUG5aD0kueKJ/fP2Gw593cgazgLtKUoIFmD3ZwlKjtDfLtF+F+9nyKbaz65l2f9O6L21SX5KJ5fjqIOnpjAJd7XX9eC3rMagTbowwKZxOhGcm91uCp4gjaBhv+8mx7MtbEGv9BOqvb6tef/5GAC3IgBfTdJr+wF5LaHxv1YEqUcwhMlNZ+UWn/Lfc0xrMPqjrCXDzmq9yduptBaTmaUMBFDGDYPO7b1TRtW06zMfnsIbAr9cEyMW7SNw4irwzCBAXu72hGBtFyjlMUQkSeL83VktKuRPShSLaal9r5iJSAayHCbWv98hvtz/PWecroZSvHapdkZI2YwY0d1BYMeBKbqAE=
