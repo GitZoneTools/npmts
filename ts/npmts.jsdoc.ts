@@ -2,7 +2,7 @@
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
 
-var genJsdoc = function(){
+var genJsdoc = function(configArg){
     var done = plugins.Q.defer();
     plugins.beautylog.log("now generating " + "JsDoc documentation".blue);
     plugins.gulp.src([
@@ -13,11 +13,13 @@ var genJsdoc = function(){
             opts: {
                 destination: paths.docsDir
             }
-        }, done.resolve));
+        }, function(){
+            done.resolve(configArg)
+        }));
     return done.promise;
 };
 
-var publishDocs = function(){
+var publishDocs = function(configArg){
     var done = plugins.Q.defer();
     var gitUrl = plugins.projectinfo.npm(
         paths.cwd,
@@ -48,17 +50,17 @@ var publishDocs = function(){
             plugins.beautylog.error('Error: Git failed');
             plugins.shelljs.exit(1);
         }
-        done.resolve();
+        done.resolve(configArg);
     } else {
-        done.resolve();
+        done.resolve(configArg);
     }
     return done.promise;
 };
 
 
-export var run = function(){
+export var run = function(configArg){
     var done = plugins.Q.defer();
-    genJsdoc()
+    genJsdoc(configArg)
         .then(publishDocs)
         .then(done.resolve);
     return done.promise;
