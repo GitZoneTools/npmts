@@ -19,8 +19,6 @@ var genJsdoc = function () {
 };
 var publishDocs = function () {
     var done = plugins.Q.defer();
-    process.env.TRAVIS = true;
-    process.env.GITHUB_TOKEN = "sometoken";
     var gitUrl = plugins.projectinfo.npm(paths.cwd, {
         gitAccessToken: process.env.GITHUB_TOKEN
     }).git.httpsUrl;
