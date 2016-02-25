@@ -49,7 +49,6 @@
     "typings": "^0.6.8"
   },
   "devDependencies": {
-    "gulp-header": "^1.7.1",
     "gulp-typings": "^1.1.0"
   }
 }

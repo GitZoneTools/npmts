@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /// <reference path="./typings/main.d.ts" />
 var NpmtsConfigFile = require("./npmts.configfile");
 var NpmtsOptions = require("./npmts.options");

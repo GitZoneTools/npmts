@@ -4,7 +4,6 @@ var plugins = {
     gulp: require("gulp"),
     g:{
         typescript: require("gulp-typescript"),
-        header: require("gulp-header"),
         typings:require("gulp-typings")
     },
     mergeStream: require("merge2"),
@@ -25,7 +24,7 @@ plugins.gulp.task("typings",function(){
     return stream;
 });
 
-plugins.gulp.task("indexTS",["typings"], function() {
+plugins.gulp.task("TS",["typings"], function() {
     var stream = plugins.gulp.src([
             plugins.path.join(paths.packageBase,'ts/**/*.ts'),
             "!" + plugins.path.join(paths.packageBase,'ts/typings/**/*.d.ts')
@@ -34,12 +33,16 @@ plugins.gulp.task("indexTS",["typings"], function() {
             target:"ES5",
             module:"commonjs"
         }))
-        .pipe(plugins.g.header('#!/usr/bin/env node\n\n'))
         .pipe(plugins.gulp.dest(plugins.path.join(paths.packageBase, 'dist/')));
     return stream;
 });
 
-plugins.gulp.task('default',['indexTS'], function() {
+plugins.gulp.task("CLI",function(){
+    var stream = plugins.gulp.src(plugins.path.join(paths.packageBase,"assets/cli.js"))
+        .pipe(plugins.gulp.dest(plugins.path.join(paths.packageBase, 'dist/')))
+});
+
+plugins.gulp.task('default',['TS',"CLI"], function() {
 	plugins.beautylog.success('Typescript compiled');
 });
 

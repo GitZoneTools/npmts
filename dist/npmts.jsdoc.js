@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
