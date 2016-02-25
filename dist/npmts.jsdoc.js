@@ -32,7 +32,7 @@ var publishDocs = function (configArg) {
         + "&& git push --force --quiet "
         + "\"" + gitUrl + "\" "
         + "master:gh-pages " + "> /dev/null 2>&1";
-    if (plugins.smartenv.getEnv().isTravis) {
+    if (plugins.smartenv.getEnv().isTravis && configArg.docs && configArg.docs.publish) {
         plugins.beautylog.log("now publishing docs to GitHub");
         if (!plugins.shelljs.which('git')) {
             plugins.beautylog.error('Git is not installed');

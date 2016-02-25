@@ -2,5 +2,6 @@
 support
 compile
 test/
+docs/
 examples
 .gitignore

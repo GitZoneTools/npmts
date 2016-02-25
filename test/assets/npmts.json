@@ -9,5 +9,8 @@
     "./subts2/",
     "./customdir"
   ],
-  "coveralls":true
+  "coveralls":true,
+  "docs": {
+    "publish":true
+  }
 }
