@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 exports.run = function (configArg) {
@@ -8,7 +9,7 @@ exports.run = function (configArg) {
     }
     if (config.mode == "default") {
         config.typings = [
-            "./ts/"
+            "./ts/typings.json"
         ];
         config.ts = (_a = {},
             _a["./ts/**/*.ts"] = "./dist/",

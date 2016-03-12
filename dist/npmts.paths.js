@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = {};

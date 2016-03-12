@@ -10,7 +10,8 @@ var plugins = {
         jsdoc3: require("gulp-jsdoc3"),
         mocha: require("gulp-mocha"),
         sourcemaps: require("gulp-sourcemaps"),
-        typescript: require("gulp-typescript")
+        typescript: require("gulp-typescript"),
+        typings: require("gulp-typings")
 
     },
     merge2: require("merge2"),
@@ -22,6 +23,6 @@ var plugins = {
     smartcli: require("smartcli"),
     smartenv: require("smartenv"),
     smartfile: require("smartfile"),
-    typings: require("typings")
+    smartpath: require("smartpath")
 };
 export = plugins;

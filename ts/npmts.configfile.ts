@@ -16,6 +16,7 @@ export var run = function(){
                 break;
             default:
                 plugins.beautylog.error("mode " + config.mode.yellow + " not recognised!".red);
+                process.exit(1);
         };
     } else {
         plugins.beautylog.log("no config file found: so mode is " + "default".yellow);

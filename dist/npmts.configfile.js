@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
@@ -16,6 +17,7 @@ exports.run = function () {
                 break;
             default:
                 plugins.beautylog.error("mode " + config.mode.yellow + " not recognised!".red);
+                process.exit(1);
         }
         ;
     }

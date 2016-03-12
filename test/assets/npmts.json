@@ -1,13 +1,13 @@
 {
-  "mode":"default",
+  "mode":"custom",
   "ts":{
     "./customdir/*.ts":"./"
   },
   "typings":[
-    "./ts",
-    "./subts1/",
-    "./subts2/",
-    "./customdir"
+    "./ts/typings.json",
+    "./subts1/typings.json",
+    "./subts2/typings.json",
+    "./customdir/typings.json"
   ],
   "coveralls":true,
   "docs": {

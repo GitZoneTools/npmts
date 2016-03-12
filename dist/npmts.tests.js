@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
@@ -20,9 +21,13 @@ exports.run = function (configArg) {
     var coveralls = function () {
         plugins.beautylog.log("now uploading coverage data to coveralls");
         var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "./coverage/lcov.info")])
-            .pipe(plugins.g.coveralls());
+            .pipe(plugins.g.coveralls())
+            .pipe(plugins.g.gFunction(function () {
+            plugins.beautylog.ok("coverage data has beend uploaded Coveralls!");
+        }, "atEnd"));
         return stream;
     };
+    plugins.beautylog.log("now starting tests");
     istanbul().on("finish", function () {
         mocha().on("finish", function () {
             if (plugins.smartenv.getEnv().isTravis && config.coveralls) {
@@ -31,6 +36,7 @@ exports.run = function (configArg) {
                 });
             }
             else {
+                plugins.beautylog.ok("Tests have passed!");
                 done.resolve(config);
             }
         });

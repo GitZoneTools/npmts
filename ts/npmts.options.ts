@@ -8,7 +8,7 @@ export var run = function(configArg){
     }
     if (config.mode == "default"){
         config.typings = [
-            "./ts/"
+            "./ts/typings.json"
         ];
         config.ts = {
             ["./ts/**/*.ts"]: "./dist/",

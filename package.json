@@ -36,17 +36,17 @@
     "gulp-jsdoc3": "^0.2.0",
     "gulp-mocha": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-typescript": "2.11.0",
+    "gulp-typescript": "2.12.1",
     "gulp-typings": "1.1.0",
     "merge2": "1.0.1",
     "projectinfo": "1.0.1",
     "q": "^1.4.1",
     "shelljs": "^0.6.0",
     "smartcli": "0.0.11",
-    "smartenv": "1.1.0",
+    "smartenv": "1.2.0",
     "smartfile": "0.0.11",
-    "source-map-support": "^0.4.0",
-    "typings": "^0.6.8"
+    "smartpath": "2.1.0",
+    "source-map-support": "^0.4.0"
   },
   "devDependencies": {
     "gulp-typings": "^1.1.0"

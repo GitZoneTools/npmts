@@ -14,6 +14,7 @@ var genJsdoc = function(configArg){
                 destination: paths.docsDir
             }
         }, function(){
+            plugins.beautylog.ok("JsDoc has been generated!");
             done.resolve(configArg)
         }));
     return done.promise;
@@ -48,7 +49,7 @@ var publishDocs = function(configArg){
             plugins.beautylog.error('Error: Git failed');
             plugins.shelljs.exit(1);
         }
-        plugins.beautylog.success("Docs have been deployed to GitHub");
+        plugins.beautylog.ok("JsDoc has been deployed to GitHub!");
         done.resolve(configArg);
     } else {
         done.resolve(configArg);
