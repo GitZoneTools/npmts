@@ -23,7 +23,7 @@ exports.run = function (configArg) {
         var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "./coverage/lcov.info")])
             .pipe(plugins.g.coveralls())
             .pipe(plugins.g.gFunction(function () {
-            plugins.beautylog.ok("coverage data has beend uploaded Coveralls!");
+            plugins.beautylog.ok("Tests have passed and coverage data has been uploaded to Coveralls!");
         }, "atEnd"));
         return stream;
     };
