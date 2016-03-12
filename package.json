@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "description": "write npm modules with TypeScript",
   "main": "dist/index.js",
   "bin": {
@@ -48,6 +48,5 @@
     "smartpath": "2.1.0",
     "source-map-support": "^0.4.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
