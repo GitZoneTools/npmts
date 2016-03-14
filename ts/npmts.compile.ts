@@ -55,7 +55,7 @@ export var run = function(configArg){
         moduleStream.add(stream);
     }
     moduleStream.on("queueDrain",function(){
-        plugins.beautylog.ok("TypeScript is compiled!");
+        plugins.beautylog.ok("TypeScript has been compiled!");
         moduleStream.on("finish",function(){
             done.resolve(config);
         });

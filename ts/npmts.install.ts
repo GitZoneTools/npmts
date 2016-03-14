@@ -12,7 +12,7 @@ export var run = function(configArg){
     plugins.gulp.src(absoluteTypingsArray)
         .pipe(plugins.g.typings())
         .pipe(plugins.g.gFunction(function(){
-            plugins.beautylog.ok("typings are installed!");
+            plugins.beautylog.ok("typings have been installed!");
             done.resolve(config);
         },"atEnd"));
     return done.promise;
