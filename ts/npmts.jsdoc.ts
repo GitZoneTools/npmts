@@ -43,10 +43,10 @@ var publishDocs = function(configArg){
     if(plugins.smartenv.getEnv().isTravis && configArg.docs && configArg.docs.publish){
         plugins.beautylog.log("now publishing docs to GitHub");
         if (!plugins.shelljs.which('git')) {
-            plugins.beautylog.error('Git is not installed');
+            plugins.beautylog.error('Git is not installed!');
             plugins.shelljs.exit(1);
         } else if (plugins.shelljs.exec(deployScript).code !== 0) {
-            plugins.beautylog.error('Error: Git failed');
+            plugins.beautylog.error('Git failed!');
             plugins.shelljs.exit(1);
         }
         plugins.beautylog.ok("JsDoc has been deployed to GitHub!");

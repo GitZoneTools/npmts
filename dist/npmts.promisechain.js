@@ -1,11 +1,12 @@
 "use strict";
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
-var NpmtsConfigFile = require("./npmts.configfile");
-var NpmtsOptions = require("./npmts.options");
-var NpmtsInstall = require("./npmts.install");
+var NpmtsAssets = require("./npmts.assets");
 var NpmtsCompile = require("./npmts.compile");
+var NpmtsConfigFile = require("./npmts.configfile");
+var NpmtsInstall = require("./npmts.install");
 var NpmtsJsdoc = require("./npmts.jsdoc");
+var NpmtsOptions = require("./npmts.options");
 var NpmtsTests = require("./npmts.tests");
 exports.run = function () {
     var promisechain;
@@ -13,6 +14,7 @@ exports.run = function () {
         .then(NpmtsOptions.run)
         .then(NpmtsInstall.run)
         .then(NpmtsCompile.run)
+        .then(NpmtsAssets.run)
         .then(NpmtsJsdoc.run)
         .then(NpmtsTests.run)
         .then(function (configArg) {
@@ -30,8 +32,10 @@ exports.run = function () {
             "    wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
             "   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
             "     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n";
-        console.log(shipString);
-        plugins.beautylog.success("READY TO SHIP!");
+        if (process.env.CI) {
+            console.log(shipString);
+            plugins.beautylog.success("READY TO SHIP!");
+        }
     });
     return promisechain;
 };

@@ -12,5 +12,6 @@
   "coveralls":true,
   "docs": {
     "publish":true
-  }
+  },
+  "cli":true
 }
