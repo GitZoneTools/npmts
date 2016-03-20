@@ -7,7 +7,7 @@ export var run = function(){
     var configPath = plugins.path.join(paths.cwd,"npmts.json");
     if(plugins.smartfile.checks.fileExistsSync(configPath)){
         plugins.beautylog.info("npmts.json".blue + " config file found!");
-        config = plugins.smartfile.readFileToObject(configPath);
+        config = plugins.smartfile.local.toObjectSync(configPath);
         switch (config.mode){
             case "default":
             case "custom":

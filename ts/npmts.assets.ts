@@ -7,7 +7,7 @@ export var run = function(configArg){
     let config = configArg;
     plugins.beautylog.log("now looking at required assets");
     if(config.cli == true){
-        plugins.smartfile.copy(plugins.path.join(paths.npmtsAssetsDir,"cli.js"),paths.distDir);
+        plugins.smartfile.fsaction.copy(plugins.path.join(paths.npmtsAssetsDir,"cli.js"),paths.distDir);
         plugins.beautylog.ok("CLI asset has been installed!");
         done.resolve(config);
     } else {

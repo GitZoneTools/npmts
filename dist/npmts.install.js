@@ -9,7 +9,7 @@ exports.run = function (configArg) {
      * ----------- install typings ---------------
      * ----------------------------------------------- */
     plugins.beautylog.log("now installing " + "typings".yellow);
-    var absoluteTypingsArray = plugins.smartpath.absolute(config.typings, paths.cwd);
+    var absoluteTypingsArray = plugins.smartpath.transform.toAbsolute(config.typings, paths.cwd);
     plugins.gulp.src(absoluteTypingsArray)
         .pipe(plugins.g.typings())
         .pipe(plugins.g.gFunction(function () {
