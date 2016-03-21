@@ -2,6 +2,7 @@
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var NpmtsAssets = require("./npmts.assets");
+var NpmtsClean = require("./npmts.clean");
 var NpmtsCompile = require("./npmts.compile");
 var NpmtsConfigFile = require("./npmts.configfile");
 var NpmtsInstall = require("./npmts.install");
@@ -12,6 +13,7 @@ exports.run = function () {
     var promisechain;
     NpmtsConfigFile.run()
         .then(NpmtsOptions.run)
+        .then(NpmtsClean.run)
         .then(NpmtsInstall.run)
         .then(NpmtsCompile.run)
         .then(NpmtsAssets.run)

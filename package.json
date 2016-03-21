@@ -44,8 +44,8 @@
     "shelljs": "^0.6.0",
     "smartcli": "0.0.11",
     "smartenv": "1.2.0",
-    "smartfile": "2.1.1",
-    "smartpath": "3.0.0",
+    "smartfile": "2.2.0",
+    "smartpath": "3.0.1",
     "source-map-support": "^0.4.0"
   },
   "devDependencies": {}

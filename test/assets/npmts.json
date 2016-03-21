@@ -1,5 +1,5 @@
 {
-  "mode":"custom",
+  "mode":"default",
   "ts":{
     "./customdir/*.ts":"./"
   },
