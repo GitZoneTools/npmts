@@ -2,7 +2,7 @@
 import plugins = require("./npmts.plugins");
 
 export let isRelease = function():boolean {
-    if (plugins.smartci.check.isCi() && plugins.smartci.isTaggedCommit()){
+    if (plugins.smartci.check.isCi() && plugins.smartci.check.isTaggedCommit()){
         return true;
     } else {
         return false;

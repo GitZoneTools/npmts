@@ -2,7 +2,7 @@
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 exports.isRelease = function () {
-    if (plugins.smartci.check.isCi() && plugins.smartci.isTaggedCommit()) {
+    if (plugins.smartci.check.isCi() && plugins.smartci.check.isTaggedCommit()) {
         return true;
     }
     else {
