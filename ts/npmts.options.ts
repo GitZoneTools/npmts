@@ -2,11 +2,13 @@
 import plugins = require("./npmts.plugins");
 
 export let isRelease = function():boolean {
-    if (plugins.smartci.check.isCi() && plugins.smartci.check.isTaggedCommit()){
-        return true;
-    } else {
-        return false;
-    }
+    return plugins.smartci.check.isCi()
+        && plugins.smartci.check.isTaggedCommit();
+};
+
+export let doPublish = function():boolean {
+    return isRelease()
+        && plugins.smartci.get.subJobNumber() != 1;
 };
 
 export var run = function(configArg){
@@ -29,16 +31,17 @@ export var run = function(configArg){
 
     // handle state of current build
 
-    isRelease() ? plugins.beautylog.info("All right this is a release build!")
-        : plugins.beautylog.info("not a release build!");
+    isRelease() ? plugins.beautylog.info("All right: This is a RELEASE build!")
+        : plugins.beautylog.info("NOT A RELEASE build! We are not publishing anything!");
 
     // handle coveralls
-    if (
-        (typeof config.coveralls === "undefined" || !isRelease())
-        && plugins.smartci.get.subJobNumber == 1
-    ){
-        config.coveralls = false;
-    }
+    config.coveralls ? void(0) : config.coveralls = false;
+    doPublish() ? void(0) : config.coveralls = false;
+
+    // handle docs
+    config.docs ? void(0) : config.docs = {};
+    config.docs.publish ? void(0) : config.docs.publish = false;
+    doPublish() ? void(0) : config.docs.publish = false;
 
     done.resolve(config);
     return done.promise;

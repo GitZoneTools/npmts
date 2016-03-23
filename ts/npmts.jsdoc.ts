@@ -40,7 +40,7 @@ var publishDocs = function(configArg){
         + "\"" + gitUrl + "\" "
         + "master:gh-pages " + "> /dev/null 2>&1";
 
-    if(plugins.smartenv.getEnv().isTravis && configArg.docs && configArg.docs.publish){
+    if(configArg.docs.publish){
         plugins.beautylog.log("now publishing JsDoc documentation to GitHub");
         if (!plugins.shelljs.which('git')) {
             plugins.beautylog.error('Git is not installed!');
