@@ -4,4 +4,9 @@ console.log("**** starting NPMTS ****");
 var plugins = require("./npmts.plugins");
 var promisechain = require("./npmts.promisechain");
 plugins.beautylog.figletSync("NPMTS");
-promisechain.run();
+try {
+    promisechain.run();
+}
+catch (err) {
+    console.log(err);
+}

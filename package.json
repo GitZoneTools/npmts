@@ -42,6 +42,7 @@
     "projectinfo": "1.0.1",
     "q": "^1.4.1",
     "shelljs": "^0.6.0",
+    "smartci": "0.0.1",
     "smartcli": "0.0.11",
     "smartenv": "1.2.0",
     "smartfile": "2.2.0",

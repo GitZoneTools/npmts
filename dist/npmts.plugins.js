@@ -1,28 +1,26 @@
 "use strict";
 /// <reference path="./typings/main.d.ts" />
-var plugins = {
-    beautylog: require("beautylog"),
-    fs: require("fs-extra"),
-    gulp: require("gulp"),
-    g: {
-        coveralls: require("gulp-coveralls"),
-        gFunction: require("gulp-function"),
-        istanbul: require("gulp-istanbul"),
-        jsdoc3: require("gulp-jsdoc3"),
-        mocha: require("gulp-mocha"),
-        sourcemaps: require("gulp-sourcemaps"),
-        typescript: require("gulp-typescript"),
-        typings: require("gulp-typings")
-    },
-    merge2: require("merge2"),
-    projectinfo: require("projectinfo"),
-    sourceMapSupport: require("source-map-support").install(),
-    path: require("path"),
-    Q: require("q"),
-    shelljs: require("shelljs"),
-    smartcli: require("smartcli"),
-    smartenv: require("smartenv"),
-    smartfile: require("smartfile"),
-    smartpath: require("smartpath")
+exports.beautylog = require("beautylog");
+exports.fs = require("fs-extra");
+exports.gulp = require("gulp");
+exports.g = {
+    coveralls: require("gulp-coveralls"),
+    gFunction: require("gulp-function"),
+    istanbul: require("gulp-istanbul"),
+    jsdoc3: require("gulp-jsdoc3"),
+    mocha: require("gulp-mocha"),
+    sourcemaps: require("gulp-sourcemaps"),
+    typescript: require("gulp-typescript"),
+    typings: require("gulp-typings")
 };
-module.exports = plugins;
+exports.merge2 = require("merge2");
+exports.projectinfo = require("projectinfo");
+exports.sourceMapSupport = require("source-map-support").install();
+exports.path = require("path");
+exports.Q = require("q");
+exports.shelljs = require("shelljs");
+exports.smartci = require("smartci");
+exports.smartcli = require("smartcli");
+exports.smartenv = require("smartenv");
+exports.smartfile = require("smartfile");
+exports.smartpath = require("smartpath");
