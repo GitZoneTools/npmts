@@ -8,7 +8,7 @@ export let isRelease = function():boolean {
 
 export let doPublish = function():boolean {
     return isRelease()
-        && plugins.smartci.get.subJobNumber() != 1;
+        && plugins.smartci.get.subJobNumber() == 1;
 };
 
 export var run = function(configArg){
@@ -32,7 +32,9 @@ export var run = function(configArg){
     // handle state of current build
 
     isRelease() ? plugins.beautylog.info("All right: This is a RELEASE build!")
-        : plugins.beautylog.info("NOT A RELEASE build! We are not publishing anything!");
+        : plugins.beautylog.info("NOT A RELEASE build!");
+    isRelease() && doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes coverage and docs when tests succeed!")
+        : plugins.beautylog.info("We are not publishing anything!");
 
     // handle coveralls
     config.coveralls ? void(0) : config.coveralls = false;

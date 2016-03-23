@@ -27,7 +27,9 @@ exports.run = function (configArg) {
     }
     // handle state of current build
     exports.isRelease() ? plugins.beautylog.info("All right: This is a RELEASE build!")
-        : plugins.beautylog.info("NOT A RELEASE build! We are not publishing anything!");
+        : plugins.beautylog.info("NOT A RELEASE build!");
+    exports.isRelease() && exports.doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes coverage and docs when tests succeed!")
+        : plugins.beautylog.info("We are not publishing anything!");
     // handle coveralls
     config.coveralls ? void (0) : config.coveralls = false;
     exports.doPublish() ? void (0) : config.coveralls = false;
