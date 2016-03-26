@@ -40,6 +40,9 @@ exports.run = function () {
             console.log(shipString);
             plugins.beautylog.success("READY TO SHIP!");
         }
+        else {
+            plugins.beautylog.success("Done!");
+        }
     });
     return promisechain;
 };
