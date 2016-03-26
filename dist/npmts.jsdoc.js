@@ -19,7 +19,7 @@ var genJsdoc = function (configArg) {
     }));
     return done.promise;
 };
-var publishDocs = function (configArg) {
+exports.publishDocs = function (configArg) {
     var done = plugins.Q.defer();
     var gitUrl = plugins.projectinfo.npm(paths.cwd, {
         gitAccessToken: process.env.GITHUB_TOKEN
@@ -48,6 +48,7 @@ var publishDocs = function (configArg) {
         done.resolve(configArg);
     }
     else {
+        console.log("GitHub documentation has not been uploaded.");
         done.resolve(configArg);
     }
     return done.promise;
@@ -55,7 +56,6 @@ var publishDocs = function (configArg) {
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     genJsdoc(configArg)
-        .then(publishDocs)
         .then(done.resolve);
     return done.promise;
 };

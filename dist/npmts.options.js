@@ -7,7 +7,7 @@ exports.isRelease = function () {
 };
 exports.doPublish = function () {
     return exports.isRelease()
-        && plugins.smartci.get.subJobNumber() != 1;
+        && plugins.smartci.get.subJobNumber() == 1;
 };
 exports.run = function (configArg) {
     var done = plugins.Q.defer();

@@ -8,6 +8,7 @@ var NpmtsConfigFile = require("./npmts.configfile");
 var NpmtsInstall = require("./npmts.install");
 var NpmtsJsdoc = require("./npmts.jsdoc");
 var NpmtsOptions = require("./npmts.options");
+var NpmtsPublish = require("./npmts.publish");
 var NpmtsTests = require("./npmts.tests");
 exports.run = function () {
     var promisechain;
@@ -19,6 +20,7 @@ exports.run = function () {
         .then(NpmtsAssets.run)
         .then(NpmtsJsdoc.run)
         .then(NpmtsTests.run)
+        .then(NpmtsPublish.run)
         .then(function (configArg) {
         var shipString = "" +
             "\n" +

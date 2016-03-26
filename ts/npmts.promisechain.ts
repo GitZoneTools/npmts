@@ -8,6 +8,7 @@ import NpmtsConfigFile = require("./npmts.configfile");
 import NpmtsInstall = require("./npmts.install");
 import NpmtsJsdoc = require("./npmts.jsdoc");
 import NpmtsOptions = require("./npmts.options");
+import NpmtsPublish = require("./npmts.publish");
 import NpmtsTests = require("./npmts.tests");
 
 export var run = function(){
@@ -20,6 +21,7 @@ export var run = function(){
         .then(NpmtsAssets.run)
         .then(NpmtsJsdoc.run)
         .then(NpmtsTests.run)
+        .then(NpmtsPublish.run)
         .then(function(configArg){
             let shipString = "" +
                 "\n" +

@@ -1,6 +1,26 @@
 /// <reference path="./typings/main.d.ts" />
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
+
+export let publishCoverage = function(configArg){
+    let done = plugins.Q.defer();
+    plugins.beautylog.log("now uploading coverage data to coveralls");
+    var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"./coverage/lcov.info")])
+        .pipe(plugins.g.coveralls())
+        .pipe(plugins.g.gFunction([
+            function(){
+                let done = plugins.Q.defer();
+                plugins.beautylog.ok("Coverage data has been uploaded to Coveralls!");
+                done.resolve();
+                return done.promise;
+            }
+        ],"atEnd"));
+    stream.on("finish",function(){
+        done.resolve(configArg);
+    });
+    return done.promise;
+};
+
 export var run = function(configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
@@ -23,27 +43,11 @@ export var run = function(configArg) {
         return stream;
     };
 
-    var coveralls = function(){
-        plugins.beautylog.log("now uploading coverage data to coveralls");
-        var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"./coverage/lcov.info")])
-            .pipe(plugins.g.coveralls())
-            .pipe(plugins.g.gFunction(function(){
-                plugins.beautylog.ok("Tests have passed and coverage data has been uploaded to Coveralls!");
-            },"atEnd"));
-        return stream;
-    };
-
     plugins.beautylog.log("now starting tests");
     istanbul().on("finish",function(){
         mocha().on("finish",function(){
-            if(plugins.smartenv.getEnv().isTravis && config.coveralls){
-                coveralls().on("finish",function(){
-                    done.resolve(config);
-                })
-            } else {
-                plugins.beautylog.ok("Tests have passed!");
-                done.resolve(config);
-            }
+            plugins.beautylog.ok("Tests have passed!");
+            done.resolve(config);
         })
     });
     return done.promise;

@@ -2,8 +2,8 @@
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
 
-var genJsdoc = function(configArg){
-    var done = plugins.Q.defer();
+let genJsdoc = function(configArg){
+    let done = plugins.Q.defer();
     plugins.beautylog.log("now generating " + "JsDoc documentation".blue);
     plugins.gulp.src([
             plugins.path.join(paths.cwd,"README.md"),
@@ -20,16 +20,16 @@ var genJsdoc = function(configArg){
     return done.promise;
 };
 
-var publishDocs = function(configArg){
-    var done = plugins.Q.defer();
-    var gitUrl = plugins.projectinfo.npm(
+export let publishDocs = function(configArg){
+    let done = plugins.Q.defer();
+    let gitUrl = plugins.projectinfo.npm(
         paths.cwd,
         {
             gitAccessToken:process.env.GITHUB_TOKEN
         }
     ).git.httpsUrl;
 
-    var deployScript = ""
+    let deployScript = ""
         + "cd " + paths.docsDir + " "
         + "&& git init " + "> /dev/null 2>&1 "
         + "&& git config user.name \"TRAVIS CI\" " + "> /dev/null 2>&1 "
@@ -52,16 +52,16 @@ var publishDocs = function(configArg){
         plugins.beautylog.ok("JsDoc documentation has been deployed to GitHub!");
         done.resolve(configArg);
     } else {
+        console.log("GitHub documentation has not been uploaded.");
         done.resolve(configArg);
     }
     return done.promise;
 };
 
 
-export var run = function(configArg){
-    var done = plugins.Q.defer();
+export let run = function(configArg){
+    let done = plugins.Q.defer();
     genJsdoc(configArg)
-        .then(publishDocs)
         .then(done.resolve);
     return done.promise;
 };

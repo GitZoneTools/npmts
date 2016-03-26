@@ -2,6 +2,24 @@
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
+exports.publishCoverage = function (configArg) {
+    var done = plugins.Q.defer();
+    plugins.beautylog.log("now uploading coverage data to coveralls");
+    var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "./coverage/lcov.info")])
+        .pipe(plugins.g.coveralls())
+        .pipe(plugins.g.gFunction([
+        function () {
+            var done = plugins.Q.defer();
+            plugins.beautylog.ok("Coverage data has been uploaded to Coveralls!");
+            done.resolve();
+            return done.promise;
+        }
+    ], "atEnd"));
+    stream.on("finish", function () {
+        done.resolve(configArg);
+    });
+    return done.promise;
+};
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
@@ -18,27 +36,11 @@ exports.run = function (configArg) {
             .pipe(plugins.g.istanbul.enforceThresholds({ thresholds: { global: 30 } }));
         return stream;
     };
-    var coveralls = function () {
-        plugins.beautylog.log("now uploading coverage data to coveralls");
-        var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "./coverage/lcov.info")])
-            .pipe(plugins.g.coveralls())
-            .pipe(plugins.g.gFunction(function () {
-            plugins.beautylog.ok("Tests have passed and coverage data has been uploaded to Coveralls!");
-        }, "atEnd"));
-        return stream;
-    };
     plugins.beautylog.log("now starting tests");
     istanbul().on("finish", function () {
         mocha().on("finish", function () {
-            if (plugins.smartenv.getEnv().isTravis && config.coveralls) {
-                coveralls().on("finish", function () {
-                    done.resolve(config);
-                });
-            }
-            else {
-                plugins.beautylog.ok("Tests have passed!");
-                done.resolve(config);
-            }
+            plugins.beautylog.ok("Tests have passed!");
+            done.resolve(config);
         });
     });
     return done.promise;
