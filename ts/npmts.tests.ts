@@ -7,17 +7,10 @@ export let publishCoverage = function(configArg){
     plugins.beautylog.log("now uploading coverage data to coveralls");
     var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"./coverage/lcov.info")])
         .pipe(plugins.g.coveralls())
-        .pipe(plugins.g.gFunction([
-            function(){
-                let done = plugins.Q.defer();
-                plugins.beautylog.ok("Coverage data has been uploaded to Coveralls!");
-                done.resolve();
-                return done.promise;
-            }
-        ],"atEnd"));
-    stream.on("finish",function(){
-        done.resolve(configArg);
-    });
+        .pipe(plugins.g.gFunction(function(){
+            plugins.beautylog.ok("Coverage data has been uploaded to Coveralls!");
+            done.resolve(configArg);
+        },"atEnd"));
     return done.promise;
 };
 
