@@ -37,6 +37,11 @@ export var run = function(configArg) {
     };
 
     plugins.beautylog.log("now starting tests");
+    console.log(
+        "--------------------------------------------------\n" +
+        "*******************  TESTS: **********************\n" +
+        "--------------------------------------------------"
+    );
     istanbul().on("finish",function(){
         mocha().on("finish",function(){
             plugins.beautylog.ok("Tests have passed!");
