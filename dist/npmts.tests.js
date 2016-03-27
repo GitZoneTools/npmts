@@ -30,9 +30,11 @@ exports.run = function (configArg) {
         return stream;
     };
     plugins.beautylog.log("now starting tests");
-    console.log("--------------------------------------------------\n" +
-        "*******************  TESTS: **********************\n" +
-        "--------------------------------------------------");
+    console.log("--------------------------------------------------------------\n" +
+        "***************************" +
+        " TESTS: ".blue +
+        "***************************\n" +
+        "--------------------------------------------------------------");
     istanbul().on("finish", function () {
         mocha().on("finish", function () {
             plugins.beautylog.ok("Tests have passed!");
