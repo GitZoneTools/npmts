@@ -51,7 +51,7 @@ let coverage = function(configArg){
         .then(function(percentageArg){
             if (percentageArg >= configArg.coverageTreshold){
                 plugins.beautylog.ok(
-                    "your coverage of " + percentageArg + "% " + "is within your treshold of " +
+                    "your coverage of " + percentageArg + "% " + "exceeds your treshold of " +
                     configArg.coverageTreshold + "%"
                 );
             } else {
