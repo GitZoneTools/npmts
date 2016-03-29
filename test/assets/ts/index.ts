@@ -1,5 +1,5 @@
 /// <reference path="./typings/main.d.ts" />
-var testplugin = {
+let testplugin = {
     logSomething: function(){
         console.log("only function executed");
     }

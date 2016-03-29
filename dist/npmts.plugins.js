@@ -21,6 +21,7 @@ exports.Q = require("q");
 exports.shelljs = require("shelljs");
 exports.smartci = require("smartci");
 exports.smartcli = require("smartcli");
+exports.smartcov = require("smartcov");
 exports.smartenv = require("smartenv");
 exports.smartfile = require("smartfile");
 exports.smartpath = require("smartpath");

@@ -21,6 +21,7 @@ export let Q = require("q");
 export let shelljs = require("shelljs");
 export let smartci = require("smartci");
 export let smartcli = require("smartcli");
+export let smartcov = require("smartcov");
 export let smartenv = require("smartenv");
 export let smartfile = require("smartfile");
 export let smartpath = require("smartpath");

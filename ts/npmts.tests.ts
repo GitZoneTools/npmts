@@ -14,27 +14,62 @@ export let publishCoverage = function(configArg){
     return done.promise;
 };
 
-export var run = function(configArg) {
-    var done = plugins.Q.defer();
-    var config = configArg;
-    var istanbul = function () {
-        var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
-            // Covering files
-            .pipe(plugins.g.istanbul())
-            // Force `require` to return covered files
-            .pipe(plugins.g.istanbul.hookRequire());
-        return stream;
-    };
+/**
+ *
+ * @returns {*}
+ */
+let istanbul = function (configArg) {
+    let done = plugins.Q.defer();
+    var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
+        .pipe(plugins.g.istanbul()) // Covering files
+        .pipe(plugins.g.istanbul.hookRequire()) // Force `require` to return covered files
+        .pipe(plugins.g.gFunction(function(){
+            done.resolve(configArg);
+        },"atEnd"));
+    return done.promise;
+};
 
-    var mocha = function () {
-        var stream = plugins.gulp.src(["./test/test.js"])
-            .pipe(plugins.g.mocha())
-            // Creating the reports after tests ran
-            .pipe(plugins.g.istanbul.writeReports())
-            // Enforce a coverage of at least 90%
-            .pipe(plugins.g.istanbul.enforceThresholds({ thresholds: { global: 30 } }));
-        return stream;
-    };
+/**
+ *
+ * @returns {*}
+ */
+let mocha = function (configArg) {
+    let done = plugins.Q.defer();
+    let stream = plugins.gulp.src(["./test/test.js"])
+        .pipe(plugins.g.mocha())
+        .pipe(plugins.g.istanbul.writeReports()) // Creating the reports after tests ran
+        .pipe(plugins.g.gFunction(function(){
+            plugins.beautylog.ok("Tests have passed!");
+            done.resolve(configArg);
+        },"atEnd"));
+    return done.promise;
+};
+
+let coverage = function(configArg){
+    let done = plugins.Q.defer();
+    plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir,"lcov.info"))
+        .then(function(percentageArg){
+            if (percentageArg >= configArg.coverageTreshold){
+                plugins.beautylog.ok(
+                    "your coverage of " + percentageArg + "% " + "is within your treshold of " +
+                    configArg.coverageTreshold + "%"
+                );
+            } else {
+                plugins.beautylog.warn(
+                    "your coverage of " + percentageArg + "% " + "fails your treshold of " +
+                    configArg.coverageTreshold + "%"
+                );
+                plugins.beautylog.error("exiting due to coverage failure");
+                process.exit(1);
+            }
+            done.resolve(configArg);
+        });
+    return done.promise;
+};
+
+export let run = function(configArg) {
+    let done = plugins.Q.defer();
+    let config = configArg;
 
     plugins.beautylog.log("now starting tests");
     console.log(
@@ -44,11 +79,10 @@ export var run = function(configArg) {
         "***************************\n" +
         "--------------------------------------------------------------"
     );
-    istanbul().on("finish",function(){
-        mocha().on("finish",function(){
-            plugins.beautylog.ok("Tests have passed!");
-            done.resolve(config);
-        })
-    });
+
+    istanbul(config)
+        .then(mocha)
+        .then(coverage)
+        .then(done.resolve);
     return done.promise;
 };

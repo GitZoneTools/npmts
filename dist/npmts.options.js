@@ -33,6 +33,7 @@ exports.run = function (configArg) {
     // handle coveralls
     config.coveralls ? void (0) : config.coveralls = false;
     exports.doPublish() ? void (0) : config.coveralls = false;
+    config.coverageTreshold ? void (0) : config.coverageTreshold = 70;
     // handle docs
     config.docs ? void (0) : config.docs = {};
     config.docs.publish ? void (0) : config.docs.publish = false;

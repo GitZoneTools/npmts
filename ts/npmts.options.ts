@@ -40,6 +40,8 @@ export var run = function(configArg){
     config.coveralls ? void(0) : config.coveralls = false;
     doPublish() ? void(0) : config.coveralls = false;
 
+    config.coverageTreshold ? void(0) : config.coverageTreshold = 70;
+
     // handle docs
     config.docs ? void(0) : config.docs = {};
     config.docs.publish ? void(0) : config.docs.publish = false;
