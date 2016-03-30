@@ -15,7 +15,6 @@ exports.g = {
 };
 exports.merge2 = require("merge2");
 exports.projectinfo = require("projectinfo");
-exports.sourceMapSupport = require("source-map-support").install();
 exports.path = require("path");
 exports.Q = require("q");
 exports.shelljs = require("shelljs");
@@ -25,3 +24,4 @@ exports.smartcov = require("smartcov");
 exports.smartenv = require("smartenv");
 exports.smartfile = require("smartfile");
 exports.smartpath = require("smartpath");
+exports.sourceMapSupport = require("source-map-support").install();

@@ -47,8 +47,8 @@ var coverage = function (configArg) {
     plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, "lcov.info"))
         .then(function (percentageArg) {
         if (percentageArg >= configArg.coverageTreshold) {
-            plugins.beautylog.ok("your coverage of " + percentageArg + "% " + "exceeds your treshold of " +
-                configArg.coverageTreshold + "%");
+            plugins.beautylog.ok("your coverage of " + percentageArg.toString().blue + "% ".blue + "exceeds your treshold of " +
+                configArg.coverageTreshold.toString().blue + "%".blue);
         }
         else {
             plugins.beautylog.warn("your coverage of " + percentageArg + "% " + "fails your treshold of " +

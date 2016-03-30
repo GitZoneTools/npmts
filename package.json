@@ -44,7 +44,7 @@
     "shelljs": "^0.6.0",
     "smartci": "0.0.1",
     "smartcli": "0.0.11",
-    "smartcov": "0.0.3",
+    "smartcov": "0.0.4",
     "smartenv": "1.2.0",
     "smartfile": "2.2.0",
     "smartpath": "3.0.3",
