@@ -12,7 +12,7 @@ exports.doPublish = function () {
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
-    plugins.beautylog.log("now determining build options");
+    plugins.beautylog.log("now determining build options...");
     //handle default mode
     if (config.mode == "default") {
         config.typings = [
@@ -38,6 +38,7 @@ exports.run = function (configArg) {
     config.docs ? void (0) : config.docs = {};
     config.docs.publish ? void (0) : config.docs.publish = false;
     exports.doPublish() ? void (0) : config.docs.publish = false;
+    plugins.beautylog.ok("build options are ready!");
     done.resolve(config);
     return done.promise;
     var _a;

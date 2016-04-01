@@ -15,7 +15,7 @@ export var run = function(configArg){
     var done = plugins.Q.defer();
     var config = configArg;
 
-    plugins.beautylog.log("now determining build options");
+    plugins.beautylog.log("now determining build options...");
 
     //handle default mode
     if (config.mode == "default"){
@@ -47,6 +47,7 @@ export var run = function(configArg){
     config.docs.publish ? void(0) : config.docs.publish = false;
     doPublish() ? void(0) : config.docs.publish = false;
 
+    plugins.beautylog.ok("build options are ready!");
     done.resolve(config);
     return done.promise;
 };

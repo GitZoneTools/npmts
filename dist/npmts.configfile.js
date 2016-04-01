@@ -12,7 +12,7 @@ exports.run = function () {
         switch (config.mode) {
             case "default":
             case "custom":
-                plugins.beautylog.log("mode is " + config.mode.yellow);
+                plugins.beautylog.ok("mode is " + config.mode.yellow);
                 done.resolve(config);
                 break;
             default:
