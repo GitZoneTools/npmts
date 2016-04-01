@@ -99,3 +99,8 @@ The file must be named **npmts.json**
 * **typings** is an array of all direcories that have a typings.json present. Uses the new typings tool from npm.
 
 > We will add more options over time.
+
+### About the authors:
+[![Project Phase](https://mediaserve.lossless.digital/lossless.com/img/createdby_github.svg)](https://lossless.com/)
+
+[![PayPal](https://img.shields.io/badge/Support%20us-PayPal-blue.svg)](https://paypal.me/lossless)
