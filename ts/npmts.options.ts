@@ -1,6 +1,10 @@
 /// <reference path="./typings/main.d.ts" />
 import plugins = require("./npmts.plugins");
 
+export let isCi = function(){
+    return plugins.smartci.check.isCi();
+};
+
 export let isRelease = function():boolean {
     return plugins.smartci.check.isCi()
         && plugins.smartci.check.isTaggedCommit();
@@ -33,12 +37,12 @@ export var run = function(configArg){
 
     isRelease() ? plugins.beautylog.info("All right: This is a RELEASE build!")
         : plugins.beautylog.info("NOT A RELEASE build!");
-    isRelease() && doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes coverage and docs when tests succeed!")
+    isRelease() && doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes COVERAGE + DOCS when tests succeed!")
         : plugins.beautylog.info("We are not publishing anything!");
 
     // handle coveralls
     config.codecov ? void(0) : config.codecov = true;
-    doPublish() ? void(0) : config.codecov = false;
+    isCi() ? void(0) : config.codecov = false;
 
     config.coverageTreshold ? void(0) : config.coverageTreshold = 70;
 

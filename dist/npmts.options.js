@@ -1,6 +1,9 @@
 "use strict";
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
+exports.isCi = function () {
+    return plugins.smartci.check.isCi();
+};
 exports.isRelease = function () {
     return plugins.smartci.check.isCi()
         && plugins.smartci.check.isTaggedCommit();
@@ -28,11 +31,11 @@ exports.run = function (configArg) {
     // handle state of current build
     exports.isRelease() ? plugins.beautylog.info("All right: This is a RELEASE build!")
         : plugins.beautylog.info("NOT A RELEASE build!");
-    exports.isRelease() && exports.doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes coverage and docs when tests succeed!")
+    exports.isRelease() && exports.doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes COVERAGE + DOCS when tests succeed!")
         : plugins.beautylog.info("We are not publishing anything!");
     // handle coveralls
     config.codecov ? void (0) : config.codecov = true;
-    exports.doPublish() ? void (0) : config.codecov = false;
+    exports.isCi() ? void (0) : config.codecov = false;
     config.coverageTreshold ? void (0) : config.coverageTreshold = 70;
     // handle docs
     config.docs ? void (0) : config.docs = {};
