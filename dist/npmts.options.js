@@ -31,8 +31,8 @@ exports.run = function (configArg) {
     exports.isRelease() && exports.doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes coverage and docs when tests succeed!")
         : plugins.beautylog.info("We are not publishing anything!");
     // handle coveralls
-    config.coveralls ? void (0) : config.coveralls = false;
-    exports.doPublish() ? void (0) : config.coveralls = false;
+    config.codecov ? void (0) : config.codecov = true;
+    exports.doPublish() ? void (0) : config.codecov = false;
     config.coverageTreshold ? void (0) : config.coverageTreshold = 70;
     // handle docs
     config.docs ? void (0) : config.docs = {};

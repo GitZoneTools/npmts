@@ -37,8 +37,8 @@ export var run = function(configArg){
         : plugins.beautylog.info("We are not publishing anything!");
 
     // handle coveralls
-    config.coveralls ? void(0) : config.coveralls = false;
-    doPublish() ? void(0) : config.coveralls = false;
+    config.codecov ? void(0) : config.codecov = true;
+    doPublish() ? void(0) : config.codecov = false;
 
     config.coverageTreshold ? void(0) : config.coverageTreshold = 70;
 

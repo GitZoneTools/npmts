@@ -39,7 +39,7 @@ Then use it in package.json's script section to trigger a build:
 1. Instrumentalize created JavaScript files with istanbul
 1. Run Tests
 1. Create Coverage report
-1. Upload Coverage reports to travis (Tests must pass, Coveralls must be activated, by default only triggers on travis)
+1. Upload Coverage reports to codecov.io (Tests must pass, codecov.io must be activated, by default only triggers on travis)
 1. Upload JsDoc Documentation to gh-pages branch on GitHub. (Tests must pass, requires GitHub Token)
 
 #### npmts.json

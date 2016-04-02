@@ -9,7 +9,7 @@ export let run = function(configArg){
     let done = plugins.Q.defer();
     let config = configArg;
     let promiseArray = [];
-    config.coveralls ? promiseArray.push(NpmtsTests.publishCoverage(configArg)) : void(0);
+    config.codecov ? promiseArray.push(NpmtsTests.publishCoverage(configArg)) : void(0);
     config.docs.publish ? promiseArray.push(NpmtsJsdoc.publishDocs(configArg)) : void(0);
     promiseArray.length === 0 ? plugins.beautylog.info("Did not publish anything!") : void(0);
 

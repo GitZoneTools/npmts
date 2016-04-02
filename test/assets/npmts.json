@@ -9,7 +9,7 @@
     "./subts2/typings.json",
     "./customdir/typings.json"
   ],
-  "coveralls":true,
+  "codecov":true,
   "docs": {
     "publish":true
   },
