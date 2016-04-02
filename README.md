@@ -6,7 +6,7 @@ Write npm modules with TypeScript without hassle.
 [![Dependency Status](https://david-dm.org/pushrocks/npmts.svg)](https://david-dm.org/pushrocks/npmts)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/npmts/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/npmts/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/pushrocks/npmts/badges/code.svg)](https://www.bithound.io/github/pushrocks/npmts)
-[![Coverage Status](https://coveralls.io/repos/github/pushrocks/npmts/badge.svg?branch=master)](https://coveralls.io/github/pushrocks/npmts?branch=master)
+[![codecov.io](https://codecov.io/github/pushrocks/npmts/coverage.svg?branch=master)](https://codecov.io/github/pushrocks/npmts?branch=master)
 
 ## What is NPMTS?
 NPMTS is your friend when it comes to write, test, publish and document NPM modules written in TypeScript.
