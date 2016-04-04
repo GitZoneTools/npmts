@@ -4,11 +4,11 @@ var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 exports.publishCoverage = function (configArg) {
     var done = plugins.Q.defer();
-    plugins.beautylog.log("now uploading coverage data to coveralls");
+    plugins.beautylog.log("now uploading coverage data to codecov.io");
     var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "./coverage/lcov.info")])
         .pipe(plugins.g.codecov())
         .pipe(plugins.g.gFunction(function () {
-        plugins.beautylog.ok("Coverage data has been uploaded to Coveralls!");
+        plugins.beautylog.ok("Coverage data has been uploaded to codecov.io!");
         done.resolve(configArg);
     }, "atEnd"));
     return done.promise;
