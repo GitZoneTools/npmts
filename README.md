@@ -54,13 +54,17 @@ the npmts.json is the main config file. You can use it to customize the behaviou
   "ts":{
     "./customdir/*.ts":"./"
   },
-  "tsconfig":true,
+  "tsOptions":{
+    "declaration":false,
+    "target":"ES6"
+  },
   "typings":[
     "./ts/typings.json",
     "./subts1/typings.json",
     "./subts2/typings.json",
     "./customdir/typings.json"
   ],
+  "typingsInclude":"auto",
   "codecov":true,
   "docs": {
     "publish":true
@@ -71,10 +75,10 @@ the npmts.json is the main config file. You can use it to customize the behaviou
 
 | key | description |
 | --- | --- |
-| mode | "default" will do some defualt stuff, "custom" only does what you specify |
 | codecov | if true, coverage data will be uploaded to codecov when running on travis |
-| docs | `{"publish":true}` lets you control what happens with your module documentation |
-|  |  |
+| docs | `{"publish":true, destination:"github"}` lets you control what happens with your module documentation |
+| mode | "default" will do some defualt stuff, "custom" only does what you specify |
+| tsOptions | specify options for tsc |
 |  |  |
 
 #### Typings
@@ -82,7 +86,8 @@ the npmts.json is the main config file. You can use it to customize the behaviou
 
 > Note: You can reference the typings files in any of your TypeScript code with a  
 `/// <reference path="/some/path/main.d.ts">`  
-or use a tsconfig.json file. 
+We are currently working on a "typingsInclude" option, that will autoload any typings during compilation.
+tsconfig is NOT supported, since it would render this module useless
 
 #### TypeScript
 by default npmts looks for `./ts/*.ts` and `./test/test.ts` that will compile to
@@ -102,6 +107,8 @@ You can reference it in your package.json like this.
 This is in line with the latest TypeScript best practices.
 You can then import plugins via the TypeScript `import` Syntax
 and tsc will pick up the declaration file automatically.
+
+> Note: If you don't want declaration files, set tsOptions.declaration to false in npmts.json
 
 #### Instrumentalize Code
 npmts instrumentalizes (using istanbul) the created JavaScript code to create a coverage report.
