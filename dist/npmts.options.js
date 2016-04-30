@@ -28,6 +28,8 @@ exports.run = function (configArg) {
         );
         config.test = ["./index.js"];
     }
+    //check if config.tsOptions is available
+    config.tsOptions ? void (0) : config.tsOptions = {};
     // handle state of current build
     exports.isRelease() ? plugins.beautylog.info("All right: This is a RELEASE build!")
         : plugins.beautylog.info("NOT A RELEASE build!");

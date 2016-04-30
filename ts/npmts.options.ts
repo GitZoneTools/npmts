@@ -32,6 +32,9 @@ export var run = function(configArg){
         };
         config.test = ["./index.js"];
     }
+    
+    //check if config.tsOptions is available
+    config.tsOptions ? void(0) : config.tsOptions = {};
 
     // handle state of current build
 

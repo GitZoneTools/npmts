@@ -3,7 +3,9 @@
   "ts":{
     "./customdir/*.ts":"./"
   },
-  "tsconfig":true,
+  "tsOptions":{
+    "target":"ES5"
+  },
   "typings":[
     "./ts/typings.json",
     "./subts1/typings.json",

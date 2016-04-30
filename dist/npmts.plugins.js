@@ -13,6 +13,7 @@ exports.g = {
     typescript: require("gulp-typescript"),
     typings: require("gulp-typings")
 };
+exports.lodashObject = require('lodash/fp/object');
 exports.merge2 = require("merge2");
 exports.projectinfo = require("projectinfo");
 exports.path = require("path");
@@ -24,4 +25,4 @@ exports.smartcov = require("smartcov");
 exports.smartenv = require("smartenv");
 exports.smartfile = require("smartfile");
 exports.smartpath = require("smartpath");
-exports.sourceMapSupport = require("source-map-support").install();
+exports.sourceMapSupport = require("source-map-support").install(); // this is required to display errors correctly during testing

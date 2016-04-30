@@ -11,17 +11,29 @@ exports.run = function (configArg) {
     /* -------------------------------------------------
      * ----------- compile TypeScript --------------------------
      * ----------------------------------------------- */
-    for (var key in config.ts) {
-        var stream = plugins.gulp.src([plugins.path.join(paths.cwd, key), "!**/typings/**"])
-            .pipe(plugins.g.sourcemaps.init()) // This means sourcemaps will be generated
-            .pipe(plugins.g.typescript({
-            out: helpers.outputName(config, key),
-            target: "ES5",
-            module: "commonjs"
-        }))
-            .pipe(plugins.g.sourcemaps.write()) // Now the sourcemaps are added to the .js file
-            .pipe(plugins.gulp.dest(helpers.outputDir(config, key)));
-        moduleStream.add(stream);
+    var tsOptionsDefault = {
+        declaration: true,
+        target: "ES5",
+        module: "commonjs"
+    };
+    /**
+     * merges default ts options with those found in npmts.json
+     */
+    var tsOptions = function (keyArg) {
+        return plugins.lodashObject.assign(tsOptionsDefault, config.tsOptions);
+    };
+    for (var keyArg in config.ts) {
+        if (helpers.checkOutputPath(config, keyArg)) {
+            var tsStream = plugins.gulp.src([plugins.path.join(paths.cwd, keyArg), "!**/typings/**"])
+                .pipe(plugins.g.sourcemaps.init()) // This means sourcemaps will be generated
+                .pipe(plugins.g.typescript(tsOptions(keyArg)));
+            var jsStream = tsStream.js
+                .pipe(plugins.g.sourcemaps.write()) // Now the sourcemaps are added to the .js file
+                .pipe(plugins.gulp.dest(config.ts[keyArg]));
+            var declarationStream = tsStream.dts
+                .pipe(plugins.gulp.dest(config.ts[keyArg]));
+            moduleStream.add(tsStream, jsStream, declarationStream);
+        }
     }
     moduleStream.on("queueDrain", function () {
         plugins.beautylog.ok("TypeScript has been compiled!");

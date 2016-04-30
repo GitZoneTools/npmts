@@ -11,6 +11,9 @@ Write npm modules with TypeScript without hassle.
 ## What is NPMTS?
 NPMTS is your friend when it comes to write, test, publish and document NPM modules written in TypeScript.
 
+There is a docker image available that includes npmts to make CI a breeze:  
+[hosttoday/ht-docker-npmg on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-npmg/)
+
 ### Install
 First install npmts as dev dependency:
 
@@ -88,14 +91,15 @@ by default npmts looks for `./ts/*.ts` and `./test/test.ts` that will compile to
 Use commonjs module system for wiring up files.
 
 #### Declaration files
-**npmts** also creates an `index.d.ts` declaration file by default.
-You can reference it in your package.json like this:
+**npmts** also creates an `./dist/index.d.ts` declaration file by default.
+You can reference it in your package.json like this.
 
 ```json
-"main": "index.js",
-"typings": "./index.d.ts",
+"main": "dist/index.js",
+"typings": ".dist/index.d.ts",
 ```
 
+This is in line with the latest TypeScript best practices.
 You can then import plugins via the TypeScript `import` Syntax
 and tsc will pick up the declaration file automatically.
 
