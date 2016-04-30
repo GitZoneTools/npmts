@@ -45,6 +45,15 @@ export let run = function (configArg) {
     moduleStream.on("queueDrain", function () {
         plugins.beautylog.ok("TypeScript has been compiled!");
         moduleStream.on("finish", function () {
+            try {
+                if(config.mode = "default") plugins.fs.copySync(
+                    plugins.path.join(paths.cwd,"ts/typings"),
+                    plugins.path.join(paths.cwd,"dist/typings")
+                );
+            }
+            catch (err){
+                plugins.beautylog.warn("failed to copy external typings for full module declaration support");
+            }
             done.resolve(config);
         });
         moduleStream.end();
