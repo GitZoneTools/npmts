@@ -3,6 +3,7 @@
   "ts":{
     "./customdir/*.ts":"./"
   },
+  "tsconfig":true,
   "typings":[
     "./ts/typings.json",
     "./subts1/typings.json",

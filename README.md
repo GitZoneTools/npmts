@@ -45,9 +45,41 @@ Then use it in package.json's script section to trigger a build:
 #### npmts.json
 the npmts.json is the main config file. You can use it to customize the behaviour of NPMTS.
 
+```json
+{
+  "mode":"default",
+  "ts":{
+    "./customdir/*.ts":"./"
+  },
+  "tsconfig":true,
+  "typings":[
+    "./ts/typings.json",
+    "./subts1/typings.json",
+    "./subts2/typings.json",
+    "./customdir/typings.json"
+  ],
+  "codecov":true,
+  "docs": {
+    "publish":true
+  },
+  "cli":true
+}
+```
+
+| key | description |
+| --- | --- |
+| mode | "default" will do some defualt stuff, "custom" only does what you specify |
+| codecov | if true, coverage data will be uploaded to codecov when running on travis |
+| docs | `{"publish":true}` lets you control what happens with your module documentation |
+|  |  |
+|  |  |
+
 #### Typings
 **npmts** looks for `./ts/typings.json` by default and installs any defined typings to `.ts/typings/`.
-You can then reference the ./ts/typings/main.d.ts file in any of your TypeScript code.
+
+> Note: You can reference the typings files in any of your TypeScript code with a  
+`/// <reference path="/some/path/main.d.ts">`  
+or use a tsconfig.json file. 
 
 #### TypeScript
 by default npmts looks for `./ts/*.ts` and `./test/test.ts` that will compile to

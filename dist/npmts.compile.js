@@ -2,6 +2,7 @@
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
+var helpers = require("./npmts.compile.helpers");
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
@@ -11,43 +12,15 @@ exports.run = function (configArg) {
      * ----------- compile TypeScript --------------------------
      * ----------------------------------------------- */
     for (var key in config.ts) {
-        var outputPathIsDir;
-        try {
-            if (plugins.fs.statSync(plugins.path.join(paths.cwd, config.ts[key])).isDirectory()) {
-                outputPathIsDir = true;
-            }
-        }
-        catch (err) {
-            outputPathIsDir = false;
-        }
-        //do some evaluation of the environment
-        var outputNameSpecified = (!outputPathIsDir
-            && (plugins.path.extname(config.ts[key]) == ".js"));
-        var outputName = (function () {
-            if (outputNameSpecified) {
-                return plugins.path.basename(config.ts[key]);
-            }
-            else {
-                return undefined;
-            }
-        })();
-        var outputDir = (function () {
-            if (outputNameSpecified) {
-                return plugins.path.dirname(plugins.path.join(paths.cwd, config.ts[key]));
-            }
-            else {
-                return plugins.path.join(paths.cwd, config.ts[key]);
-            }
-        })();
         var stream = plugins.gulp.src([plugins.path.join(paths.cwd, key), "!**/typings/**"])
             .pipe(plugins.g.sourcemaps.init()) // This means sourcemaps will be generated
             .pipe(plugins.g.typescript({
-            out: outputName,
+            out: helpers.outputName(config, key),
             target: "ES5",
             module: "commonjs"
         }))
             .pipe(plugins.g.sourcemaps.write()) // Now the sourcemaps are added to the .js file
-            .pipe(plugins.gulp.dest(outputDir));
+            .pipe(plugins.gulp.dest(helpers.outputDir(config, key)));
         moduleStream.add(stream);
     }
     moduleStream.on("queueDrain", function () {
@@ -57,6 +30,6 @@ exports.run = function (configArg) {
         });
         moduleStream.end();
     });
-    /*==================== END TYPESCRIPT =====================*/
+    /*==================== END TS Compilation =====================*/
     return done.promise;
 };
