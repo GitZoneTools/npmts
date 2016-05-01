@@ -3,6 +3,34 @@
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 var helpers = require("./npmts.compile.helpers");
+/**
+ * handles definition to make them fit for modular use
+ */
+var definitionHandler = function (configArg) {
+    plugins.beautylog.log("now making declaration files ready");
+    var done = plugins.Q.defer();
+    var configTsLenght = Object.keys(configArg.ts).length;
+    if (configTsLenght == 0) {
+        plugins.beautylog.warn("No declaration files found... Are you sure you don't want them?");
+        done.resolve(configArg); //if there are no definition files, resolve...
+    }
+    var localCounter = 0;
+    for (var key in configArg.ts) {
+        var distPath = configArg.ts[key];
+        var stream = plugins.gulp.src(plugins.path.join(distPath, "**/*.d.ts"))
+            .pipe(plugins.g.replace(plugins.smartstring.typescript.regexReferencePath, ""))
+            .pipe(plugins.gulp.dest(distPath))
+            .pipe(plugins.g.gFunction(function () {
+            localCounter++;
+            if (localCounter == configTsLenght) {
+                plugins.beautylog.ok("declaration files ready!!!");
+                done.resolve(configArg);
+            }
+            ;
+        }, "atEnd"));
+    }
+    return done.promise;
+};
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
@@ -36,16 +64,12 @@ exports.run = function (configArg) {
         }
     }
     moduleStream.on("queueDrain", function () {
-        plugins.beautylog.ok("TypeScript has been compiled!");
         moduleStream.on("finish", function () {
-            try {
-                if (config.mode = "default")
-                    plugins.fs.copySync(plugins.path.join(paths.cwd, "ts/typings"), plugins.path.join(paths.cwd, "dist/typings"));
-            }
-            catch (err) {
-                plugins.beautylog.warn("failed to copy external typings for full module declaration support");
-            }
-            done.resolve(config);
+            plugins.beautylog.ok("TypeScript has been compiled!");
+            definitionHandler(config)
+                .then(function () {
+                done.resolve(config);
+            });
         });
         moduleStream.end();
     });

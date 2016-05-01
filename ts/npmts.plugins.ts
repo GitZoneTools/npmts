@@ -8,6 +8,7 @@ export let g = {
     istanbul: require("gulp-istanbul"),
     jsdoc3: require("gulp-jsdoc3"),
     mocha: require("gulp-mocha"),
+    replace: require("gulp-replace"),
     sourcemaps: require("gulp-sourcemaps"),
     typescript: require("gulp-typescript"),
     typings: require("gulp-typings")
@@ -25,4 +26,5 @@ export let smartcov = require("smartcov");
 export let smartenv = require("smartenv");
 export let smartfile = require("smartfile");
 export let smartpath = require("smartpath");
+export let smartstring = require("smartstring");
 export let sourceMapSupport = require("source-map-support").install(); // this is required to display errors correctly during testing
