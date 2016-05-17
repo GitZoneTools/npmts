@@ -3,6 +3,7 @@ Write npm modules with TypeScript without hassle.
 
 ## Status
 [![Build Status](https://travis-ci.org/pushrocks/npmts.svg?branch=master)](https://travis-ci.org/pushrocks/npmts)
+[![Build status](https://ci.appveyor.com/api/projects/status/iiljwhhcvbuqyvq0?svg=true)](https://ci.appveyor.com/project/philkunz/npmts)
 [![Dependency Status](https://david-dm.org/pushrocks/npmts.svg)](https://david-dm.org/pushrocks/npmts)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/npmts/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/npmts/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/pushrocks/npmts/badges/code.svg)](https://www.bithound.io/github/pushrocks/npmts)
