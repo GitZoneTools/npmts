@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "5.1.5",
+  "version": "5.1.6",
   "description": "write npm modules with TypeScript",
   "main": "dist/index.js",
   "bin": {
@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "(npm run compile && npm run check)",
-    "check":"(cd ./test/assets && node ../../dist/index.js)",
-    "compile":"(cd compile && node compile.js)"
+    "check": "(cd ./test/assets && node ../../dist/index.js)",
+    "compile": "(cd compile && node compile.js)"
   },
   "repository": {
     "type": "git",
