@@ -1,6 +1,7 @@
 /// <reference path="./typings/main.d.ts" />
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
+import {npmtsOra} from "./npmts.promisechain";
 
 export let publishCoverage = function(configArg){
     let done = plugins.Q.defer();
@@ -71,12 +72,10 @@ export let run = function(configArg) {
     let done = plugins.Q.defer();
     let config = configArg;
 
-    plugins.beautylog.log("now starting tests");
-    console.log(
-        "--------------------------------------------------------------\n" +
-        "***************************" +
-        " TESTS: ".blue +
-        "***************************\n" +
+    npmtsOra.text("now starting tests");
+    plugins.beautylog.log(
+        "-------------------------------------------------------\n" +
+        "*************************** TESTS: ***************************\n" +
         "--------------------------------------------------------------"
     );
 

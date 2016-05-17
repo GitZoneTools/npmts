@@ -1,6 +1,9 @@
 /// <reference path="./typings/main.d.ts" />
 import plugins = require("./npmts.plugins");
 
+export let npmtsOra = new plugins.beautylog.Ora("setting up TaskChain","cyan");
+npmtsOra.start();
+
 import NpmtsAssets = require("./npmts.assets");
 import NpmtsClean = require("./npmts.clean");
 import NpmtsCompile = require("./npmts.compile");
@@ -41,6 +44,7 @@ export var run = function(){
                 console.log(shipString);
                 plugins.beautylog.success("READY TO SHIP!");
             } else {
+                npmtsOra.endOk("Tasks finished!");
                 plugins.beautylog.success("Done!")
             }
 

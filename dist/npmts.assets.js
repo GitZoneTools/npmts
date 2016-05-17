@@ -2,13 +2,14 @@
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
-    plugins.beautylog.log("now looking at required assets");
+    npmts_promisechain_1.npmtsOra.text("now looking at required assets");
     if (config.cli == true) {
         plugins.smartfile.fsaction.copy(plugins.path.join(paths.npmtsAssetsDir, "cli.js"), paths.distDir);
-        plugins.beautylog.ok("CLI asset has been installed!");
+        plugins.beautylog.ok("installed CLI assets!");
         done.resolve(config);
     }
     else {

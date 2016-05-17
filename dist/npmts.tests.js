@@ -2,6 +2,7 @@
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 exports.publishCoverage = function (configArg) {
     var done = plugins.Q.defer();
     plugins.beautylog.log("now uploading coverage data to codecov.io");
@@ -63,11 +64,9 @@ var coverage = function (configArg) {
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
-    plugins.beautylog.log("now starting tests");
-    console.log("--------------------------------------------------------------\n" +
-        "***************************" +
-        " TESTS: ".blue +
-        "***************************\n" +
+    npmts_promisechain_1.npmtsOra.text("now starting tests");
+    plugins.beautylog.log("-------------------------------------------------------\n" +
+        "*************************** TESTS: ***************************\n" +
         "--------------------------------------------------------------");
     istanbul(config)
         .then(mocha)

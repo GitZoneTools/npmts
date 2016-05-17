@@ -1,6 +1,8 @@
 "use strict";
 /// <reference path="./typings/main.d.ts" />
 var plugins = require("./npmts.plugins");
+exports.npmtsOra = new plugins.beautylog.Ora("setting up TaskChain", "cyan");
+exports.npmtsOra.start();
 var NpmtsAssets = require("./npmts.assets");
 var NpmtsClean = require("./npmts.clean");
 var NpmtsCompile = require("./npmts.compile");
@@ -41,6 +43,7 @@ exports.run = function () {
             plugins.beautylog.success("READY TO SHIP!");
         }
         else {
+            exports.npmtsOra.endOk("Tasks finished!");
             plugins.beautylog.success("Done!");
         }
     });

@@ -1,10 +1,11 @@
 /// <reference path="./typings/main.d.ts" />
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
+import {npmtsOra} from "./npmts.promisechain";
 
 let genJsdoc = function(configArg){
     let done = plugins.Q.defer();
-    plugins.beautylog.log("now generating " + "JsDoc documentation".blue);
+    npmtsOra.text("now generating JsDoc documentation");
     plugins.gulp.src([
             plugins.path.join(paths.cwd,"README.md"),
             plugins.path.join(paths.distDir,"**/*.js")

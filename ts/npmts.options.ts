@@ -1,5 +1,6 @@
 /// <reference path="./typings/main.d.ts" />
 import plugins = require("./npmts.plugins");
+import {npmtsOra} from "./npmts.promisechain";
 
 export let isCi = function(){
     return plugins.smartci.check.isCi();
@@ -19,7 +20,7 @@ export var run = function(configArg){
     var done = plugins.Q.defer();
     var config = configArg;
 
-    plugins.beautylog.log("now determining build options...");
+    npmtsOra.text("now determining build options...");
 
     //handle default mode
     if (config.mode == "default"){

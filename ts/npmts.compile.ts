@@ -1,14 +1,14 @@
 /// <reference path="./typings/main.d.ts" />
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
-
 import helpers = require("./npmts.compile.helpers");
+import {npmtsOra} from "./npmts.promisechain";
 
 /**
  * handles definition to make them fit for modular use
  */
 let definitionHandler = function(configArg){
-    plugins.beautylog.log("now making declaration files ready");
+    npmtsOra.text("now making declaration files ready");
     let done = plugins.Q.defer();
     let configTsLenght = Object.keys(configArg.ts).length;
     if(configTsLenght == 0) {
@@ -24,7 +24,7 @@ let definitionHandler = function(configArg){
             .pipe(plugins.g.gFunction(function(){
                 localCounter++
                 if(localCounter == configTsLenght){
-                    plugins.beautylog.ok("declaration files ready!!!");
+                    plugins.beautylog.ok("made declaration files ready!");
                     done.resolve(configArg)
                 };
             },"atEnd"));
@@ -37,7 +37,7 @@ let definitionHandler = function(configArg){
 export let run = function (configArg) {
     let done = plugins.Q.defer();
     let config = configArg;
-    plugins.beautylog.log("now compiling " + "TypeScript".yellow);
+    npmtsOra.text("now compiling " + "TypeScript".yellow);
     let moduleStream = plugins.merge2({ end: false });
 
     /* -------------------------------------------------
@@ -74,7 +74,7 @@ export let run = function (configArg) {
 
     moduleStream.on("queueDrain", function () {
         moduleStream.on("finish", function () {
-            plugins.beautylog.ok("TypeScript has been compiled!");
+            plugins.beautylog.ok("compiled TypeScript!");
             definitionHandler(config)
                 .then(function(){
                     done.resolve(config);
