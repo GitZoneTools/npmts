@@ -14,8 +14,7 @@ import NpmtsOptions = require("./npmts.options");
 import NpmtsPublish = require("./npmts.publish");
 import NpmtsTests = require("./npmts.tests");
 
-export var run = function(){
-    var promisechain;
+export var promisechain = function(){
     NpmtsConfigFile.run()
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)
@@ -49,5 +48,4 @@ export var run = function(){
             }
 
         });
-    return promisechain;
 };
