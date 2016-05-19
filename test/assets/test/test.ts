@@ -1,4 +1,4 @@
-/// <reference path="../ts/typings/main.d.ts" />
+/// <reference path="../ts/typings/index.d.ts" />
 var testplugin = require("../dist/index.js");
 describe("testplugins",function(){
     describe(".logSomething",function(){

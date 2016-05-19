@@ -1,5 +1,5 @@
 "use strict";
-/// <reference path="./typings/main.d.ts" />
+/// <reference path="./typings/index.d.ts" />
 var plugins = require("./npmts.plugins");
 var paths = {};
 paths.cwd = plugins.smartcli.get.cwd().path;

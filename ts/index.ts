@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+/// <reference path="./typings/index.d.ts" />
 console.log("**** starting NPMTS ****");
 import * as plugins from "./npmts.plugins"
 import {promisechain} from "./npmts.promisechain";

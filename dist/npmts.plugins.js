@@ -1,5 +1,5 @@
 "use strict";
-/// <reference path="./typings/main.d.ts" />
+/// <reference path="./typings/index.d.ts" />
 exports.beautylog = require("beautylog");
 exports.fs = require("fs-extra");
 exports.gulp = require("gulp");

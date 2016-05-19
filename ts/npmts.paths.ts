@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+/// <reference path="./typings/index.d.ts" />
 import plugins = require("./npmts.plugins");
 var paths:any = {};
 paths.cwd = plugins.smartcli.get.cwd().path;

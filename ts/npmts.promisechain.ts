@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+/// <reference path="./typings/index.d.ts" />
 import plugins = require("./npmts.plugins");
 
 export let npmtsOra = new plugins.beautylog.Ora("setting up TaskChain","cyan");
@@ -45,7 +45,7 @@ export let promisechain = function(){
                 plugins.beautylog.success("READY TO SHIP!");
             } else {
                 npmtsOra.endOk("Tasks finished!");
-                plugins.beautylog.success("Done!")
+                plugins.beautylog.success("Done!");
             }
             done.resolve();
         });
