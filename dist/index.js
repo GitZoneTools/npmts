@@ -2,10 +2,10 @@
 /// <reference path="./typings/main.d.ts" />
 console.log("**** starting NPMTS ****");
 var plugins = require("./npmts.plugins");
-var promisechain = require("./npmts.promisechain");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 plugins.beautylog.figletSync("NPMTS");
 try {
-    promisechain.run();
+    npmts_promisechain_1.promisechain();
 }
 catch (err) {
     console.log(err);

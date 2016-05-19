@@ -12,8 +12,7 @@ var NpmtsJsdoc = require("./npmts.jsdoc");
 var NpmtsOptions = require("./npmts.options");
 var NpmtsPublish = require("./npmts.publish");
 var NpmtsTests = require("./npmts.tests");
-exports.run = function () {
-    var promisechain;
+exports.promisechain = function () {
     NpmtsConfigFile.run()
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)
@@ -47,5 +46,4 @@ exports.run = function () {
             plugins.beautylog.success("Done!");
         }
     });
-    return promisechain;
 };
