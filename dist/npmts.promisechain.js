@@ -13,6 +13,7 @@ var NpmtsOptions = require("./npmts.options");
 var NpmtsPublish = require("./npmts.publish");
 var NpmtsTests = require("./npmts.tests");
 exports.promisechain = function () {
+    var done = plugins.Q.defer();
     NpmtsConfigFile.run()
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)
@@ -45,5 +46,7 @@ exports.promisechain = function () {
             exports.npmtsOra.endOk("Tasks finished!");
             plugins.beautylog.success("Done!");
         }
+        done.resolve();
     });
+    return done.promise;
 };

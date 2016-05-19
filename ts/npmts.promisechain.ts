@@ -14,7 +14,8 @@ import NpmtsOptions = require("./npmts.options");
 import NpmtsPublish = require("./npmts.publish");
 import NpmtsTests = require("./npmts.tests");
 
-export var promisechain = function(){
+export let promisechain = function(){
+    let done = plugins.Q.defer();
     NpmtsConfigFile.run()
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)
@@ -46,6 +47,7 @@ export var promisechain = function(){
                 npmtsOra.endOk("Tasks finished!");
                 plugins.beautylog.success("Done!")
             }
-
+            done.resolve();
         });
+        return done.promise;
 };
