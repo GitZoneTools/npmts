@@ -9,7 +9,7 @@ exports.run = function (configArg) {
     /* -------------------------------------------------
      * ----------- install typings ---------------
      * ----------------------------------------------- */
-    npmts_promisechain_1.npmtsOra.text("now installing typings");
+    npmts_promisechain_1.npmtsOra.text("now installing " + "typings".yellow);
     var absoluteTypingsArray = plugins.smartpath.transform.toAbsolute(config.typings, paths.cwd);
     plugins.gulp.src(absoluteTypingsArray)
         .pipe(plugins.g.typings())

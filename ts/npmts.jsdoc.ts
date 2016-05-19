@@ -5,7 +5,7 @@ import {npmtsOra} from "./npmts.promisechain";
 
 let genJsdoc = function(configArg){
     let done = plugins.Q.defer();
-    npmtsOra.text("now generating JsDoc documentation");
+    npmtsOra.text("now generating " + "JsDoc documentation".yellow);
     plugins.gulp.src([
             plugins.path.join(paths.cwd,"README.md"),
             plugins.path.join(paths.distDir,"**/*.js")

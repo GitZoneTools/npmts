@@ -49,7 +49,7 @@
     "smartcli": "0.0.11",
     "smartcov": "0.0.6",
     "smartenv": "1.2.5",
-    "smartfile": "3.0.6",
+    "smartfile": "3.0.7",
     "smartpath": "3.2.1",
     "smartstring": "^1.0.3",
     "source-map-support": "^0.4.0"

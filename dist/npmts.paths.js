@@ -1,16 +1,15 @@
 "use strict";
 /// <reference path="./typings/index.d.ts" />
 var plugins = require("./npmts.plugins");
-var paths = {};
-paths.cwd = plugins.smartcli.get.cwd().path;
+exports.cwd = plugins.smartcli.get.cwd().path;
 //Directories
-paths.tsDir = plugins.path.join(paths.cwd, "ts/");
-paths.distDir = plugins.path.join(paths.cwd, "dist/");
-paths.docsDir = plugins.path.join(paths.cwd, "docs/");
-paths.testDir = plugins.path.join(paths.cwd, "test/");
-paths.coverageDir = plugins.path.join(paths.cwd, "coverage/");
-paths.npmtsAssetsDir = plugins.path.join(__dirname, "../assets/");
+exports.tsDir = plugins.path.join(exports.cwd, "ts/");
+exports.distDir = plugins.path.join(exports.cwd, "dist/");
+exports.docsDir = plugins.path.join(exports.cwd, "docs/");
+exports.testDir = plugins.path.join(exports.cwd, "test/");
+exports.typingsDir = plugins.path.join(exports.cwd, "ts/typings/");
+exports.coverageDir = plugins.path.join(exports.cwd, "coverage/");
+exports.npmtsAssetsDir = plugins.path.join(__dirname, "../assets/");
 //Files
-paths.indexTS = plugins.path.join(paths.cwd, "ts/index.ts");
-paths.testTS = plugins.path.join(paths.cwd, "ts/test.ts");
-module.exports = paths;
+exports.indexTS = plugins.path.join(exports.cwd, "ts/index.ts");
+exports.testTS = plugins.path.join(exports.cwd, "ts/test.ts");

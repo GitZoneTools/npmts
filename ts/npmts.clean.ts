@@ -4,11 +4,13 @@ import paths = require("./npmts.paths");
 import {npmtsOra} from "./npmts.promisechain";
 
 let removeDist = function(){
+    npmtsOra.text("cleaning " + "dist".yellow + " folder");
     return plugins.smartfile.fsaction.remove(paths.distDir);
 };
 
 let removeTypings = function(){
-    return plugins.smartfile.fsaction.remove(paths.distDir);
+    npmtsOra.text("cleaning " + "typings".yellow + " folder");
+    return plugins.smartfile.fsaction.remove(paths.typingsDir);
 };
 
 export let run = function(configArg){
