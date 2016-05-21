@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/pushrocks/npmts#readme",
   "dependencies": {
-    "beautylog": "5.0.4",
+    "beautylog": "5.0.5",
+    "early": "^1.0.7",
     "fs-extra": "^0.30.0",
     "gulp": "3.9.1",
     "gulp-codecov": "^2.0.1",
