@@ -44,7 +44,6 @@ export let promisechain = function(){
                 console.log(shipString);
                 plugins.beautylog.success("READY TO SHIP!");
             } else {
-                npmtsOra.endOk("Tasks finished!");
                 plugins.beautylog.success("Done!");
             }
             done.resolve();

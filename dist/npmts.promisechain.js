@@ -43,7 +43,6 @@ exports.promisechain = function () {
             plugins.beautylog.success("READY TO SHIP!");
         }
         else {
-            exports.npmtsOra.endOk("Tasks finished!");
             plugins.beautylog.success("Done!");
         }
         done.resolve();

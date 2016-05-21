@@ -19,11 +19,13 @@ exports.publishCoverage = function (configArg) {
  * @returns {*}
  */
 var istanbul = function (configArg) {
+    npmts_promisechain_1.npmtsOra.text("Instrumentalizing transpiled JS...");
     var done = plugins.Q.defer();
     var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "dist/*.js")])
         .pipe(plugins.g.istanbul()) // Covering files
         .pipe(plugins.g.istanbul.hookRequire()) // Force `require` to return covered files
         .pipe(plugins.g.gFunction(function () {
+        plugins.beautylog.ok("JS has been instrumentalized to get test code coverage!");
         done.resolve(configArg);
     }, "atEnd"));
     return done.promise;
@@ -34,6 +36,7 @@ var istanbul = function (configArg) {
  */
 var mocha = function (configArg) {
     var done = plugins.Q.defer();
+    npmts_promisechain_1.npmtsOra.end(); // end npmtsOra for tests.
     var stream = plugins.gulp.src(["./test/test.js"])
         .pipe(plugins.g.mocha())
         .pipe(plugins.g.istanbul.writeReports()) // Creating the reports after tests ran
