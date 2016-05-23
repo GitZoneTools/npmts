@@ -8,8 +8,14 @@ var removeDist = function () {
     return plugins.smartfile.fsaction.remove(paths.distDir);
 };
 var removeTypings = function () {
+    var done = plugins.Q.defer();
     npmts_promisechain_1.npmtsOra.text("cleaning " + "typings".yellow + " folder");
-    return plugins.smartfile.fsaction.remove(paths.typingsDir);
+    if (false) {
+    }
+    else {
+        done.resolve();
+    }
+    return done.promise;
 };
 exports.run = function (configArg) {
     npmts_promisechain_1.npmtsOra.text("cleaning up from previous builds...");

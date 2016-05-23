@@ -9,8 +9,15 @@ let removeDist = function(){
 };
 
 let removeTypings = function(){
+    let done = plugins.Q.defer();
     npmtsOra.text("cleaning " + "typings".yellow + " folder");
-    return plugins.smartfile.fsaction.remove(paths.typingsDir);
+    if(false){
+        //plugins.smartfile.fsaction.remove(paths.typingsDir)
+        //    .then(done.resolve);
+    } else {
+        done.resolve();
+    }
+    return done.promise;
 };
 
 export let run = function(configArg){
