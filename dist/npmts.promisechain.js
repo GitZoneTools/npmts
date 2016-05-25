@@ -1,5 +1,5 @@
 "use strict";
-/// <reference path="./typings/index.d.ts" />
+require("typings-global");
 var plugins = require("./npmts.plugins");
 exports.npmtsOra = new plugins.beautylog.Ora("setting up TaskChain", "cyan");
 exports.npmtsOra.start();

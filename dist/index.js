@@ -1,5 +1,5 @@
 "use strict";
-/// <reference path="./typings/index.d.ts" />
+require("typings-global");
 var early = require("early");
 early.start("NPMTS");
 var plugins = require("./npmts.plugins");

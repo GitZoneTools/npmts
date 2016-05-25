@@ -53,7 +53,8 @@
     "smartfile": "3.0.10",
     "smartpath": "3.2.1",
     "smartstring": "^2.0.0",
-    "source-map-support": "^0.4.0"
+    "source-map-support": "^0.4.0",
+    "typings-global": "*"
   },
   "devDependencies": {}
 }

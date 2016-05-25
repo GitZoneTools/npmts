@@ -1,5 +1,5 @@
 "use strict";
-/// <reference path="./typings/index.d.ts" />
+require("typings-global");
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 exports.run = function () {

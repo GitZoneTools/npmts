@@ -1,4 +1,4 @@
-/// <reference path="./typings/index.d.ts" />
+import "typings-global";
 import * as early from "early";
 early.start("NPMTS");
 import * as plugins from "./npmts.plugins"

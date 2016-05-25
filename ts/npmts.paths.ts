@@ -1,4 +1,4 @@
-/// <reference path="./typings/index.d.ts" />
+import "typings-global";
 import plugins = require("./npmts.plugins");
 
 export let cwd = plugins.smartcli.get.cwd().path;

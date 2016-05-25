@@ -1,4 +1,4 @@
-/// <reference path="./typings/index.d.ts" />
+import "typings-global";
 import plugins = require("./npmts.plugins");
 
 export let npmtsOra = new plugins.beautylog.Ora("setting up TaskChain","cyan");

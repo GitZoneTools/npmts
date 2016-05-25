@@ -1,4 +1,4 @@
-/// <reference path="./typings/index.d.ts" />
+import "typings-global";
 import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
 import helpers = require("./npmts.compile.helpers");
