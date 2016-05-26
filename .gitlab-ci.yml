@@ -4,14 +4,10 @@ stages:
 - test
 - release
 
-variables:
-  LTS: "4"
-  STABLE: "stable"
-
 testLTS:
   stage: test
   script:
-    - npmci install $LTS
+    - npmci install 4
     - npm test
   tags:
     - docker
@@ -19,7 +15,7 @@ testLTS:
 testSTABLE:
   stage: test
   script:
-    - npmci install $STABLE
+    - npmci install stable
     - npm test
   tags:
     - docker
