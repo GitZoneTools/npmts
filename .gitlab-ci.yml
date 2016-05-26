@@ -11,7 +11,7 @@ variables:
 testLTS:
   stage: test
   script:
-    - nvm install $LTS
+    - npmci install $LTS
     - npm test
   tags:
     - docker
@@ -19,7 +19,7 @@ testLTS:
 testSTABLE:
   stage: test
   script:
-    - nvm install $STABLE
+    - npmci install $STABLE
     - npm test
   tags:
     - docker
