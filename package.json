@@ -22,9 +22,9 @@
   "author": "Lossless Digital UG (haftungsbeschraenkt)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pushrocks/npmts/issues"
+    "url": "https://gitlab.com/pushrocks/npmts/issues"
   },
-  "homepage": "https://github.com/pushrocks/npmts#readme",
+  "homepage": "https://gitlab.com/pushrocks/npmts#readme",
   "dependencies": {
     "beautylog": "5.0.6",
     "early": "^2.0.1",
