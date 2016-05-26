@@ -1,0 +1,35 @@
+image: hosttoday/ht-docker-node
+
+stages:
+- test
+- release
+
+variables:
+  LTS: 4
+  STABLE: stable
+
+testLTS:
+  stage: test
+  script:
+    - nvm install $LTS
+    - npm test
+  tags:
+    - docker
+    
+testSTABLE:
+  stage: test
+  script:
+    - nvm install $STABLE
+    - npm test
+  tags:
+    - docker
+
+release:
+  stage: release
+  script:
+    - 
+    - npm -v
+  only:
+    - master
+  tags:
+    - docker
