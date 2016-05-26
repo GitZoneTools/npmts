@@ -5,8 +5,8 @@ stages:
 - release
 
 variables:
-  LTS: 4
-  STABLE: stable
+  LTS: "4"
+  STABLE: "stable"
 
 testLTS:
   stage: test
