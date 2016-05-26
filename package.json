@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pushrocks/npmts.git"
+    "url": "git+https://gitlab.com/pushrocks/npmts.git"
   },
   "keywords": [
     "TypeScript",
