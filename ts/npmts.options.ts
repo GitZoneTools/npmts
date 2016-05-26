@@ -12,8 +12,13 @@ export let isRelease = function():boolean {
 };
 
 export let doPublish = function():boolean {
-    return isRelease()
-        && plugins.smartci.get.subJobNumber() == 1;
+    try {
+        return isRelease()
+            && plugins.smartci.get.subJobNumber() == 1;
+    }
+    catch (err){
+        return false;
+    }  
 };
 
 export var run = function(configArg){

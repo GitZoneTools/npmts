@@ -10,8 +10,13 @@ exports.isRelease = function () {
         && plugins.smartci.check.isTaggedCommit();
 };
 exports.doPublish = function () {
-    return exports.isRelease()
-        && plugins.smartci.get.subJobNumber() == 1;
+    try {
+        return exports.isRelease()
+            && plugins.smartci.get.subJobNumber() == 1;
+    }
+    catch (err) {
+        return false;
+    }
 };
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
