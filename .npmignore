@@ -1,6 +1,6 @@
 .idea/
-support
-compile
+compile/
+coverage/
 test/
 docs/
 examples
