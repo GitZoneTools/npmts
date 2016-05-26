@@ -10,8 +10,6 @@ testLTS:
     - npmci install 4
     - npm install
     - npm test
-    - npm -v
-    - node -v
   tags:
     - docker
     
@@ -21,8 +19,6 @@ testSTABLE:
     - npmci install stable
     - npm install
     - npm test
-    - npm -v
-    - node -v
   tags:
     - docker
 
