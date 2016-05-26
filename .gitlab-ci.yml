@@ -27,7 +27,6 @@ testSTABLE:
 release:
   stage: release
   script:
-    - 
     - npm -v
   only:
     - master
