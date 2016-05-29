@@ -51,7 +51,10 @@ the npmts.json is the main config file. You can use it to customize the behaviou
 ```json
 {
   "mode":"default",
-  "codecov":true,
+  "codecov":{
+    "publish":true,
+    "token":"sometoken"
+  },
   "ts":{
     "./customdir/*.ts":"./"
   },

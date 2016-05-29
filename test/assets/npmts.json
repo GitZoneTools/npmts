@@ -12,7 +12,6 @@
     "./subts2/typings.json",
     "./customdir/typings.json"
   ],
-  "codecov":true,
   "docs": {
     "publish":true
   },
