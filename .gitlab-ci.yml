@@ -27,6 +27,6 @@ release:
   script:
     - npm -v
   only:
-    - master
+    - tags
   tags:
     - docker
