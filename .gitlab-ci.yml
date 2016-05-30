@@ -28,7 +28,7 @@ release:
   tags:
     - docker
     
-page:
+pages:
   stage: page
   script:
   - npmci test lts
