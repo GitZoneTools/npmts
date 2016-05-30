@@ -7,25 +7,21 @@ stages:
 testLTS:
   stage: test
   script:
-    - npmci install 4
-    - npm install
-    - npm test
+    - npmci test lts
   tags:
     - docker
     
 testSTABLE:
   stage: test
   script:
-    - npmci install stable
-    - npm install
-    - npm test
+    - npmci test stable
   tags:
     - docker
 
 release:
   stage: release
   script:
-    - npm -v
+    - npmci publish
   only:
     - tags
   tags:
