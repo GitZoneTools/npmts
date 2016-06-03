@@ -4,7 +4,6 @@ exports.beautylog = require("beautylog");
 exports.fs = require("fs-extra");
 exports.gulp = require("gulp");
 exports.g = {
-    codecov: require("gulp-codecov"),
     gFunction: require("gulp-function"),
     istanbul: require("gulp-istanbul"),
     jsdoc3: require("gulp-jsdoc3"),

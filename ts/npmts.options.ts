@@ -49,10 +49,6 @@ export var run = function(configArg){
     isRelease() && doPublish() ? plugins.beautylog.info("All right: This is the first subBuild, so this one publishes COVERAGE + DOCS when tests succeed!")
         : plugins.beautylog.info("We are not publishing anything!");
 
-    // handle codecov
-    config.codecov ? void(0) : config.codecov = {};
-    config.codecov.publish ? void(0) : config.codecov.publish = false;
-    isCi() && (process.env.TRAVIS || config.codecov.token) ? void(0) : config.codecov = false;
     
 
     config.coverageTreshold ? void(0) : config.coverageTreshold = 70;

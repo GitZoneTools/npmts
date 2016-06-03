@@ -3,7 +3,6 @@ export import beautylog = require("beautylog");
 export let fs = require("fs-extra");
 export let gulp = require("gulp");
 export let g = {
-    codecov: require("gulp-codecov"),
     gFunction: require("gulp-function"),
     istanbul: require("gulp-istanbul"),
     jsdoc3: require("gulp-jsdoc3"),
