@@ -5,6 +5,13 @@ stages:
 - release
 - page
 
+testLEGACY:
+  stage: test
+  script:
+    - npmci test legacy
+  tags:
+    - docker
+
 testLTS:
   stage: test
   script:
