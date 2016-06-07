@@ -33,7 +33,9 @@ export var run = function(configArg){
             "./ts/typings.json"
         ];
         config.ts = {
-            ["./ts/**/*.ts"]: "./dist/",
+            ["./ts/**/*.ts"]: "./dist/"
+        };
+        config.testTs = {
             ["./test/test.ts"]: "./test/"
         };
         config.test = ["./index.js"];

@@ -29,8 +29,11 @@ exports.run = function (configArg) {
         ];
         config.ts = (_a = {},
             _a["./ts/**/*.ts"] = "./dist/",
-            _a["./test/test.ts"] = "./test/",
             _a
+        );
+        config.testTs = (_b = {},
+            _b["./test/test.ts"] = "./test/",
+            _b
         );
         config.test = ["./index.js"];
     }
@@ -49,5 +52,5 @@ exports.run = function (configArg) {
     plugins.beautylog.ok("build options are ready!");
     done.resolve(config);
     return done.promise;
-    var _a;
+    var _a, _b;
 };
