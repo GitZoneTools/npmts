@@ -71,7 +71,7 @@ exports.run = function (configArg) {
     npmts_promisechain_1.npmtsOra.text("now compiling " + "TypeScript".yellow);
     compileTs(config.ts, config.tsOptions)
         .then(function () {
-        compileTs(config.tsTest);
+        compileTs(config.testTs);
     })
         .then(function () {
         plugins.beautylog.ok("compiled TypeScript!");

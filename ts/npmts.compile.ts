@@ -77,7 +77,7 @@ export let run = function (configArg) {
     
     compileTs(config.ts,config.tsOptions)
         .then(() => {
-            compileTs(config.tsTest);
+            compileTs(config.testTs);
         })
         .then(function () {
             plugins.beautylog.ok("compiled TypeScript!");
