@@ -1,8 +1,9 @@
-image: hosttoday/ht-docker-node:npmci
+image: hosttoday/ht-docker-node:npmts
 
 stages:
 - test
 - release
+- trigger
 - page
 
 testLEGACY:
@@ -31,6 +32,15 @@ release:
   stage: release
   script:
     - npmci publish
+  only:
+    - tags
+  tags:
+    - docker
+
+trigger:
+  stage: trigger
+  script:
+    - npmci trigger
   only:
     - tags
   tags:
