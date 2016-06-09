@@ -1,6 +1,11 @@
 import "typings-global";
 import plugins = require("./npmts.plugins");
 
+//Npmts Paths
+export let npmtsPackageRoot = plugins.path.join(__dirname,"../");
+
+
+//Project paths
 export let cwd = plugins.smartcli.get.cwd().path;
 
 //Directories

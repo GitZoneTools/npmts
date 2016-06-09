@@ -1,6 +1,9 @@
 "use strict";
 require("typings-global");
 var plugins = require("./npmts.plugins");
+//Npmts Paths
+exports.npmtsPackageRoot = plugins.path.join(__dirname, "../");
+//Project paths
 exports.cwd = plugins.smartcli.get.cwd().path;
 //Directories
 exports.tsDir = plugins.path.join(exports.cwd, "ts/");
