@@ -7,8 +7,9 @@
     "npmts": "dist/cli.js"
   },
   "scripts": {
-    "test": "(npm run compile && npm run check)",
+    "test": "(npm run compile && npm run check && npm run checkVersion)",
     "check": "(cd ./test/assets && node ../../dist/index.js)",
+    "checkVersion":"cd ./test/assets && node ../../dist/index.js -v",
     "compile": "(cd compile && node compile.js)"
   },
   "repository": {
@@ -27,7 +28,7 @@
   "homepage": "https://gitlab.com/pushrocks/npmts#readme",
   "dependencies": {
     "beautylog": "5.0.8",
-    "early": "^2.0.1",
+    "early": "^2.0.7",
     "fs-extra": "^0.30.0",
     "gulp": "3.9.1",
     "gulp-concat": "^2.6.0",
@@ -46,7 +47,7 @@
     "q": "^1.4.1",
     "shelljs": "^0.7.0",
     "smartci": "0.0.1",
-    "smartcli": "0.0.11",
+    "smartcli": "1.0.1",
     "smartcov": "0.0.6",
     "smartenv": "1.2.5",
     "smartfile": "3.0.10",

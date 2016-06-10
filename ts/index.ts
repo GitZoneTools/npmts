@@ -1,6 +1,8 @@
 import "typings-global";
 
-// start early and load modules
+/* ================================================== *
+    Starting NPMTS main process.
+ * ================================================== */
 import * as early from "early";
 early.start("NPMTS");
 import * as plugins from "./npmts.plugins"
@@ -8,14 +10,20 @@ import * as paths from "./npmts.paths";
 import {promisechain} from "./npmts.promisechain";
 early.stop();
 
-plugins.beautylog.figletSync("NPMTS");
-let projectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);
-plugins.beautylog.info("npmts version: " + projectInfo.version);
+let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);
 
-try {
-    promisechain();
-}
-catch(err){
-    console.log(err);
-}
+let npmtsCli = new plugins.smartcli.Smartcli();
+npmtsCli.standardTask()
+    .then(() => {
+        plugins.beautylog.figletSync("NPMTS");
+        plugins.beautylog.info("npmts version: " + npmtsProjectInfo.version);
+        try {
+            promisechain();
+        }
+        catch(err){
+            console.log(err);
+        }
+    });
 
+npmtsCli.addVersion(npmtsProjectInfo.version);
+npmtsCli.startParse();

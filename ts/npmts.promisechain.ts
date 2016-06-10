@@ -2,7 +2,6 @@ import "typings-global";
 import plugins = require("./npmts.plugins");
 
 export let npmtsOra = new plugins.beautylog.Ora("setting up TaskChain","cyan");
-npmtsOra.start();
 
 import NpmtsAssets = require("./npmts.assets");
 import NpmtsClean = require("./npmts.clean");
@@ -16,6 +15,7 @@ import NpmtsTests = require("./npmts.tests");
 
 export let promisechain = function(){
     let done = plugins.Q.defer();
+    npmtsOra.start();
     NpmtsConfigFile.run()
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)

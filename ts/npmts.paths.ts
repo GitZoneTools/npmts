@@ -6,7 +6,7 @@ export let npmtsPackageRoot = plugins.path.join(__dirname,"../");
 
 
 //Project paths
-export let cwd = plugins.smartcli.get.cwd().path;
+export let cwd = process.cwd();
 
 //Directories
 export let tsDir = plugins.path.join(cwd,"ts/");
