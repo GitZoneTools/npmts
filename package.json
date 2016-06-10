@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "5.2.5",
+  "version": "5.3.0",
   "description": "write npm modules with TypeScript",
   "main": "dist/index.js",
   "bin": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "(npm run compile && npm run check && npm run checkVersion)",
     "check": "(cd ./test/assets && node ../../dist/index.js)",
-    "checkVersion":"cd ./test/assets && node ../../dist/index.js -v",
+    "checkVersion": "cd ./test/assets && node ../../dist/index.js -v",
     "compile": "(cd compile && node compile.js)"
   },
   "repository": {
