@@ -13,10 +13,10 @@ import NpmtsOptions = require("./npmts.options");
 import NpmtsPublish = require("./npmts.publish");
 import NpmtsTests = require("./npmts.tests");
 
-export let promisechain = function(){
+export let promisechain = function(argvArg){
     let done = plugins.Q.defer();
     npmtsOra.start();
-    NpmtsConfigFile.run()
+    NpmtsConfigFile.run(argvArg)
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)
         .then(NpmtsInstall.run)

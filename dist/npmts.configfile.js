@@ -2,10 +2,13 @@
 require("typings-global");
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
-exports.run = function () {
+exports.run = function (argvArg) {
     var done = plugins.Q.defer();
     var config = {};
     var configPath = plugins.path.join(paths.cwd, "npmts.json");
+    if (argvArg.notest) {
+        config.notest = true;
+    }
     if (plugins.smartfile.checks.fileExistsSync(configPath)) {
         plugins.beautylog.info("npmts.json".blue + " config file found!");
         config = plugins.smartfile.local.toObjectSync(configPath);

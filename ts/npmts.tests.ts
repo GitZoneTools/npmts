@@ -62,6 +62,7 @@ let coverage = function(configArg){
 export let run = function(configArg) {
     let done = plugins.Q.defer();
     let config = configArg;
+    if(!config.notest){
 
     npmtsOra.text("now starting tests");
     plugins.beautylog.log(
@@ -73,6 +74,11 @@ export let run = function(configArg) {
     istanbul(config)
         .then(mocha)
         .then(coverage)
-        .then(done.resolve);
+        .then(() => {
+            done.resolve(config);
+        });
+    } else {
+        done.resolve(config);
+    }
     return done.promise;
 };

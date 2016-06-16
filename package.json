@@ -27,7 +27,7 @@
   },
   "homepage": "https://gitlab.com/pushrocks/npmts#readme",
   "dependencies": {
-    "beautylog": "5.0.8",
+    "beautylog": "5.0.11",
     "early": "^2.0.13",
     "fs-extra": "^0.30.0",
     "gulp": "3.9.1",
@@ -47,7 +47,7 @@
     "q": "^1.4.1",
     "shelljs": "^0.7.0",
     "smartci": "0.0.1",
-    "smartcli": "1.0.1",
+    "smartcli": "1.0.2",
     "smartcov": "0.0.6",
     "smartenv": "1.2.5",
     "smartfile": "3.0.10",

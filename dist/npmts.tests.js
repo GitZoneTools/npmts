@@ -56,13 +56,20 @@ var coverage = function (configArg) {
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
-    npmts_promisechain_1.npmtsOra.text("now starting tests");
-    plugins.beautylog.log("-------------------------------------------------------\n" +
-        "*************************** TESTS: ***************************\n" +
-        "--------------------------------------------------------------");
-    istanbul(config)
-        .then(mocha)
-        .then(coverage)
-        .then(done.resolve);
+    if (!config.notest) {
+        npmts_promisechain_1.npmtsOra.text("now starting tests");
+        plugins.beautylog.log("-------------------------------------------------------\n" +
+            "*************************** TESTS: ***************************\n" +
+            "--------------------------------------------------------------");
+        istanbul(config)
+            .then(mocha)
+            .then(coverage)
+            .then(function () {
+            done.resolve(config);
+        });
+    }
+    else {
+        done.resolve(config);
+    }
     return done.promise;
 };

@@ -11,10 +11,10 @@ var NpmtsJsdoc = require("./npmts.jsdoc");
 var NpmtsOptions = require("./npmts.options");
 var NpmtsPublish = require("./npmts.publish");
 var NpmtsTests = require("./npmts.tests");
-exports.promisechain = function () {
+exports.promisechain = function (argvArg) {
     var done = plugins.Q.defer();
     exports.npmtsOra.start();
-    NpmtsConfigFile.run()
+    NpmtsConfigFile.run(argvArg)
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)
         .then(NpmtsInstall.run)
