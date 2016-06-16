@@ -62,22 +62,22 @@ let coverage = function(configArg){
 export let run = function(configArg) {
     let done = plugins.Q.defer();
     let config = configArg;
-    if(!config.notest){
+    if(config.notest != true){
+        npmtsOra.text("now starting tests");
+        plugins.beautylog.log(
+            "-------------------------------------------------------\n" +
+            "*************************** TESTS: ***************************\n" +
+            "--------------------------------------------------------------"
+        );
 
-    npmtsOra.text("now starting tests");
-    plugins.beautylog.log(
-        "-------------------------------------------------------\n" +
-        "*************************** TESTS: ***************************\n" +
-        "--------------------------------------------------------------"
-    );
-
-    istanbul(config)
-        .then(mocha)
-        .then(coverage)
-        .then(() => {
-            done.resolve(config);
-        });
+        istanbul(config)
+            .then(mocha)
+            .then(coverage)
+            .then(() => {
+                done.resolve(config);
+            });
     } else {
+        npmtsOra.end();
         done.resolve(config);
     }
     return done.promise;

@@ -7,9 +7,10 @@
     "npmts": "dist/cli.js"
   },
   "scripts": {
-    "test": "(npm run compile && npm run check && npm run checkVersion)",
+    "test": "(npm run compile && npm run check && npm run checkVersion && npm run checkNoTest)",
     "check": "(cd ./test/assets && node ../../dist/index.js)",
     "checkVersion": "cd ./test/assets && node ../../dist/index.js -v",
+    "checkNoTest":"cd ./test/assets && node ../../dist/index.js --notest",
     "compile": "(cd compile && node compile.js)"
   },
   "repository": {

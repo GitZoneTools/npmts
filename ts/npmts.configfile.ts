@@ -10,7 +10,10 @@ export var run = function(argvArg){
     }
     if(plugins.smartfile.checks.fileExistsSync(configPath)){
         plugins.beautylog.info("npmts.json".blue + " config file found!");
-        config = plugins.smartfile.local.toObjectSync(configPath);
+        config = plugins.lodashObject.assign(
+            config,
+            plugins.smartfile.local.toObjectSync(configPath)
+        );
         switch (config.mode){
             case "default":
             case "custom":
