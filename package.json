@@ -28,6 +28,7 @@
   },
   "homepage": "https://gitlab.com/pushrocks/npmts#readme",
   "dependencies": {
+    "@types/q": "0.0.21-alpha",
     "beautylog": "5.0.11",
     "early": "^2.0.13",
     "fs-extra": "^0.30.0",
@@ -39,9 +40,6 @@
     "gulp-jsdoc3": "^0.3.0",
     "gulp-mocha": "^2.2.0",
     "gulp-replace": "^0.5.4",
-    "gulp-sourcemaps": "^2.0.0-alpha",
-    "gulp-typescript": "2.13.6",
-    "gulp-typings": "2.0.0",
     "lodash": "^4.13.1",
     "merge2": "1.0.2",
     "projectinfo": "1.0.3",

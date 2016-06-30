@@ -1,6 +1,6 @@
 import "typings-global";
 export import beautylog = require("beautylog");
-export let fs = require("fs-extra");
+export import fs = require("fs-extra");
 export let gulp = require("gulp");
 export let g = {
     gFunction: require("gulp-function"),
@@ -16,12 +16,12 @@ export let g = {
 export let lodashObject = require('lodash/fp/object');
 export let merge2 = require("merge2");
 export import projectinfo = require("projectinfo");
-export let path = require("path");
-export let Q = require("q");
-export let shelljs = require("shelljs");
-export let smartci = require("smartci");
+export import path = require("path");
+export import Q = require("q");
+export import shelljs = require("shelljs");
+export import smartci = require("smartci");
 export import smartcli = require("smartcli");
-export let smartcov = require("smartcov");
+export import smartcov = require("smartcov");
 export import smartenv = require("smartenv");
 export import smartfile = require("smartfile");
 export import smartpath = require("smartpath");
