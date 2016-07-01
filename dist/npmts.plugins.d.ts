@@ -22,4 +22,4 @@ export import smartfile = require("smartfile");
 export import smartpath = require("smartpath");
 export import smartstring = require("smartstring");
 export declare let sourceMapSupport: any;
-export declare let tsn: any;
+export import tsn = require("tsn");
