@@ -1,13 +1,4 @@
-.idea/
-.c9/
 node_modules/
-test/assets/**/node_modules/
-test/assets/**/docs/
-test/assets/**/typings/
-test/assets/**/coverage/
-ts/*.js
-ts/*.js.map
-ts/typings/
+test/
 docs/
-
 .DS_Store

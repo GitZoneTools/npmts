@@ -37,8 +37,7 @@ Then add it to your package.json's script section to trigger a build:
 1. Check config in ./npmts.json
 1. Clean up from any previous builds (old js files)
 1. Install typings
-1. Transpile TypeScript with inline sourcemaps
-1. Create Declaration Files
+1. Transpile TypeScript with **inline sourcemaps** and **declaration files** 
 1. Create JsDoc Documentation
 1. Instrumentalize created JavaScript files with istanbul
 1. Run Tests

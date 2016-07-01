@@ -7,11 +7,13 @@
     "npmts": "dist/cli.js"
   },
   "scripts": {
-    "test": "(npm run compile && npm run check && npm run checkVersion && npm run checkNoTest)",
-    "check": "(cd ./test/assets && node ../../dist/index.js)",
-    "checkVersion": "cd ./test/assets && node ../../dist/index.js -v",
-    "checkNoTest": "cd ./test/assets && node ../../dist/index.js --notest",
-    "compile": "(tsc)"
+    "test": "(npm run compile && npm run setupCheck && npm run check && npm run checkVersion && npm run checkNoTest)",
+    "compile": "(rm -rf test/ && rm -r dist/ && mkdir dist/ && tsc && cp assets/cli.js dist/ )",
+    "setupCheck":"(git clone https://gitlab.com/sandboxzone/sandbox-npmts.git test/)",
+    "check": "(cd test && node ../dist/index.js)",
+    "checkVersion": "(cd test/ && node ../dist/index.js -v)",
+    "checkNoTest": "(cd test && node ../dist/index.js --notest)",
+    "install":"(mkdir test/)"
   },
   "repository": {
     "type": "git",
@@ -54,7 +56,7 @@
     "smartpath": "3.2.2",
     "smartstring": "^2.0.10",
     "source-map-support": "^0.4.1",
-    "tsn": "^1.0.1",
+    "tsn": "^1.0.3",
     "typescript": "^2.0.0-dev.20160630",
     "typings-global": "*"
   },

@@ -4,7 +4,8 @@ import paths = require("./npmts.paths");
 import helpers = require("./npmts.compile.helpers");
 import {npmtsOra} from "./npmts.promisechain";
 
-let compileTs = (tsFileArrayArg,tsOptionsArg = {}) => {
+let promiseArray = [];
+let compileTs = (tsFileArrayArg:string[],tsOptionsArg = {}) => {
     let done = plugins.Q.defer();
 
     let tsOptionsDefault = {
@@ -20,11 +21,23 @@ let compileTs = (tsFileArrayArg,tsOptionsArg = {}) => {
         return plugins.lodashObject.assign(tsOptionsDefault, tsOptionsArg)
     };
     for (let keyArg in tsFileArrayArg) {
+        plugins.beautylog.info(`TypeScript assignment: transpile from ${keyArg.blue} to ${tsFileArrayArg[keyArg].blue}`);
         if (helpers.checkOutputPath(tsFileArrayArg,keyArg)) {
-            let filesToConvert = plugins.smartfile.fs.listFileTree(plugins.path.resolve(keyArg),"**/*.ts");
-            plugins.tsn.compile(filesToConvert,tsFileArrayArg[keyArg]);
+            let filesReadPromise = plugins.smartfile.fs.listFileTree(process.cwd(),keyArg)
+                .then((filesToConvertArg) => {
+                    let filesToConvertAbsolute = plugins.smartpath.transform.toAbsolute(filesToConvertArg,process.cwd());
+                    let destDir = plugins.smartpath.transform.toAbsolute(tsFileArrayArg[keyArg],process.cwd());
+                    let filesCompiledPromise = plugins.tsn.compile(
+                        filesToConvertAbsolute,
+                        destDir
+                    );
+                    promiseArray.push(filesCompiledPromise);
+                });
+            promiseArray.push(filesReadPromise);
         }
-    }
+    };
+    plugins.Q.all(promiseArray)
+        .then(done.resolve);
     return done.promise;
 }
 
@@ -36,12 +49,13 @@ export let run = function (configArg) {
     
     compileTs(config.ts,config.tsOptions)
         .then(() => {
-            compileTs(config.testTs);
+            plugins.beautylog.ok("compiled main TypeScript!");
+            plugins.beautylog.log("now compiling tests!");
+            return compileTs(config.testTs);
         })
         .then(function () {
-            plugins.beautylog.ok("compiled TypeScript!");
+            plugins.beautylog.ok("compiled all TypeScript!");
             done.resolve(config);
-            
         });
     return done.promise;
 };
