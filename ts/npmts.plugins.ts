@@ -22,4 +22,4 @@ export import smartfile = require("smartfile");
 export import smartpath = require("smartpath");
 export import smartstring = require("smartstring");
 export let sourceMapSupport = require("source-map-support").install(); // this is required to display errors correctly during testing
-export import tsn = require("tsn");
+export let tsn = require("tsn");

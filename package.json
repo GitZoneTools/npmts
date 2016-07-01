@@ -12,8 +12,7 @@
     "setupCheck": "(git clone https://gitlab.com/sandboxzone/sandbox-npmts.git test/)",
     "check": "(cd test && node ../dist/index.js)",
     "checkVersion": "(cd test/ && node ../dist/index.js -v)",
-    "checkNoTest": "(cd test && node ../dist/index.js --notest)",
-    "install": "(mkdir test/)"
+    "checkNoTest": "(cd test && node ../dist/index.js --notest)"
   },
   "repository": {
     "type": "git",
@@ -56,7 +55,7 @@
     "smartpath": "3.2.2",
     "smartstring": "^2.0.10",
     "source-map-support": "^0.4.1",
-    "tsn": "^1.0.3",
+    "tsn": "^1.0.4",
     "typescript": "^2.0.0-dev.20160630",
     "typings-global": "*"
   },
