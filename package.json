@@ -32,6 +32,7 @@
   "dependencies": {
     "@types/minimatch": "^2.0.22-alpha",
     "@types/q": "0.0.21-alpha",
+    "@types/Q": "0.0.21-alpha",
     "@types/shelljs": "^0.3.21-alpha",
     "beautylog": "5.0.12",
     "early": "^2.0.13",
