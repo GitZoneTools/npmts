@@ -1,5 +1,6 @@
 import "typings-global";
 import plugins = require("./npmts.plugins");
+import {Ora} from "beautylog"
 
 export let npmtsOra = new plugins.beautylog.Ora("setting up TaskChain","cyan");
 

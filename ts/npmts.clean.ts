@@ -5,7 +5,7 @@ import {npmtsOra} from "./npmts.promisechain";
 
 let removeDist = function(){
     npmtsOra.text("cleaning " + "dist".yellow + " folder");
-    return plugins.smartfile.fsaction.remove(paths.distDir);
+    return plugins.smartfile.fs.remove(paths.distDir);
 };
 
 let removeTypings = function(){

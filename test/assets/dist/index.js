@@ -1,9 +1,0 @@
-/// <reference path="./typings/index.d.ts" />
-var testplugin = {
-    logSomething: function () {
-        console.log("only function executed");
-    }
-};
-module.exports = testplugin;
-
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDZDQUE2QztBQUM3QyxJQUFJLFVBQVUsR0FBRztJQUNiLFlBQVksRUFBRTtRQUNWLE9BQU8sQ0FBQyxHQUFHLENBQUMsd0JBQXdCLENBQUMsQ0FBQztJQUMxQyxDQUFDO0NBQ0osQ0FBQztBQUNGLE1BQU0sQ0FBQyxPQUFPLEdBQUcsVUFBVSxDQUFDIiwiZmlsZSI6ImluZGV4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8vIDxyZWZlcmVuY2UgcGF0aD1cIi4vdHlwaW5ncy9pbmRleC5kLnRzXCIgLz5cbmxldCB0ZXN0cGx1Z2luID0ge1xuICAgIGxvZ1NvbWV0aGluZzogZnVuY3Rpb24oKXtcbiAgICAgICAgY29uc29sZS5sb2coXCJvbmx5IGZ1bmN0aW9uIGV4ZWN1dGVkXCIpO1xuICAgIH1cbn07XG5tb2R1bGUuZXhwb3J0cyA9IHRlc3RwbHVnaW47Il19

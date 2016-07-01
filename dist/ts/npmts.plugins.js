@@ -1,6 +1,7 @@
 "use strict";
 require("typings-global");
 exports.beautylog = require("beautylog");
+exports.fs = require("fs-extra");
 exports.gulp = require("gulp");
 exports.g = {
     gFunction: require("gulp-function"),

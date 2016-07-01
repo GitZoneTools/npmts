@@ -8,7 +8,7 @@ exports.run = function (configArg) {
     var config = configArg;
     npmts_promisechain_1.npmtsOra.text("now looking at " + "required assets".yellow);
     if (config.cli == true) {
-        plugins.smartfile.fs.copy(plugins.path.join(paths.npmtsAssetsDir, "cli.js"), paths.distDir);
+        plugins.smartfile.fsaction.copy(plugins.path.join(paths.npmtsAssetsDir, "cli.js"), paths.distDir);
         plugins.beautylog.ok("installed CLI assets!");
         done.resolve(config);
     }

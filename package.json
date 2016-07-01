@@ -11,7 +11,7 @@
     "check": "(cd ./test/assets && node ../../dist/index.js)",
     "checkVersion": "cd ./test/assets && node ../../dist/index.js -v",
     "checkNoTest": "cd ./test/assets && node ../../dist/index.js --notest",
-    "compile": "(cd compile && node compile.js)"
+    "compile": "(tsc)"
   },
   "repository": {
     "type": "git",
@@ -28,10 +28,11 @@
   },
   "homepage": "https://gitlab.com/pushrocks/npmts#readme",
   "dependencies": {
+    "@types/minimatch": "^2.0.22-alpha",
     "@types/q": "0.0.21-alpha",
-    "beautylog": "5.0.11",
+    "@types/shelljs": "^0.3.21-alpha",
+    "beautylog": "5.0.12",
     "early": "^2.0.13",
-    "fs-extra": "^0.30.0",
     "gulp": "3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-function": "^1.3.6",
@@ -46,13 +47,15 @@
     "q": "^1.4.1",
     "shelljs": "^0.7.0",
     "smartci": "0.0.1",
-    "smartcli": "1.0.2",
+    "smartcli": "1.0.4",
     "smartcov": "0.0.6",
     "smartenv": "1.2.5",
-    "smartfile": "3.0.10",
+    "smartfile": "4.0.9",
     "smartpath": "3.2.2",
-    "smartstring": "^2.0.6",
-    "source-map-support": "^0.4.0",
+    "smartstring": "^2.0.10",
+    "source-map-support": "^0.4.1",
+    "tsn": "^1.0.1",
+    "typescript": "^2.0.0-dev.20160630",
     "typings-global": "*"
   },
   "devDependencies": {}

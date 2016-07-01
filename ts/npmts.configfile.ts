@@ -8,11 +8,11 @@ export var run = function(argvArg){
     if(argvArg.notest){
         config.notest = true;
     }
-    if(plugins.smartfile.checks.fileExistsSync(configPath)){
+    if(plugins.smartfile.fs.fileExistsSync(configPath)){
         plugins.beautylog.info("npmts.json".blue + " config file found!");
         config = plugins.lodashObject.assign(
             config,
-            plugins.smartfile.local.toObjectSync(configPath)
+            plugins.smartfile.fs.toObjectSync(configPath)
         );
         switch (config.mode){
             case "default":

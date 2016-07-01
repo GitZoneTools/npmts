@@ -21,7 +21,8 @@ let compileTs = (tsFileArrayArg,tsOptionsArg = {}) => {
     };
     for (let keyArg in tsFileArrayArg) {
         if (helpers.checkOutputPath(tsFileArrayArg,keyArg)) {
-            let tsStream = plugins.gulp.src([plugins.path.join(paths.cwd, keyArg), "!**/typings/**"]);
+            let filesToConvert = plugins.smartfile.fs.listFileTree(plugins.path.resolve(keyArg),"**/*.ts");
+            plugins.tsn.compile(filesToConvert,tsFileArrayArg[keyArg]);
         }
     }
     return done.promise;

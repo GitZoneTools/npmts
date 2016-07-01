@@ -1,8 +1,0 @@
-{
-  "globalDependencies": {
-    "colors": "github:DefinitelyTyped/DefinitelyTyped/colors/colors.d.ts#09e37435ffb2c56a6f908081194a74756f24f99d",
-    "istanbul": "registry:dt/istanbul#0.4.0+20160316155526",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#78d36dd49b6b55b9fdfe61776a12bf05c8b07777",
-    "vinyl": "github:DefinitelyTyped/DefinitelyTyped/vinyl/vinyl.d.ts#78d36dd49b6b55b9fdfe61776a12bf05c8b07777"
-  }
-}

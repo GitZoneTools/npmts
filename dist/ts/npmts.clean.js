@@ -5,7 +5,7 @@ var paths = require("./npmts.paths");
 var npmts_promisechain_1 = require("./npmts.promisechain");
 var removeDist = function () {
     npmts_promisechain_1.npmtsOra.text("cleaning " + "dist".yellow + " folder");
-    return plugins.smartfile.fs.remove(paths.distDir);
+    return plugins.smartfile.fsaction.remove(paths.distDir);
 };
 var removeTypings = function () {
     var done = plugins.Q.defer();

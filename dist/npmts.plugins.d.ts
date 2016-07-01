@@ -1,0 +1,27 @@
+import "typings-global";
+export import beautylog = require("beautylog");
+export declare let gulp: any;
+export declare let g: {
+    gFunction: any;
+    istanbul: any;
+    jsdoc3: any;
+    mocha: any;
+    replace: any;
+    sourcemaps: any;
+    typescript: any;
+    typings: any;
+};
+export declare let lodashObject: any;
+export declare let merge2: any;
+export import projectinfo = require("projectinfo");
+export import path = require("path");
+export import Q = require("q");
+export import shelljs = require("shelljs");
+export declare let smartci: any;
+export import smartcli = require("smartcli");
+export declare let smartcov: any;
+export import smartenv = require("smartenv");
+export import smartfile = require("smartfile");
+export import smartpath = require("smartpath");
+export import smartstring = require("smartstring");
+export declare let sourceMapSupport: any;
