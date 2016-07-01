@@ -1,7 +1,6 @@
 "use strict";
 require("typings-global");
 var plugins = require("./npmts.plugins");
-var paths = require("./npmts.paths");
 var helpers = require("./npmts.compile.helpers");
 var npmts_promisechain_1 = require("./npmts.promisechain");
 var compileTs = function (tsFileArrayArg, tsOptionsArg) {
@@ -20,7 +19,8 @@ var compileTs = function (tsFileArrayArg, tsOptionsArg) {
     };
     for (var keyArg in tsFileArrayArg) {
         if (helpers.checkOutputPath(tsFileArrayArg, keyArg)) {
-            var tsStream = plugins.gulp.src([plugins.path.join(paths.cwd, keyArg), "!**/typings/**"]);
+            var filesToConvert = plugins.smartfile.fs.listFileTree(plugins.path.resolve(keyArg), "**/*.ts");
+            plugins.tsn.compile(filesToConvert, tsFileArrayArg[keyArg]);
         }
     }
     return done.promise;

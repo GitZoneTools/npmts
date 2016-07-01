@@ -7,10 +7,7 @@ exports.g = {
     istanbul: require("gulp-istanbul"),
     jsdoc3: require("gulp-jsdoc3"),
     mocha: require("gulp-mocha"),
-    replace: require("gulp-replace"),
-    sourcemaps: require("gulp-sourcemaps"),
-    typescript: require("gulp-typescript"),
-    typings: require("gulp-typings")
+    replace: require("gulp-replace")
 };
 exports.lodashObject = require('lodash/fp/object');
 exports.merge2 = require("merge2");
@@ -26,3 +23,4 @@ exports.smartfile = require("smartfile");
 exports.smartpath = require("smartpath");
 exports.smartstring = require("smartstring");
 exports.sourceMapSupport = require("source-map-support").install(); // this is required to display errors correctly during testing
+exports.tsn = require("tsn");

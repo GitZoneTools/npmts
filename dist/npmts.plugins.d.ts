@@ -7,9 +7,6 @@ export declare let g: {
     jsdoc3: any;
     mocha: any;
     replace: any;
-    sourcemaps: any;
-    typescript: any;
-    typings: any;
 };
 export declare let lodashObject: any;
 export declare let merge2: any;
@@ -25,3 +22,4 @@ export import smartfile = require("smartfile");
 export import smartpath = require("smartpath");
 export import smartstring = require("smartstring");
 export declare let sourceMapSupport: any;
+export import tsn = require("tsn");
