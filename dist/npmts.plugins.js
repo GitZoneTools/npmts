@@ -7,7 +7,8 @@ exports.g = {
     istanbul: require("gulp-istanbul"),
     jsdoc3: require("gulp-jsdoc3"),
     mocha: require("gulp-mocha"),
-    replace: require("gulp-replace")
+    replace: require("gulp-replace"),
+    sourcemaps: require("gulp-sourcemaps")
 };
 exports.lodashObject = require('lodash/fp/object');
 exports.merge2 = require("merge2");

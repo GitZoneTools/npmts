@@ -11,7 +11,9 @@ let istanbul = function (configArg) {
     npmtsOra.text("Instrumentalizing transpiled JS...");
     let done = plugins.Q.defer();
     var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
+        .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.istanbul()) // Covering files
+        .pipe(plugins.g.sourcemaps.write())
         .pipe(plugins.g.istanbul.hookRequire()) // Force `require` to return covered files
         .pipe(plugins.g.gFunction(function(){
             plugins.beautylog.ok("JS has been instrumentalized to get test code coverage!");

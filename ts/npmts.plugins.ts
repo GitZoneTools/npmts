@@ -6,7 +6,8 @@ export let g = {
     istanbul: require("gulp-istanbul"),
     jsdoc3: require("gulp-jsdoc3"),
     mocha: require("gulp-mocha"),
-    replace: require("gulp-replace")
+    replace: require("gulp-replace"),
+    sourcemaps: require("gulp-sourcemaps")
 };
 export let lodashObject = require('lodash/fp/object');
 export let merge2 = require("merge2");

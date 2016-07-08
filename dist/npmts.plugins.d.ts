@@ -7,6 +7,7 @@ export declare let g: {
     jsdoc3: any;
     mocha: any;
     replace: any;
+    sourcemaps: any;
 };
 export declare let lodashObject: any;
 export declare let merge2: any;
