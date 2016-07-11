@@ -13,7 +13,7 @@ NPMTS is your friend when it comes to write, test, publish and document NPM modu
 By default NPMTS will **bundle declaration files**. As a result npm module **code completion in editors like Visual Studio Code** works.
 
 There is a docker image available that includes npmts to make CI a breeze:  
-[hosttoday/ht-docker-npmg on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-npmg/)
+[hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
 ### Install
 First install npmts globally, then install the npmts-g locally.
