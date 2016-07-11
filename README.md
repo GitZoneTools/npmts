@@ -3,7 +3,6 @@ Write npm modules with TypeScript without hassle.
 
 ## Status
 [![build status](https://gitlab.com/pushrocks/npmts/badges/master/build.svg)](https://gitlab.com/pushrocks/npmts/commits/master)
-[![Build status](https://ci.appveyor.com/api/projects/status/22fuqa0uv21rcjh4/branch/master?svg=true)](https://ci.appveyor.com/project/philkunz/npmts/branch/master)
 [![Dependency Status](https://david-dm.org/pushrocks/npmts.svg)](https://david-dm.org/pushrocks/npmts)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/npmts/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/npmts/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/pushrocks/npmts/badges/code.svg)](https://www.bithound.io/github/pushrocks/npmts)
@@ -17,7 +16,10 @@ There is a docker image available that includes npmts to make CI a breeze:
 [hosttoday/ht-docker-npmg on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-npmg/)
 
 ### Install
-First install npmts globally, then install the npmts checker:
+First install npmts globally, then install the npmts-g locally.
+
+> **npmts-g* checks if the global version of npmts suffices the modules requirements.
+If not it installs npmts locally in the right version during npm install. 
 
 ```sh
 npm install npmts -g # installs npmts globally
@@ -28,7 +30,7 @@ Then add it to your package.json's script section to trigger a build:
 
 ```json
 "scripts": {
-    "test": "npmts"
+    "test": "(npmts)"
 }
 ```
 
@@ -49,28 +51,13 @@ the npmts.json is the main config file. You can use it to customize the behaviou
 ```json
 {
   "mode":"default",
-  "codecov":{
-    "publish":true,
-    "token":"sometoken"
-  },
   "ts":{
     "./customdir/*.ts":"./"
-  },
-  "docs": {
-    "publish":true,
-    "destination":"github"
   },
   "tsOptions":{
     "declaration":false,
     "target":"ES6"
   },
-  "typings":[
-    "./ts/typings.json",
-    "./subts1/typings.json",
-    "./subts2/typings.json",
-    "./customdir/typings.json"
-  ],
-  "typingsInclude":"auto",
   "cli":true
 }
 ```
