@@ -71,14 +71,6 @@ the npmts.json is the main config file. You can use it to customize the behaviou
 | `"typings"` | `["./ts/typings.json"]` | allows you to specify multiple locations for typings.json to install. This is needed for modules that do not yet bundle typings |
 | `"cli"` | "false" | some modules are designed to be used from cli. If set to true NPMTS will create a cli.js that wires you dist files up for cli use. |
 
-#### Typings
-**npmts** looks for `./ts/typings.json` by default and installs any defined typings to `.ts/typings/`.
-
-> Note: You can reference the typings files in any of your TypeScript code with a  
-`/// <reference path="/some/path/main.d.ts">`  
-We are currently working on a "typingsInclude" option, that will autoload any typings during compilation.
-tsconfig is NOT supported, since it would render this module useless
-
 #### TypeScript
 by default npmts looks for `./ts/*.ts` and `./test/test.ts` that will compile to
 `./dist/*.js` and `./test/test.js`
@@ -98,7 +90,8 @@ This is in line with the latest TypeScript best practices.
 You can then import plugins via the TypeScript `import` Syntax
 and tsc will pick up the declaration file automatically.
 
-> Note: If you don't want declaration files, set tsOptions.declaration to false in npmts.json
+#### Typings for third party modules that do not bundle declaration files
+NPMTS does no longer supports typings.json. Instead use the new TypeScript 2.x approach to typings using the @types/ npm scope.
 
 #### Instrumentalize Code
 npmts instrumentalizes (using istanbul) the created JavaScript code to create a coverage report.
