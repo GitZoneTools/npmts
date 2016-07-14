@@ -1,7 +1,5 @@
 import "typings-global";
 export import beautylog = require("beautylog");
-export declare let esdoc: any;
-export declare let esdocPublisher: any;
 export declare let gulp: any;
 export declare let g: {
     gFunction: any;
@@ -9,6 +7,7 @@ export declare let g: {
     mocha: any;
     replace: any;
     sourcemaps: any;
+    typedoc: any;
 };
 export declare let lodashObject: any;
 export declare let merge2: any;
