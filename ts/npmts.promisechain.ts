@@ -8,7 +8,7 @@ import NpmtsAssets = require("./npmts.assets");
 import NpmtsClean = require("./npmts.clean");
 import NpmtsCompile = require("./npmts.compile");
 import NpmtsConfigFile = require("./npmts.configfile");
-import NpmtsJsdoc = require("./npmts.jsdoc");
+import NpmtsEsDoc = require("./npmts.esdoc");
 import NpmtsOptions = require("./npmts.options");
 import NpmtsTests = require("./npmts.tests");
 
@@ -20,7 +20,7 @@ export let promisechain = function(argvArg){
         .then(NpmtsClean.run)
         .then(NpmtsCompile.run)
         .then(NpmtsAssets.run)
-        .then(NpmtsJsdoc.run)
+        .then(NpmtsEsDoc.run)
         .then(NpmtsTests.run)
         .then(function(configArg){
             let shipString = "" +
