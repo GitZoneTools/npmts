@@ -45,17 +45,3 @@ trigger:
     - tags
   tags:
     - docker
-    
-pages:
-  stage: page
-  script:
-  - npmci test lts
-  - mkdir .public
-  - cp -r test/assets/docs/ .public
-  - cp -r test/assets/coverage/ .public
-  - mv .public public
-  artifacts:
-    paths:
-    - public
-  only:
-  - tags
