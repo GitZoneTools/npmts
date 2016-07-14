@@ -1,10 +1,11 @@
 import "typings-global";
 export import beautylog = require("beautylog");
+export declare let esdoc: any;
+export declare let esdocPublisher: any;
 export declare let gulp: any;
 export declare let g: {
     gFunction: any;
     istanbul: any;
-    jsdoc3: any;
     mocha: any;
     replace: any;
     sourcemaps: any;

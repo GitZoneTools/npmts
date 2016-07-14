@@ -3,26 +3,24 @@ require("typings-global");
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 var npmts_promisechain_1 = require("./npmts.promisechain");
-var genJsdoc = function (configArg) {
+var genEsDoc = function (configArg) {
     var done = plugins.Q.defer();
-    npmts_promisechain_1.npmtsOra.text("now generating " + "JsDoc documentation".yellow);
-    plugins.gulp.src([
-        plugins.path.join(paths.cwd, "README.md"),
-        plugins.path.join(paths.distDir, "**/*.js")
-    ])
-        .pipe(plugins.g.jsdoc3({
-        opts: {
-            destination: paths.docsDir
-        }
-    }, function () {
-        plugins.beautylog.ok("JsDoc documentation has been generated!");
-        done.resolve(configArg);
-    }));
+    npmts_promisechain_1.npmtsOra.text("now generating " + "EsDoc documentation".yellow);
+    plugins.beautylog.log("ESDoc Output:");
+    var esdocConfig = {
+        source: paths.distDir,
+        destination: paths.docsDir
+    };
+    plugins.esdoc.generate(esdocConfig, plugins.esdocPublisher);
+    plugins.beautylog.ok("Docs by EsDoc have been created!");
+    done.resolve(configArg);
     return done.promise;
 };
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
-    genJsdoc(configArg)
-        .then(done.resolve);
+    genEsDoc(configArg)
+        .then(function () {
+        done.resolve(configArg);
+    });
     return done.promise;
 };

@@ -1,11 +1,12 @@
 "use strict";
 require("typings-global");
 exports.beautylog = require("beautylog");
+exports.esdoc = require("esdoc");
+exports.esdocPublisher = require("esdoc/out/src/Publisher/publish");
 exports.gulp = require("gulp");
 exports.g = {
     gFunction: require("gulp-function"),
     istanbul: require("gulp-istanbul"),
-    jsdoc3: require("gulp-jsdoc3"),
     mocha: require("gulp-mocha"),
     replace: require("gulp-replace"),
     sourcemaps: require("gulp-sourcemaps")

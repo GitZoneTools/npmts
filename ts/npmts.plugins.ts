@@ -1,10 +1,11 @@
 import "typings-global";
 export import beautylog = require("beautylog");
+export let esdoc = require("esdoc");
+export let esdocPublisher = require("esdoc/out/src/Publisher/publish");
 export let gulp = require("gulp");
 export let g = {
     gFunction: require("gulp-function"),
     istanbul: require("gulp-istanbul"),
-    jsdoc3: require("gulp-jsdoc3"),
     mocha: require("gulp-mocha"),
     replace: require("gulp-replace"),
     sourcemaps: require("gulp-sourcemaps")
