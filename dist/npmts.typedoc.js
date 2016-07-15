@@ -5,7 +5,7 @@ var paths = require("./npmts.paths");
 var npmts_promisechain_1 = require("./npmts.promisechain");
 var genTypeDoc = function (configArg) {
     var done = plugins.Q.defer();
-    npmts_promisechain_1.npmtsOra.text("now generating " + "EsDoc documentation".yellow);
+    npmts_promisechain_1.npmtsOra.text("now generating " + "TypeDoc documentation".yellow);
     plugins.beautylog.log("TypeDoc Output:");
     plugins.gulp.src(plugins.path.join(paths.tsDir, "**/*.ts"))
         .pipe(plugins.g.typedoc({
@@ -19,7 +19,7 @@ var genTypeDoc = function (configArg) {
         // TypeDoc options (see typedoc docs) 
         name: "my-project",
         //theme: "default",
-        ignoreCompilerErrors: false,
+        ignoreCompilerErrors: true,
         version: true,
     }))
         .pipe(plugins.g.gFunction(done.resolve, "atEnd"));
