@@ -3,8 +3,10 @@ require("typings-global");
 exports.beautylog = require("beautylog");
 exports.gulp = require("gulp");
 exports.g = {
+    babel: require("gulp-babel"),
+    babelIstanbul: require("gulp-babel-istanbul"),
     gFunction: require("gulp-function"),
-    istanbul: require("gulp-istanbul"),
+    injectModules: require("gulp-inject-modules"),
     mocha: require("gulp-mocha"),
     replace: require("gulp-replace"),
     sourcemaps: require("gulp-sourcemaps"),

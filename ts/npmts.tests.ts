@@ -7,35 +7,26 @@ import {npmtsOra} from "./npmts.promisechain";
  *
  * @returns {*}
  */
-let istanbul = function (configArg) {
-    npmtsOra.text("Instrumentalizing transpiled JS...");
+let mocha = function (configArg) {
+    npmtsOra.text("Instrumentalizing and testing transpiled JS");
+    npmtsOra.end(); // end npmtsOra for tests.
     let done = plugins.Q.defer();
     var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
         .pipe(plugins.g.sourcemaps.init())
-        .pipe(plugins.g.istanbul()) // Covering files
+        .pipe(plugins.g.babelIstanbul())
+        .pipe(plugins.g.babelIstanbul.hookRequire())
         .pipe(plugins.g.sourcemaps.write())
-        .pipe(plugins.g.istanbul.hookRequire()) // Force `require` to return covered files
-        .pipe(plugins.g.gFunction(function(){
-            plugins.beautylog.ok("JS has been instrumentalized to get test code coverage!");
-            done.resolve(configArg);
-        },"atEnd"));
-    return done.promise;
-};
-
-/**
- *
- * @returns {*}
- */
-let mocha = function (configArg) {
-    let done = plugins.Q.defer();
-    npmtsOra.end(); // end npmtsOra for tests.
-    let stream = plugins.gulp.src(["./test/test.js"])
-        .pipe(plugins.g.mocha())
-        .pipe(plugins.g.istanbul.writeReports()) // Creating the reports after tests ran
-        .pipe(plugins.g.gFunction(function(){
-            plugins.beautylog.ok("Tests have passed!");
-            done.resolve(configArg);
-        },"atEnd"));
+        .on("finish",function(){
+            plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
+            .pipe(plugins.g.babel())
+            .pipe(plugins.g.injectModules())
+            .pipe(plugins.g.mocha())
+            .pipe(plugins.g.babelIstanbul.writeReports())
+            .pipe(plugins.g.gFunction(function(){
+                plugins.beautylog.ok("Tested!");
+                done.resolve(configArg);
+            },"atEnd"));
+        });
     return done.promise;
 };
 
@@ -72,8 +63,7 @@ export let run = function(configArg) {
             "--------------------------------------------------------------"
         );
 
-        istanbul(config)
-            .then(mocha)
+        mocha(config)
             .then(coverage)
             .then(() => {
                 done.resolve(config);

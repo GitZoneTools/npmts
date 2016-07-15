@@ -2,8 +2,10 @@ import "typings-global";
 export import beautylog = require("beautylog");
 export declare let gulp: any;
 export declare let g: {
+    babel: any;
+    babelIstanbul: any;
     gFunction: any;
-    istanbul: any;
+    injectModules: any;
     mocha: any;
     replace: any;
     sourcemaps: any;
