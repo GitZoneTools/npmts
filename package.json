@@ -58,7 +58,7 @@
     "smartpath": "3.2.2",
     "smartstring": "^2.0.14",
     "source-map-support": "^0.4.2",
-    "tsn": "^1.0.6",
+    "tsn": "^1.0.7",
     "typedoc": "^0.4.4",
     "typescript": "^2.0.0-dev.20160630",
     "typings-global": "*"
