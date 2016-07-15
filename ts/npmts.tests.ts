@@ -17,7 +17,7 @@ let mocha = function (configArg) {
         .pipe(plugins.g.babelIstanbul.hookRequire())
         .pipe(plugins.g.sourcemaps.write())
         .on("finish",function(){
-            plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
+            plugins.gulp.src([plugins.path.join(paths.cwd,"test/test.js")])
             .pipe(plugins.g.babel())
             .pipe(plugins.g.injectModules())
             .pipe(plugins.g.mocha())
