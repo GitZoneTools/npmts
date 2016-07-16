@@ -15,7 +15,7 @@ let mocha = function (configArg) {
         .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.babel({
             presets: [
-                plugins.path.join(paths.npmtsPackageRoot,"node_modules/babel-preset-es2015/index.js")
+                require.resolve("babel-preset-es2015")
             ]
         }))
         .pipe(plugins.g.istanbul({
