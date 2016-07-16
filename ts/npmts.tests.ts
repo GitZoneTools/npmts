@@ -18,7 +18,8 @@ let mocha = function (configArg) {
                 plugins.path.join(paths.npmtsPackageRoot,"node_modules/babel-preset-es2015/index.js")
             ]
         }))
-        .pipe(plugins.g.istanbul())
+        .pipe(plugins.g.istanbul({
+        }))
         .pipe(plugins.g.sourcemaps.write())
         .pipe(plugins.g.injectModules())
         .on("finish",function(){
@@ -30,7 +31,10 @@ let mocha = function (configArg) {
             }))
             .pipe(plugins.g.injectModules())
             .pipe(plugins.g.mocha())
-            .pipe(plugins.g.istanbul.writeReports())
+            .pipe(plugins.g.istanbul.writeReports({
+                dir: './coverage',
+                reporters: [ 'lcovonly', 'json', 'text', 'text-summary']
+            }))
             .pipe(plugins.g.gFunction(function(){
                 plugins.beautylog.ok("Tested!");
                 done.resolve(configArg);
