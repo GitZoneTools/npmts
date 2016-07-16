@@ -4,7 +4,7 @@ exports.beautylog = require("beautylog");
 exports.gulp = require("gulp");
 exports.g = {
     babel: require("gulp-babel"),
-    babelIstanbul: require("gulp-babel-istanbul"),
+    istanbul: require("gulp-istanbul"),
     gFunction: require("gulp-function"),
     injectModules: require("gulp-inject-modules"),
     mocha: require("gulp-mocha"),
@@ -12,6 +12,7 @@ exports.g = {
     sourcemaps: require("gulp-sourcemaps"),
     typedoc: require("gulp-typedoc")
 };
+require("babel-preset-es2015");
 exports.lodashObject = require('lodash/fp/object');
 exports.merge2 = require("merge2");
 exports.projectinfo = require("projectinfo");

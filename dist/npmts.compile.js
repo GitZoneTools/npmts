@@ -9,7 +9,7 @@ var compileTs = function (tsFileArrayArg, tsOptionsArg) {
     var done = plugins.Q.defer();
     var tsOptionsDefault = {
         declaration: true,
-        target: "ES5",
+        target: "ES6",
         module: "commonjs"
     };
     /**

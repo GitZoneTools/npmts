@@ -3,7 +3,7 @@ export import beautylog = require("beautylog");
 export declare let gulp: any;
 export declare let g: {
     babel: any;
-    babelIstanbul: any;
+    istanbul: any;
     gFunction: any;
     injectModules: any;
     mocha: any;
@@ -11,6 +11,7 @@ export declare let g: {
     sourcemaps: any;
     typedoc: any;
 };
+import "babel-preset-es2015";
 export declare let lodashObject: any;
 export declare let merge2: any;
 export import projectinfo = require("projectinfo");

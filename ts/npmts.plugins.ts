@@ -3,7 +3,7 @@ export import beautylog = require("beautylog");
 export let gulp = require("gulp");
 export let g = {
     babel: require("gulp-babel"),
-    babelIstanbul: require("gulp-babel-istanbul"),
+    istanbul: require("gulp-istanbul"),
     gFunction: require("gulp-function"),
     injectModules: require("gulp-inject-modules"),
     mocha: require("gulp-mocha"),
@@ -11,6 +11,7 @@ export let g = {
     sourcemaps: require("gulp-sourcemaps"),
     typedoc: require("gulp-typedoc")
 };
+import "babel-preset-es2015";
 export let lodashObject = require('lodash/fp/object');
 export let merge2 = require("merge2");
 export import projectinfo = require("projectinfo");

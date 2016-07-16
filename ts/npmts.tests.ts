@@ -13,15 +13,20 @@ let mocha = function (configArg) {
     let done = plugins.Q.defer();
     var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
         .pipe(plugins.g.sourcemaps.init())
-        .pipe(plugins.g.babelIstanbul())
-        .pipe(plugins.g.babelIstanbul.hookRequire())
+        .pipe(plugins.g.babel({
+            presets: ['es2015']
+        }))
+        .pipe(plugins.g.istanbul())
         .pipe(plugins.g.sourcemaps.write())
+        .pipe(plugins.g.injectModules())
         .on("finish",function(){
             plugins.gulp.src([plugins.path.join(paths.cwd,"test/test.js")])
-            .pipe(plugins.g.babel())
+            .pipe(plugins.g.babel({
+                presets: ['es2015']
+            }))
             .pipe(plugins.g.injectModules())
             .pipe(plugins.g.mocha())
-            .pipe(plugins.g.babelIstanbul.writeReports())
+            .pipe(plugins.g.istanbul.writeReports())
             .pipe(plugins.g.gFunction(function(){
                 plugins.beautylog.ok("Tested!");
                 done.resolve(configArg);

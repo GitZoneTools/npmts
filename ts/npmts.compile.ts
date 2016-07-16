@@ -10,7 +10,7 @@ let compileTs = (tsFileArrayArg:string[],tsOptionsArg = {}) => {
 
     let tsOptionsDefault = {
         declaration: true,
-        target: "ES5",
+        target: "ES6",
         module: "commonjs"
     };
     
