@@ -11,7 +11,6 @@ export let g = {
     sourcemaps: require("gulp-sourcemaps"),
     typedoc: require("gulp-typedoc")
 };
-import "babel-preset-es2015";
 export let lodashObject = require('lodash/fp/object');
 export import projectinfo = require("projectinfo");
 export import path = require("path");

@@ -14,7 +14,9 @@ let mocha = function (configArg) {
     var stream = plugins.gulp.src([plugins.path.join(paths.cwd,"dist/*.js")])
         .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.babel({
-            presets: ['es2015']
+            presets: [
+                plugins.path.join(paths.npmtsPackageRoot,"node_modules/babel-preset-es2015/index.js")
+            ]
         }))
         .pipe(plugins.g.istanbul())
         .pipe(plugins.g.sourcemaps.write())
@@ -22,7 +24,9 @@ let mocha = function (configArg) {
         .on("finish",function(){
             plugins.gulp.src([plugins.path.join(paths.cwd,"test/test.js")])
             .pipe(plugins.g.babel({
-                presets: ['es2015']
+                presets: [
+                    plugins.path.join(paths.npmtsPackageRoot,"node_modules/babel-preset-es2015/index.js")
+                ]
             }))
             .pipe(plugins.g.injectModules())
             .pipe(plugins.g.mocha())
