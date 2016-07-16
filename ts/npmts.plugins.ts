@@ -13,7 +13,6 @@ export let g = {
 };
 import "babel-preset-es2015";
 export let lodashObject = require('lodash/fp/object');
-export let merge2 = require("merge2");
 export import projectinfo = require("projectinfo");
 export import path = require("path");
 export import Q = require("q");

@@ -14,7 +14,6 @@ exports.g = {
 };
 require("babel-preset-es2015");
 exports.lodashObject = require('lodash/fp/object');
-exports.merge2 = require("merge2");
 exports.projectinfo = require("projectinfo");
 exports.path = require("path");
 exports.Q = require("q");
