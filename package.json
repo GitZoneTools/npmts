@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "5.3.15",
+  "version": "5.3.16",
   "description": "write npm modules with TypeScript",
   "main": "dist/index.js",
   "bin": {
