@@ -12,6 +12,7 @@ export declare let g: {
     typedoc: any;
 };
 export declare let lodashObject: any;
+export import npmextra = require("npmextra");
 export import projectinfo = require("projectinfo");
 export import path = require("path");
 export import Q = require("q");

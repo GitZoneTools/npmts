@@ -13,6 +13,7 @@ exports.g = {
     typedoc: require("gulp-typedoc")
 };
 exports.lodashObject = require('lodash/fp/object');
+exports.npmextra = require("npmextra");
 exports.projectinfo = require("projectinfo");
 exports.path = require("path");
 exports.Q = require("q");

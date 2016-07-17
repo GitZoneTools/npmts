@@ -2,33 +2,34 @@
 require("typings-global");
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 exports.run = function (argvArg) {
     var done = plugins.Q.defer();
-    var config = {};
-    var configPath = plugins.path.join(paths.cwd, "npmts.json");
+    npmts_promisechain_1.npmtsOra.text("looking for npmextra.json");
+    var defaultConfig = {
+        mode: "default",
+        notest: false
+    };
     if (argvArg.notest) {
-        config.notest = true;
-    }
-    if (plugins.smartfile.fs.fileExistsSync(configPath)) {
-        plugins.beautylog.info("npmts.json".blue + " config file found!");
-        config = plugins.lodashObject.assign(config, plugins.smartfile.fs.toObjectSync(configPath));
-        switch (config.mode) {
-            case "default":
-            case "custom":
-                plugins.beautylog.ok("mode is " + config.mode.yellow);
-                done.resolve(config);
-                break;
-            default:
-                plugins.beautylog.error("mode " + config.mode.yellow + " not recognised!".red);
-                process.exit(1);
-        }
-        ;
-    }
-    else {
-        plugins.beautylog.log("no config file found: so mode is " + "default".yellow);
-        config.mode = "default";
-        done.resolve(config);
+        defaultConfig.notest = true;
     }
     ;
+    var config = plugins.npmextra.dataFor({
+        toolName: "npmts",
+        defaultSettings: defaultConfig,
+        cwd: paths.cwd
+    });
+    switch (config.mode) {
+        case "default":
+        case "custom":
+            plugins.beautylog.ok("mode is " + config.mode.yellow);
+            done.resolve(config);
+            break;
+        default:
+            plugins.beautylog.error("mode " + config.mode.yellow + " not recognised!".red);
+            process.exit(1);
+    }
+    ;
+    done.resolve(config);
     return done.promise;
 };

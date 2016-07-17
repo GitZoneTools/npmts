@@ -12,6 +12,7 @@ export let g = {
     typedoc: require("gulp-typedoc")
 };
 export let lodashObject = require('lodash/fp/object');
+export import npmextra = require("npmextra");
 export import projectinfo = require("projectinfo");
 export import path = require("path");
 export import Q = require("q");
