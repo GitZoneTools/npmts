@@ -31,7 +31,7 @@ var mocha = function (configArg) {
             .pipe(plugins.g.injectModules())
             .pipe(plugins.g.mocha())
             .pipe(plugins.g.istanbul.writeReports({
-            dir: './coverage',
+            dir: plugins.path.join(paths.cwd, "./coverage"),
             reporters: ['lcovonly', 'json', 'text', 'text-summary']
         }))
             .pipe(plugins.g.gFunction(function () {
