@@ -65,7 +65,6 @@ the npmts section in npmtsextra.json can be used to configure npmts.
 | --- | --- | --- |
 | `"mode"` | `"default"` | "default" will do some default stuff, "custom" only does what you specify |
 | `"tsOptions"` | `{"target":"ES5", "declaration":"true"}` | specify options for tsc |
-| `"typings"` | `["./ts/typings.json"]` | allows you to specify multiple locations for typings.json to install. This is needed for modules that do not yet bundle typings |
 | `"cli"` | "false" | some modules are designed to be used from cli. If set to true NPMTS will create a cli.js that wires you dist files up for cli use. |
 
 ### TypeScript
