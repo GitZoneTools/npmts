@@ -8,10 +8,14 @@ export var run = function(configArg){
     let config = configArg;
     npmtsOra.text("now looking at " + "required assets".yellow);
     if(config.cli == true){
-        plugins.smartfile.fs.copy(plugins.path.join(paths.npmtsAssetsDir,"cli.js"),paths.distDir);
+        plugins.smartfile.fs.copySync(
+            plugins.path.join(paths.npmtsAssetsDir,"cli.js"),
+            plugins.path.join(paths.distDir,"cli.js")
+        );
         plugins.beautylog.ok("installed CLI assets!");
         done.resolve(config);
     } else {
+        plugins.beautylog.ok("No additional assets required!")
         done.resolve(config);
     }
     return done.promise;
