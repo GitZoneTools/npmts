@@ -45,17 +45,15 @@ let mocha = function (configArg) {
 
 let coverage = function(configArg){
     let done = plugins.Q.defer();
-    plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir,"lcov.info"))
+    plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir,"lcov.info"),2)
         .then(function(percentageArg){
             if (percentageArg >= configArg.coverageTreshold){
                 plugins.beautylog.ok(
-                    "your coverage of " + percentageArg.toString().blue + "% ".blue + "exceeds your treshold of " +
-                    configArg.coverageTreshold.toString().blue + "%".blue
+                    `${percentageArg.toString()}% coverage exceeds your treshold of ${configArg.coverageTreshold.toString()}%`
                 );
             } else {
                 plugins.beautylog.warn(
-                    "your coverage of " + percentageArg + "% " + "fails your treshold of " +
-                    configArg.coverageTreshold + "%"
+                    `${percentageArg.toString()}% coverage fails your treshold of ${configArg.coverageTreshold.toString()}%`
                 );
                 plugins.beautylog.error("exiting due to coverage failure");
                 process.exit(1);

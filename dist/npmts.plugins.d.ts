@@ -19,7 +19,7 @@ export import Q = require("q");
 export import shelljs = require("shelljs");
 export declare let smartci: any;
 export import smartcli = require("smartcli");
-export declare let smartcov: any;
+export import smartcov = require("smartcov");
 export import smartenv = require("smartenv");
 export import smartfile = require("smartfile");
 export import smartpath = require("smartpath");
