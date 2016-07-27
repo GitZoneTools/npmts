@@ -8,17 +8,23 @@ let promiseArray = [];
 let compileTs = (tsFileArrayArg:string[],tsOptionsArg = {}) => {
     let done = plugins.Q.defer();
 
-    let tsOptionsDefault = {
+    let compilerOptionsDefault = {
         declaration: true,
-        target: "ES6",
-        module: "commonjs"
+        module: "CommonJS",
+        target: "ES6"
     };
     
     /**
      * merges default ts options with those found in npmts.json
      */
-    let tsOptions = function (keyArg:string) {
-        return plugins.lodashObject.assign(tsOptionsDefault, tsOptionsArg)
+    let compilerOptions = function (keyArg:string) {
+        let tsOptionsCombined = plugins.lodashObject.merge(compilerOptionsDefault, tsOptionsArg);
+        let compilerOptions:plugins.tsn.CompilerOptions = {
+            declaration: tsOptionsCombined.declaration,
+            module: plugins.tsn.ModuleKind[tsOptionsCombined.module],
+            target: plugins.tsn.ScriptTarget[tsOptionsCombined.target]
+        };
+        return compilerOptions;
     };
     for (let keyArg in tsFileArrayArg) {
         plugins.beautylog.info(`TypeScript assignment: transpile from ${keyArg.blue} to ${tsFileArrayArg[keyArg].blue}`);
@@ -29,7 +35,8 @@ let compileTs = (tsFileArrayArg:string[],tsOptionsArg = {}) => {
                     let destDir = plugins.smartpath.transform.toAbsolute(tsFileArrayArg[keyArg],process.cwd());
                     let filesCompiledPromise = plugins.tsn.compile(
                         filesToConvertAbsolute,
-                        destDir
+                        destDir,
+                        compilerOptions(keyArg)
                     );
                     promiseArray.push(filesCompiledPromise);
                 });
