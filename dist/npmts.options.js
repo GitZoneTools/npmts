@@ -2,9 +2,6 @@
 require("typings-global");
 var plugins = require("./npmts.plugins");
 var npmts_promisechain_1 = require("./npmts.promisechain");
-exports.isCi = function () {
-    return plugins.smartci.check.isCi();
-};
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;

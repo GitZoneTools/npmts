@@ -1,13 +1,13 @@
 import "typings-global";
 export import beautylog = require("beautylog");
-export declare let gulp: any;
+export declare let depcheck: any;
+export import gulp = require("gulp");
 export declare let g: {
     babel: any;
     istanbul: any;
     gFunction: any;
     injectModules: any;
     mocha: any;
-    replace: any;
     sourcemaps: any;
     typedoc: any;
 };
@@ -17,7 +17,6 @@ export import projectinfo = require("projectinfo");
 export import path = require("path");
 export import Q = require("q");
 export import shelljs = require("shelljs");
-export declare let smartci: any;
 export import smartcli = require("smartcli");
 export import smartcov = require("smartcov");
 export import smartenv = require("smartenv");

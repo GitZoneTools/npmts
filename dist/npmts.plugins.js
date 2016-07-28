@@ -1,6 +1,7 @@
 "use strict";
 require("typings-global");
 exports.beautylog = require("beautylog");
+exports.depcheck = require("depcheck");
 exports.gulp = require("gulp");
 exports.g = {
     babel: require("gulp-babel"),
@@ -8,7 +9,6 @@ exports.g = {
     gFunction: require("gulp-function"),
     injectModules: require("gulp-inject-modules"),
     mocha: require("gulp-mocha"),
-    replace: require("gulp-replace"),
     sourcemaps: require("gulp-sourcemaps"),
     typedoc: require("gulp-typedoc")
 };
@@ -18,7 +18,6 @@ exports.projectinfo = require("projectinfo");
 exports.path = require("path");
 exports.Q = require("q");
 exports.shelljs = require("shelljs");
-exports.smartci = require("smartci");
 exports.smartcli = require("smartcli");
 exports.smartcov = require("smartcov");
 exports.smartenv = require("smartenv");

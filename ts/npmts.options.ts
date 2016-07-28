@@ -2,10 +2,6 @@ import "typings-global";
 import plugins = require("./npmts.plugins");
 import {npmtsOra} from "./npmts.promisechain";
 
-export let isCi = function(){
-    return plugins.smartci.check.isCi();
-};
-
 export var run = function(configArg){
     var done = plugins.Q.defer();
     var config = configArg;

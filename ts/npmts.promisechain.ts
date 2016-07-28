@@ -5,6 +5,7 @@ import {Ora} from "beautylog"
 export let npmtsOra = new plugins.beautylog.Ora("setting up TaskChain","cyan");
 
 import NpmtsAssets = require("./npmts.assets");
+import NpmtsCheck = require("./npmts.check");
 import NpmtsClean = require("./npmts.clean");
 import NpmtsCompile = require("./npmts.compile");
 import NpmtsConfigFile = require("./npmts.configfile");
@@ -18,6 +19,7 @@ export let promisechain = function(argvArg){
     NpmtsConfigFile.run(argvArg)
         .then(NpmtsOptions.run)
         .then(NpmtsClean.run)
+        .then(NpmtsCheck.run)
         .then(NpmtsCompile.run)
         .then(NpmtsAssets.run)
         .then(NpmtsTypeDoc.run)
