@@ -7,6 +7,7 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/npmts/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/npmts/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/pushrocks/npmts/badges/code.svg)](https://www.bithound.io/github/pushrocks/npmts)
 [![codecov.io](https://codecov.io/github/pushrocks/npmts/coverage.svg?branch=master)](https://codecov.io/github/pushrocks/npmts?branch=master)
+[![node](https://img.shields.io/badge/node->=%206.x.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
 
 ## What is NPMTS?
 NPMTS is your friend when it comes to write, test, publish and document NPM modules written in TypeScript.
@@ -39,7 +40,7 @@ Then add it to your package.json's script section to trigger a build:
 1. **Config:** Check config in ./npmextra.json (Check out [npmextra](https://www.npmjs.com/package/npmextra))
 1. **Clean:** Clean up from any previous builds (old js files)
 1. **Check:** Check project for typings declaration in package.json, unused dependencies and missing dependencies
-1. **Transpile:** Transpile TypeScript with **inline sourcemaps** and **declaration files** to ES6
+1. **Transpile:** Transpile TypeScript with **inline sourcemaps** and **declaration files** to ES target
 1. **Documentation:** Create TypeDoc Documentation from TypeScript files
 1. **Test:** Babelify ES6 to ES5 on the fly, instrumentalize ES5 JavaScript with istanbul and run tests with Mocha.
 
