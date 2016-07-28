@@ -45,9 +45,6 @@ let checkDependencies = (configArg) => {
         for (let item of unused.dependencies) {
             plugins.beautylog.warn(`Watch out: unused dependency ${item.red}`);
         };
-        for (let item of unused.devDependencies) {
-            plugins.beautylog.log(`unused devDependency ${item.red}`);
-        };
         for (let item of unused.missing) {
             plugins.beautylog.error(`unused devDependency ${item.red}`);
         };
