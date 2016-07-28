@@ -65,6 +65,7 @@ the npmts section in npmextra.json can be used to configure npmts.
 | key | default value | description |
 | --- | --- | --- |
 | `"mode"` | `"default"` | "default" will do some default stuff, "custom" only does what you specify |
+| `"ts"` | `{"./ts/*.ts":"./","./test/test.ts":"./test/"}` | allows you to define multiple ts portions |
 | `"tsOptions"` | `{"target":"ES5", "declaration":"true"}` | specify options for tsc |
 | `"cli"` | "false" | some modules are designed to be used from cli. If set to true NPMTS will create a cli.js that wires you dist files up for cli use. |
 
@@ -75,7 +76,7 @@ by default npmts looks for `./ts/*.ts` and `./test/test.ts` that will compile to
 Use commonjs module system for wiring up files.
 
 ### Declaration files
-**npmts** also creates an `./dist/index.d.ts` declaration file by default.
+**npmts** also creates declaration files like `./dist/index.d.ts` by default.
 You can reference it in your package.json like this.
 
 ```json
@@ -89,7 +90,7 @@ and tsc will pick up the declaration file automatically.
 
 ## Some notes:
 #### Typings for third party modules that do not bundle declaration files
-NPMTS does no longer supports typings.json. Instead use the new TypeScript 2.x approach to typings using the @types/ npm scope.
+NPMTS no longer supports typings.json. Instead use the new TypeScript 2.x approach to typings using the @types/ npm scope.
 
 #### Instrumentalize Code
 npmts instrumentalizes (using istanbul) the created JavaScript code to create a coverage report.
