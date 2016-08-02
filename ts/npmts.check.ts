@@ -52,9 +52,6 @@ let checkDependencies = (configArg) => {
             plugins.beautylog.info("exiting due to missing dependencies in package.json");
             process.exit(1);
         }
-        for (let item of unused.using) {
-            console.log(item);
-        };
         for (let item of unused.invalidFiles) {
             plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`);
         };
@@ -83,9 +80,13 @@ let checkDevDependencies = (configArg) => {
         for (let item of unused.devDependencies) {
             plugins.beautylog.log(`unused devDependency ${item.red}`);
         };
-        for (let item of unused.using) {
-            console.log(item);
+        for (let item of unused.missing) {
+            plugins.beautylog.error(`unused devDependency ${item.red}`);
         };
+        if (unused.missing.length > 0) {
+            plugins.beautylog.info("exiting due to missing dependencies in package.json");
+            process.exit(1);
+        }
         for (let item of unused.invalidFiles) {
             plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`);
         };

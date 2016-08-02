@@ -55,18 +55,13 @@ var checkDependencies = function (configArg) {
             plugins.beautylog.info("exiting due to missing dependencies in package.json");
             process.exit(1);
         }
-        for (var _d = 0, _e = unused.using; _d < _e.length; _d++) {
+        for (var _d = 0, _e = unused.invalidFiles; _d < _e.length; _d++) {
             var item = _e[_d];
-            console.log(item);
-        }
-        ;
-        for (var _f = 0, _g = unused.invalidFiles; _f < _g.length; _f++) {
-            var item = _g[_f];
             plugins.beautylog.warn("Watch out: could not parse file " + item.red);
         }
         ;
-        for (var _h = 0, _j = unused.invalidDirs; _h < _j.length; _h++) {
-            var item = _j[_h];
+        for (var _f = 0, _g = unused.invalidDirs; _f < _g.length; _f++) {
+            var item = _g[_f];
             plugins.beautylog.warn("Watch out: could not parse directory " + item.red);
         }
         ;
@@ -93,11 +88,15 @@ var checkDevDependencies = function (configArg) {
             plugins.beautylog.log("unused devDependency " + item.red);
         }
         ;
-        for (var _b = 0, _c = unused.using; _b < _c.length; _b++) {
+        for (var _b = 0, _c = unused.missing; _b < _c.length; _b++) {
             var item = _c[_b];
-            console.log(item);
+            plugins.beautylog.error("unused devDependency " + item.red);
         }
         ;
+        if (unused.missing.length > 0) {
+            plugins.beautylog.info("exiting due to missing dependencies in package.json");
+            process.exit(1);
+        }
         for (var _d = 0, _e = unused.invalidFiles; _d < _e.length; _d++) {
             var item = _e[_d];
             plugins.beautylog.warn("Watch out: could not parse file " + item.red);
