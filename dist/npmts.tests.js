@@ -25,7 +25,7 @@ var mocha = function (configArg) {
         plugins.gulp.src([plugins.path.join(paths.cwd, "test/test.js")])
             .pipe(plugins.g.babel({
             presets: [
-                plugins.path.join(paths.npmtsPackageRoot, "node_modules/babel-preset-es2015/index.js")
+                require.resolve("babel-preset-es2015")
             ]
         }))
             .pipe(plugins.g.injectModules())
