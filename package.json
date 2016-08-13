@@ -7,12 +7,13 @@
     "npmts": "dist/cli.js"
   },
   "scripts": {
-    "test": "(npm run compile && npm run setupCheck && npm run check && npm run checkVersion && npm run checkNoTest)",
+    "test": "(npm run compile && npm run setupCheck && npm run check && npm run checkVersion && npm run checkNoTest && npm run checkNoDocs)",
     "compile": "(rm -rf test/ && rm -r dist/ && mkdir dist/ && tsc && cp assets/cli.js dist/ )",
     "setupCheck": "(git clone https://gitlab.com/sandboxzone/sandbox-npmts.git test/)",
     "check": "(cd test && npm install && node ../dist/index.js)",
     "checkVersion": "(cd test/ && node ../dist/index.js -v)",
-    "checkNoTest": "(cd test && node ../dist/index.js --notest)"
+    "checkNoTest": "(cd test && node ../dist/index.js --notest)",
+    "checkNoDocs": "(cd test && node ../dist/index.js --nodocs)"
   },
   "repository": {
     "type": "git",

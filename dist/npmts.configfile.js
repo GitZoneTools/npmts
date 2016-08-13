@@ -8,10 +8,15 @@ exports.run = function (argvArg) {
     npmts_promisechain_1.npmtsOra.text("looking for npmextra.json");
     var defaultConfig = {
         mode: "default",
-        notest: false
+        notest: false,
+        nodocs: false
     };
     if (argvArg.notest) {
         defaultConfig.notest = true;
+    }
+    ;
+    if (argvArg.nodocs) {
+        defaultConfig.nodocs = true;
     }
     ;
     var config = plugins.npmextra.dataFor({

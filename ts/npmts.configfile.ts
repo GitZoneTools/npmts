@@ -7,10 +7,14 @@ export var run = function(argvArg){
     npmtsOra.text("looking for npmextra.json");
     let defaultConfig = {
         mode: "default",
-        notest:false
+        notest:false,
+        nodocs:false
     };
     if(argvArg.notest){
         defaultConfig.notest = true;
+    };
+    if(argvArg.nodocs){
+        defaultConfig.nodocs = true;
     };
     let config = plugins.npmextra.dataFor({
         toolName:"npmts",
