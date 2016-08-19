@@ -40,6 +40,9 @@ export var run = function(argvArg){
         cwd:paths.cwd
     });
 
+    // add argv
+    config.argv = argvArg;
+
     // check mode
     switch (config.mode){
         case "default":
@@ -48,7 +51,7 @@ export var run = function(argvArg){
             done.resolve(config);
             break;
         default:
-            plugins.beautylog.error("mode " + config.mode + " not recognised!".red);
+            plugins.beautylog.error(`mode not recognised!`);
             process.exit(1);
     };
 
