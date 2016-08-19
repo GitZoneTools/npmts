@@ -66,7 +66,7 @@ let coverage = function(configArg){
 export let run = function(configArg) {
     let done = plugins.Q.defer();
     let config = configArg;
-    if(config.notest != true){
+    if(config.test === true){
         npmtsOra.text("now starting tests");
         plugins.beautylog.log(
             "-------------------------------------------------------\n" +

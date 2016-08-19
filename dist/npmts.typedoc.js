@@ -27,14 +27,14 @@ var genTypeDoc = function (configArg) {
 };
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
-    if (configArg.nodocs) {
-        done.resolve(configArg);
-    }
-    else {
+    if (configArg.docs) {
         genTypeDoc(configArg)
             .then(function () {
             done.resolve(configArg);
         });
+    }
+    else {
+        done.resolve(configArg);
     }
     ;
     return done.promise;

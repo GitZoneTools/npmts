@@ -1,36 +1,76 @@
 import "typings-global";
 import plugins = require("./npmts.plugins");
+import paths = require("./npmts.paths");
 import {npmtsOra} from "./npmts.promisechain";
 
-export var run = function(configArg){
-    var done = plugins.Q.defer();
-    var config = configArg;
+export type npmtsMode = "default" | "custom"
 
-    npmtsOra.text("now determining build options...");
+export interface npmtsConfig {
+        argv:any,
+        coverageTreshold:number,
+        docs:boolean,
+        mode: npmtsMode,
+        test:boolean,
+        testTs:any,
+        ts:any,
+        tsOptions:any
+        
+};
+
+
+export var run = function(argvArg){
+    let done = plugins.Q.defer();
+    let defaultConfig:npmtsConfig = {
+        argv:undefined,
+        coverageTreshold: 70,
+        docs: true,
+        mode:"default",
+        test:true,
+        testTs:{},
+        ts:{},
+        tsOptions: {}
+    };
+
+
+    // mix with configfile
+    npmtsOra.text("looking for npmextra.json");
+    let config:npmtsConfig = plugins.npmextra.dataFor({
+        toolName:"npmts",
+        defaultSettings:defaultConfig,
+        cwd:paths.cwd
+    });
+
+    // check mode
+    switch (config.mode){
+        case "default":
+        case "custom":
+            plugins.beautylog.ok("mode is " + config.mode);
+            done.resolve(config);
+            break;
+        default:
+            plugins.beautylog.error("mode " + config.mode + " not recognised!".red);
+            process.exit(1);
+    };
 
     //handle default mode
     if (config.mode == "default"){
-        config.typings = [
-            "./ts/typings.json"
-        ];
         config.ts = {
             ["./ts/**/*.ts"]: "./dist/"
         };
         config.testTs = {
             ["./test/test.ts"]: "./test/"
         };
-        config.test = ["./index.js"];
-    }
-    
-    //check if config.tsOptions is available
-    config.tsOptions ? void(0) : config.tsOptions = {};
+    };
 
-    
 
-    config.coverageTreshold ? void(0) : config.coverageTreshold = 70;
+    // mix with commandline
+    if(config.argv.notest){
+        config.test = false;
+    };
+    if(config.argv.nodocs){
+        config.docs = false;
+    };
 
-    // handle docs
-    config.docs ? void(0) : config.docs = {};
 
     plugins.beautylog.ok("build options are ready!");
     done.resolve(config);

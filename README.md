@@ -46,10 +46,25 @@ Then add it to your package.json's script section to trigger a build:
 ### npmextra.json
 the npmts section in npmextra.json can be used to configure npmts.
 
+**Default**
+>Note: When you are using `"mode":"default"` it'll cause npmts to override any other settings you may have made except for tsOptions (ES target etc.)
+with default behaviour.
+
 ```json
 {
   "npmts":{
-    "mode":"default",
+    "mode":"default"
+  }
+}
+```
+
+**Custom settings**
+```json
+{
+  "mode":"custom",
+  "docs":false,
+  "test":true,
+  "npmts":{
     "ts":{
       "./customdir/*.ts":"./"
     },
@@ -64,7 +79,9 @@ the npmts section in npmextra.json can be used to configure npmts.
 
 | key | default value | description |
 | --- | --- | --- |
-| `"mode"` | `"default"` | "default" will do some default stuff, "custom" only does what you specify |
+| `"mode"` | `"default"` | "default" will do default stuff and override , "custom" only does what you specify |
+| `"docs"` | `true` | create docs for your module |
+| `"test"` | `true` | test your module |
 | `"ts"` | `{"./ts/*.ts":"./","./test/test.ts":"./test/"}` | allows you to define multiple ts portions |
 | `"tsOptions"` | `{"target":"ES5", "declaration":"true"}` | specify options for tsc |
 | `"cli"` | "false" | some modules are designed to be used from cli. If set to true NPMTS will create a cli.js that wires you dist files up for cli use. |

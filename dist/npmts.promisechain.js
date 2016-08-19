@@ -6,15 +6,13 @@ var NpmtsAssets = require("./npmts.assets");
 var NpmtsCheck = require("./npmts.check");
 var NpmtsClean = require("./npmts.clean");
 var NpmtsCompile = require("./npmts.compile");
-var NpmtsConfigFile = require("./npmts.configfile");
 var NpmtsTypeDoc = require("./npmts.typedoc");
 var NpmtsOptions = require("./npmts.options");
 var NpmtsTests = require("./npmts.tests");
 exports.promisechain = function (argvArg) {
     var done = plugins.Q.defer();
     exports.npmtsOra.start();
-    NpmtsConfigFile.run(argvArg)
-        .then(NpmtsOptions.run)
+    NpmtsOptions.run(argvArg)
         .then(NpmtsClean.run)
         .then(NpmtsCheck.run)
         .then(NpmtsCompile.run)

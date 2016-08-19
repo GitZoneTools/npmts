@@ -32,13 +32,13 @@ let genTypeDoc = function (configArg) {
 
 export let run = function (configArg) {
     let done = plugins.Q.defer();
-    if (configArg.nodocs) {
-        done.resolve(configArg);
-    } else {
+    if (configArg.docs) {
         genTypeDoc(configArg)
             .then(() => {
                 done.resolve(configArg);
             });
+    } else {
+        done.resolve(configArg);
     };
     return done.promise;
 };

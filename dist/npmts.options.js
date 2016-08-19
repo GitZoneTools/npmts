@@ -1,16 +1,42 @@
 "use strict";
 require("typings-global");
 var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
 var npmts_promisechain_1 = require("./npmts.promisechain");
-exports.run = function (configArg) {
+;
+exports.run = function (argvArg) {
     var done = plugins.Q.defer();
-    var config = configArg;
-    npmts_promisechain_1.npmtsOra.text("now determining build options...");
+    var defaultConfig = {
+        argv: undefined,
+        coverageTreshold: 70,
+        docs: true,
+        mode: "default",
+        test: true,
+        testTs: {},
+        ts: {},
+        tsOptions: {}
+    };
+    // mix with configfile
+    npmts_promisechain_1.npmtsOra.text("looking for npmextra.json");
+    var config = plugins.npmextra.dataFor({
+        toolName: "npmts",
+        defaultSettings: defaultConfig,
+        cwd: paths.cwd
+    });
+    // check mode
+    switch (config.mode) {
+        case "default":
+        case "custom":
+            plugins.beautylog.ok("mode is " + config.mode);
+            done.resolve(config);
+            break;
+        default:
+            plugins.beautylog.error("mode " + config.mode + " not recognised!".red);
+            process.exit(1);
+    }
+    ;
     //handle default mode
     if (config.mode == "default") {
-        config.typings = [
-            "./ts/typings.json"
-        ];
         config.ts = (_a = {},
             _a["./ts/**/*.ts"] = "./dist/",
             _a
@@ -19,13 +45,17 @@ exports.run = function (configArg) {
             _b["./test/test.ts"] = "./test/",
             _b
         );
-        config.test = ["./index.js"];
     }
-    //check if config.tsOptions is available
-    config.tsOptions ? void (0) : config.tsOptions = {};
-    config.coverageTreshold ? void (0) : config.coverageTreshold = 70;
-    // handle docs
-    config.docs ? void (0) : config.docs = {};
+    ;
+    // mix with commandline
+    if (config.argv.notest) {
+        config.test = false;
+    }
+    ;
+    if (config.argv.nodocs) {
+        config.docs = false;
+    }
+    ;
     plugins.beautylog.ok("build options are ready!");
     done.resolve(config);
     return done.promise;
