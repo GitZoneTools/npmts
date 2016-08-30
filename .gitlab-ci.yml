@@ -1,10 +1,10 @@
-image: hosttoday/ht-docker-node:npmts
+image: hosttoday/ht-docker-node:npmci
 
 stages:
 - test
 - release
 - trigger
-- page
+- pages
 
 testLEGACY:
   stage: test
@@ -45,3 +45,15 @@ trigger:
     - tags
   tags:
     - docker
+
+pages:
+  image: ht-docker-node:npmpage
+  stage: pages
+  script:
+    - npmpage
+  only:
+    - tags
+  artifacts:
+    expire_in: 1 week
+    paths:
+    - pages
