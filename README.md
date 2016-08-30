@@ -109,8 +109,8 @@ and tsc will pick up the declaration file automatically.
 
 ### TypeDoc
 By default TypeDoc will create docs for your module in `./pages/api/` directory.
-You can use `.docs/` directory to create a gitbook.
-> Note: Use [npmpage](https://www.npmjs.com/package/npmpage) from npm to fuse gitbook and TypeDoc into a website  
+> Note: You can use `./docs/` directory to create a gitbook.
+Use [npmpage](https://www.npmjs.com/package/npmpage) from npm to fuse gitbook and TypeDoc into a website. 
 
 ## Some notes:
 #### Typings for third party modules that do not bundle declaration files
