@@ -47,7 +47,7 @@ trigger:
     - docker
 
 pages:
-  image: ht-docker-node:npmpage
+  image: hosttoday/ht-docker-node:npmpage
   stage: pages
   script:
     - npmpage
