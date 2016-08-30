@@ -14,8 +14,8 @@ var genTypeDoc = function (configArg) {
         target: "es6",
         includeDeclarations: true,
         // Output options (see typedoc docs) 
-        out: paths.docsDir,
-        json: plugins.path.join(paths.docsDir, "file.json"),
+        out: paths.pagesApiDir,
+        json: plugins.path.join(paths.pagesApiDir, "file.json"),
         // TypeDoc options (see typedoc docs) 
         name: "my-project",
         //theme: "default",
