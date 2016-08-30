@@ -107,6 +107,11 @@ This is in line with the latest TypeScript best practices.
 You can then import plugins via the TypeScript `import` Syntax
 and tsc will pick up the declaration file automatically.
 
+### TypeDoc
+By default TypeDoc will create docs for your module in `./pages/api/` directory.
+You can use `.docs/` directory to create a gitbook.
+> Note: Use [npmpage](https://www.npmjs.com/package/npmpage) from npm to fuse gitbook and TypeDoc into a website  
+
 ## Some notes:
 #### Typings for third party modules that do not bundle declaration files
 NPMTS no longer supports typings.json. Instead use the new TypeScript 2.x approach to typings using the @types/ npm scope.
