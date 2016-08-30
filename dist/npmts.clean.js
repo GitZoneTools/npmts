@@ -4,24 +4,18 @@ var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 var npmts_promisechain_1 = require("./npmts.promisechain");
 var removeDist = function () {
-    npmts_promisechain_1.npmtsOra.text("cleaning " + "dist".yellow + " folder");
+    npmts_promisechain_1.npmtsOra.text("cleaning dist folder");
     return plugins.smartfile.fs.remove(paths.distDir);
 };
-var removeTypings = function () {
-    var done = plugins.Q.defer();
-    npmts_promisechain_1.npmtsOra.text("cleaning " + "typings".yellow + " folder");
-    if (false) {
-    }
-    else {
-        done.resolve();
-    }
-    return done.promise;
+var removePages = function () {
+    npmts_promisechain_1.npmtsOra.text("cleaning pages folder");
+    return plugins.smartfile.fs.remove(paths.pagesDir);
 };
 exports.run = function (configArg) {
     npmts_promisechain_1.npmtsOra.text("cleaning up from previous builds...");
     var done = plugins.Q.defer();
     removeDist()
-        .then(removeTypings)
+        .then(removePages)
         .then(function () {
         plugins.beautylog.ok("Cleaned up from previous builds!");
         done.resolve(configArg);
