@@ -3,8 +3,8 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 
 ## Availabililty
 [![npm](https://img.shields.io/badge/npm-npmjs.com-blue.svg)](https://www.npmjs.com/package/npmts)
-[![git](https://img.shields.io/badge/git-gitlab.com.com-blue.svg)](https://gitlab.com/pushrocks/npmts)
-[![git](https://img.shields.io/badge/git%20mirror-github.com.com-blue.svg)](https://github.com/pushrocks/npmts)
+[![git](https://img.shields.io/badge/git-gitlab.com-blue.svg)](https://gitlab.com/pushrocks/npmts)
+[![git](https://img.shields.io/badge/git%20mirror-github.com-blue.svg)](https://github.com/pushrocks/npmts)
 [![docs](https://img.shields.io/badge/docs-gitlab.io-blue.svg)](https://pushrocks.gitlab.io/npmts/docs)
 
 ## Status for master
