@@ -3,17 +3,13 @@
         "readme": "index.md"
     },
     "plugins": [
-        "disqus",
         "tonic",
         "edit-link"
     ],
     "pluginsConfig": {
         "edit-link": {
-            "base": "https://gitlab.com/pushrocks/npmts/edit/master/",
+            "base": "https://gitlab.com/pushrocks/npmts/edit/master/docs/",
             "label": "Edit on GitLab"
-        },
-        "disqus": {
-            "shortName": "mojoio-docs"
         }
     }
 }
