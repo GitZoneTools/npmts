@@ -50,7 +50,7 @@ pages:
   image: hosttoday/ht-docker-node:npmpage
   stage: pages
   script:
-    - npmpage
+    - npmci command npmpage
   only:
     - tags
   artifacts:
