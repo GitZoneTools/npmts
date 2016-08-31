@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "5.4.15",
+  "version": "5.4.16",
   "description": "Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.",
   "main": "dist/index.js",
   "bin": {
@@ -10,8 +10,8 @@
     "test": "(npm run compile && npm run setupCheck && npm run check && npm run checkVersion && npm run checkNoTest && npm run checkNoDocs)",
     "compile": "(rm -rf test/ && rm -r dist/ && mkdir dist/ && tsc && cp assets/cli.js dist/ )",
     "setupCheck": "(git clone https://gitlab.com/sandboxzone/sandbox-npmts.git test/)",
-    "typedoc":"(typedoc --out ./pages/api --target ES6 ./ts/)",
-    "npmpage":"(npmpage)",
+    "typedoc": "(typedoc --out ./pages/api --target ES6 ./ts/)",
+    "npmpage": "(npmpage)",
     "check": "(cd test && npm install && node ../dist/index.js)",
     "checkVersion": "(cd test/ && node ../dist/index.js -v)",
     "checkNoTest": "(cd test && node ../dist/index.js --notest)",
