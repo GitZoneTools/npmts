@@ -1,8 +1,6 @@
 # npmts
 Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 
-[![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
-
 ## Availabililty
 [![npm](https://push.rocks/assets/repo-button-npm.svg)](https://www.npmjs.com/package/npmts)
 [![git](https://push.rocks/assets/repo-button-git.svg)](https://gitlab.com/pushrocks/npmts)
@@ -26,3 +24,5 @@ There is a docker image available that includes npmts to make CI a breeze:
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
 For further information read the docs.
+
+[![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
