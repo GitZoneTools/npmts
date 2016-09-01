@@ -1,8 +1,8 @@
 # Summary
 
-* [Intro](index.md)
-* [Install](install.md)
-* [Default Behaviour](default.md)
-* [Configuration](config.md)
-* [Examples](examples.md)
-* [Info](info.md)
+* [1. Intro](index.md)
+* [2. Install](install.md)
+* [3. Default Behaviour](default.md)
+* [4. Configuration](config.md)
+* [5. Examples](examples.md)
+* [6. Info](info.md)

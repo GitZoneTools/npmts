@@ -1,4 +1,4 @@
-### Default task execution order
+# Default task execution order
 
 1. **Config:** Check config in ./npmextra.json (Check out [npmextra](https://www.npmjs.com/package/npmextra))
 1. **Clean:** Clean up from any previous builds (old js files)
