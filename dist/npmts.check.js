@@ -2,9 +2,10 @@
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 var npmts_promisechain_1 = require("./npmts.promisechain");
-exports.projectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.cwd);
+var projectinfo_1 = require("projectinfo");
 var checkProjectTypings = function (configArg) {
     var done = plugins.Q.defer();
+    exports.projectInfo = new projectinfo_1.ProjectinfoNpm(paths.cwd);
     if (typeof exports.projectInfo.packageJson.typings == "undefined") {
         plugins.beautylog.error("please add typings field to package.json");
         process.exit(1);
