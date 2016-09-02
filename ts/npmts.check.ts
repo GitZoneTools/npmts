@@ -2,10 +2,14 @@ import * as plugins from "./npmts.plugins";
 import * as paths from "./npmts.paths";
 import { npmtsOra } from "./npmts.promisechain";
 
+import {ProjectinfoNpm} from "projectinfo";
+
+export let projectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.cwd);
+
 let checkProjectTypings = (configArg) => {
     let done = plugins.Q.defer();
-    let cwdProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.cwd);
-    if(typeof cwdProjectInfo.packageJson.typings == "undefined"){
+    
+    if(typeof projectInfo.packageJson.typings == "undefined"){
         plugins.beautylog.error(`please add typings field to package.json`);
         process.exit(1);
     };

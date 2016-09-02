@@ -3,6 +3,7 @@ require("typings-global");
 var plugins = require("./npmts.plugins");
 var paths = require("./npmts.paths");
 var npmts_promisechain_1 = require("./npmts.promisechain");
+var npmts_check_1 = require("./npmts.check");
 var genTypeDoc = function (configArg) {
     var done = plugins.Q.defer();
     npmts_promisechain_1.npmtsOra.text("now generating " + "TypeDoc documentation".yellow);
@@ -17,8 +18,9 @@ var genTypeDoc = function (configArg) {
         out: paths.pagesApiDir,
         json: plugins.path.join(paths.pagesApiDir, "file.json"),
         // TypeDoc options (see typedoc docs) 
-        name: "my-project",
-        //theme: "default",
+        name: npmts_check_1.projectInfo.name,
+        readme: plugins.path.join(paths.cwd, "README.md"),
+        // theme: "default",
         ignoreCompilerErrors: true,
         version: true,
     }))

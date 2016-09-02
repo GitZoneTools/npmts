@@ -3,6 +3,8 @@ import plugins = require("./npmts.plugins");
 import paths = require("./npmts.paths");
 import { npmtsOra } from "./npmts.promisechain";
 
+import {projectInfo} from "./npmts.check";
+
 let genTypeDoc = function (configArg) {
     let done = plugins.Q.defer();
     npmtsOra.text("now generating " + "TypeDoc documentation".yellow);
@@ -19,9 +21,9 @@ let genTypeDoc = function (configArg) {
             json: plugins.path.join(paths.pagesApiDir, "file.json"),
 
             // TypeDoc options (see typedoc docs) 
-            name: "my-project",
-
-            //theme: "default",
+            name: projectInfo.name,
+            readme: plugins.path.join(paths.cwd,"README.md"),
+            // theme: "default",
             ignoreCompilerErrors: true,
             version: true,
         }))
