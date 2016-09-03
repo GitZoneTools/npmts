@@ -1,4 +1,4 @@
-# Install NPMTS
+# Install npmts
 First install npmts globally, then install the npmts-g locally.
 
 > **npmts-g* checks if the global version of npmts suffices the modules requirements.

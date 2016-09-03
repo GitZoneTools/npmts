@@ -17,10 +17,17 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 [![node](https://img.shields.io/badge/node->=%206.x.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
 
 ## Introduction
-NPMTS is your friend when it comes to write, test, publish and document NPM modules written in TypeScript.
-By default NPMTS will **bundle declaration files**. As a result npm module **code completion in editors like Visual Studio Code** works.
+NPMTS is your friend when writing, testing, publishing and documenting npm modules written in TypeScript.
 
-There is a docker image available that includes npmts to make CI a breeze:  
+npmts will
+    
+1. check your dependencies and package.json
+1. transpile your code with tsc,
+1. document your code with typedoc,
+1. test your code with mocha
+1. create coverage with istanbul
+
+This works on your machine and in CI. There is a prebuild docker image available that includes npmts to make CI a breeze:  
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
 For further information read the docs.

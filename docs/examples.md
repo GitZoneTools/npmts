@@ -1,4 +1,4 @@
-# Examples for NPMTS
+# Examples for npmts
 
 ## Example Usage in modules:
 * [gulp-browser](https://www.npmjs.com/package/gulp-browser)

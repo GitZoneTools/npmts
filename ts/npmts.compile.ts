@@ -22,7 +22,8 @@ let compileTs = (tsFileArrayArg:string[],tsOptionsArg = {}) => {
         let compilerOptions:plugins.tsn.CompilerOptions = {
             declaration: tsOptionsCombined.declaration,
             module: plugins.tsn.ModuleKind[tsOptionsCombined.module],
-            target: plugins.tsn.ScriptTarget[tsOptionsCombined.target]
+            target: plugins.tsn.ScriptTarget[tsOptionsCombined.target],
+            exclude: "node_modules/**/*"
         };
         return compilerOptions;
     };
