@@ -1,7 +1,7 @@
 /// <reference types="q" />
-import "typings-global";
-import plugins = require("./npmts.plugins");
-export declare type npmtsMode = "default" | "custom";
+import 'typings-global';
+import plugins = require('./npmts.plugins');
+export declare type npmtsMode = 'default' | 'custom';
 export interface npmtsConfig {
     argv: any;
     coverageTreshold: number;

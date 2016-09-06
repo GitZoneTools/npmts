@@ -1,56 +1,60 @@
 "use strict";
-require("typings-global");
-var plugins = require("./npmts.plugins");
-var paths = require("./npmts.paths");
-var npmts_promisechain_1 = require("./npmts.promisechain");
+require('typings-global');
+var plugins = require('./npmts.plugins');
+var paths = require('./npmts.paths');
+var npmts_promisechain_1 = require('./npmts.promisechain');
 /**
  *
  * @returns {*}
  */
 var mocha = function (configArg) {
-    npmts_promisechain_1.npmtsOra.text("Instrumentalizing and testing transpiled JS");
+    npmts_promisechain_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
     npmts_promisechain_1.npmtsOra.end(); // end npmtsOra for tests.
     var done = plugins.Q.defer();
-    var stream = plugins.gulp.src([plugins.path.join(paths.cwd, "dist/*.js")])
+    plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
         .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.babel({
         presets: [
-            require.resolve("babel-preset-es2015")
+            require.resolve('babel-preset-es2015')
         ]
     }))
         .pipe(plugins.g.istanbul({}))
         .pipe(plugins.g.sourcemaps.write())
         .pipe(plugins.g.injectModules())
-        .on("finish", function () {
-        plugins.gulp.src([plugins.path.join(paths.cwd, "test/test.js")])
+        .on('finish', function () {
+        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')])
             .pipe(plugins.g.babel({
             presets: [
-                require.resolve("babel-preset-es2015")
+                require.resolve('babel-preset-es2015')
             ]
         }))
             .pipe(plugins.g.injectModules())
             .pipe(plugins.g.mocha())
             .pipe(plugins.g.istanbul.writeReports({
-            dir: plugins.path.join(paths.cwd, "./coverage"),
+            dir: plugins.path.join(paths.cwd, './coverage'),
             reporters: ['lcovonly', 'json', 'text', 'text-summary']
         }))
             .pipe(plugins.g.gFunction(function () {
-            plugins.beautylog.ok("Tested!");
+            plugins.beautylog.ok('Tested!');
             done.resolve(configArg);
-        }, "atEnd"));
+        }, 'atEnd'));
     });
     return done.promise;
 };
 var coverage = function (configArg) {
     var done = plugins.Q.defer();
-    plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, "lcov.info"), 2)
+    plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
         .then(function (percentageArg) {
         if (percentageArg >= configArg.coverageTreshold) {
-            plugins.beautylog.ok(percentageArg.toString() + "% coverage exceeds your treshold of " + configArg.coverageTreshold.toString() + "%");
+            plugins.beautylog.ok((percentageArg.toString() + "% ")
+                + "coverage exceeds your treshold of "
+                + (configArg.coverageTreshold.toString() + "%"));
         }
         else {
-            plugins.beautylog.warn(percentageArg.toString() + "% coverage fails your treshold of " + configArg.coverageTreshold.toString() + "%");
-            plugins.beautylog.error("exiting due to coverage failure");
+            plugins.beautylog.warn((percentageArg.toString() + "% ")
+                + "coverage fails your treshold of "
+                + (configArg.coverageTreshold.toString() + "%"));
+            plugins.beautylog.error('exiting due to coverage failure');
             process.exit(1);
         }
         done.resolve(configArg);
@@ -61,10 +65,10 @@ exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
     if (config.test === true) {
-        npmts_promisechain_1.npmtsOra.text("now starting tests");
-        plugins.beautylog.log("-------------------------------------------------------\n" +
-            "*************************** TESTS: ***************************\n" +
-            "--------------------------------------------------------------");
+        npmts_promisechain_1.npmtsOra.text('now starting tests');
+        plugins.beautylog.log('-------------------------------------------------------\n' +
+            '*************************** TESTS: ***************************\n' +
+            '--------------------------------------------------------------');
         mocha(config)
             .then(coverage)
             .then(function () {

@@ -1,26 +1,26 @@
-import * as plugins from "./npmts.plugins";
-import * as paths from "./npmts.paths";
-import { npmtsOra } from "./npmts.promisechain";
+import * as plugins from './npmts.plugins'
+import * as paths from './npmts.paths'
+import { npmtsOra } from './npmts.promisechain'
 
-import {ProjectinfoNpm} from "projectinfo";
+import {ProjectinfoNpm} from 'projectinfo'
 
-export let projectInfo:ProjectinfoNpm;
+export let projectInfo: ProjectinfoNpm
 
 let checkProjectTypings = (configArg) => {
-    let done = plugins.Q.defer();
-    projectInfo =  new ProjectinfoNpm(paths.cwd);
-    if(typeof projectInfo.packageJson.typings == "undefined"){
-        plugins.beautylog.error(`please add typings field to package.json`);
-        process.exit(1);
+    let done = plugins.Q.defer()
+    projectInfo =  new ProjectinfoNpm(paths.cwd)
+    if (typeof projectInfo.packageJson.typings === 'undefined') {
+        plugins.beautylog.error(`please add typings field to package.json`)
+        process.exit(1)
     };
-    done.resolve(configArg);
-    return done.promise;
-};
+    done.resolve(configArg)
+    return done.promise
+}
 
 const depcheckOptions = {
     ignoreBinPackage: false, // ignore the packages with bin entry
     parsers: { // the target parsers
-        '*.ts': plugins.depcheck.parser.typescript,
+        '*.ts': plugins.depcheck.parser.typescript
     },
     detectors: [ // the target detectors
         plugins.depcheck.detector.requireCallExpression,
@@ -29,11 +29,11 @@ const depcheckOptions = {
     specials: [ // the target special parsers
         plugins.depcheck.special.eslint,
         plugins.depcheck.special.webpack
-    ],
-};
+    ]
+}
 
 let checkDependencies = (configArg) => {
-    let done = plugins.Q.defer();
+    let done = plugins.Q.defer()
     let depcheckOptionsMerged = plugins.lodashObject.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'test',
@@ -41,34 +41,34 @@ let checkDependencies = (configArg) => {
             'bower_components'
         ],
         ignoreMatches: [ // ignore dependencies that matches these globs
-            "@types/*",
-            "babel-preset-*"
+            '@types/*',
+            'babel-preset-*'
         ]
     })
     plugins.depcheck(paths.cwd, depcheckOptionsMerged, (unused) => {
         for (let item of unused.dependencies) {
-            plugins.beautylog.warn(`Watch out: unused dependency ${item.red}`);
+            plugins.beautylog.warn(`Watch out: unused dependency ${item.red}`)
         };
         for (let item of unused.missing) {
-            plugins.beautylog.error(`unused devDependency ${item.red}`);
+            plugins.beautylog.error(`unused devDependency ${item.red}`)
         };
         if (unused.missing.length > 0) {
-            plugins.beautylog.info("exiting due to missing dependencies in package.json");
-            process.exit(1);
+            plugins.beautylog.info('exiting due to missing dependencies in package.json')
+            process.exit(1)
         }
         for (let item of unused.invalidFiles) {
-            plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`);
+            plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`)
         };
         for (let item of unused.invalidDirs) {
-            plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`);
+            plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`)
         };
-        done.resolve(configArg);
-    });
-    return done.promise;
-};
+        done.resolve(configArg)
+    })
+    return done.promise
+}
 
 let checkDevDependencies = (configArg) => {
-    let done = plugins.Q.defer();
+    let done = plugins.Q.defer()
     let depcheckOptionsMerged = plugins.lodashObject.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'ts',
@@ -76,46 +76,45 @@ let checkDevDependencies = (configArg) => {
             'bower_components'
         ],
         ignoreMatches: [ // ignore dependencies that matches these globs
-            "@types/*",
-            "babel-preset-*"
+            '@types/*',
+            'babel-preset-*'
         ]
     })
     plugins.depcheck(paths.cwd, depcheckOptionsMerged, (unused) => {
         for (let item of unused.devDependencies) {
-            plugins.beautylog.log(`unused devDependency ${item.red}`);
+            plugins.beautylog.log(`unused devDependency ${item.red}`)
         };
         for (let item of unused.missing) {
-            plugins.beautylog.error(`unused devDependency ${item.red}`);
+            plugins.beautylog.error(`unused devDependency ${item.red}`)
         };
         if (unused.missing.length > 0) {
-            plugins.beautylog.info("exiting due to missing dependencies in package.json");
-            process.exit(1);
+            plugins.beautylog.info('exiting due to missing dependencies in package.json')
+            process.exit(1)
         }
         for (let item of unused.invalidFiles) {
-            plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`);
-        };
+            plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`)
+        }
         for (let item of unused.invalidDirs) {
-            plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`);
-        };
-        done.resolve(configArg);
-    });
-    return done.promise;
-};
+            plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`)
+        }
+        done.resolve(configArg)
+    })
+    return done.promise
+}
 
 let checkNodeVersion = (configArg) => {
-    let done = plugins.Q.defer();
-
-    done.resolve(configArg);
-    return done.promise;
+    let done = plugins.Q.defer()
+    done.resolve(configArg)
+    return done.promise
 }
 
 export let run = (configArg) => {
-    let done = plugins.Q.defer();
-    npmtsOra.text("running project checks..."),
-        checkProjectTypings(configArg)
-            .then(checkDependencies)
-            .then(checkDevDependencies)
-            .then(checkNodeVersion)
-            .then(done.resolve);
-    return done.promise;
+    let done = plugins.Q.defer()
+    npmtsOra.text('running project checks...')
+    checkProjectTypings(configArg)
+        .then(checkDependencies)
+        .then(checkDevDependencies)
+        .then(checkNodeVersion)
+        .then(done.resolve)
+    return done.promise
 }

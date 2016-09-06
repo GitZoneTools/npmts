@@ -1,16 +1,16 @@
 "use strict";
-require("typings-global");
-var plugins = require("./npmts.plugins");
-var helpers = require("./npmts.compile.helpers");
-var npmts_promisechain_1 = require("./npmts.promisechain");
+require('typings-global');
+var plugins = require('./npmts.plugins');
+var helpers = require('./npmts.compile.helpers');
+var npmts_promisechain_1 = require('./npmts.promisechain');
 var promiseArray = [];
 var compileTs = function (tsFileArrayArg, tsOptionsArg) {
     if (tsOptionsArg === void 0) { tsOptionsArg = {}; }
     var done = plugins.Q.defer();
     var compilerOptionsDefault = {
         declaration: true,
-        module: "CommonJS",
-        target: "ES6"
+        module: 'CommonJS',
+        target: 'ES6'
     };
     /**
      * merges default ts options with those found in npmts.json
@@ -21,7 +21,7 @@ var compileTs = function (tsFileArrayArg, tsOptionsArg) {
             declaration: tsOptionsCombined.declaration,
             module: plugins.tsn.ModuleKind[tsOptionsCombined.module],
             target: plugins.tsn.ScriptTarget[tsOptionsCombined.target],
-            exclude: "node_modules/**/*"
+            exclude: 'node_modules/**/*'
         };
         return compilerOptions;
     };
@@ -49,15 +49,15 @@ var compileTs = function (tsFileArrayArg, tsOptionsArg) {
 exports.run = function (configArg) {
     var done = plugins.Q.defer();
     var config = configArg;
-    npmts_promisechain_1.npmtsOra.text("now compiling " + "TypeScript".yellow);
+    npmts_promisechain_1.npmtsOra.text('now compiling ' + 'TypeScript'.yellow);
     compileTs(config.ts, config.tsOptions)
         .then(function () {
-        plugins.beautylog.ok("compiled main TypeScript!");
-        plugins.beautylog.log("now compiling tests!");
+        plugins.beautylog.ok('compiled main TypeScript!');
+        plugins.beautylog.log('now compiling tests!');
         return compileTs(config.testTs);
     })
         .then(function () {
-        plugins.beautylog.ok("compiled all TypeScript!");
+        plugins.beautylog.ok('compiled all TypeScript!');
         done.resolve(config);
     });
     return done.promise;
