@@ -1,8 +1,8 @@
-import 'typings-global';
-import plugins = require('./npmts.plugins');
+import 'typings-global'
+import plugins = require('./npmts.plugins')
 import {Ora} from 'beautylog'
 
-export let npmtsOra = new Ora('setting up TaskChain','cyan');
+export let npmtsOra = new Ora('setting up TaskChain','cyan')
 
 import NpmtsAssets = require('./npmts.assets')
 import NpmtsCheck = require('./npmts.check')
@@ -38,12 +38,12 @@ export let promisechain = function(argvArg){
                 '   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n' +
                 '     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n'
             if (process.env.CI) {
-                console.log(shipString);
+                console.log(shipString)
                 plugins.beautylog.success('READY TO SHIP!')
             } else {
                 plugins.beautylog.success('Done!')
             }
             done.resolve()
-        });
+        })
         return done.promise
-};
+}

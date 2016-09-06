@@ -2,7 +2,7 @@
 import 'typings-global';
 import plugins = require('./npmts.plugins');
 export declare type npmtsMode = 'default' | 'custom';
-export interface npmtsConfig {
+export interface INpmtsConfig {
     argv: any;
     coverageTreshold: number;
     docs: boolean;

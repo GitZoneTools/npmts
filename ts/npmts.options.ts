@@ -5,7 +5,7 @@ import { npmtsOra } from './npmts.promisechain'
 
 export type npmtsMode = 'default' | 'custom'
 
-export interface npmtsConfig {
+export interface INpmtsConfig {
     argv: any,
     coverageTreshold: number,
     docs: boolean,
@@ -19,7 +19,7 @@ export interface npmtsConfig {
 
 export var run = function (argvArg) {
     let done = plugins.Q.defer()
-    let defaultConfig: npmtsConfig = {
+    let defaultConfig: INpmtsConfig = {
         argv: undefined,
         coverageTreshold: 70,
         docs: true,
@@ -32,7 +32,7 @@ export var run = function (argvArg) {
 
     // mix with configfile
     npmtsOra.text('looking for npmextra.json')
-    let config: npmtsConfig = plugins.npmextra.dataFor({
+    let config: INpmtsConfig = plugins.npmextra.dataFor({
         toolName: 'npmts',
         defaultSettings: defaultConfig,
         cwd: paths.cwd
