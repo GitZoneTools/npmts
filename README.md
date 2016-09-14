@@ -5,7 +5,7 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 [![npm](https://push.rocks/assets/repo-button-npm.svg)](https://www.npmjs.com/package/npmts)
 [![git](https://push.rocks/assets/repo-button-git.svg)](https://gitlab.com/pushrocks/npmts)
 [![git](https://push.rocks/assets/repo-button-mirror.svg)](https://github.com/pushrocks/npmts)
-[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/npmts/docs)
+[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/npmts/gitbook)
 
 ## Status for master
 [![build status](https://gitlab.com/pushrocks/npmts/badges/master/build.svg)](https://gitlab.com/pushrocks/npmts/commits/master)
