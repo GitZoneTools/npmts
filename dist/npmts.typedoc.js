@@ -1,9 +1,9 @@
 "use strict";
-require('typings-global');
-var plugins = require('./npmts.plugins');
-var paths = require('./npmts.paths');
-var npmts_promisechain_1 = require('./npmts.promisechain');
-var npmts_check_1 = require('./npmts.check');
+require("typings-global");
+var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
+var npmts_check_1 = require("./npmts.check");
 var genTypeDoc = function (configArg) {
     var done = plugins.Q.defer();
     npmts_promisechain_1.npmtsOra.text('now generating ' + 'TypeDoc documentation'.yellow);

@@ -1,6 +1,6 @@
 "use strict";
-var plugins = require('./npmts.plugins');
-var paths = require('./npmts.paths');
+var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
 var outputPathIsDir = function (tsArrayArg, keyArg) {
     return plugins.smartpath.check.isDir(plugins.path.join(paths.cwd, tsArrayArg[keyArg]));
 };

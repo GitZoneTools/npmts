@@ -1,13 +1,13 @@
 "use strict";
-require('typings-global');
+require("typings-global");
 /* ================================================== *
     Starting NPMTS main process.
  * ================================================== */
-var early = require('early');
+var early = require("early");
 early.start('NPMTS');
-var plugins = require('./npmts.plugins');
-var paths = require('./npmts.paths');
-var npmts_promisechain_1 = require('./npmts.promisechain');
+var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 early.stop()
     .then(function () {
     var npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);

@@ -1,8 +1,8 @@
 "use strict";
-require('typings-global');
-var plugins = require('./npmts.plugins');
-var paths = require('./npmts.paths');
-var npmts_promisechain_1 = require('./npmts.promisechain');
+require("typings-global");
+var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 var removeDist = function () {
     npmts_promisechain_1.npmtsOra.text('cleaning dist folder');
     return plugins.smartfile.fs.remove(paths.distDir);

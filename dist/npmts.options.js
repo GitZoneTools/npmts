@@ -1,8 +1,8 @@
 "use strict";
-require('typings-global');
-var plugins = require('./npmts.plugins');
-var paths = require('./npmts.paths');
-var npmts_promisechain_1 = require('./npmts.promisechain');
+require("typings-global");
+var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 ;
 exports.run = function (argvArg) {
     var done = plugins.Q.defer();
@@ -41,12 +41,10 @@ exports.run = function (argvArg) {
     if (config.mode === 'default') {
         config.ts = (_a = {},
             _a['./ts/**/*.ts'] = './dist/',
-            _a
-        );
+            _a);
         config.testTs = (_b = {},
             _b['./test/test.ts'] = './test/',
-            _b
-        );
+            _b);
     }
     ;
     // mix with commandline

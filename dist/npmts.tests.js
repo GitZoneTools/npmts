@@ -1,8 +1,8 @@
 "use strict";
-require('typings-global');
-var plugins = require('./npmts.plugins');
-var paths = require('./npmts.paths');
-var npmts_promisechain_1 = require('./npmts.promisechain');
+require("typings-global");
+var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 /**
  *
  * @returns {*}
@@ -46,12 +46,12 @@ var coverage = function (configArg) {
     plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
         .then(function (percentageArg) {
         if (percentageArg >= configArg.coverageTreshold) {
-            plugins.beautylog.ok((percentageArg.toString() + "% ")
+            plugins.beautylog.ok(percentageArg.toString() + "% "
                 + "coverage exceeds your treshold of "
                 + (configArg.coverageTreshold.toString() + "%"));
         }
         else {
-            plugins.beautylog.warn((percentageArg.toString() + "% ")
+            plugins.beautylog.warn(percentageArg.toString() + "% "
                 + "coverage fails your treshold of "
                 + (configArg.coverageTreshold.toString() + "%"));
             plugins.beautylog.error('exiting due to coverage failure');

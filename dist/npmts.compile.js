@@ -1,8 +1,8 @@
 "use strict";
-require('typings-global');
-var plugins = require('./npmts.plugins');
-var helpers = require('./npmts.compile.helpers');
-var npmts_promisechain_1 = require('./npmts.promisechain');
+require("typings-global");
+var plugins = require("./npmts.plugins");
+var helpers = require("./npmts.compile.helpers");
+var npmts_promisechain_1 = require("./npmts.promisechain");
 var promiseArray = [];
 var compileTs = function (tsFileArrayArg, tsOptionsArg) {
     if (tsOptionsArg === void 0) { tsOptionsArg = {}; }
@@ -25,7 +25,7 @@ var compileTs = function (tsFileArrayArg, tsOptionsArg) {
         };
         return compilerOptions;
     };
-    var _loop_1 = function(keyArg) {
+    var _loop_1 = function (keyArg) {
         plugins.beautylog.info("TypeScript assignment: transpile from " + keyArg.blue + " to " + tsFileArrayArg[keyArg].blue);
         if (helpers.checkOutputPath(tsFileArrayArg, keyArg)) {
             var filesReadPromise = plugins.smartfile.fs.listFileTree(process.cwd(), keyArg)

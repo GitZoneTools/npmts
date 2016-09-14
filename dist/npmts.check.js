@@ -1,8 +1,8 @@
 "use strict";
-var plugins = require('./npmts.plugins');
-var paths = require('./npmts.paths');
-var npmts_promisechain_1 = require('./npmts.promisechain');
-var projectinfo_1 = require('projectinfo');
+var plugins = require("./npmts.plugins");
+var paths = require("./npmts.paths");
+var npmts_promisechain_1 = require("./npmts.promisechain");
+var projectinfo_1 = require("projectinfo");
 var checkProjectTypings = function (configArg) {
     var done = plugins.Q.defer();
     exports.projectInfo = new projectinfo_1.ProjectinfoNpm(paths.cwd);
