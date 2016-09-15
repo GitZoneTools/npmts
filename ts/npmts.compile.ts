@@ -4,7 +4,6 @@ import paths = require('./npmts.paths')
 import helpers = require('./npmts.compile.helpers')
 import {npmtsOra} from './npmts.promisechain'
 
-let promiseArray = []
 let compileTs = (tsFileArrayArg: string[],tsOptionsArg = {}) => {
     let done = plugins.Q.defer()
 
