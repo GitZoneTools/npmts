@@ -30,22 +30,21 @@ let compileTs = (tsFileArrayArg: string[],tsOptionsArg = {}) => {
     for (let keyArg in tsFileArrayArg) {
         plugins.beautylog.info(`TypeScript assignment: transpile from ${keyArg.blue} to ${tsFileArrayArg[keyArg].blue}`)
         if (helpers.checkOutputPath(tsFileArrayArg,keyArg)) {
-            let filesReadPromise = plugins.smartfile.fs.listFileTree(process.cwd(),keyArg)
-                .then((filesToConvertArg) => {
+            plugins.smartfile.fs.listFileTree(process.cwd(),keyArg)
+                .then((filesToConvertArg: string[]) => {
                     let filesToConvertAbsolute = plugins.smartpath.transform.toAbsolute(filesToConvertArg,process.cwd())
                     let destDir = plugins.smartpath.transform.toAbsolute(tsFileArrayArg[keyArg],process.cwd())
-                    let filesCompiledPromise = plugins.tsn.compile(
+                    return plugins.tsn.compile(
                         filesToConvertAbsolute,
                         destDir,
                         compilerOptions(keyArg)
                     )
-                    promiseArray.push(filesCompiledPromise)
                 })
-            promiseArray.push(filesReadPromise)
+                .then(() => {
+                    done.resolve()
+                })
         }
-    };
-    plugins.Q.all(promiseArray)
-        .then(done.resolve)
+    }
     return done.promise
 }
 
