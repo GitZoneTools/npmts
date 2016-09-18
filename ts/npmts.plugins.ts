@@ -11,7 +11,7 @@ export let g = {
     sourcemaps: require('gulp-sourcemaps'),
     typedoc: require('gulp-typedoc')
 }
-export import lodashObject = require('lodash')
+export import lodash = require('lodash')
 export import npmextra = require('npmextra')
 export import projectinfo = require('projectinfo')
 export import path = require('path')

@@ -34,7 +34,7 @@ const depcheckOptions = {
 
 let checkDependencies = (configArg) => {
     let done = plugins.Q.defer()
-    let depcheckOptionsMerged = plugins.lodashObject.merge(depcheckOptions, {
+    let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'test',
             'dist',
@@ -69,7 +69,7 @@ let checkDependencies = (configArg) => {
 
 let checkDevDependencies = (configArg) => {
     let done = plugins.Q.defer()
-    let depcheckOptionsMerged = plugins.lodashObject.merge(depcheckOptions, {
+    let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'ts',
             'dist',

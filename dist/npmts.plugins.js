@@ -12,7 +12,7 @@ exports.g = {
     sourcemaps: require('gulp-sourcemaps'),
     typedoc: require('gulp-typedoc')
 };
-exports.lodashObject = require("lodash");
+exports.lodash = require("lodash");
 exports.npmextra = require("npmextra");
 exports.projectinfo = require("projectinfo");
 exports.path = require("path");

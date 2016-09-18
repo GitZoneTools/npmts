@@ -32,7 +32,7 @@ export var run = function (argvArg) {
 
     // mix with configfile
     npmtsOra.text('looking for npmextra.json')
-    let config: INpmtsConfig = plugins.npmextra.dataFor({
+    let config: INpmtsConfig = plugins.npmextra.dataFor<INpmtsConfig>({
         toolName: 'npmts',
         defaultSettings: defaultConfig,
         cwd: paths.cwd

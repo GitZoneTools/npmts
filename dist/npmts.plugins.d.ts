@@ -11,7 +11,7 @@ export declare let g: {
     sourcemaps: any;
     typedoc: any;
 };
-export import lodashObject = require('lodash');
+export import lodash = require('lodash');
 export import npmextra = require('npmextra');
 export import projectinfo = require('projectinfo');
 export import path = require('path');

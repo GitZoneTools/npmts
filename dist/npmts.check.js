@@ -30,7 +30,7 @@ var depcheckOptions = {
 };
 var checkDependencies = function (configArg) {
     var done = plugins.Q.defer();
-    var depcheckOptionsMerged = plugins.lodashObject.merge(depcheckOptions, {
+    var depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
             'test',
             'dist',
@@ -72,7 +72,7 @@ var checkDependencies = function (configArg) {
 };
 var checkDevDependencies = function (configArg) {
     var done = plugins.Q.defer();
-    var depcheckOptionsMerged = plugins.lodashObject.merge(depcheckOptions, {
+    var depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
             'ts',
             'dist',
