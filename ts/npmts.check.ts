@@ -7,7 +7,8 @@ import {ProjectinfoNpm} from 'projectinfo'
 export let projectInfo: ProjectinfoNpm
 
 let checkProjectTypings = (configArg) => {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
+    npmtsOra.text('Check Module: Check Project Typings...')
     projectInfo =  new ProjectinfoNpm(paths.cwd)
     if (typeof projectInfo.packageJson.typings === 'undefined') {
         plugins.beautylog.error(`please add typings field to package.json`)
@@ -33,7 +34,8 @@ const depcheckOptions = {
 }
 
 let checkDependencies = (configArg) => {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
+    npmtsOra.text('Check Module: Check Dependencies...')
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'test',
@@ -47,28 +49,29 @@ let checkDependencies = (configArg) => {
     })
     plugins.depcheck(paths.cwd, depcheckOptionsMerged, (unused) => {
         for (let item of unused.dependencies) {
-            plugins.beautylog.warn(`Watch out: unused dependency ${item.red}`)
-        };
-        for (let item of unused.missing) {
-            plugins.beautylog.error(`unused devDependency ${item.red}`)
-        };
+            plugins.beautylog.warn(`Watch out: unused dependency "${item}"`)
+        }
+        for (let item in unused.missing) {
+            plugins.beautylog.error(`unused devDependency "${item}"`)
+        }
         if (unused.missing.length > 0) {
             plugins.beautylog.info('exiting due to missing dependencies in package.json')
             process.exit(1)
         }
-        for (let item of unused.invalidFiles) {
+        for (let item in unused.invalidFiles) {
             plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`)
         };
-        for (let item of unused.invalidDirs) {
+        for (let item in unused.invalidDirs) {
             plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`)
-        };
+        }
         done.resolve(configArg)
     })
     return done.promise
 }
 
 let checkDevDependencies = (configArg) => {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
+    npmtsOra.text('Check Module: Check devDependencies...')
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'ts',
@@ -83,18 +86,18 @@ let checkDevDependencies = (configArg) => {
     plugins.depcheck(paths.cwd, depcheckOptionsMerged, (unused) => {
         for (let item of unused.devDependencies) {
             plugins.beautylog.log(`unused devDependency ${item.red}`)
-        };
-        for (let item of unused.missing) {
+        }
+        for (let item in unused.missing) {
             plugins.beautylog.error(`unused devDependency ${item.red}`)
-        };
+        }
         if (unused.missing.length > 0) {
             plugins.beautylog.info('exiting due to missing dependencies in package.json')
             process.exit(1)
         }
-        for (let item of unused.invalidFiles) {
+        for (let item in unused.invalidFiles) {
             plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`)
         }
-        for (let item of unused.invalidDirs) {
+        for (let item in unused.invalidDirs) {
             plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`)
         }
         done.resolve(configArg)
@@ -103,18 +106,20 @@ let checkDevDependencies = (configArg) => {
 }
 
 let checkNodeVersion = (configArg) => {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
+    npmtsOra.text('checking node version')
     done.resolve(configArg)
     return done.promise
 }
 
 export let run = (configArg) => {
-    let done = plugins.Q.defer()
-    npmtsOra.text('running project checks...')
+    let done = plugins.q.defer()
+    npmtsOra.text('Check Module: ...')
     checkProjectTypings(configArg)
         .then(checkDependencies)
         .then(checkDevDependencies)
         .then(checkNodeVersion)
         .then(done.resolve)
+        .catch((err) => { console.log(err) })
     return done.promise
 }

@@ -4,16 +4,17 @@ import {Ora} from 'beautylog'
 
 export let npmtsOra = new Ora('setting up TaskChain','cyan')
 
-import NpmtsAssets = require('./npmts.assets')
-import NpmtsCheck = require('./npmts.check')
-import NpmtsClean = require('./npmts.clean')
-import NpmtsCompile = require('./npmts.compile')
-import NpmtsTypeDoc = require('./npmts.typedoc')
-import NpmtsOptions = require('./npmts.options')
-import NpmtsTests = require('./npmts.tests')
+import * as NpmtsAssets from './npmts.assets'
+import * as NpmtsCheck from './npmts.check'
+import * as NpmtsClean from './npmts.clean'
+import * as NpmtsCompile from './npmts.compile'
+import * as NpmtsTypeDoc from './npmts.typedoc'
+import * as NpmtsOptions from './npmts.options'
+import * as NpmtsTests from './npmts.tests'
+import * as NpmtsWatch from './npmts.watch'
 
-export let promisechain = function(argvArg){
-    let done = plugins.Q.defer()
+export let run = function(argvArg){
+    let done = plugins.q.defer()
     npmtsOra.start()
     NpmtsOptions.run(argvArg)
         .then(NpmtsClean.run)
@@ -22,6 +23,7 @@ export let promisechain = function(argvArg){
         .then(NpmtsAssets.run)
         .then(NpmtsTypeDoc.run)
         .then(NpmtsTests.run)
+        .then(NpmtsWatch.run)
         .then(function(configArg){
             let shipString = '' +
                 '\n' +
@@ -43,7 +45,7 @@ export let promisechain = function(argvArg){
             } else {
                 plugins.beautylog.success('Done!')
             }
-            done.resolve()
+            done.resolve(configArg)
         })
         return done.promise
 }

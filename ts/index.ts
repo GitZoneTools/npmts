@@ -7,7 +7,7 @@ import * as early from 'early'
 early.start('NPMTS')
 import * as plugins from './npmts.plugins'
 import * as paths from './npmts.paths'
-import {promisechain} from './npmts.promisechain'
+import * as promisechain from './npmts.promisechain'
 early.stop()
     .then(() => {
         let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot)
@@ -16,11 +16,7 @@ early.stop()
             .then((argvArg) => {
                 plugins.beautylog.figletSync('NPMTS')
                 plugins.beautylog.info('npmts version: ' + npmtsProjectInfo.version)
-                try {
-                    promisechain(argvArg)
-                } catch (err) {
-                    console.log(err)
-                }
+                    promisechain.run(argvArg).catch((err) => { console.log(err) })
             })
 
         npmtsCli.addVersion(npmtsProjectInfo.version)

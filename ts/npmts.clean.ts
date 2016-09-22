@@ -15,7 +15,7 @@ let removePages = function(){
 
 export let run = function(configArg){
     npmtsOra.text('cleaning up from previous builds...')
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
     removeDist()
         .then(removePages)
         .then(function(){

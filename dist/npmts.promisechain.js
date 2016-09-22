@@ -1,17 +1,18 @@
 "use strict";
 require("typings-global");
-var plugins = require("./npmts.plugins");
-var beautylog_1 = require("beautylog");
+const plugins = require("./npmts.plugins");
+const beautylog_1 = require("beautylog");
 exports.npmtsOra = new beautylog_1.Ora('setting up TaskChain', 'cyan');
-var NpmtsAssets = require("./npmts.assets");
-var NpmtsCheck = require("./npmts.check");
-var NpmtsClean = require("./npmts.clean");
-var NpmtsCompile = require("./npmts.compile");
-var NpmtsTypeDoc = require("./npmts.typedoc");
-var NpmtsOptions = require("./npmts.options");
-var NpmtsTests = require("./npmts.tests");
-exports.promisechain = function (argvArg) {
-    var done = plugins.Q.defer();
+const NpmtsAssets = require("./npmts.assets");
+const NpmtsCheck = require("./npmts.check");
+const NpmtsClean = require("./npmts.clean");
+const NpmtsCompile = require("./npmts.compile");
+const NpmtsTypeDoc = require("./npmts.typedoc");
+const NpmtsOptions = require("./npmts.options");
+const NpmtsTests = require("./npmts.tests");
+const NpmtsWatch = require("./npmts.watch");
+exports.run = function (argvArg) {
+    let done = plugins.q.defer();
     exports.npmtsOra.start();
     NpmtsOptions.run(argvArg)
         .then(NpmtsClean.run)
@@ -20,8 +21,9 @@ exports.promisechain = function (argvArg) {
         .then(NpmtsAssets.run)
         .then(NpmtsTypeDoc.run)
         .then(NpmtsTests.run)
+        .then(NpmtsWatch.run)
         .then(function (configArg) {
-        var shipString = '' +
+        let shipString = '' +
             '\n' +
             '\n' +
             '                                         # #  ( )\n' +
@@ -42,7 +44,7 @@ exports.promisechain = function (argvArg) {
         else {
             plugins.beautylog.success('Done!');
         }
-        done.resolve();
+        done.resolve(configArg);
     });
     return done.promise;
 };

@@ -11,5 +11,6 @@ export interface INpmtsConfig {
     testTs: any;
     ts: any;
     tsOptions: any;
+    watch: boolean;
 }
-export declare var run: (argvArg: any) => plugins.Q.Promise<{}>;
+export declare var run: (argvArg: any) => plugins.q.Promise<{}>;

@@ -10,7 +10,7 @@ import { npmtsOra } from './npmts.promisechain'
 let mocha = function (configArg) {
     npmtsOra.text('Instrumentalizing and testing transpiled JS')
     npmtsOra.end() // end npmtsOra for tests.
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
     plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
         .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.babel({
@@ -47,7 +47,7 @@ let mocha = function (configArg) {
 }
 
 let coverage = function (configArg) {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
     plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
         .then(function (percentageArg) {
             if (percentageArg >= configArg.coverageTreshold) {
@@ -71,7 +71,7 @@ let coverage = function (configArg) {
 }
 
 export let run = function (configArg) {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
     let config = configArg
     if (config.test === true) {
         npmtsOra.text('now starting tests')

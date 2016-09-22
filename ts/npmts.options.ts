@@ -13,12 +13,13 @@ export interface INpmtsConfig {
     test: boolean,
     testTs: any,
     ts: any,
-    tsOptions: any
+    tsOptions: any,
+    watch: boolean
 
 };
 
 export var run = function (argvArg) {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
     let defaultConfig: INpmtsConfig = {
         argv: undefined,
         coverageTreshold: 70,
@@ -27,7 +28,8 @@ export var run = function (argvArg) {
         test: true,
         testTs: {},
         ts: {},
-        tsOptions: {}
+        tsOptions: {},
+        watch: false
     }
 
     // mix with configfile
@@ -69,6 +71,9 @@ export var run = function (argvArg) {
     };
     if (config.argv.nodocs) {
         config.docs = false
+    };
+    if (config.argv.watch) {
+        config.watch = true
     };
 
     plugins.beautylog.ok('build options are ready!')

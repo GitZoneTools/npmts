@@ -4,7 +4,7 @@ import paths = require('./npmts.paths')
 import {npmtsOra} from './npmts.promisechain'
 
 export let run = function (configArg) {
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
     let config = configArg
     npmtsOra.text('now compiling ' + 'TypeScript'.yellow)
     plugins.tsn.compileGlobStringObject(config.ts,config.tsOptions,paths.cwd)

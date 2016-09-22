@@ -1,11 +1,11 @@
 "use strict";
 require("typings-global");
-var plugins = require("./npmts.plugins");
-var paths = require("./npmts.paths");
-var npmts_promisechain_1 = require("./npmts.promisechain");
-var npmts_check_1 = require("./npmts.check");
-var genTypeDoc = function (configArg) {
-    var done = plugins.Q.defer();
+const plugins = require("./npmts.plugins");
+const paths = require("./npmts.paths");
+const npmts_promisechain_1 = require("./npmts.promisechain");
+const npmts_check_1 = require("./npmts.check");
+let genTypeDoc = function (configArg) {
+    let done = plugins.q.defer();
     npmts_promisechain_1.npmtsOra.text('now generating ' + 'TypeDoc documentation'.yellow);
     plugins.beautylog.log('TypeDoc Output:');
     plugins.gulp.src(plugins.path.join(paths.tsDir, '**/*.ts'))
@@ -28,10 +28,10 @@ var genTypeDoc = function (configArg) {
     return done.promise;
 };
 exports.run = function (configArg) {
-    var done = plugins.Q.defer();
+    let done = plugins.q.defer();
     if (configArg.docs) {
         genTypeDoc(configArg)
-            .then(function () {
+            .then(() => {
             done.resolve(configArg);
         });
     }

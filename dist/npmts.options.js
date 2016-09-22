@@ -1,12 +1,12 @@
 "use strict";
 require("typings-global");
-var plugins = require("./npmts.plugins");
-var paths = require("./npmts.paths");
-var npmts_promisechain_1 = require("./npmts.promisechain");
+const plugins = require("./npmts.plugins");
+const paths = require("./npmts.paths");
+const npmts_promisechain_1 = require("./npmts.promisechain");
 ;
 exports.run = function (argvArg) {
-    var done = plugins.Q.defer();
-    var defaultConfig = {
+    let done = plugins.q.defer();
+    let defaultConfig = {
         argv: undefined,
         coverageTreshold: 70,
         docs: true,
@@ -14,11 +14,12 @@ exports.run = function (argvArg) {
         test: true,
         testTs: {},
         ts: {},
-        tsOptions: {}
+        tsOptions: {},
+        watch: false
     };
     // mix with configfile
     npmts_promisechain_1.npmtsOra.text('looking for npmextra.json');
-    var config = plugins.npmextra.dataFor({
+    let config = plugins.npmextra.dataFor({
         toolName: 'npmts',
         defaultSettings: defaultConfig,
         cwd: paths.cwd
@@ -33,18 +34,18 @@ exports.run = function (argvArg) {
             done.resolve(config);
             break;
         default:
-            plugins.beautylog.error("mode not recognised!");
+            plugins.beautylog.error(`mode not recognised!`);
             process.exit(1);
     }
     ;
     // handle default mode
     if (config.mode === 'default') {
-        config.ts = (_a = {},
-            _a['./ts/**/*.ts'] = './dist/',
-            _a);
-        config.testTs = (_b = {},
-            _b['./test/test.ts'] = './test/',
-            _b);
+        config.ts = {
+            ['./ts/**/*.ts']: './dist/'
+        };
+        config.testTs = {
+            ['./test/test.ts']: './test/'
+        };
     }
     ;
     // mix with commandline
@@ -56,8 +57,11 @@ exports.run = function (argvArg) {
         config.docs = false;
     }
     ;
+    if (config.argv.watch) {
+        config.watch = true;
+    }
+    ;
     plugins.beautylog.ok('build options are ready!');
     done.resolve(config);
     return done.promise;
-    var _a, _b;
 };

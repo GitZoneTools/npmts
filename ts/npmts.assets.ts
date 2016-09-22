@@ -4,7 +4,7 @@ import paths = require('./npmts.paths')
 import {npmtsOra} from './npmts.promisechain'
 
 export var run = function(configArg){
-    let done = plugins.Q.defer()
+    let done = plugins.q.defer()
     let config = configArg
     npmtsOra.text('now looking at ' + 'required assets'.yellow)
     if (config.cli === true) {

@@ -1,11 +1,11 @@
 "use strict";
 require("typings-global");
-var plugins = require("./npmts.plugins");
-var paths = require("./npmts.paths");
-var npmts_promisechain_1 = require("./npmts.promisechain");
+const plugins = require("./npmts.plugins");
+const paths = require("./npmts.paths");
+const npmts_promisechain_1 = require("./npmts.promisechain");
 exports.run = function (configArg) {
-    var done = plugins.Q.defer();
-    var config = configArg;
+    let done = plugins.q.defer();
+    let config = configArg;
     npmts_promisechain_1.npmtsOra.text('now looking at ' + 'required assets'.yellow);
     if (config.cli === true) {
         plugins.smartfile.fs.copySync(plugins.path.join(paths.npmtsAssetsDir, 'cli.js'), plugins.path.join(paths.distDir, 'cli.js'));

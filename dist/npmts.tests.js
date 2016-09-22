@@ -1,16 +1,16 @@
 "use strict";
 require("typings-global");
-var plugins = require("./npmts.plugins");
-var paths = require("./npmts.paths");
-var npmts_promisechain_1 = require("./npmts.promisechain");
+const plugins = require("./npmts.plugins");
+const paths = require("./npmts.paths");
+const npmts_promisechain_1 = require("./npmts.promisechain");
 /**
  *
  * @returns {*}
  */
-var mocha = function (configArg) {
+let mocha = function (configArg) {
     npmts_promisechain_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
     npmts_promisechain_1.npmtsOra.end(); // end npmtsOra for tests.
-    var done = plugins.Q.defer();
+    let done = plugins.q.defer();
     plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
         .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.babel({
@@ -41,19 +41,19 @@ var mocha = function (configArg) {
     });
     return done.promise;
 };
-var coverage = function (configArg) {
-    var done = plugins.Q.defer();
+let coverage = function (configArg) {
+    let done = plugins.q.defer();
     plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
         .then(function (percentageArg) {
         if (percentageArg >= configArg.coverageTreshold) {
-            plugins.beautylog.ok(percentageArg.toString() + "% "
-                + "coverage exceeds your treshold of "
-                + (configArg.coverageTreshold.toString() + "%"));
+            plugins.beautylog.ok(`${percentageArg.toString()}% `
+                + `coverage exceeds your treshold of `
+                + `${configArg.coverageTreshold.toString()}%`);
         }
         else {
-            plugins.beautylog.warn(percentageArg.toString() + "% "
-                + "coverage fails your treshold of "
-                + (configArg.coverageTreshold.toString() + "%"));
+            plugins.beautylog.warn(`${percentageArg.toString()}% `
+                + `coverage fails your treshold of `
+                + `${configArg.coverageTreshold.toString()}%`);
             plugins.beautylog.error('exiting due to coverage failure');
             process.exit(1);
         }
@@ -62,8 +62,8 @@ var coverage = function (configArg) {
     return done.promise;
 };
 exports.run = function (configArg) {
-    var done = plugins.Q.defer();
-    var config = configArg;
+    let done = plugins.q.defer();
+    let config = configArg;
     if (config.test === true) {
         npmts_promisechain_1.npmtsOra.text('now starting tests');
         plugins.beautylog.log('-------------------------------------------------------\n' +
@@ -71,7 +71,7 @@ exports.run = function (configArg) {
             '--------------------------------------------------------------');
         mocha(config)
             .then(coverage)
-            .then(function () {
+            .then(() => {
             done.resolve(config);
         });
     }
