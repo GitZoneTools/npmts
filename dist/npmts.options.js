@@ -18,12 +18,9 @@ exports.run = function (argvArg) {
         watch: false
     };
     // mix with configfile
-    npmts_promisechain_1.npmtsOra.text('looking for npmextra.json');
-    let config = plugins.npmextra.dataFor({
-        toolName: 'npmts',
-        defaultSettings: defaultConfig,
-        cwd: paths.cwd
-    });
+    npmts_promisechain_1.npmtsOra.text('running npmextra');
+    let localNpmextra = new plugins.npmextra.Npmextra(paths.cwd);
+    let config = localNpmextra.dataFor('npmts', defaultConfig);
     // add argv
     config.argv = argvArg;
     // check mode

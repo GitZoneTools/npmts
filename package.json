@@ -51,7 +51,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typedoc": "^2.0.0",
     "lodash": "^4.16.1",
-    "npmextra": "^1.0.12",
+    "npmextra": "^2.0.1",
     "projectinfo": "1.0.3",
     "q": "^1.4.1",
     "shelljs": "^0.7.4",

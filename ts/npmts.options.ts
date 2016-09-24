@@ -33,12 +33,13 @@ export var run = function (argvArg) {
     }
 
     // mix with configfile
-    npmtsOra.text('looking for npmextra.json')
-    let config: INpmtsConfig = plugins.npmextra.dataFor<INpmtsConfig>({
-        toolName: 'npmts',
-        defaultSettings: defaultConfig,
-        cwd: paths.cwd
-    })
+    npmtsOra.text('running npmextra')
+
+    let localNpmextra = new plugins.npmextra.Npmextra(paths.cwd)
+    let config: INpmtsConfig = localNpmextra.dataFor<INpmtsConfig>(
+        'npmts',
+        defaultConfig
+    )
 
     // add argv
     config.argv = argvArg
