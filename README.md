@@ -5,7 +5,7 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 [![npm](https://push.rocks/assets/repo-button-npm.svg)](https://www.npmjs.com/package/npmts)
 [![git](https://push.rocks/assets/repo-button-git.svg)](https://gitlab.com/pushrocks/npmts)
 [![git](https://push.rocks/assets/repo-button-mirror.svg)](https://github.com/pushrocks/npmts)
-[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/npmts/gitbook)
+[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/npmts/)
 
 ## Status for master
 [![build status](https://gitlab.com/pushrocks/npmts/badges/master/build.svg)](https://gitlab.com/pushrocks/npmts/commits/master)
@@ -32,11 +32,11 @@ This works on your machine and in CI. There is a prebuild docker image available
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
 For further information read the docs:
-1. [Intro](https://pushrocks.gitlab.io/npmts/gitbook/index.md)
-2. [Install](https://pushrocks.gitlab.io/npmts/gitbook/install.md)
-3. [Default Behaviour](https://pushrocks.gitlab.io/npmts/gitbook/default.md)
-4. [Configuration](https://pushrocks.gitlab.io/npmts/gitbook/config.md)
-5. [Examples](https://pushrocks.gitlab.io/npmts/gitbook/examples.md)
-6. [Info](https://pushrocks.gitlab.io/npmts/gitbook/info.md) 
+1. [Intro](https://pushrocks.gitlab.io/npmts/gitbook/index.html)
+2. [Install](https://pushrocks.gitlab.io/npmts/gitbook/install.html)
+3. [Default Behaviour](https://pushrocks.gitlab.io/npmts/gitbook/default.html)
+4. [Configuration](https://pushrocks.gitlab.io/npmts/gitbook/config.html)
+5. [Examples](https://pushrocks.gitlab.io/npmts/gitbook/examples.html)
+6. [Info](https://pushrocks.gitlab.io/npmts/gitbook/info.html) 
 
 [![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
