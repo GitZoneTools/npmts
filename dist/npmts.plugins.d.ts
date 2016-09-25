@@ -23,6 +23,7 @@ export import smartcov = require('smartcov');
 export import smartenv = require('smartenv');
 export import smartfile = require('smartfile');
 export import smartpath = require('smartpath');
+export import smartstream = require('smartstream');
 export import smartstring = require('smartstring');
 export declare let sourceMapSupport: any;
 export import tsn = require('tsn');

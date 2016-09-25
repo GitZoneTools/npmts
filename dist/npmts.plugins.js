@@ -24,6 +24,7 @@ exports.smartcov = require("smartcov");
 exports.smartenv = require("smartenv");
 exports.smartfile = require("smartfile");
 exports.smartpath = require("smartpath");
+exports.smartstream = require("smartstream");
 exports.smartstring = require("smartstring");
 exports.sourceMapSupport = require('source-map-support').install(); // display errors correctly during testing
 exports.tsn = require("tsn");

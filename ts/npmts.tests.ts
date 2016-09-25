@@ -2,12 +2,13 @@ import 'typings-global'
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
 import { npmtsOra } from './npmts.promisechain'
+import { INpmtsConfig } from './npmts.options'
 
 /**
- *
- * @returns {*}
+ * runs mocha
+ * @returns INpmtsConfig
  */
-let mocha = function (configArg) {
+let mocha = function (configArg: INpmtsConfig) {
     npmtsOra.text('Instrumentalizing and testing transpiled JS')
     npmtsOra.end() // end npmtsOra for tests.
     let done = plugins.q.defer()
@@ -23,30 +24,34 @@ let mocha = function (configArg) {
         .pipe(plugins.g.sourcemaps.write())
         .pipe(plugins.g.injectModules())
         .on('finish', function () {
-            plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')])
-                .pipe(plugins.g.babel({
+            let localSmartstream = new plugins.smartstream.Smartstream([
+                plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
+                plugins.g.babel({
                     presets: [
                         require.resolve('babel-preset-es2015')
                     ]
-                }))
-                .pipe(plugins.g.injectModules())
-                .pipe(plugins.g.mocha())
-                .pipe(plugins.g.istanbul.writeReports({
+                }),
+                plugins.g.injectModules(),
+                plugins.g.mocha(),
+                plugins.g.istanbul.writeReports({
                     dir: plugins.path.join(paths.cwd, './coverage'),
                     reporters: ['lcovonly', 'json', 'text', 'text-summary']
-                }))
-                .pipe(plugins.g.gFunction(
-                    function () {
-                        plugins.beautylog.ok('Tested!')
+                })
+            ])
+            localSmartstream.run()
+                .then(() => { done.resolve(configArg) }, (err) => {
+                    plugins.beautylog.error('Tests failed!')
+                    if (configArg.watch) {
                         done.resolve(configArg)
-                    },
-                    'atEnd'
-                ))
+                    } else {
+                        process.exit(1)
+                    }
+                })
         })
     return done.promise
 }
 
-let coverage = function (configArg) {
+let coverage = function (configArg: INpmtsConfig) {
     let done = plugins.q.defer()
     plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
         .then(function (percentageArg) {
@@ -63,14 +68,14 @@ let coverage = function (configArg) {
                     + `${configArg.coverageTreshold.toString()}%`
                 )
                 plugins.beautylog.error('exiting due to coverage failure')
-                process.exit(1)
+                if (!configArg.watch) { process.exit(1) }
             }
             done.resolve(configArg)
         })
     return done.promise
 }
 
-export let run = function (configArg) {
+export let run = function (configArg: INpmtsConfig) {
     let done = plugins.q.defer()
     let config = configArg
     if (config.test === true) {

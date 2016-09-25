@@ -9,6 +9,9 @@ exports.run = (configArg) => {
         for (let key in configArg.ts) {
             pathsToWatch.push(key);
         }
+        for (let key in configArg.testTs) {
+            pathsToWatch.push(key);
+        }
         npmtsSmartchok = new plugins.smartchok.Smartchok(pathsToWatch);
         npmtsSmartchok.getObservableFor('change').then((changeObservableArg) => {
             plugins.beautylog.info('now watching...');
