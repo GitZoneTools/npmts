@@ -39,7 +39,6 @@ let mocha = function (configArg) {
         localSmartstream.run()
             .then(() => { done.resolve(configArg); }, (err) => {
             plugins.beautylog.error('Tests failed!');
-            configArg.watch = true;
             if (configArg.watch) {
                 done.resolve(configArg);
             }

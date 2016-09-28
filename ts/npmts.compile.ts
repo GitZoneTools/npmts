@@ -11,11 +11,11 @@ export let run = function (configArg) {
         .then(() => {
             plugins.beautylog.ok('compiled main TypeScript!')
             plugins.beautylog.log('now compiling tests!')
-            return plugins.tsn.compileGlobStringObject(config.testTs)
+            return plugins.tsn.compileGlobStringObject(config.testTs,config.tsOptions,paths.cwd)
         })
         .then(function () {
             plugins.beautylog.ok('compiled all TypeScript!')
             done.resolve(config)
-        })
+        }).catch(err => { console.log(err) })
     return done.promise
 }
