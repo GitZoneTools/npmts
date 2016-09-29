@@ -32,11 +32,11 @@ This works on your machine and in CI. There is a prebuild docker image available
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
 For further information read the docs:
-1. [Intro](https://pushrocks.gitlab.io/npmts/gitbook/index.html)
-2. [Install](https://pushrocks.gitlab.io/npmts/gitbook/install.html)
-3. [Default Behaviour](https://pushrocks.gitlab.io/npmts/gitbook/default.html)
-4. [Configuration](https://pushrocks.gitlab.io/npmts/gitbook/config.html)
-5. [Examples](https://pushrocks.gitlab.io/npmts/gitbook/examples.html)
-6. [Info](https://pushrocks.gitlab.io/npmts/gitbook/info.html) 
+1. [Intro](https://pushrocks.gitlab.io/npmts/index.html)
+2. [Install](https://pushrocks.gitlab.io/npmts/install.html)
+3. [Default Behaviour](https://pushrocks.gitlab.io/npmts/default.html)
+4. [Configuration](https://pushrocks.gitlab.io/npmts/config.html)
+5. [Examples](https://pushrocks.gitlab.io/npmts/examples.html)
+6. [Info](https://pushrocks.gitlab.io/npmts/info.html)
 
 [![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
