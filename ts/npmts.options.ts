@@ -59,10 +59,10 @@ export var run = function (argvArg) {
     // handle default mode
     if (config.mode === 'default') {
         config.ts = {
-            ['./ts/**/*.ts']: './dist/'
+            './ts/**/*.ts': './dist/'
         }
         config.testTs = {
-            ['./test/test.ts']: './test/'
+            './test/**/*.ts': './test/'
         }
     };
 
