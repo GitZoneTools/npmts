@@ -1,10 +1,12 @@
-import 'typings-global'
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
+
+import * as q from 'q'
+
 import {npmtsOra} from './npmts.promisechain'
 
 export let run = function (configArg) {
-    let done = plugins.q.defer()
+    let done = q.defer()
     let config = configArg
     npmtsOra.text('now compiling ' + 'TypeScript'.yellow)
     plugins.tsn.compileGlobStringObject(config.ts,config.tsOptions,paths.cwd)

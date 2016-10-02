@@ -1,6 +1,8 @@
-import 'typings-global'
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
+
+import * as q from 'q'
+
 import { npmtsOra } from './npmts.promisechain'
 
 /**
@@ -15,7 +17,7 @@ let removeDist = function () {
  * remove .d.ts files from testDirctory
  */
 let removeTestDeclarations = function () {
-    let done = plugins.q.defer()
+    let done = q.defer()
     plugins.smartfile.fs.listFileTree('./test/', '**/*.d.ts').then(fileArray => {
         let fileArrayToRemove = plugins.smartpath.transform.toAbsolute(fileArray, process.cwd() + '//test/')
         plugins.smartfile.fs.removeManySync(fileArrayToRemove)
@@ -33,7 +35,7 @@ let removePages = function () {
 
 export let run = function (configArg) {
     npmtsOra.text('cleaning up from previous builds...')
-    let done = plugins.q.defer()
+    let done = q.defer()
     removeDist()
         .then(removeTestDeclarations)
         .then(removePages)

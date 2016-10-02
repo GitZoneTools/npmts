@@ -1,8 +1,8 @@
-import 'typings-global'
-
 /* ================================================== *
-    Starting NPMTS main process.
+    **** NPMTS ****
+    Fabulous TypeScript development
  * ================================================== */
+
 import * as early from 'early'
 early.start('NPMTS')
 import * as plugins from './npmts.plugins'

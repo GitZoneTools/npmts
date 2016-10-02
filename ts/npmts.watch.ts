@@ -1,10 +1,13 @@
 import * as plugins from './npmts.plugins'
 import * as promisechain from './npmts.promisechain'
-let npmtsSmartchok: plugins.smartchok.Smartchok = null
+
+import * as q from 'q'
+
 import { INpmtsConfig } from './npmts.options'
 
+let npmtsSmartchok: plugins.smartchok.Smartchok = null
 export let run = (configArg: INpmtsConfig) => {
-    let done = plugins.q.defer()
+    let done = q.defer()
     if (configArg.watch && npmtsSmartchok === null) {
         let pathsToWatch: string[] = []
         for (let key in configArg.ts) {

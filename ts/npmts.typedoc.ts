@@ -1,12 +1,13 @@
-import 'typings-global'
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
 import { npmtsOra } from './npmts.promisechain'
 
+import * as q from 'q'
+
 import { projectInfo } from './npmts.check'
 
 let genTypeDoc = function (configArg) {
-    let done = plugins.q.defer()
+    let done = q.defer()
     npmtsOra.text('now generating ' + 'TypeDoc documentation'.yellow)
     plugins.beautylog.log('TypeDoc Output:')
     plugins.gulp.src(plugins.path.join(paths.tsDir, '**/*.ts'))
@@ -32,7 +33,7 @@ let genTypeDoc = function (configArg) {
 }
 
 export let run = function (configArg) {
-    let done = plugins.q.defer()
+    let done = q.defer()
     if (configArg.docs) {
         genTypeDoc(configArg)
             .then(() => {

@@ -1,9 +1,10 @@
 "use strict";
 const plugins = require("./npmts.plugins");
 const promisechain = require("./npmts.promisechain");
+const q = require("q");
 let npmtsSmartchok = null;
 exports.run = (configArg) => {
-    let done = plugins.q.defer();
+    let done = q.defer();
     if (configArg.watch && npmtsSmartchok === null) {
         let pathsToWatch = [];
         for (let key in configArg.ts) {

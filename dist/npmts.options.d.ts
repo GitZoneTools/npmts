@@ -1,6 +1,5 @@
 /// <reference types="q" />
-import 'typings-global';
-import plugins = require('./npmts.plugins');
+import * as q from 'q';
 export declare type npmtsMode = 'default' | 'custom';
 export interface INpmtsConfig {
     argv: any;
@@ -13,4 +12,4 @@ export interface INpmtsConfig {
     tsOptions: any;
     watch: boolean;
 }
-export declare var run: (argvArg: any) => plugins.q.Promise<{}>;
+export declare var run: (argvArg: any) => q.Promise<{}>;

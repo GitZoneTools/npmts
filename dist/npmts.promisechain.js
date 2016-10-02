@@ -1,7 +1,7 @@
 "use strict";
-require("typings-global");
 const plugins = require("./npmts.plugins");
 const beautylog_1 = require("beautylog");
+const q = require("q");
 exports.npmtsOra = new beautylog_1.Ora('setting up TaskChain', 'cyan');
 const NpmtsAssets = require("./npmts.assets");
 const NpmtsCheck = require("./npmts.check");
@@ -12,7 +12,7 @@ const NpmtsOptions = require("./npmts.options");
 const NpmtsTests = require("./npmts.tests");
 const NpmtsWatch = require("./npmts.watch");
 exports.run = function (argvArg) {
-    let done = plugins.q.defer();
+    let done = q.defer();
     exports.npmtsOra.start();
     NpmtsOptions.run(argvArg)
         .then(NpmtsClean.run)

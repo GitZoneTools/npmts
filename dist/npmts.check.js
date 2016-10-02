@@ -1,10 +1,11 @@
 "use strict";
 const plugins = require("./npmts.plugins");
 const paths = require("./npmts.paths");
+const q = require("q");
 const npmts_promisechain_1 = require("./npmts.promisechain");
 const projectinfo_1 = require("projectinfo");
 let checkProjectTypings = (configArg) => {
-    let done = plugins.q.defer();
+    let done = q.defer();
     npmts_promisechain_1.npmtsOra.text('Check Module: Check Project Typings...');
     exports.projectInfo = new projectinfo_1.ProjectinfoNpm(paths.cwd);
     if (typeof exports.projectInfo.packageJson.typings === 'undefined') {
@@ -30,7 +31,7 @@ const depcheckOptions = {
     ]
 };
 let checkDependencies = (configArg) => {
-    let done = plugins.q.defer();
+    let done = q.defer();
     npmts_promisechain_1.npmtsOra.text('Check Module: Check Dependencies...');
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
@@ -66,7 +67,7 @@ let checkDependencies = (configArg) => {
     return done.promise;
 };
 let checkDevDependencies = (configArg) => {
-    let done = plugins.q.defer();
+    let done = q.defer();
     npmts_promisechain_1.npmtsOra.text('Check Module: Check devDependencies...');
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
@@ -101,13 +102,13 @@ let checkDevDependencies = (configArg) => {
     return done.promise;
 };
 let checkNodeVersion = (configArg) => {
-    let done = plugins.q.defer();
+    let done = q.defer();
     npmts_promisechain_1.npmtsOra.text('checking node version');
     done.resolve(configArg);
     return done.promise;
 };
 exports.run = (configArg) => {
-    let done = plugins.q.defer();
+    let done = q.defer();
     npmts_promisechain_1.npmtsOra.text('Check Module: ...');
     checkProjectTypings(configArg)
         .then(checkDependencies)

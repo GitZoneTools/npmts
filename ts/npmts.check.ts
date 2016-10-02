@@ -1,13 +1,15 @@
 import * as plugins from './npmts.plugins'
 import * as paths from './npmts.paths'
-import { npmtsOra } from './npmts.promisechain'
 
+import * as q from 'q'
+
+import { npmtsOra } from './npmts.promisechain'
 import {ProjectinfoNpm} from 'projectinfo'
 
 export let projectInfo: ProjectinfoNpm
 
 let checkProjectTypings = (configArg) => {
-    let done = plugins.q.defer()
+    let done = q.defer()
     npmtsOra.text('Check Module: Check Project Typings...')
     projectInfo =  new ProjectinfoNpm(paths.cwd)
     if (typeof projectInfo.packageJson.typings === 'undefined') {
@@ -34,7 +36,7 @@ const depcheckOptions = {
 }
 
 let checkDependencies = (configArg) => {
-    let done = plugins.q.defer()
+    let done = q.defer()
     npmtsOra.text('Check Module: Check Dependencies...')
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
@@ -70,7 +72,7 @@ let checkDependencies = (configArg) => {
 }
 
 let checkDevDependencies = (configArg) => {
-    let done = plugins.q.defer()
+    let done = q.defer()
     npmtsOra.text('Check Module: Check devDependencies...')
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
@@ -106,14 +108,14 @@ let checkDevDependencies = (configArg) => {
 }
 
 let checkNodeVersion = (configArg) => {
-    let done = plugins.q.defer()
+    let done = q.defer()
     npmtsOra.text('checking node version')
     done.resolve(configArg)
     return done.promise
 }
 
 export let run = (configArg) => {
-    let done = plugins.q.defer()
+    let done = q.defer()
     npmtsOra.text('Check Module: ...')
     checkProjectTypings(configArg)
         .then(checkDependencies)

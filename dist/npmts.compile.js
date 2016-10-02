@@ -1,10 +1,10 @@
 "use strict";
-require("typings-global");
 const plugins = require("./npmts.plugins");
 const paths = require("./npmts.paths");
+const q = require("q");
 const npmts_promisechain_1 = require("./npmts.promisechain");
 exports.run = function (configArg) {
-    let done = plugins.q.defer();
+    let done = q.defer();
     let config = configArg;
     npmts_promisechain_1.npmtsOra.text('now compiling ' + 'TypeScript'.yellow);
     plugins.tsn.compileGlobStringObject(config.ts, config.tsOptions, paths.cwd)

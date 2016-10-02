@@ -1,6 +1,8 @@
-import 'typings-global'
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
+
+import * as q from 'q'
+
 import { npmtsOra } from './npmts.promisechain'
 
 export type npmtsMode = 'default' | 'custom'
@@ -19,7 +21,7 @@ export interface INpmtsConfig {
 };
 
 export var run = function (argvArg) {
-    let done = plugins.q.defer()
+    let done = q.defer()
     let defaultConfig: INpmtsConfig = {
         argv: undefined,
         coverageTreshold: 70,

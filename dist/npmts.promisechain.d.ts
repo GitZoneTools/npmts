@@ -1,6 +1,5 @@
 /// <reference types="q" />
-import 'typings-global';
-import plugins = require('./npmts.plugins');
 import { Ora } from 'beautylog';
+import * as q from 'q';
 export declare let npmtsOra: Ora;
-export declare let run: (argvArg: any) => plugins.q.Promise<{}>;
+export declare let run: (argvArg: any) => q.Promise<{}>;

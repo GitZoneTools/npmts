@@ -1,9 +1,12 @@
 "use strict";
 require("typings-global");
-exports.beautylog = require("beautylog");
-exports.depcheck = require('depcheck');
-exports.gulp = require("gulp");
-exports.g = {
+const beautylog = require("beautylog");
+exports.beautylog = beautylog;
+let depcheck = require('depcheck');
+exports.depcheck = depcheck;
+const gulp = require("gulp");
+exports.gulp = gulp;
+let g = {
     babel: require('gulp-babel'),
     istanbul: require('gulp-istanbul'),
     gFunction: require('gulp-function'),
@@ -12,19 +15,33 @@ exports.g = {
     sourcemaps: require('gulp-sourcemaps'),
     typedoc: require('gulp-typedoc')
 };
-exports.lodash = require("lodash");
-exports.npmextra = require("npmextra");
-exports.projectinfo = require("projectinfo");
-exports.path = require("path");
-exports.q = require("q");
-exports.shelljs = require("shelljs");
-exports.smartchok = require("smartchok");
-exports.smartcli = require("smartcli");
-exports.smartcov = require("smartcov");
-exports.smartenv = require("smartenv");
-exports.smartfile = require("smartfile");
-exports.smartpath = require("smartpath");
-exports.smartstream = require("smartstream");
-exports.smartstring = require("smartstring");
+exports.g = g;
+const lodash = require("lodash");
+exports.lodash = lodash;
+const npmextra = require("npmextra");
+exports.npmextra = npmextra;
+const projectinfo = require("projectinfo");
+exports.projectinfo = projectinfo;
+const path = require("path");
+exports.path = path;
+const shelljs = require("shelljs");
+exports.shelljs = shelljs;
+const smartchok = require("smartchok");
+exports.smartchok = smartchok;
+const smartcli = require("smartcli");
+exports.smartcli = smartcli;
+const smartcov = require("smartcov");
+exports.smartcov = smartcov;
+const smartenv = require("smartenv");
+exports.smartenv = smartenv;
+const smartfile = require("smartfile");
+exports.smartfile = smartfile;
+const smartpath = require("smartpath");
+exports.smartpath = smartpath;
+const smartstream = require("smartstream");
+exports.smartstream = smartstream;
+const smartstring = require("smartstring");
+exports.smartstring = smartstring;
 exports.sourceMapSupport = require('source-map-support').install(); // display errors correctly during testing
-exports.tsn = require("tsn");
+const tsn = require("tsn");
+exports.tsn = tsn;

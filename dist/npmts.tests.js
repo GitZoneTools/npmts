@@ -1,7 +1,7 @@
 "use strict";
-require("typings-global");
 const plugins = require("./npmts.plugins");
 const paths = require("./npmts.paths");
+const q = require("q");
 const npmts_promisechain_1 = require("./npmts.promisechain");
 /**
  * runs mocha
@@ -10,7 +10,7 @@ const npmts_promisechain_1 = require("./npmts.promisechain");
 let mocha = function (configArg) {
     npmts_promisechain_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
     npmts_promisechain_1.npmtsOra.end(); // end npmtsOra for tests.
-    let done = plugins.q.defer();
+    let done = q.defer();
     plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
         .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.babel({
@@ -50,7 +50,7 @@ let mocha = function (configArg) {
     return done.promise;
 };
 let coverage = function (configArg) {
-    let done = plugins.q.defer();
+    let done = q.defer();
     plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
         .then(function (percentageArg) {
         if (percentageArg >= configArg.coverageTreshold) {
@@ -72,7 +72,7 @@ let coverage = function (configArg) {
     return done.promise;
 };
 exports.run = function (configArg) {
-    let done = plugins.q.defer();
+    let done = q.defer();
     let config = configArg;
     if (config.test === true) {
         npmts_promisechain_1.npmtsOra.text('now starting tests');

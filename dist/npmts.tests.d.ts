@@ -1,5 +1,4 @@
 /// <reference types="q" />
-import 'typings-global';
-import plugins = require('./npmts.plugins');
+import * as q from 'q';
 import { INpmtsConfig } from './npmts.options';
-export declare let run: (configArg: INpmtsConfig) => plugins.q.Promise<{}>;
+export declare let run: (configArg: INpmtsConfig) => q.Promise<{}>;

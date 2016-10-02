@@ -1,6 +1,7 @@
-import 'typings-global'
 import plugins = require('./npmts.plugins')
 import {Ora} from 'beautylog'
+
+import * as q from 'q'
 
 export let npmtsOra = new Ora('setting up TaskChain','cyan')
 
@@ -14,7 +15,7 @@ import * as NpmtsTests from './npmts.tests'
 import * as NpmtsWatch from './npmts.watch'
 
 export let run = function(argvArg){
-    let done = plugins.q.defer()
+    let done = q.defer()
     npmtsOra.start()
     NpmtsOptions.run(argvArg)
         .then(NpmtsClean.run)

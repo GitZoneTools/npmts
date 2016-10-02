@@ -1,6 +1,8 @@
-import 'typings-global'
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
+
+import * as q from 'q'
+
 import { npmtsOra } from './npmts.promisechain'
 import { INpmtsConfig } from './npmts.options'
 
@@ -11,7 +13,7 @@ import { INpmtsConfig } from './npmts.options'
 let mocha = function (configArg: INpmtsConfig) {
     npmtsOra.text('Instrumentalizing and testing transpiled JS')
     npmtsOra.end() // end npmtsOra for tests.
-    let done = plugins.q.defer()
+    let done = q.defer()
     plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
         .pipe(plugins.g.sourcemaps.init())
         .pipe(plugins.g.babel({
@@ -52,7 +54,7 @@ let mocha = function (configArg: INpmtsConfig) {
 }
 
 let coverage = function (configArg: INpmtsConfig) {
-    let done = plugins.q.defer()
+    let done = q.defer()
     plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
         .then(function (percentageArg) {
             if (percentageArg >= configArg.coverageTreshold) {
@@ -76,7 +78,7 @@ let coverage = function (configArg: INpmtsConfig) {
 }
 
 export let run = function (configArg: INpmtsConfig) {
-    let done = plugins.q.defer()
+    let done = q.defer()
     let config = configArg
     if (config.test === true) {
         npmtsOra.text('now starting tests')

@@ -1,5 +1,4 @@
 "use strict";
-require("typings-global");
 const plugins = require("./npmts.plugins");
 // NPMTS Paths
 exports.npmtsPackageRoot = plugins.path.join(__dirname, '../');

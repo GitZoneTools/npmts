@@ -1,8 +1,8 @@
-"use strict";
-require("typings-global");
 /* ================================================== *
-    Starting NPMTS main process.
+    **** NPMTS ****
+    Fabulous TypeScript development
  * ================================================== */
+"use strict";
 const early = require("early");
 early.start('NPMTS');
 const plugins = require("./npmts.plugins");

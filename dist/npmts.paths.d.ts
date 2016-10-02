@@ -1,4 +1,3 @@
-import 'typings-global';
 export declare let npmtsPackageRoot: string;
 export declare let cwd: string;
 export declare let tsDir: string;
