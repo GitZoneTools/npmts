@@ -4,13 +4,13 @@
   "description": "Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.",
   "main": "dist/index.js",
   "bin": {
-    "npmts": "dist/cli.js"
+    "npmts": "assets/cliNpmts.js"
   },
   "scripts": {
     "test": "(npm run compile && npm run prepareTest && npm run setupCheck && npm run check && npm run checkVersion && npm run checkNoTest && npm run checkNoDocs)",
     "testShort": "(npm run compile && npm run check)",
     "prepareTest": "(rm -rf test/)",
-    "compile": "(rm -r dist/ && tsc && cp assets/cli.js dist/ )",
+    "compile": "(rm -r dist/ && tsc)",
     "setupCheck": "(git clone https://gitlab.com/sandboxzone/sandbox-npmts.git test/)",
     "typedoc": "(typedoc --out ./pages/api --target ES6 ./ts/)",
     "npmpage": "(npmpage)",
