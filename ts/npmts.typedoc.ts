@@ -10,8 +10,9 @@ let genTypeDoc = function (configArg) {
     let done = q.defer()
     npmtsOra.text('now generating ' + 'TypeDoc documentation'.yellow)
     plugins.beautylog.log('TypeDoc Output:')
-    plugins.gulp.src(plugins.path.join(paths.tsDir, '**/*.ts'))
-        .pipe(plugins.g.typedoc({
+    let localSmartstream = new plugins.smartstream.Smartstream([
+        plugins.gulp.src(plugins.path.join(paths.tsDir, '**/*.ts')),
+        plugins.gulpTypedoc({
             // TypeScript options (see typescript docs) 
             module: 'commonjs',
             target: 'es6',
@@ -25,10 +26,18 @@ let genTypeDoc = function (configArg) {
             name: projectInfo.name,
             readme: plugins.path.join(paths.cwd, 'README.md'),
             // theme: "default",
-            ignoreCompilerErrors: true,
             version: true
-        }))
-        .pipe(plugins.g.gFunction(done.resolve, 'atEnd'))
+        })
+    ])
+    localSmartstream.run().then(
+        () => {
+            done.resolve(configArg)
+        },
+        (err) => {
+            console.log(err)
+            done.resolve(configArg)
+        }
+    )
     return done.promise
 }
 

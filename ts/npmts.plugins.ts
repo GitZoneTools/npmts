@@ -2,15 +2,15 @@ import 'typings-global'
 import * as beautylog from 'beautylog'
 let depcheck = require('depcheck')
 import * as gulp from 'gulp'
-let g = {
-    babel: require('gulp-babel'),
-    istanbul: require('gulp-istanbul'),
-    gFunction: require('gulp-function'),
-    injectModules: require('gulp-inject-modules'),
-    mocha: require('gulp-mocha'),
-    sourcemaps: require('gulp-sourcemaps'),
-    typedoc: require('gulp-typedoc')
-}
+
+import * as gulpBabel from 'gulp-babel'
+import * as gulpIstanbul from 'gulp-istanbul'
+import * as gulpFunction from 'gulp-function'
+let gulpInjectModules = require('gulp-inject-modules')
+import * as gulpMocha from 'gulp-mocha'
+import * as gulpSourcemaps from 'gulp-sourcemaps'
+let gulpTypedoc = require('gulp-typedoc')
+
 import * as lodash from 'lodash'
 import * as npmextra from 'npmextra'
 import * as projectinfo from 'projectinfo'
@@ -31,7 +31,13 @@ export {
     beautylog,
     depcheck,
     gulp,
-    g,
+    gulpBabel,
+    gulpFunction,
+    gulpInjectModules,
+    gulpIstanbul,
+    gulpMocha,
+    gulpSourcemaps,
+    gulpTypedoc,
     lodash,
     npmextra,
     projectinfo,

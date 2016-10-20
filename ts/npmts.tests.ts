@@ -15,27 +15,27 @@ let mocha = function (configArg: INpmtsConfig) {
     npmtsOra.end() // end npmtsOra for tests.
     let done = q.defer()
     plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
-        .pipe(plugins.g.sourcemaps.init())
-        .pipe(plugins.g.babel({
+        .pipe(plugins.gulpSourcemaps.init())
+        .pipe(plugins.gulpBabel({
             presets: [
                 require.resolve('babel-preset-es2015')
             ]
         }))
-        .pipe(plugins.g.istanbul({
+        .pipe(plugins.gulpIstanbul({
         }))
-        .pipe(plugins.g.sourcemaps.write())
-        .pipe(plugins.g.injectModules())
+        .pipe(plugins.gulpSourcemaps.write())
+        .pipe(plugins.gulpInjectModules())
         .on('finish', function () {
             let localSmartstream = new plugins.smartstream.Smartstream([
                 plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
-                plugins.g.babel({
+                plugins.gulpBabel({
                     presets: [
                         require.resolve('babel-preset-es2015')
                     ]
                 }),
-                plugins.g.injectModules(),
-                plugins.g.mocha(),
-                plugins.g.istanbul.writeReports({
+                plugins.gulpInjectModules(),
+                plugins.gulpMocha(),
+                plugins.gulpIstanbul.writeReports({
                     dir: plugins.path.join(paths.cwd, './coverage'),
                     reporters: ['lcovonly', 'json', 'text', 'text-summary']
                 })

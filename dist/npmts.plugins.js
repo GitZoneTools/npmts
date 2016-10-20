@@ -6,16 +6,20 @@ let depcheck = require('depcheck');
 exports.depcheck = depcheck;
 const gulp = require("gulp");
 exports.gulp = gulp;
-let g = {
-    babel: require('gulp-babel'),
-    istanbul: require('gulp-istanbul'),
-    gFunction: require('gulp-function'),
-    injectModules: require('gulp-inject-modules'),
-    mocha: require('gulp-mocha'),
-    sourcemaps: require('gulp-sourcemaps'),
-    typedoc: require('gulp-typedoc')
-};
-exports.g = g;
+const gulpBabel = require("gulp-babel");
+exports.gulpBabel = gulpBabel;
+const gulpIstanbul = require("gulp-istanbul");
+exports.gulpIstanbul = gulpIstanbul;
+const gulpFunction = require("gulp-function");
+exports.gulpFunction = gulpFunction;
+let gulpInjectModules = require('gulp-inject-modules');
+exports.gulpInjectModules = gulpInjectModules;
+const gulpMocha = require("gulp-mocha");
+exports.gulpMocha = gulpMocha;
+const gulpSourcemaps = require("gulp-sourcemaps");
+exports.gulpSourcemaps = gulpSourcemaps;
+let gulpTypedoc = require('gulp-typedoc');
+exports.gulpTypedoc = gulpTypedoc;
 const lodash = require("lodash");
 exports.lodash = lodash;
 const npmextra = require("npmextra");
