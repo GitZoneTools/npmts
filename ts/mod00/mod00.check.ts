@@ -1,10 +1,10 @@
-import * as plugins from './npmts.plugins'
-import * as paths from './npmts.paths'
-
 import * as q from 'q'
+import { ProjectinfoNpm } from 'projectinfo'
 
-import { npmtsOra } from './npmts.promisechain'
-import {ProjectinfoNpm} from 'projectinfo'
+import * as paths from '../npmts.paths'
+import { npmtsOra } from '../npmts.log'
+
+import * as plugins from './mod00.plugins'
 
 export let projectInfo: ProjectinfoNpm
 

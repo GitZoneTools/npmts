@@ -1,9 +1,9 @@
-import plugins = require('./npmts.plugins')
-import paths = require('./npmts.paths')
-
 import * as q from 'q'
 
-import {npmtsOra} from './npmts.promisechain'
+import * as paths from '../npmts.paths'
+import { npmtsOra } from '../npmts.log'
+
+import * as plugins from './mod00.plugins'
 
 export let run = function (configArg) {
     let done = q.defer()

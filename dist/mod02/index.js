@@ -1,15 +1,18 @@
 "use strict";
-const plugins = require("./npmts.plugins");
-const paths = require("./npmts.paths");
+/* ------------------------------------------
+ * This module tests the compiled TypeScript files
+ * -------------------------------------------- */
+const plugins = require("./mod02.plugins");
+const paths = require("../npmts.paths");
 const q = require("q");
-const npmts_promisechain_1 = require("./npmts.promisechain");
+const npmts_log_1 = require("../npmts.log");
 /**
  * runs mocha
  * @returns INpmtsConfig
  */
 let mocha = function (configArg) {
-    npmts_promisechain_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
-    npmts_promisechain_1.npmtsOra.end(); // end npmtsOra for tests.
+    npmts_log_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
+    npmts_log_1.npmtsOra.end(); // end npmtsOra for tests.
     let done = q.defer();
     plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
         .pipe(plugins.gulpSourcemaps.init())
@@ -39,6 +42,7 @@ let mocha = function (configArg) {
         localSmartstream.run()
             .then(() => { done.resolve(configArg); }, (err) => {
             plugins.beautylog.error('Tests failed!');
+            console.log(err);
             if (configArg.watch) {
                 done.resolve(configArg);
             }
@@ -75,7 +79,7 @@ exports.run = function (configArg) {
     let done = q.defer();
     let config = configArg;
     if (config.test === true) {
-        npmts_promisechain_1.npmtsOra.text('now starting tests');
+        npmts_log_1.npmtsOra.text('now starting tests');
         plugins.beautylog.log('-------------------------------------------------------\n' +
             '*************************** TESTS: ***************************\n' +
             '--------------------------------------------------------------');
@@ -86,7 +90,7 @@ exports.run = function (configArg) {
         });
     }
     else {
-        npmts_promisechain_1.npmtsOra.end();
+        npmts_log_1.npmtsOra.end();
         done.resolve(config);
     }
     return done.promise;

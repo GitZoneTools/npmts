@@ -2,7 +2,7 @@
 const plugins = require("./npmts.plugins");
 const paths = require("./npmts.paths");
 const q = require("q");
-const npmts_promisechain_1 = require("./npmts.promisechain");
+const npmts_log_1 = require("./npmts.log");
 ;
 exports.run = function (argvArg) {
     let done = q.defer();
@@ -18,7 +18,7 @@ exports.run = function (argvArg) {
         watch: false
     };
     // mix with configfile
-    npmts_promisechain_1.npmtsOra.text('running npmextra');
+    npmts_log_1.npmtsOra.text('running npmextra');
     let localNpmextra = new plugins.npmextra.Npmextra(paths.cwd);
     let config = localNpmextra.dataFor('npmts', defaultConfig);
     // add argv

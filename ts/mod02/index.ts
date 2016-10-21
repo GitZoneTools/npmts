@@ -1,10 +1,13 @@
-import plugins = require('./npmts.plugins')
-import paths = require('./npmts.paths')
+/* ------------------------------------------
+ * This module tests the compiled TypeScript files
+ * -------------------------------------------- */
+import plugins = require('./mod02.plugins')
+import paths = require('../npmts.paths')
 
 import * as q from 'q'
 
-import { npmtsOra } from './npmts.promisechain'
-import { INpmtsConfig } from './npmts.options'
+import { npmtsOra } from '../npmts.log'
+import { INpmtsConfig } from '../npmts.config'
 
 /**
  * runs mocha
@@ -43,6 +46,7 @@ let mocha = function (configArg: INpmtsConfig) {
             localSmartstream.run()
                 .then(() => { done.resolve(configArg) }, (err) => {
                     plugins.beautylog.error('Tests failed!')
+                    console.log(err)
                     if (configArg.watch) {
                         done.resolve(configArg)
                     } else {
@@ -78,7 +82,7 @@ let coverage = function (configArg: INpmtsConfig) {
 }
 
 export let run = function (configArg: INpmtsConfig) {
-    let done = q.defer()
+    let done = q.defer<INpmtsConfig>()
     let config = configArg
     if (config.test === true) {
         npmtsOra.text('now starting tests')

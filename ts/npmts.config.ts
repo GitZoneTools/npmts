@@ -3,7 +3,7 @@ import paths = require('./npmts.paths')
 
 import * as q from 'q'
 
-import { npmtsOra } from './npmts.promisechain'
+import { npmtsOra } from './npmts.log'
 
 export type npmtsMode = 'default' | 'custom'
 

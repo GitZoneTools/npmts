@@ -1,7 +1,8 @@
 "use strict";
-const plugins = require("./npmts.plugins");
-const promisechain = require("./npmts.promisechain");
 const q = require("q");
+const smartchok = require("smartchok");
+const plugins = require("./npmts.plugins");
+const cli = require("./npmts.cli");
 let npmtsSmartchok = null;
 exports.run = (configArg) => {
     let done = q.defer();
@@ -13,17 +14,18 @@ exports.run = (configArg) => {
         for (let key in configArg.testTs) {
             pathsToWatch.push(key);
         }
-        npmtsSmartchok = new plugins.smartchok.Smartchok(pathsToWatch);
+        npmtsSmartchok = new smartchok.Smartchok(pathsToWatch);
         npmtsSmartchok.getObservableFor('change').then((changeObservableArg) => {
             plugins.beautylog.info('now watching...');
             changeObservableArg.subscribe(() => {
-                promisechain.run(configArg);
+                cli.run();
             });
         });
         npmtsSmartchok.start();
         done.resolve(configArg);
     }
     else {
+        plugins.beautylog.info('not watching');
         done.resolve(configArg);
     }
     return done.promise;

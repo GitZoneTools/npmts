@@ -1,12 +1,12 @@
 "use strict";
-const plugins = require("./npmts.plugins");
-const paths = require("./npmts.paths");
 const q = require("q");
-const npmts_promisechain_1 = require("./npmts.promisechain");
 const projectinfo_1 = require("projectinfo");
+const paths = require("../npmts.paths");
+const npmts_log_1 = require("../npmts.log");
+const plugins = require("./mod00.plugins");
 let checkProjectTypings = (configArg) => {
     let done = q.defer();
-    npmts_promisechain_1.npmtsOra.text('Check Module: Check Project Typings...');
+    npmts_log_1.npmtsOra.text('Check Module: Check Project Typings...');
     exports.projectInfo = new projectinfo_1.ProjectinfoNpm(paths.cwd);
     if (typeof exports.projectInfo.packageJson.typings === 'undefined') {
         plugins.beautylog.error(`please add typings field to package.json`);
@@ -32,7 +32,7 @@ const depcheckOptions = {
 };
 let checkDependencies = (configArg) => {
     let done = q.defer();
-    npmts_promisechain_1.npmtsOra.text('Check Module: Check Dependencies...');
+    npmts_log_1.npmtsOra.text('Check Module: Check Dependencies...');
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
             'test',
@@ -68,7 +68,7 @@ let checkDependencies = (configArg) => {
 };
 let checkDevDependencies = (configArg) => {
     let done = q.defer();
-    npmts_promisechain_1.npmtsOra.text('Check Module: Check devDependencies...');
+    npmts_log_1.npmtsOra.text('Check Module: Check devDependencies...');
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
             'ts',
@@ -103,13 +103,13 @@ let checkDevDependencies = (configArg) => {
 };
 let checkNodeVersion = (configArg) => {
     let done = q.defer();
-    npmts_promisechain_1.npmtsOra.text('checking node version');
+    npmts_log_1.npmtsOra.text('checking node version');
     done.resolve(configArg);
     return done.promise;
 };
 exports.run = (configArg) => {
     let done = q.defer();
-    npmts_promisechain_1.npmtsOra.text('Check Module: ...');
+    npmts_log_1.npmtsOra.text('Check Module: ...');
     checkProjectTypings(configArg)
         .then(checkDependencies)
         .then(checkDevDependencies)

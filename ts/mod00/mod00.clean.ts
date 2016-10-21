@@ -1,9 +1,9 @@
-import plugins = require('./npmts.plugins')
-import paths = require('./npmts.paths')
-
 import * as q from 'q'
+import paths = require('../npmts.paths')
 
-import { npmtsOra } from './npmts.promisechain'
+import { npmtsOra } from '../npmts.log'
+
+import plugins = require('./mod00.plugins')
 
 /**
  * removes the  dist directory which will be entirely rebuild

@@ -1,12 +1,15 @@
 "use strict";
-const plugins = require("./npmts.plugins");
-const paths = require("./npmts.paths");
-const npmts_promisechain_1 = require("./npmts.promisechain");
+/* ------------------------------------------
+ * This module creates TypeScript documentation
+ * -------------------------------------------- */
 const q = require("q");
-const npmts_check_1 = require("./npmts.check");
+const paths = require("../npmts.paths");
+const npmts_log_1 = require("../npmts.log");
+const plugins = require("./mod01.plugins");
+const mod00_check_1 = require("../mod00/mod00.check");
 let genTypeDoc = function (configArg) {
     let done = q.defer();
-    npmts_promisechain_1.npmtsOra.text('now generating ' + 'TypeDoc documentation'.yellow);
+    npmts_log_1.npmtsOra.text('now generating ' + 'TypeDoc documentation'.yellow);
     plugins.beautylog.log('TypeDoc Output:');
     let localSmartstream = new plugins.smartstream.Smartstream([
         plugins.gulp.src(plugins.path.join(paths.tsDir, '**/*.ts')),
@@ -19,15 +22,17 @@ let genTypeDoc = function (configArg) {
             out: paths.pagesApiDir,
             json: plugins.path.join(paths.pagesApiDir, 'file.json'),
             // TypeDoc options (see typedoc docs) 
-            name: npmts_check_1.projectInfo.name,
+            name: mod00_check_1.projectInfo.name,
             readme: plugins.path.join(paths.cwd, 'README.md'),
             // theme: "default",
             version: true
         })
     ]);
     localSmartstream.run().then(() => {
+        plugins.beautylog.ok('TypeDoc documentation generated!');
         done.resolve(configArg);
     }, (err) => {
+        plugins.beautylog.warn('TypeDoc documentation generation failed!');
         console.log(err);
         done.resolve(configArg);
     });

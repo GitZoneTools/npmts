@@ -1,13 +1,13 @@
 "use strict";
-const plugins = require("./npmts.plugins");
-const paths = require("./npmts.paths");
 const q = require("q");
-const npmts_promisechain_1 = require("./npmts.promisechain");
+const paths = require("../npmts.paths");
+const npmts_log_1 = require("../npmts.log");
+const plugins = require("./mod00.plugins");
 /**
  * removes the  dist directory which will be entirely rebuild
  */
 let removeDist = function () {
-    npmts_promisechain_1.npmtsOra.text('cleaning dist folder');
+    npmts_log_1.npmtsOra.text('cleaning dist folder');
     return plugins.smartfile.fs.remove(paths.distDir);
 };
 /**
@@ -25,11 +25,11 @@ let removeTestDeclarations = function () {
  * remove old pages
  */
 let removePages = function () {
-    npmts_promisechain_1.npmtsOra.text('cleaning pages folder');
+    npmts_log_1.npmtsOra.text('cleaning pages folder');
     return plugins.smartfile.fs.remove(paths.pagesDir);
 };
 exports.run = function (configArg) {
-    npmts_promisechain_1.npmtsOra.text('cleaning up from previous builds...');
+    npmts_log_1.npmtsOra.text('cleaning up from previous builds...');
     let done = q.defer();
     removeDist()
         .then(removeTestDeclarations)

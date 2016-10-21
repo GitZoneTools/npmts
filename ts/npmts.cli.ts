@@ -1,7 +1,13 @@
+import * as q from 'q'
+
 import * as plugins from './npmts.plugins'
 import * as paths from './npmts.paths'
-import * as promisechain from './npmts.promisechain'
-import * as q from 'q'
+import * as NpmtsConfig from './npmts.config'
+import * as NpmtsMods from './npmts.mods'
+import * as NpmtsWatch from './npmts.watch'
+import * as NpmtsShip from './npmts.ship'
+
+import { npmtsOra } from './npmts.log'
 
 export let run = () => {
     let done = q.defer()
@@ -11,8 +17,43 @@ export let run = () => {
         .then((argvArg) => {
             plugins.beautylog.figletSync('NPMTS')
             plugins.beautylog.info('npmts version: ' + npmtsProjectInfo.version)
-            promisechain.run(argvArg).catch((err) => { console.log(err) })
+            return NpmtsConfig.run(argvArg)
         })
+        .then((configArg: NpmtsConfig.INpmtsConfig) => {
+            let done = q.defer()
+            npmtsOra.start('loading additional modules...')
+            NpmtsMods.mod00.load()
+                .then((mod00) => {
+                    return mod00.run(configArg)
+                })
+                .then(configArg => {
+                    let done = q.defer<NpmtsConfig.INpmtsConfig>()
+                    NpmtsMods.mod01.load()
+                        .then(mod01 => {
+                            return mod01.run(configArg)
+                        })
+                        .then(configArg => {
+                            done.resolve(configArg)
+                        })
+                    return done.promise
+                })
+                .then(configArg => {
+                    let done = q.defer<NpmtsConfig.INpmtsConfig>()
+                    NpmtsMods.mod02.load()
+                        .then(mod02 => {
+                            return mod02.run(configArg)
+                        })
+                        .then(configArg => {
+                            done.resolve(configArg)
+                        })
+                    return done.promise
+                })
+                .then(NpmtsWatch.run)
+                .then(NpmtsShip.run)
+
+            return done.promise
+        })
+        .catch((err) => { console.log(err) })
     npmtsCli.addVersion(npmtsProjectInfo.version)
     npmtsCli.startParse()
     return done.promise

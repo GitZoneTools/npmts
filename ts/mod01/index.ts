@@ -1,12 +1,18 @@
-import plugins = require('./npmts.plugins')
-import paths = require('./npmts.paths')
-import { npmtsOra } from './npmts.promisechain'
-
+/* ------------------------------------------
+ * This module creates TypeScript documentation
+ * -------------------------------------------- */
 import * as q from 'q'
 
-import { projectInfo } from './npmts.check'
+import * as paths from '../npmts.paths'
+import { npmtsOra } from '../npmts.log'
+import { INpmtsConfig } from '../npmts.config'
 
-let genTypeDoc = function (configArg) {
+import * as plugins from './mod01.plugins'
+
+
+import { projectInfo } from '../mod00/mod00.check'
+
+let genTypeDoc = function (configArg: INpmtsConfig) {
     let done = q.defer()
     npmtsOra.text('now generating ' + 'TypeDoc documentation'.yellow)
     plugins.beautylog.log('TypeDoc Output:')
@@ -31,9 +37,11 @@ let genTypeDoc = function (configArg) {
     ])
     localSmartstream.run().then(
         () => {
+            plugins.beautylog.ok('TypeDoc documentation generated!')
             done.resolve(configArg)
         },
         (err) => {
+            plugins.beautylog.warn('TypeDoc documentation generation failed!')
             console.log(err)
             done.resolve(configArg)
         }
@@ -41,8 +49,8 @@ let genTypeDoc = function (configArg) {
     return done.promise
 }
 
-export let run = function (configArg) {
-    let done = q.defer()
+export let run = function (configArg: INpmtsConfig) {
+    let done = q.defer<INpmtsConfig>()
     if (configArg.docs) {
         genTypeDoc(configArg)
             .then(() => {
