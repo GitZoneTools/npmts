@@ -53,7 +53,7 @@ export let run = () => {
 
             return done.promise
         })
-        .catch((err) => { console.log(err) })
+        .catch((err) => { if (err instanceof Error) { console.log(err) } } )
     npmtsCli.addVersion(npmtsProjectInfo.version)
     npmtsCli.startParse()
     return done.promise
