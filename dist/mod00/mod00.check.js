@@ -49,7 +49,7 @@ let checkDependencies = (configArg) => {
             plugins.beautylog.warn(`Watch out: unused dependency "${item}"`);
         }
         for (let item in unused.missing) {
-            plugins.beautylog.error(`unused devDependency "${item}"`);
+            plugins.beautylog.error(`missing dependency "${item}" in package.json`);
         }
         if (unused.missing.length > 0) {
             plugins.beautylog.info('exiting due to missing dependencies in package.json');
