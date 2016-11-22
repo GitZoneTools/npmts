@@ -10,6 +10,8 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 ## Status for master
 [![build status](https://gitlab.com/pushrocks/npmts/badges/master/build.svg)](https://gitlab.com/pushrocks/npmts/commits/master)
 [![coverage report](https://gitlab.com/pushrocks/npmts/badges/master/coverage.svg)](https://gitlab.com/pushrocks/npmts/commits/master)
+[![npm downloads per month](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/npmts)
+[![docker pulls](https://img.shields.io/docker/pulls/hosttoday/ht-docker-node.svg)](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 [![Dependency Status](https://david-dm.org/pushrocks/npmts.svg)](https://david-dm.org/pushrocks/npmts)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/npmts/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/npmts/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/pushrocks/npmts/badges/code.svg)](https://www.bithound.io/github/pushrocks/npmts)
