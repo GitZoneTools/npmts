@@ -48,6 +48,7 @@ let mocha = function (configArg: INpmtsConfig) {
     babelCoverageSmartstream.run()
         .then(
         () => {
+            plugins.beautylog.info('transpiled code to ES5 for use in mocha')
             return localSmartstream.run()
                 .then(() => { done.resolve(configArg) }, (err) => {
                     plugins.beautylog.error('Tests failed!')
