@@ -14,32 +14,35 @@ let mocha = function (configArg) {
     npmts_log_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
     npmts_log_1.npmtsOra.end(); // end npmtsOra for tests.
     let done = q.defer();
-    plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')])
-        .pipe(plugins.gulpSourcemaps.init())
-        .pipe(plugins.gulpBabel({
-        presets: [
-            require.resolve('babel-preset-es2015')
-        ]
-    }))
-        .pipe(plugins.gulpIstanbul({}))
-        .pipe(plugins.gulpSourcemaps.write())
-        .pipe(plugins.gulpInjectModules())
-        .on('finish', function () {
-        let localSmartstream = new plugins.smartstream.Smartstream([
-            plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
-            plugins.gulpBabel({
-                presets: [
-                    require.resolve('babel-preset-es2015')
-                ]
-            }),
-            plugins.gulpInjectModules(),
-            plugins.gulpMocha(),
-            plugins.gulpIstanbul.writeReports({
-                dir: plugins.path.join(paths.cwd, './coverage'),
-                reporters: ['lcovonly', 'json', 'text', 'text-summary']
-            })
-        ]);
-        localSmartstream.run()
+    let babelCoverageSmartstream = new plugins.smartstream.Smartstream([
+        plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')]),
+        plugins.gulpSourcemaps.init(),
+        plugins.gulpBabel({
+            presets: [
+                require.resolve('babel-preset-es2015')
+            ]
+        }),
+        plugins.gulpIstanbul({}),
+        plugins.gulpSourcemaps.write(),
+        plugins.gulpInjectModules()
+    ]);
+    let localSmartstream = new plugins.smartstream.Smartstream([
+        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
+        plugins.gulpBabel({
+            presets: [
+                require.resolve('babel-preset-es2015')
+            ]
+        }),
+        plugins.gulpInjectModules(),
+        plugins.gulpMocha(),
+        plugins.gulpIstanbul.writeReports({
+            dir: plugins.path.join(paths.cwd, './coverage'),
+            reporters: ['lcovonly', 'json', 'text', 'text-summary']
+        })
+    ]);
+    babelCoverageSmartstream.run()
+        .then(() => {
+        return localSmartstream.run()
             .then(() => { done.resolve(configArg); }, (err) => {
             plugins.beautylog.error('Tests failed!');
             console.log(err);
@@ -50,6 +53,8 @@ let mocha = function (configArg) {
                 process.exit(1);
             }
         });
+    }, (err) => {
+        console.log(err);
     });
     return done.promise;
 };
@@ -80,7 +85,7 @@ exports.run = function (configArg) {
     let config = configArg;
     if (config.test === true) {
         npmts_log_1.npmtsOra.text('now starting tests');
-        plugins.beautylog.log('-------------------------------------------------------\n' +
+        plugins.beautylog.log('------------------------------------------------------\n' +
             '*************************** TESTS: ***************************\n' +
             '--------------------------------------------------------------');
         mocha(config)
