@@ -13,5 +13,6 @@ import * as smartpath from 'smartpath';
 import * as smartstream from 'smartstream';
 import * as smartstring from 'smartstring';
 import * as smartsystem from 'smartsystem';
+import * as through2 from 'through2';
 export declare let sourceMapSupport: any;
-export { beautylog, depcheck, lodash, npmextra, projectinfo, path, smartcli, smartcov, smartenv, smartfile, smartpath, smartstream, smartstring, smartsystem };
+export { beautylog, depcheck, lodash, npmextra, projectinfo, path, smartcli, smartcov, smartenv, smartfile, smartpath, smartstream, smartstring, smartsystem, through2 };

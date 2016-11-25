@@ -14,8 +14,8 @@ let mocha = function (configArg) {
     npmts_log_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
     npmts_log_1.npmtsOra.end(); // end npmtsOra for tests.
     let done = q.defer();
-    let babelCoverageSmartstream = new plugins.smartstream.Smartstream([
-        plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')]),
+    let coverageSmartstream = new plugins.smartstream.Smartstream([
+        plugins.gulp.src([plugins.path.join(paths.cwd, './dist/**/*.js')]),
         plugins.gulpSourcemaps.init(),
         plugins.gulpBabel({
             presets: [
@@ -24,7 +24,12 @@ let mocha = function (configArg) {
         }),
         plugins.gulpIstanbul({}),
         plugins.gulpSourcemaps.write(),
-        plugins.gulpInjectModules()
+        plugins.gulpInjectModules(),
+        plugins.through2.obj((file, enc, cb) => {
+            cb(null, file);
+        }, (cb) => {
+            cb();
+        })
     ]);
     let localSmartstream = new plugins.smartstream.Smartstream([
         plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
@@ -40,9 +45,9 @@ let mocha = function (configArg) {
             reporters: ['lcovonly', 'json', 'text', 'text-summary']
         })
     ]);
-    babelCoverageSmartstream.run()
+    coverageSmartstream.run()
         .then(() => {
-        plugins.beautylog.info('transpiled code to ES5 for use in mocha');
+        plugins.beautylog.info('code is now transpiled to ES5, instrumented with istanbul, and injected for mocha!');
         return localSmartstream.run()
             .then(() => { done.resolve(configArg); }, (err) => {
             plugins.beautylog.error('Tests failed!');
@@ -93,7 +98,7 @@ exports.run = function (configArg) {
             .then(coverage)
             .then(() => {
             done.resolve(config);
-        });
+        }).catch(err => { console.log(err); });
     }
     else {
         npmts_log_1.npmtsOra.end();

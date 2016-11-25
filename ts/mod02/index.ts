@@ -17,8 +17,9 @@ let mocha = function (configArg: INpmtsConfig) {
     npmtsOra.text('Instrumentalizing and testing transpiled JS')
     npmtsOra.end() // end npmtsOra for tests.
     let done = q.defer()
-    let babelCoverageSmartstream = new plugins.smartstream.Smartstream([
-        plugins.gulp.src([plugins.path.join(paths.cwd, 'dist/*.js')]),
+
+    let coverageSmartstream = new plugins.smartstream.Smartstream([
+        plugins.gulp.src([plugins.path.join(paths.cwd, './dist/**/*.js')]),
         plugins.gulpSourcemaps.init(),
         plugins.gulpBabel({
             presets: [
@@ -28,8 +29,17 @@ let mocha = function (configArg: INpmtsConfig) {
         plugins.gulpIstanbul({
         }),
         plugins.gulpSourcemaps.write(),
-        plugins.gulpInjectModules()
+        plugins.gulpInjectModules(),
+        plugins.through2.obj(
+            (file, enc, cb) => {
+                cb(null, file)
+            },
+            (cb) => {
+                cb()
+            }
+        )
     ])
+
     let localSmartstream = new plugins.smartstream.Smartstream([
         plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
         plugins.gulpBabel({
@@ -44,11 +54,10 @@ let mocha = function (configArg: INpmtsConfig) {
             reporters: ['lcovonly', 'json', 'text', 'text-summary']
         })
     ])
-
-    babelCoverageSmartstream.run()
+    coverageSmartstream.run()
         .then(
         () => {
-            plugins.beautylog.info('transpiled code to ES5 for use in mocha')
+            plugins.beautylog.info('code is now transpiled to ES5, instrumented with istanbul, and injected for mocha!')
             return localSmartstream.run()
                 .then(() => { done.resolve(configArg) }, (err) => {
                     plugins.beautylog.error('Tests failed!')
@@ -105,7 +114,7 @@ export let run = function (configArg: INpmtsConfig) {
             .then(coverage)
             .then(() => {
                 done.resolve(config)
-            })
+            }).catch(err => { console.log(err) })
     } else {
         npmtsOra.end()
         done.resolve(config)

@@ -28,4 +28,6 @@ const smartstring = require("smartstring");
 exports.smartstring = smartstring;
 const smartsystem = require("smartsystem");
 exports.smartsystem = smartsystem;
+const through2 = require("through2");
+exports.through2 = through2;
 exports.sourceMapSupport = require('source-map-support').install(); // display errors correctly during testing

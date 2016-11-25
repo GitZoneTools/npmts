@@ -14,6 +14,7 @@ import * as smartpath from 'smartpath'
 import * as smartstream from 'smartstream'
 import * as smartstring from 'smartstring'
 import * as smartsystem from 'smartsystem'
+import * as through2 from 'through2'
 export let sourceMapSupport = require('source-map-support').install() // display errors correctly during testing
 
 export {
@@ -30,5 +31,6 @@ export {
     smartpath,
     smartstream,
     smartstring,
-    smartsystem
+    smartsystem,
+    through2
 }
