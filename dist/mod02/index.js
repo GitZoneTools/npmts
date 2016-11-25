@@ -26,7 +26,6 @@ let mocha = function (configArg) {
         plugins.gulpSourcemaps.write(),
         plugins.gulpInjectModules(),
         plugins.through2.obj((file, enc, cb) => {
-            console.log(file);
             cb();
         }, (cb) => {
             cb();
