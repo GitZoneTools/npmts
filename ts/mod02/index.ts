@@ -32,7 +32,7 @@ let mocha = function (configArg: INpmtsConfig) {
         plugins.gulpInjectModules(),
         plugins.through2.obj(
             (file, enc, cb) => {
-                cb(null, file)
+                cb()
             },
             (cb) => {
                 cb()
