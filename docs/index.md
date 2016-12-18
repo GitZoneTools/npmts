@@ -5,11 +5,13 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 [![npm](https://push.rocks/assets/repo-button-npm.svg)](https://www.npmjs.com/package/npmts)
 [![git](https://push.rocks/assets/repo-button-git.svg)](https://gitlab.com/pushrocks/npmts)
 [![git](https://push.rocks/assets/repo-button-mirror.svg)](https://github.com/pushrocks/npmts)
-[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/npmts/gitbook)
+[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/npmts/)
 
 ## Status for master
 [![build status](https://gitlab.com/pushrocks/npmts/badges/master/build.svg)](https://gitlab.com/pushrocks/npmts/commits/master)
 [![coverage report](https://gitlab.com/pushrocks/npmts/badges/master/coverage.svg)](https://gitlab.com/pushrocks/npmts/commits/master)
+[![npm downloads per month](https://img.shields.io/npm/dm/npmts.svg)](https://www.npmjs.com/package/npmts)
+[![docker pulls](https://img.shields.io/docker/pulls/hosttoday/ht-docker-node.svg)](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 [![Dependency Status](https://david-dm.org/pushrocks/npmts.svg)](https://david-dm.org/pushrocks/npmts)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/npmts/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/npmts/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/pushrocks/npmts/badges/code.svg)](https://www.bithound.io/github/pushrocks/npmts)
@@ -32,11 +34,11 @@ This works on your machine and in CI. There is a prebuild docker image available
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
 For further information read the docs:
-    * [1. Intro](https://pushrocks.gitlab.io/npmts/gitbook/index.md)
-    * [2. Install](https://pushrocks.gitlab.io/npmts/gitbook/install.md)
-    * [3. Default Behaviour](https://pushrocks.gitlab.io/npmts/gitbook/default.md)
-    * [4. Configuration](https://pushrocks.gitlab.io/npmts/gitbook/config.md)
-    * [5. Examples](https://pushrocks.gitlab.io/npmts/gitbook/examples.md)
-    * [6. Info](https://pushrocks.gitlab.io/npmts/gitbook/info.md) 
+1. [Intro](https://pushrocks.gitlab.io/npmts/index.html)
+2. [Install](https://pushrocks.gitlab.io/npmts/install.html)
+3. [Default Behaviour](https://pushrocks.gitlab.io/npmts/default.html)
+4. [Configuration](https://pushrocks.gitlab.io/npmts/config.html)
+5. [Examples](https://pushrocks.gitlab.io/npmts/examples.html)
+6. [Info](https://pushrocks.gitlab.io/npmts/info.html)
 
 [![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)

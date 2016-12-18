@@ -1,3 +1,4 @@
+# standard ci
 image: hosttoday/ht-docker-node:npmci
 
 stages:
@@ -50,7 +51,7 @@ pages:
   image: hosttoday/ht-docker-node:npmpage
   stage: pages
   script:
-    - npmci command npmpage --host gitlab
+    - npmci command npmpage --publish gitlab
   only:
     - tags
   artifacts:
