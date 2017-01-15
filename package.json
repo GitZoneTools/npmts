@@ -37,7 +37,6 @@
     "@types/gulp": "^3.8.32",
     "@types/gulp-istanbul": "^0.9.30",
     "@types/gulp-mocha": "0.0.29",
-    "@types/gulp-rename": "0.0.31",
     "@types/gulp-sourcemaps": "0.0.29",
     "@types/minimatch": "^2.0.29",
     "@types/q": "^0.x.x",
