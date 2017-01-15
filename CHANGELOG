@@ -1,7 +1,5 @@
 Please view this file on the master branch, on stable branches it's out of date.
 
-v 6.0.0 (unreleased)
-    - handle bithound
+v 6.0.0 (released)
+    - remove TypeDoc, please look at npmpage
     - check package.json
-    - check .gitlab-ci-yml
-    - check appveyor.yml

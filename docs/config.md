@@ -20,7 +20,6 @@ with default behaviour.
 ```json
 {
   "mode":"custom",
-  "docs":false,
   "test":true,
   "npmts":{
     "ts":{
@@ -38,7 +37,6 @@ with default behaviour.
 | key | default value | description |
 | --- | --- | --- |
 | `"mode"` | `"default"` | "default" will do default stuff and override , "custom" only does what you specify |
-| `"docs"` | `true` | create docs for your module |
 | `"test"` | `true` | test your module |
 | `"ts"` | `{"./ts/*.ts":"./","./test/test.ts":"./test/"}` | allows you to define multiple ts portions |
 | `"tsOptions"` | `{"target":"ES5", "declaration":"true"}` | specify options for tsc |
@@ -62,11 +60,6 @@ You can reference it in your package.json like this.
 This is in line with the latest TypeScript best practices.
 You can then import plugins via the TypeScript `import` Syntax
 and tsc will pick up the declaration file automatically.
-
-### TypeDoc
-By default TypeDoc will create docs for your module in `./pages/api/` directory.
-> Note: Use [npmpage](https://www.npmjs.com/package/npmpage) to build a website for the module.
-It also allows you to integrate api docs with a gitbook located in `./docs/` 
 
 ## Some notes:
 #### Typings for third party modules that do not bundle declaration files

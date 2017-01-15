@@ -10,7 +10,6 @@ export type npmtsMode = 'default' | 'custom'
 export interface INpmtsConfig {
     argv: any,
     coverageTreshold: number,
-    docs: boolean,
     mode: npmtsMode,
     test: boolean,
     testTs: any,
@@ -25,7 +24,6 @@ export var run = function (argvArg) {
     let defaultConfig: INpmtsConfig = {
         argv: undefined,
         coverageTreshold: 70,
-        docs: true,
         mode: 'default',
         test: true,
         testTs: {},
@@ -71,9 +69,6 @@ export var run = function (argvArg) {
     // mix with commandline
     if (config.argv.notest) {
         config.test = false
-    };
-    if (config.argv.nodocs) {
-        config.docs = false
     };
     if (config.argv.watch) {
         config.watch = true

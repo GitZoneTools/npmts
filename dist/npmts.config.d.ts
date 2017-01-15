@@ -4,7 +4,6 @@ export declare type npmtsMode = 'default' | 'custom';
 export interface INpmtsConfig {
     argv: any;
     coverageTreshold: number;
-    docs: boolean;
     mode: npmtsMode;
     test: boolean;
     testTs: any;

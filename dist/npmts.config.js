@@ -9,7 +9,6 @@ exports.run = function (argvArg) {
     let defaultConfig = {
         argv: undefined,
         coverageTreshold: 70,
-        docs: true,
         mode: 'default',
         test: true,
         testTs: {},
@@ -48,10 +47,6 @@ exports.run = function (argvArg) {
     // mix with commandline
     if (config.argv.notest) {
         config.test = false;
-    }
-    ;
-    if (config.argv.nodocs) {
-        config.docs = false;
     }
     ;
     if (config.argv.watch) {
