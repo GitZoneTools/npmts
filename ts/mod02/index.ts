@@ -25,14 +25,13 @@ let mocha = function (configArg: INpmtsConfig) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['es2015.promise','es5']
+            lib: ['ES2015.Promise','ES5','ES2015.Generator']
         }),
         plugins.gulpIstanbul({
         }),
         plugins.gulpSourcemaps.write(),
         plugins.gulpFunction.forEach(async file => {
             file.path = file.path.replace(paths.tsDir, paths.distDir)
-            console.log(file.path)
         }),
         plugins.gulpInjectModules(),
         plugins.through2.obj(
@@ -50,7 +49,8 @@ let mocha = function (configArg: INpmtsConfig) {
         plugins.gulpTypeScript({
             target: 'ES5',
             emitDecoratorMetadata: true,
-            experimentalDecorators: true
+            experimentalDecorators: true,
+            lib: ['ES2015.Promise','ES5','ES2015.Generator']
         }),
         plugins.gulpInjectModules(),
         plugins.gulpMocha(),

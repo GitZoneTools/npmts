@@ -29,13 +29,12 @@ let mocha = function (configArg) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['es2015.promise', 'es5']
+            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator']
         }),
         plugins.gulpIstanbul({}),
         plugins.gulpSourcemaps.write(),
         plugins.gulpFunction.forEach((file) => __awaiter(this, void 0, void 0, function* () {
             file.path = file.path.replace(paths.tsDir, paths.distDir);
-            console.log(file.path);
         })),
         plugins.gulpInjectModules(),
         plugins.through2.obj((file, enc, cb) => {
@@ -49,7 +48,8 @@ let mocha = function (configArg) {
         plugins.gulpTypeScript({
             target: 'ES5',
             emitDecoratorMetadata: true,
-            experimentalDecorators: true
+            experimentalDecorators: true,
+            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator']
         }),
         plugins.gulpInjectModules(),
         plugins.gulpMocha(),
