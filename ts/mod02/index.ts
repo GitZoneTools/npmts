@@ -24,7 +24,8 @@ let mocha = function (configArg: INpmtsConfig) {
         plugins.gulpTypeScript({
             target: 'ES5',
             emitDecoratorMetadata: true,
-            experimentalDecorators: true
+            experimentalDecorators: true,
+            lib: ['es2015.promise','es5']
         }),
         plugins.gulpIstanbul({
         }),

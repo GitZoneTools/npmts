@@ -28,7 +28,8 @@ let mocha = function (configArg) {
         plugins.gulpTypeScript({
             target: 'ES5',
             emitDecoratorMetadata: true,
-            experimentalDecorators: true
+            experimentalDecorators: true,
+            lib: ['es2015.promise', 'es5']
         }),
         plugins.gulpIstanbul({}),
         plugins.gulpSourcemaps.write(),
