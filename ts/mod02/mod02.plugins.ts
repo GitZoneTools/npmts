@@ -1,19 +1,19 @@
 export * from '../npmts.plugins'
 
 import * as gulp from 'gulp'
-import * as gulpBabel from 'gulp-babel'
-import * as gulpIstanbul from 'gulp-istanbul'
 import * as gulpFunction from 'gulp-function'
+import * as gulpIstanbul from 'gulp-istanbul'
 let gulpInjectModules = require('gulp-inject-modules')
 import * as gulpMocha from 'gulp-mocha'
 import * as gulpSourcemaps from 'gulp-sourcemaps'
+import * as gulpTypeScript from 'gulp-typescript'
 
 export {
     gulp,
-    gulpBabel,
-    gulpIstanbul,
     gulpFunction,
+    gulpIstanbul,
     gulpInjectModules,
     gulpMocha,
-    gulpSourcemaps
+    gulpSourcemaps,
+    gulpTypeScript
 }

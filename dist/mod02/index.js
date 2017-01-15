@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 /* ------------------------------------------
  * This module tests the compiled TypeScript files
  * -------------------------------------------- */
@@ -15,15 +23,19 @@ let mocha = function (configArg) {
     npmts_log_1.npmtsOra.end(); // end npmtsOra for tests.
     let done = q.defer();
     let coverageSmartstream = new plugins.smartstream.Smartstream([
-        plugins.gulp.src([plugins.path.join(paths.cwd, './dist/**/*.js')]),
+        plugins.gulp.src([plugins.path.join(paths.cwd, './ts/**/*.ts')]),
         plugins.gulpSourcemaps.init(),
-        plugins.gulpBabel({
-            presets: [
-                require.resolve('babel-preset-es2015')
-            ]
+        plugins.gulpTypeScript({
+            target: 'ES5',
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true
         }),
         plugins.gulpIstanbul({}),
         plugins.gulpSourcemaps.write(),
+        plugins.gulpFunction.forEach((file) => __awaiter(this, void 0, void 0, function* () {
+            file.path = file.path.replace(paths.tsDir, paths.distDir);
+            console.log(file.path);
+        })),
         plugins.gulpInjectModules(),
         plugins.through2.obj((file, enc, cb) => {
             cb();
@@ -32,11 +44,11 @@ let mocha = function (configArg) {
         })
     ]);
     let localSmartstream = new plugins.smartstream.Smartstream([
-        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
-        plugins.gulpBabel({
-            presets: [
-                require.resolve('babel-preset-es2015')
-            ]
+        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.ts')]),
+        plugins.gulpTypeScript({
+            target: 'ES5',
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true
         }),
         plugins.gulpInjectModules(),
         plugins.gulpMocha(),

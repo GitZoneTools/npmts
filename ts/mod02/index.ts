@@ -19,16 +19,20 @@ let mocha = function (configArg: INpmtsConfig) {
     let done = q.defer()
 
     let coverageSmartstream = new plugins.smartstream.Smartstream([
-        plugins.gulp.src([plugins.path.join(paths.cwd, './dist/**/*.js')]),
+        plugins.gulp.src([plugins.path.join(paths.cwd, './ts/**/*.ts')]),
         plugins.gulpSourcemaps.init(),
-        plugins.gulpBabel({
-            presets: [
-                require.resolve('babel-preset-es2015')
-            ]
+        plugins.gulpTypeScript({
+            target: 'ES5',
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true
         }),
         plugins.gulpIstanbul({
         }),
         plugins.gulpSourcemaps.write(),
+        plugins.gulpFunction.forEach(async file => {
+            file.path = file.path.replace(paths.tsDir, paths.distDir)
+            console.log(file.path)
+        }),
         plugins.gulpInjectModules(),
         plugins.through2.obj(
             (file, enc, cb) => {
@@ -41,11 +45,11 @@ let mocha = function (configArg: INpmtsConfig) {
     ])
 
     let localSmartstream = new plugins.smartstream.Smartstream([
-        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.js')]),
-        plugins.gulpBabel({
-            presets: [
-                require.resolve('babel-preset-es2015')
-            ]
+        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.ts')]),
+        plugins.gulpTypeScript({
+            target: 'ES5',
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true
         }),
         plugins.gulpInjectModules(),
         plugins.gulpMocha(),
