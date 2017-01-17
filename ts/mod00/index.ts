@@ -1,7 +1,7 @@
 /* ------------------------------------------
  * This module compiles TypeScript files
  * -------------------------------------------- */
-import * as q from 'q'
+import * as q from 'smartq'
 
 import { npmtsOra } from '../npmts.log'
 import { INpmtsConfig } from '../npmts.config'
@@ -13,7 +13,7 @@ import * as NpmtsCheck from './mod00.check'
 import * as NpmtsClean from './mod00.clean'
 import * as NpmtsCompile from './mod00.compile'
 
-export let run = function(configArg: INpmtsConfig): q.Promise<INpmtsConfig> {
+export let run = function(configArg: INpmtsConfig): Promise<INpmtsConfig> {
     let done = q.defer<INpmtsConfig>()
     npmtsOra.text('starting TypeScript Compilation')
     NpmtsClean.run(configArg)

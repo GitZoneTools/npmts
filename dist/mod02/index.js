@@ -12,7 +12,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
  * -------------------------------------------- */
 const plugins = require("./mod02.plugins");
 const paths = require("../npmts.paths");
-const q = require("q");
+const q = require("smartq");
 const npmts_log_1 = require("../npmts.log");
 /**
  * runs mocha
@@ -29,7 +29,7 @@ let mocha = function (configArg) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator']
+            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator', 'ES2015.Iterable']
         }),
         plugins.gulpIstanbul({}),
         plugins.gulpSourcemaps.write(),
@@ -49,7 +49,7 @@ let mocha = function (configArg) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator']
+            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator', 'ES2015.Iterable']
         }),
         plugins.gulpInjectModules(),
         plugins.gulpMocha(),

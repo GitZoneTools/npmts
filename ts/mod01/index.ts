@@ -1,7 +1,7 @@
 /* ------------------------------------------
  * This module creates TypeScript documentation
  * -------------------------------------------- */
-import * as q from 'q'
+import * as q from 'smartq'
 
 import * as paths from '../npmts.paths'
 import { npmtsOra } from '../npmts.log'

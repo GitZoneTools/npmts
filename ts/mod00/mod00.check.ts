@@ -1,4 +1,4 @@
-import * as q from 'q'
+import * as q from 'smartq'
 import { ProjectinfoNpm } from 'projectinfo'
 
 import * as paths from '../npmts.paths'
@@ -11,7 +11,7 @@ export let projectInfo: ProjectinfoNpm
 let checkProjectTypings = (configArg) => {
     let done = q.defer()
     npmtsOra.text('Check Module: Check Project Typings...')
-    projectInfo =  new ProjectinfoNpm(paths.cwd)
+    projectInfo = new ProjectinfoNpm(paths.cwd)
     if (typeof projectInfo.packageJson.typings === 'undefined') {
         plugins.beautylog.error(`please add typings field to package.json`)
         process.exit(1)

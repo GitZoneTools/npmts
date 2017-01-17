@@ -1,4 +1,4 @@
-import * as q from 'q'
+import * as q from 'smartq'
 
 import paths = require('../npmts.paths')
 import { npmtsOra } from '../npmts.log'
@@ -6,7 +6,7 @@ import { npmtsOra } from '../npmts.log'
 import plugins = require('./mod00.plugins')
 import { projectInfo } from '../mod00/mod00.check'
 
-export var run = function(configArg){
+export let run = function(configArg){
     let done = q.defer()
     let config = configArg
     npmtsOra.text('now looking at ' + 'required assets'.yellow)

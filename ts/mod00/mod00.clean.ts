@@ -1,4 +1,4 @@
-import * as q from 'q'
+import * as q from 'smartq'
 import paths = require('../npmts.paths')
 
 import { npmtsOra } from '../npmts.log'

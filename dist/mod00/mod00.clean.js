@@ -1,5 +1,5 @@
 "use strict";
-const q = require("q");
+const q = require("smartq");
 const paths = require("../npmts.paths");
 const npmts_log_1 = require("../npmts.log");
 const plugins = require("./mod00.plugins");

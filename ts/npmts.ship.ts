@@ -1,4 +1,4 @@
-import * as q from 'q'
+import * as q from 'smartq'
 
 import * as plugins from './npmts.plugins'
 

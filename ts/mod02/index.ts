@@ -4,7 +4,7 @@
 import plugins = require('./mod02.plugins')
 import paths = require('../npmts.paths')
 
-import * as q from 'q'
+import * as q from 'smartq'
 
 import { npmtsOra } from '../npmts.log'
 import { INpmtsConfig } from '../npmts.config'

@@ -1,5 +1,5 @@
 "use strict";
-const q = require("q");
+const q = require("smartq");
 const smartchok = require("smartchok");
 const plugins = require("./npmts.plugins");
 const cli = require("./npmts.cli");

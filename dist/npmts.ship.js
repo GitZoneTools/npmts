@@ -1,5 +1,5 @@
 "use strict";
-const q = require("q");
+const q = require("smartq");
 const plugins = require("./npmts.plugins");
 exports.run = (configArg) => {
     let done = q.defer();

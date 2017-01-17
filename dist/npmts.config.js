@@ -1,7 +1,7 @@
 "use strict";
 const plugins = require("./npmts.plugins");
 const paths = require("./npmts.paths");
-const q = require("q");
+const q = require("smartq");
 const npmts_log_1 = require("./npmts.log");
 ;
 exports.run = function (argvArg) {

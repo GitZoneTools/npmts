@@ -1,5 +1,3 @@
-/// <reference types="q" />
-import * as q from 'q';
 export declare type npmtsMode = 'default' | 'custom';
 export interface INpmtsConfig {
     argv: any;
@@ -11,4 +9,4 @@ export interface INpmtsConfig {
     tsOptions: any;
     watch: boolean;
 }
-export declare var run: (argvArg: any) => q.Promise<{}>;
+export declare let run: (argvArg: any) => Promise<{}>;

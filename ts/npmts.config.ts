@@ -1,7 +1,7 @@
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
 
-import * as q from 'q'
+import * as q from 'smartq'
 
 import { npmtsOra } from './npmts.log'
 
@@ -19,7 +19,7 @@ export interface INpmtsConfig {
 
 };
 
-export var run = function (argvArg) {
+export let run = function (argvArg) {
     let done = q.defer()
     let defaultConfig: INpmtsConfig = {
         argv: undefined,

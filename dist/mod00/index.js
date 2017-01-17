@@ -2,7 +2,7 @@
 /* ------------------------------------------
  * This module compiles TypeScript files
  * -------------------------------------------- */
-const q = require("q");
+const q = require("smartq");
 const npmts_log_1 = require("../npmts.log");
 const NpmtsAssets = require("./mod00.assets");
 const NpmtsCheck = require("./mod00.check");
