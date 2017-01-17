@@ -25,7 +25,7 @@ let mocha = function (configArg: INpmtsConfig) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['ES2015.Promise','ES5','ES2015.Generator']
+            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator', 'ES2015.Iterable']
         }),
         plugins.gulpIstanbul({
         }),
@@ -50,7 +50,7 @@ let mocha = function (configArg: INpmtsConfig) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['ES2015.Promise','ES5','ES2015.Generator']
+            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator', 'ES2015.Iterable']
         }),
         plugins.gulpInjectModules(),
         plugins.gulpMocha(),
