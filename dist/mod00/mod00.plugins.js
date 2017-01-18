@@ -5,8 +5,6 @@ function __export(m) {
 __export(require("../npmts.plugins"));
 const tsn = require("tsn");
 exports.tsn = tsn;
-const shelljs = require("shelljs");
-exports.shelljs = shelljs;
 const smartchok = require("smartchok");
 exports.smartchok = smartchok;
 const smartstream = require("smartstream");
