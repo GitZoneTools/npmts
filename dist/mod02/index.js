@@ -29,7 +29,7 @@ let mocha = function (configArg) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator', 'ES2015.Iterable']
+            lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
         }),
         plugins.gulpIstanbul({}),
         plugins.gulpSourcemaps.write(),
@@ -49,7 +49,7 @@ let mocha = function (configArg) {
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
-            lib: ['ES2015.Promise', 'ES5', 'ES2015.Generator', 'ES2015.Iterable']
+            lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
         }),
         plugins.gulpInjectModules(),
         plugins.gulpMocha(),
