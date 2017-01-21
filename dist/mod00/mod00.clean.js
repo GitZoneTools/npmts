@@ -1,13 +1,12 @@
 "use strict";
 const q = require("smartq");
 const paths = require("../npmts.paths");
-const npmts_log_1 = require("../npmts.log");
 const plugins = require("./mod00.plugins");
 /**
  * removes the  dist directory which will be entirely rebuild
  */
 let removeDist = function () {
-    npmts_log_1.npmtsOra.text('cleaning dist folder');
+    plugins.beautylog.ora.text('cleaning dist folder');
     return plugins.smartfile.fs.remove(paths.distDir);
 };
 /**
@@ -25,11 +24,11 @@ let removeTestDeclarations = function () {
  * remove old pages
  */
 let removePages = function () {
-    npmts_log_1.npmtsOra.text('cleaning pages folder');
+    plugins.beautylog.ora.text('cleaning pages folder');
     return plugins.smartfile.fs.remove(paths.pagesDir);
 };
 exports.run = function (configArg) {
-    npmts_log_1.npmtsOra.text('cleaning up from previous builds...');
+    plugins.beautylog.ora.text('cleaning up from previous builds...');
     let done = q.defer();
     removeDist()
         .then(removeTestDeclarations)

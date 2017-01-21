@@ -6,7 +6,6 @@ const NpmtsConfig = require("./npmts.config");
 const NpmtsMods = require("./npmts.mods");
 const NpmtsWatch = require("./npmts.watch");
 const NpmtsShip = require("./npmts.ship");
-const npmts_log_1 = require("./npmts.log");
 exports.run = () => {
     let done = q.defer();
     let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);
@@ -19,7 +18,7 @@ exports.run = () => {
     })
         .then((configArg) => {
         let done = q.defer();
-        npmts_log_1.npmtsOra.start('loading additional modules...');
+        plugins.beautylog.ora.start('loading additional modules...');
         NpmtsMods.mod00.load()
             .then((mod00) => {
             return mod00.run(configArg);

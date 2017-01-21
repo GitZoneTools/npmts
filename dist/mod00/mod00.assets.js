@@ -1,13 +1,12 @@
 "use strict";
 const q = require("smartq");
 const paths = require("../npmts.paths");
-const npmts_log_1 = require("../npmts.log");
 const plugins = require("./mod00.plugins");
 const mod00_check_1 = require("../mod00/mod00.check");
 exports.run = function (configArg) {
     let done = q.defer();
     let config = configArg;
-    npmts_log_1.npmtsOra.text('now looking at ' + 'required assets'.yellow);
+    plugins.beautylog.ora.text('now looking at ' + 'required assets'.yellow);
     if (config.cli === true) {
         let mainJsPath = mod00_check_1.projectInfo.packageJson.main;
         let cliJsString = plugins.smartfile.fs.toStringSync(plugins.path.join(paths.npmtsAssetsDir, 'cli.js'));

@@ -3,7 +3,6 @@
  * -------------------------------------------- */
 import * as q from 'smartq'
 
-import { npmtsOra } from '../npmts.log'
 import { INpmtsConfig } from '../npmts.config'
 
 import * as plugins from './mod00.plugins'
@@ -15,7 +14,7 @@ import * as NpmtsCompile from './mod00.compile'
 
 export let run = function(configArg: INpmtsConfig): Promise<INpmtsConfig> {
     let done = q.defer<INpmtsConfig>()
-    npmtsOra.text('starting TypeScript Compilation')
+    plugins.beautylog.ora.text('starting TypeScript Compilation')
     NpmtsClean.run(configArg)
         .then(NpmtsCheck.run)
         .then(NpmtsCompile.run)

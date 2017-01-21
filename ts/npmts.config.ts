@@ -3,8 +3,6 @@ import paths = require('./npmts.paths')
 
 import * as q from 'smartq'
 
-import { npmtsOra } from './npmts.log'
-
 export type npmtsMode = 'default' | 'custom'
 
 export interface INpmtsConfig {
@@ -33,7 +31,7 @@ export let run = function (argvArg) {
     }
 
     // mix with configfile
-    npmtsOra.text('running npmextra')
+    plugins.beautylog.ora.text('running npmextra')
 
     let localNpmextra = new plugins.npmextra.Npmextra(paths.cwd)
     let config: INpmtsConfig = localNpmextra.dataFor<INpmtsConfig>(

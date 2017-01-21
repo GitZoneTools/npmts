@@ -2,7 +2,6 @@ import * as q from 'smartq'
 import { ProjectinfoNpm } from 'projectinfo'
 
 import * as paths from '../npmts.paths'
-import { npmtsOra } from '../npmts.log'
 
 import * as plugins from './mod00.plugins'
 
@@ -10,7 +9,7 @@ export let projectInfo: ProjectinfoNpm
 
 let checkProjectTypings = (configArg) => {
     let done = q.defer()
-    npmtsOra.text('Check Module: Check Project Typings...')
+    plugins.beautylog.ora.text('Check Module: Check Project Typings...')
     projectInfo = new ProjectinfoNpm(paths.cwd)
     if (typeof projectInfo.packageJson.typings === 'undefined') {
         plugins.beautylog.error(`please add typings field to package.json`)
@@ -37,7 +36,7 @@ const depcheckOptions = {
 
 let checkDependencies = (configArg) => {
     let done = q.defer()
-    npmtsOra.text('Check Module: Check Dependencies...')
+    plugins.beautylog.ora.text('Check Module: Check Dependencies...')
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'test',
@@ -73,7 +72,7 @@ let checkDependencies = (configArg) => {
 
 let checkDevDependencies = (configArg) => {
     let done = q.defer()
-    npmtsOra.text('Check Module: Check devDependencies...')
+    plugins.beautylog.ora.text('Check Module: Check devDependencies...')
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [ // folder with these names will be ignored
             'ts',
@@ -109,14 +108,14 @@ let checkDevDependencies = (configArg) => {
 
 let checkNodeVersion = (configArg) => {
     let done = q.defer()
-    npmtsOra.text('checking node version')
+    plugins.beautylog.ora.text('checking node version')
     done.resolve(configArg)
     return done.promise
 }
 
 export let run = (configArg) => {
     let done = q.defer()
-    npmtsOra.text('Check Module: ...')
+    plugins.beautylog.ora.text('Check Module: ...')
     checkProjectTypings(configArg)
         .then(checkDependencies)
         .then(checkDevDependencies)

@@ -13,14 +13,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const plugins = require("./mod02.plugins");
 const paths = require("../npmts.paths");
 const q = require("smartq");
-const npmts_log_1 = require("../npmts.log");
 /**
  * runs mocha
  * @returns INpmtsConfig
  */
 let mocha = function (configArg) {
-    npmts_log_1.npmtsOra.text('Instrumentalizing and testing transpiled JS');
-    npmts_log_1.npmtsOra.end(); // end npmtsOra for tests.
+    plugins.beautylog.ora.text('Instrumentalizing and testing transpiled JS');
+    plugins.beautylog.ora.end(); // end plugins.beautylog.ora for tests.
     let done = q.defer();
     let coverageSmartstream = new plugins.smartstream.Smartstream([
         plugins.gulp.src([plugins.path.join(paths.cwd, './ts/**/*.ts')]),
@@ -103,7 +102,7 @@ exports.run = function (configArg) {
     let done = q.defer();
     let config = configArg;
     if (config.test === true) {
-        npmts_log_1.npmtsOra.text('now starting tests');
+        plugins.beautylog.ora.text('now starting tests');
         plugins.beautylog.log('------------------------------------------------------\n' +
             '*************************** TESTS: ***************************\n' +
             '--------------------------------------------------------------');
@@ -114,7 +113,7 @@ exports.run = function (configArg) {
         }).catch(err => { console.log(err); });
     }
     else {
-        npmts_log_1.npmtsOra.end();
+        plugins.beautylog.ora.end();
         done.resolve(config);
     }
     return done.promise;

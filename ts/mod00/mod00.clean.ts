@@ -1,15 +1,13 @@
 import * as q from 'smartq'
 import paths = require('../npmts.paths')
 
-import { npmtsOra } from '../npmts.log'
-
 import plugins = require('./mod00.plugins')
 
 /**
  * removes the  dist directory which will be entirely rebuild
  */
 let removeDist = function () {
-    npmtsOra.text('cleaning dist folder')
+    plugins.beautylog.ora.text('cleaning dist folder')
     return plugins.smartfile.fs.remove(paths.distDir)
 }
 
@@ -29,12 +27,12 @@ let removeTestDeclarations = function () {
  * remove old pages
  */
 let removePages = function () {
-    npmtsOra.text('cleaning pages folder')
+    plugins.beautylog.ora.text('cleaning pages folder')
     return plugins.smartfile.fs.remove(paths.pagesDir)
 }
 
 export let run = function (configArg) {
-    npmtsOra.text('cleaning up from previous builds...')
+    plugins.beautylog.ora.text('cleaning up from previous builds...')
     let done = q.defer()
     removeDist()
         .then(removeTestDeclarations)

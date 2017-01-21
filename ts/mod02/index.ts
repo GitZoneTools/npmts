@@ -6,7 +6,6 @@ import paths = require('../npmts.paths')
 
 import * as q from 'smartq'
 
-import { npmtsOra } from '../npmts.log'
 import { INpmtsConfig } from '../npmts.config'
 
 /**
@@ -14,8 +13,8 @@ import { INpmtsConfig } from '../npmts.config'
  * @returns INpmtsConfig
  */
 let mocha = function (configArg: INpmtsConfig) {
-    npmtsOra.text('Instrumentalizing and testing transpiled JS')
-    npmtsOra.end() // end npmtsOra for tests.
+    plugins.beautylog.ora.text('Instrumentalizing and testing transpiled JS')
+    plugins.beautylog.ora.end() // end plugins.beautylog.ora for tests.
     let done = q.defer()
 
     let coverageSmartstream = new plugins.smartstream.Smartstream([
@@ -108,7 +107,7 @@ export let run = function (configArg: INpmtsConfig) {
     let done = q.defer<INpmtsConfig>()
     let config = configArg
     if (config.test === true) {
-        npmtsOra.text('now starting tests')
+        plugins.beautylog.ora.text('now starting tests')
         plugins.beautylog.log(
             '------------------------------------------------------\n' +
             '*************************** TESTS: ***************************\n' +
@@ -121,7 +120,7 @@ export let run = function (configArg: INpmtsConfig) {
                 done.resolve(config)
             }).catch(err => { console.log(err) })
     } else {
-        npmtsOra.end()
+        plugins.beautylog.ora.end()
         done.resolve(config)
     }
     return done.promise

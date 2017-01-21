@@ -7,8 +7,6 @@ import * as NpmtsMods from './npmts.mods'
 import * as NpmtsWatch from './npmts.watch'
 import * as NpmtsShip from './npmts.ship'
 
-import { npmtsOra } from './npmts.log'
-
 export let run = () => {
     let done = q.defer()
     let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot)
@@ -21,7 +19,7 @@ export let run = () => {
         })
         .then((configArg: NpmtsConfig.INpmtsConfig) => {
             let done = q.defer()
-            npmtsOra.start('loading additional modules...')
+            plugins.beautylog.ora.start('loading additional modules...')
             NpmtsMods.mod00.load()
                 .then((mod00) => {
                     return mod00.run(configArg)

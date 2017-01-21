@@ -1,14 +1,13 @@
 import * as q from 'smartq'
 
 import * as paths from '../npmts.paths'
-import { npmtsOra } from '../npmts.log'
 
 import * as plugins from './mod00.plugins'
 
 export let run = function (configArg) {
     let done = q.defer()
     let config = configArg
-    npmtsOra.text('now compiling ' + 'TypeScript'.yellow)
+    plugins.beautylog.ora.text('now compiling ' + 'TypeScript'.yellow)
     plugins.tsn.compileGlobStringObject(config.ts,config.tsOptions,paths.cwd)
         .then(() => {
             plugins.beautylog.ok('compiled main TypeScript!')
