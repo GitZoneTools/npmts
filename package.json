@@ -40,7 +40,7 @@
     "@types/gulp-sourcemaps": "0.0.29",
     "@types/minimatch": "^2.0.29",
     "@types/through2": "^2.0.32",
-    "beautylog": "6.0.4",
+    "beautylog": "6.0.5",
     "depcheck": "^0.6.7",
     "early": "^2.0.35",
     "gulp": "3.9.1",
