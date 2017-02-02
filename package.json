@@ -40,7 +40,7 @@
     "@types/gulp-sourcemaps": "0.0.29",
     "@types/minimatch": "^2.0.29",
     "@types/through2": "^2.0.32",
-    "beautylog": "6.1.0",
+    "beautylog": "6.1.1",
     "depcheck": "^0.6.7",
     "early": "^2.0.35",
     "gulp": "3.9.1",
@@ -59,18 +59,15 @@
     "smartenv": "2.0.0",
     "smartfile": "4.1.4",
     "smartpath": "3.2.7",
-    "smartq": "^1.0.4",
+    "smartq": "^1.1.0",
     "smartstream": "^1.0.5",
     "smartstring": "^2.0.22",
     "smartsystem": "^1.0.12",
-    "source-map-support": "^0.4.10",
+    "source-map-support": "^0.4.11",
     "through2": "^2.0.3",
     "tsn": "^2.0.15",
-    "typescript": "next",
+    "typescript": "^2.1.5",
     "typings-global": "^1.0.14"
   },
-  "devDependencies": {
-    "@types/should": "^8.1.30",
-    "should": "^11.1.2"
-  }
+  "devDependencies": {}
 }

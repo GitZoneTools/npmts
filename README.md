@@ -24,14 +24,15 @@ NPMTS is your friend when writing, testing, publishing and documenting npm modul
 
 npmts will
     
-1. check your dependencies and package.json
+1. check your dependencies and package.json (unused, missing, available updates)
 1. transpile your code with tsc,
-1. document your code with typedoc,
-1. test your code with mocha
-1. create coverage with istanbul
+1. test your code with mocha (supports the fancy stuff like Promises, Generators, async/await, sourcemaps)
+1. create coverage with istanbul (supports tracing of the originating TypeScript)
 
 This works on your machine and in CI. There is a prebuild docker image available that includes npmts to make CI a breeze:  
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
+
+> **Note:** documentation of code has shifted to [npmpage](https://www.npmjs.com/package/npmpage)
 
 For further information read the docs:
 1. [Intro](https://pushrocks.gitlab.io/npmts/index.html)
@@ -40,5 +41,7 @@ For further information read the docs:
 4. [Configuration](https://pushrocks.gitlab.io/npmts/config.html)
 5. [Examples](https://pushrocks.gitlab.io/npmts/examples.html)
 6. [Info](https://pushrocks.gitlab.io/npmts/info.html)
+
+> MIT licensed | **&copy;** 2016 - 2017 [Lossless GmbH](https://lossless.gmbh)  
 
 [![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
