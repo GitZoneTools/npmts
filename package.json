@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/pushrocks/npmts.git"
+    "url": "git+https://gitlab.com/gitzone/npmts.git"
   },
   "keywords": [
     "TypeScript",
@@ -30,9 +30,9 @@
   "author": "Lossless GmbH",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/pushrocks/npmts/issues"
+    "url": "https://gitlab.com/gitzone/npmts/issues"
   },
-  "homepage": "https://gitlab.com/pushrocks/npmts#readme",
+  "homepage": "https://gitlab.com/gitzone/npmts#readme",
   "dependencies": {
     "@types/gulp": "^3.8.32",
     "@types/gulp-istanbul": "^0.9.30",
