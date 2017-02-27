@@ -3,6 +3,7 @@
     Fabulous TypeScript development
  * ================================================== */
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const early = require("early");
 early.start('NPMTS');
 const plugins = require("./npmts.plugins");

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 require("typings-global");
 const beautylog = require("beautylog");
 exports.beautylog = beautylog;

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const q = require("smartq");
 const smartchok = require("smartchok");
 const plugins = require("./npmts.plugins");

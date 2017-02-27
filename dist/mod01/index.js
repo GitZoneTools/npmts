@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /* ------------------------------------------
  * This module creates TypeScript documentation
  * -------------------------------------------- */

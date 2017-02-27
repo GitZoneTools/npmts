@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const plugins = require("./npmts.plugins");
 // NPMTS Paths
 exports.npmtsPackageRoot = plugins.path.join(__dirname, '../');
