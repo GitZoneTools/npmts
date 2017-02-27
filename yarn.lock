@@ -87,12 +87,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/vinyl@^1.1.29":
-  version "1.2.30"
-  resolved "https://registry.yarnpkg.com/@types/vinyl/-/vinyl-1.2.30.tgz#9115c0c45c40c575738906be9fb4df6f5b9e5013"
-  dependencies:
-    "@types/node" "*"
-
 "@types/yargs@6.x.x":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-6.6.0.tgz#91f8e2580a8083049f78311c059aa57d6949df6b"
@@ -1176,7 +1170,7 @@ glob@^4.3.1:
     minimatch "^2.0.1"
     once "^1.3.0"
 
-glob@^7.0.0, glob@^7.0.5, glob@^7.1.0, glob@^7.1.1:
+glob@^7.0.0, glob@^7.0.5, glob@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
@@ -1695,7 +1689,7 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@3.x, js-yaml@^3.4.2, js-yaml@^3.6.1, js-yaml@^3.7.0:
+js-yaml@3.x, js-yaml@^3.4.2, js-yaml@^3.7.0:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.1.tgz#782ba50200be7b9e5a8537001b7804db3ad02628"
   dependencies:
@@ -2447,15 +2441,15 @@ process-nextick-args@^1.0.6, process-nextick-args@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
 
-projectinfo@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/projectinfo/-/projectinfo-3.0.1.tgz#3d78c2f28676c93216ed30c962e9d8f81ef13b23"
+projectinfo@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/projectinfo/-/projectinfo-3.0.2.tgz#87edb5ccab792481226c558151b81ccfa9e070df"
   dependencies:
     "@types/q" "0.0.32"
     q "^1.4.1"
-    smartfile "4.1.0"
-    smartpath "^3.2.6"
-    smartstring "2.0.22"
+    smartfile "4.1.6"
+    smartpath "^3.2.8"
+    smartstring "2.0.24"
     typings-global "^1.0.14"
 
 punycode@^1.4.1:
@@ -2642,7 +2636,7 @@ request@2.75.x:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
 
-request@^2.75.0, request@^2.79.0:
+request@^2.79.0:
   version "2.79.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
   dependencies:
@@ -2728,21 +2722,15 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.2.8:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
-  dependencies:
-    glob "^7.0.5"
-
-rimraf@~2.2.6:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
-
-rimraf@~2.5.1, rimraf@~2.5.4:
+rimraf@2, rimraf@~2.5.1, rimraf@~2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
     glob "^7.0.5"
+
+rimraf@^2.2.8, rimraf@~2.2.6:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
 
 rxjs@^5.0.0-beta.12, rxjs@^5.0.1, rxjs@^5.1.1:
   version "5.2.0"
@@ -2841,26 +2829,7 @@ smartenv@^1.2.2, smartenv@^1.2.5:
     lodash "^4.11.1"
     q "^1.4.1"
 
-smartfile@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.0.tgz#c7fcd881cdab1d35779cbc30f4a38824d54787dc"
-  dependencies:
-    "@types/fs-extra" "0.x.x"
-    "@types/q" "0.x.x"
-    "@types/vinyl" "^1.1.29"
-    beautylog "^5.0.23"
-    fs-extra "^0.30.0"
-    glob "^7.1.0"
-    js-yaml "^3.6.1"
-    q "^1.4.1"
-    request "^2.75.0"
-    require-reload "0.2.2"
-    smartpath "^3.2.2"
-    typings-global "^1.0.14"
-    vinyl "^1.2.0"
-    vinyl-file "^2.0.0"
-
-smartfile@^4.0.21, smartfile@^4.1.4, smartfile@^4.1.6:
+smartfile@4.1.6, smartfile@^4.0.21, smartfile@^4.1.4, smartfile@^4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.6.tgz#d71026aefef99233c56766c3c6c11afc41a19b3a"
   dependencies:
@@ -2887,7 +2856,7 @@ smartparam@0.1.1:
     q "^1.4.1"
     typings-global "^1.0.3"
 
-smartpath@^3.2.2, smartpath@^3.2.6, smartpath@^3.2.7, smartpath@^3.2.8:
+smartpath@^3.2.7, smartpath@^3.2.8:
   version "3.2.8"
   resolved "https://registry.yarnpkg.com/smartpath/-/smartpath-3.2.8.tgz#4834bd3a8bae2295baacadba23c87a501952f940"
   dependencies:
@@ -2916,14 +2885,7 @@ smartstream@^1.0.5:
     q "^1.4.1"
     typings-global "^1.0.14"
 
-smartstring@2.0.22:
-  version "2.0.22"
-  resolved "https://registry.yarnpkg.com/smartstring/-/smartstring-2.0.22.tgz#6b55904f527457546dd414cc4dadbfe0203257d9"
-  dependencies:
-    js-base64 "^2.1.9"
-    typings-global "^1.0.14"
-
-smartstring@^2.0.24:
+smartstring@2.0.24, smartstring@^2.0.24:
   version "2.0.24"
   resolved "https://registry.yarnpkg.com/smartstring/-/smartstring-2.0.24.tgz#dc1c5efb738c10a2d7daeea3d800ad2ecc65a26c"
   dependencies:
@@ -3326,17 +3288,6 @@ verror@1.3.6:
   dependencies:
     extsprintf "1.0.2"
 
-vinyl-file@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/vinyl-file/-/vinyl-file-2.0.0.tgz#a7ebf5ffbefda1b7d18d140fcb07b223efb6751a"
-  dependencies:
-    graceful-fs "^4.1.2"
-    pify "^2.3.0"
-    pinkie-promise "^2.0.0"
-    strip-bom "^2.0.0"
-    strip-bom-stream "^2.0.0"
-    vinyl "^1.1.0"
-
 vinyl-file@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/vinyl-file/-/vinyl-file-3.0.0.tgz#b104d9e4409ffa325faadd520642d0a3b488b365"
@@ -3388,7 +3339,7 @@ vinyl-sourcemaps-apply@^0.2.1:
   dependencies:
     source-map "^0.5.1"
 
-vinyl@1.X, vinyl@^1.0.0, vinyl@^1.1.0, vinyl@^1.2.0:
+vinyl@1.X, vinyl@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-1.2.0.tgz#5c88036cf565e5df05558bfc911f8656df218884"
   dependencies:
