@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "6.1.13",
+  "version": "6.1.14",
   "description": "Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.",
   "main": "dist/index.js",
   "bin": {
