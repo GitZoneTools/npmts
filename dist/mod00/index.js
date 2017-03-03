@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /* ------------------------------------------
- * This module compiles TypeScript files
+ * This module compiles the module's TypeScript files
+ * Note: Test files are only compiled in memory
  * -------------------------------------------- */
 const q = require("smartq");
 const plugins = require("./mod00.plugins");

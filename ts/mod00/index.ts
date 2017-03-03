@@ -1,5 +1,6 @@
 /* ------------------------------------------
- * This module compiles TypeScript files
+ * This module compiles the module's TypeScript files
+ * Note: Test files are only compiled in memory
  * -------------------------------------------- */
 import * as q from 'smartq'
 
