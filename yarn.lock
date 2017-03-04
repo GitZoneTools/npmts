@@ -2668,6 +2668,14 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+smartanalytics@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/smartanalytics/-/smartanalytics-1.0.3.tgz#02b49051fe1e6ed415516de39bd38ff61b35e033"
+  dependencies:
+    smartq "^1.1.1"
+    smartrequest "^1.0.4"
+    typings-global "^1.0.14"
+
 smartchai@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/smartchai/-/smartchai-1.0.3.tgz#de6d010bb8b5aef24cb70b31a5f5334e8c41b72f"
@@ -2734,7 +2742,7 @@ smartenv@^1.2.2, smartenv@^1.2.5:
     lodash "^4.11.1"
     q "^1.4.1"
 
-smartfile@4.1.6, smartfile@^4.0.21, smartfile@^4.1.4:
+smartfile@4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.6.tgz#d71026aefef99233c56766c3c6c11afc41a19b3a"
   dependencies:
@@ -2751,7 +2759,7 @@ smartfile@4.1.6, smartfile@^4.0.21, smartfile@^4.1.4:
     vinyl "^2.0.1"
     vinyl-file "^3.0.0"
 
-smartfile@^4.1.7:
+smartfile@^4.0.21, smartfile@^4.1.4, smartfile@^4.1.7:
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.7.tgz#5657bea62ad673d891b2c9a00f5866154e768c3f"
   dependencies:

@@ -6,6 +6,7 @@ import * as lodash from 'lodash'
 import * as npmextra from 'npmextra'
 import * as projectinfo from 'projectinfo'
 import * as path from 'path'
+import * as smartanalytics from 'smartanalytics'
 import * as smartcli from 'smartcli'
 import * as smartenv from 'smartenv'
 import * as smartfile from 'smartfile'
@@ -23,6 +24,7 @@ export {
     npmextra,
     projectinfo,
     path,
+    smartanalytics,
     smartcli,
     smartenv,
     smartfile,

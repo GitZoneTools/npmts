@@ -48,6 +48,7 @@
     "lodash": "^4.17.4",
     "npmextra": "^2.0.3",
     "projectinfo": "^3.0.2",
+    "smartanalytics": "^1.0.3",
     "smartchok": "^1.0.5",
     "smartcli": "2.0.1",
     "smartcov": "1.0.0",

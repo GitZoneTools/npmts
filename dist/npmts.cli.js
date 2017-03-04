@@ -7,6 +7,8 @@ const NpmtsConfig = require("./npmts.config");
 const NpmtsMods = require("./npmts.mods");
 const NpmtsWatch = require("./npmts.watch");
 const NpmtsShip = require("./npmts.ship");
+let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts', 'UA-64087619-2');
+npmtsAnalytics.sendEvent('npm', 'exec', 'push.rocks');
 exports.run = () => {
     let done = q.defer();
     let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);
