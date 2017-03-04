@@ -12,27 +12,31 @@ import { INpmtsConfig } from '../npmts.config'
  * runs mocha
  * @returns INpmtsConfig
  */
-let ava = function (configArg: INpmtsConfig) {
-  plugins.beautylog.ora.text('Instrumentalizing and testing transpiled JS')
-  plugins.beautylog.ora.end() // end plugins.beautylog.ora for tests.
+let tap = function (configArg: INpmtsConfig) {
   let done = q.defer()
 
-  let coverageSmartstream = new plugins.smartstream.Smartstream([
-    plugins.gulp.src([plugins.path.join(paths.cwd, './ts/**/*.ts')]),
+  /**
+   * the TabBuffer for npmts
+   */
+  let npmtsTapBuffer = new plugins.tapbuffer.TabBuffer()
+
+  /**
+   * handle the testable files
+   */
+  let testableFilesSmartstream = new plugins.smartstream.Smartstream([
+    plugins.gulp.src([ plugins.path.join(paths.cwd, './ts/**/*.ts') ]),
     plugins.gulpSourcemaps.init(),
     plugins.gulpTypeScript({
       target: 'ES5',
       emitDecoratorMetadata: true,
       experimentalDecorators: true,
-      lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
-    }),
-    plugins.gulpIstanbul({
+      lib: [ 'DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable' ]
     }),
     plugins.gulpSourcemaps.write(),
     plugins.gulpFunction.forEach(async file => {
       file.path = file.path.replace(paths.tsDir, paths.distDir)
     }),
-    plugins.smartava.pipeTestableFiles(),
+    npmtsTapBuffer.pipeTestableFiles(),
     plugins.through2.obj(
       (file, enc, cb) => {
         cb()
@@ -43,43 +47,42 @@ let ava = function (configArg: INpmtsConfig) {
     )
   ])
 
-  let localSmartstream = new plugins.smartstream.Smartstream([
-    plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.ts')]),
+  /**
+   * handle the test files
+   */
+  let testFilesSmartstream = new plugins.smartstream.Smartstream([
+    plugins.gulp.src([ plugins.path.join(paths.cwd, 'test/test.ts') ]),
     plugins.gulpTypeScript({
       target: 'ES5',
       emitDecoratorMetadata: true,
       experimentalDecorators: true,
-      lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
+      lib: [ 'DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable' ]
     }),
-    plugins.smartava.pipeTestFiles(),
-    plugins.gulpMocha(),
-    plugins.gulpIstanbul.writeReports({
-      dir: plugins.path.join(paths.cwd, './coverage'),
-      reporters: ['lcovonly', 'json', 'text', 'text-summary']
-    })
+    npmtsTapBuffer.pipeTestFiles()
   ])
-  coverageSmartstream.run()
-    .then(
-    () => {
-      plugins.beautylog.info('code is now transpiled to ES5, instrumented with istanbul, and injected for mocha!')
-      return localSmartstream.run()
-        .then(() => { done.resolve(configArg) }, (err) => {
-          plugins.beautylog.error('Tests failed!')
-          console.log(err)
-          if (configArg.watch) {
-            done.resolve(configArg)
-          } else {
-            process.exit(1)
-          }
-        })
-    },
-    (err) => {
+
+  // lets run the smartstream
+  Promise.all([
+    testableFilesSmartstream.run(),
+    testFilesSmartstream.run()
+  ]).then(
+    async () => {
+      await npmtsTapBuffer.runTests()
+      done.resolve(configArg)
+    }, (err) => {
+      plugins.beautylog.error('Tests failed!')
       console.log(err)
+      if (configArg.watch) {
+        done.resolve(configArg)
+      } else {
+        process.exit(1)
+      }
     })
+
   return done.promise
 }
 
-let coverage = function (configArg: INpmtsConfig) {
+let handleCoverageData = function (configArg: INpmtsConfig) {
   let done = q.defer()
   plugins.smartcov.get.percentage(plugins.path.join(paths.coverageDir, 'lcov.info'), 2)
     .then(function (percentageArg) {
@@ -108,14 +111,15 @@ export let run = function (configArg: INpmtsConfig) {
   let config = configArg
   if (config.test === true) {
     plugins.beautylog.ora.text('now starting tests')
+    plugins.beautylog.ora.end()
     plugins.beautylog.log(
       '------------------------------------------------------\n' +
       '*************************** TESTS: ***************************\n' +
       '--------------------------------------------------------------'
     )
 
-    ava(config)
-      .then(coverage)
+    tap(config)
+      .then(handleCoverageData)
       .then(() => {
         done.resolve(config)
       }).catch(err => { console.log(err) })
