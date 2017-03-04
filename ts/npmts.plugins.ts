@@ -7,7 +7,6 @@ import * as npmextra from 'npmextra'
 import * as projectinfo from 'projectinfo'
 import * as path from 'path'
 import * as smartcli from 'smartcli'
-import * as smartcov from 'smartcov'
 import * as smartenv from 'smartenv'
 import * as smartfile from 'smartfile'
 import * as smartpath from 'smartpath'
@@ -25,7 +24,6 @@ export {
     projectinfo,
     path,
     smartcli,
-    smartcov,
     smartenv,
     smartfile,
     smartpath,
