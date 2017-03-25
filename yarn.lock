@@ -35,15 +35,15 @@
   dependencies:
     "@types/node" "*"
 
-"@types/gulp-sourcemaps@0.0.29":
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/@types/gulp-sourcemaps/-/gulp-sourcemaps-0.0.29.tgz#11d2345fdd9421512c0da8381e9a9f747e9bf184"
+"@types/gulp-sourcemaps@0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/gulp-sourcemaps/-/gulp-sourcemaps-0.0.30.tgz#f867d3d44b5f3faeb8955af7260176ed92ac51a6"
   dependencies:
     "@types/node" "*"
 
-"@types/gulp@^3.8.32":
-  version "3.8.32"
-  resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-3.8.32.tgz#83c59c681cc233d1ec7f82d269555566fa133156"
+"@types/gulp@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-4.0.2.tgz#71133c16a3c6f5ed17ee8094694be7824ed7d6f3"
   dependencies:
     "@types/node" "*"
     "@types/orchestrator" "*"
@@ -56,6 +56,10 @@
 "@types/lodash@4.x.x", "@types/lodash@^4.14.35", "@types/lodash@^4.14.50":
   version "4.14.53"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.53.tgz#c81ee7f2a551f92fb8692a2f6766d0430ccce9eb"
+
+"@types/lodash@^4.14.55":
+  version "4.14.58"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.58.tgz#18d45863b6119c1ffffe935c1f51fe044c8c4102"
 
 "@types/loggly@1.x.x":
   version "1.1.30"
@@ -86,6 +90,10 @@
 "@types/q@*", "@types/q@0.0.32", "@types/q@0.x.x", "@types/q@^0.x.x", "@types/q@x.x.x":
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
+
+"@types/q@^1.x.x":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-1.0.0.tgz#57e5465d665b370d4217e69b344b20faa6b724f5"
 
 "@types/source-map-support@^0.2.28":
   version "0.2.28"
@@ -318,17 +326,17 @@ beautylog@5.0.12:
     smartenv "^1.2.5"
     typings-global "^1.0.3"
 
-beautylog@6.1.1, beautylog@^6.0.0, beautylog@^6.0.1, beautylog@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/beautylog/-/beautylog-6.1.1.tgz#2a83603ad7e2a0a09701ac63d7d3064a588dc779"
+beautylog@6.1.5, beautylog@^6.1.5:
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/beautylog/-/beautylog-6.1.5.tgz#5d1eca8d32ca9ed49954a1622134b03ed904c44f"
   dependencies:
-    "@types/lodash" "4.x.x"
-    beautycolor "^1.0.5"
+    "@types/lodash" "^4.14.55"
+    beautycolor "^1.0.7"
     figlet "^1.2.0"
     lodash "^4.17.4"
     ora "^1.1.0"
     smartenv "^2.0.0"
-    smartq "^1.0.4"
+    smartq "^1.1.1"
     typings-global "^1.0.14"
 
 beautylog@^4.1.2:
@@ -344,7 +352,7 @@ beautylog@^4.1.2:
     q "^1.4.1"
     smartenv "^1.2.2"
 
-beautylog@^5.0.20, beautylog@^5.0.23:
+beautylog@^5.0.20:
   version "5.0.23"
   resolved "https://registry.yarnpkg.com/beautylog/-/beautylog-5.0.23.tgz#db0161b063be4ff40cee812c066582da2e599bf1"
   dependencies:
@@ -362,6 +370,19 @@ beautylog@^5.0.20, beautylog@^5.0.23:
     q "^1.4.1"
     smartenv "^1.2.5"
     typings-global "^1.0.13"
+
+beautylog@^6.0.0, beautylog@^6.0.1, beautylog@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/beautylog/-/beautylog-6.1.1.tgz#2a83603ad7e2a0a09701ac63d7d3064a588dc779"
+  dependencies:
+    "@types/lodash" "4.x.x"
+    beautycolor "^1.0.5"
+    figlet "^1.2.0"
+    lodash "^4.17.4"
+    ora "^1.1.0"
+    smartenv "^2.0.0"
+    smartq "^1.0.4"
+    typings-global "^1.0.14"
 
 beeper@^1.0.0:
   version "1.1.1"
@@ -1307,9 +1328,9 @@ gulp-sourcemaps@^2.4.1:
     through2 "2.X"
     vinyl "1.X"
 
-gulp-typescript@^3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-3.1.5.tgz#999ed40691c18894eb3d2d286d18417730d288e0"
+gulp-typescript@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-3.1.6.tgz#6c67b84364cf3589a9ad6fdea2e3c0bc525c435e"
   dependencies:
     gulp-util "~3.0.7"
     source-map "~0.5.3"
@@ -1660,6 +1681,13 @@ js-tokens@^3.0.0:
 js-yaml@3.x, js-yaml@^3.2.7, js-yaml@^3.3.1, js-yaml@^3.4.2, js-yaml@^3.7.0:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.1.tgz#782ba50200be7b9e5a8537001b7804db3ad02628"
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^3.1.1"
+
+js-yaml@^3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.2.tgz#02d3e2c0f6beab20248d412c352203827d786721"
   dependencies:
     argparse "^1.0.7"
     esprima "^3.1.1"
@@ -2117,15 +2145,16 @@ normalize-path@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.0.1.tgz#47886ac1662760d4261b7d979d241709d3ce3f7a"
 
-npmextra@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/npmextra/-/npmextra-2.0.3.tgz#03ca33e82e7ebf9e9a215173f5a737b9d4c51254"
+npmextra@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/npmextra/-/npmextra-2.0.5.tgz#6f84f8604578dbd0fe678ea5c0413173979aa3e0"
   dependencies:
-    "@types/q" "^0.x.x"
-    beautylog "^5.0.23"
-    lodash "^4.16.1"
+    "@types/q" "^1.x.x"
+    beautylog "^6.1.5"
+    lodash "^4.17.4"
     q "^1.4.1"
-    smartfile "^4.0.21"
+    smartfile "^4.1.9"
+    smartq "^1.1.1"
     typings-global "^1.0.14"
 
 npmlog@^4.0.1:
@@ -2759,7 +2788,7 @@ smartfile@4.1.6:
     vinyl "^2.0.1"
     vinyl-file "^3.0.0"
 
-smartfile@^4.0.21, smartfile@^4.1.4, smartfile@^4.1.7:
+smartfile@^4.1.4, smartfile@^4.1.7:
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.7.tgz#5657bea62ad673d891b2c9a00f5866154e768c3f"
   dependencies:
@@ -2771,6 +2800,23 @@ smartfile@^4.0.21, smartfile@^4.1.4, smartfile@^4.1.7:
     require-reload "0.2.2"
     smartpath "^3.2.7"
     smartq "^1.0.4"
+    smartrequest "^1.0.4"
+    typings-global "^1.0.14"
+    vinyl "^2.0.1"
+    vinyl-file "^3.0.0"
+
+smartfile@^4.1.9:
+  version "4.1.9"
+  resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.9.tgz#d789032193a45493607b8b37ff5811942f832008"
+  dependencies:
+    "@types/fs-extra" "0.x.x"
+    "@types/vinyl" "^2.0.0"
+    fs-extra "^2.0.0"
+    glob "^7.1.1"
+    js-yaml "^3.8.2"
+    require-reload "0.2.2"
+    smartpath "^3.2.8"
+    smartq "^1.1.1"
     smartrequest "^1.0.4"
     typings-global "^1.0.14"
     vinyl "^2.0.1"
@@ -2880,11 +2926,17 @@ source-map-support@^0.4.11:
   dependencies:
     source-map "^0.5.3"
 
+source-map-support@^0.4.14:
+  version "0.4.14"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.14.tgz#9d4463772598b86271b4f523f6c1f4e02a7d6aef"
+  dependencies:
+    source-map "^0.5.6"
+
 source-map-url@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.3.0.tgz#7ecaf13b57bcd09da8a40c5d269db33799d4aaf9"
 
-source-map@0.X, source-map@^0.5.3, source-map@~0.5.1, source-map@~0.5.3:
+source-map@0.X, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
 
