@@ -28,6 +28,8 @@ npmts will
 1. test your code with tap (supports the fancy stuff like Promises, Generators, async/await, sourcemaps, parallel test execution in child processes)
 1. create coverage with istanbul (supports tracing of the originating TypeScript)
 
+For more information on how tests are run check out the [tapbuffer module](https://www.npmjs.com/package/tapbuffer).
+
 This works on your machine and in CI. There is a prebuild docker image available that includes npmts to make CI a breeze:  
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
