@@ -53,11 +53,7 @@
   version "0.4.29"
   resolved "https://registry.yarnpkg.com/@types/istanbul/-/istanbul-0.4.29.tgz#29c8cbb747ac57280965545dc58514ba0dbb99af"
 
-"@types/lodash@4.x.x", "@types/lodash@^4.14.35", "@types/lodash@^4.14.50":
-  version "4.14.53"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.53.tgz#c81ee7f2a551f92fb8692a2f6766d0430ccce9eb"
-
-"@types/lodash@^4.14.55":
+"@types/lodash@4.x.x", "@types/lodash@^4.14.35", "@types/lodash@^4.14.50", "@types/lodash@^4.14.55":
   version "4.14.58"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.58.tgz#18d45863b6119c1ffffe935c1f51fe044c8c4102"
 
@@ -87,13 +83,13 @@
   version "0.0.27"
   resolved "https://registry.yarnpkg.com/@types/promises-a-plus/-/promises-a-plus-0.0.27.tgz#c64651134614c84b8f5d7114ce8901d36a609780"
 
-"@types/q@*", "@types/q@0.0.32", "@types/q@0.x.x", "@types/q@^0.x.x", "@types/q@x.x.x":
-  version "0.0.32"
-  resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
-
-"@types/q@^1.x.x":
+"@types/q@*", "@types/q@^1.x.x", "@types/q@x.x.x":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.0.0.tgz#57e5465d665b370d4217e69b344b20faa6b724f5"
+
+"@types/q@0.0.32", "@types/q@0.x.x", "@types/q@^0.x.x":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
 
 "@types/source-map-support@^0.2.28":
   version "0.2.28"
@@ -305,7 +301,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-beautycolor@^1.0.5, beautycolor@^1.0.7:
+beautycolor@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/beautycolor/-/beautycolor-1.0.7.tgz#a4715738ac4c8221371e9cbeb5a6cc6d11ecbf7c"
   dependencies:
@@ -326,7 +322,7 @@ beautylog@5.0.12:
     smartenv "^1.2.5"
     typings-global "^1.0.3"
 
-beautylog@6.1.5, beautylog@^6.1.5:
+beautylog@6.1.5, beautylog@^6.0.0, beautylog@^6.0.1, beautylog@^6.1.1, beautylog@^6.1.5:
   version "6.1.5"
   resolved "https://registry.yarnpkg.com/beautylog/-/beautylog-6.1.5.tgz#5d1eca8d32ca9ed49954a1622134b03ed904c44f"
   dependencies:
@@ -370,19 +366,6 @@ beautylog@^5.0.20:
     q "^1.4.1"
     smartenv "^1.2.5"
     typings-global "^1.0.13"
-
-beautylog@^6.0.0, beautylog@^6.0.1, beautylog@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/beautylog/-/beautylog-6.1.1.tgz#2a83603ad7e2a0a09701ac63d7d3064a588dc779"
-  dependencies:
-    "@types/lodash" "4.x.x"
-    beautycolor "^1.0.5"
-    figlet "^1.2.0"
-    lodash "^4.17.4"
-    ora "^1.1.0"
-    smartenv "^2.0.0"
-    smartq "^1.0.4"
-    typings-global "^1.0.14"
 
 beeper@^1.0.0:
   version "1.1.1"
@@ -1678,16 +1661,16 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@3.x, js-yaml@^3.2.7, js-yaml@^3.3.1, js-yaml@^3.4.2, js-yaml@^3.7.0:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.1.tgz#782ba50200be7b9e5a8537001b7804db3ad02628"
+js-yaml@3.x, js-yaml@^3.2.7, js-yaml@^3.3.1, js-yaml@^3.7.0, js-yaml@^3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.2.tgz#02d3e2c0f6beab20248d412c352203827d786721"
   dependencies:
     argparse "^1.0.7"
     esprima "^3.1.1"
 
-js-yaml@^3.8.2:
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.2.tgz#02d3e2c0f6beab20248d412c352203827d786721"
+js-yaml@^3.4.2:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.1.tgz#782ba50200be7b9e5a8537001b7804db3ad02628"
   dependencies:
     argparse "^1.0.7"
     esprima "^3.1.1"
@@ -2788,24 +2771,7 @@ smartfile@4.1.6:
     vinyl "^2.0.1"
     vinyl-file "^3.0.0"
 
-smartfile@^4.1.4, smartfile@^4.1.7:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.7.tgz#5657bea62ad673d891b2c9a00f5866154e768c3f"
-  dependencies:
-    "@types/fs-extra" "0.x.x"
-    "@types/vinyl" "^2.0.0"
-    fs-extra "^2.0.0"
-    glob "^7.1.1"
-    js-yaml "^3.7.0"
-    require-reload "0.2.2"
-    smartpath "^3.2.7"
-    smartq "^1.0.4"
-    smartrequest "^1.0.4"
-    typings-global "^1.0.14"
-    vinyl "^2.0.1"
-    vinyl-file "^3.0.0"
-
-smartfile@^4.1.9:
+smartfile@^4.1.4, smartfile@^4.1.7, smartfile@^4.1.9:
   version "4.1.9"
   resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.1.9.tgz#d789032193a45493607b8b37ff5811942f832008"
   dependencies:
@@ -2920,13 +2886,7 @@ source-map-resolve@^0.3.0:
     source-map-url "~0.3.0"
     urix "~0.1.0"
 
-source-map-support@^0.4.11:
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.11.tgz#647f939978b38535909530885303daf23279f322"
-  dependencies:
-    source-map "^0.5.3"
-
-source-map-support@^0.4.14:
+source-map-support@^0.4.11, source-map-support@^0.4.14:
   version "0.4.14"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.14.tgz#9d4463772598b86271b4f523f6c1f4e02a7d6aef"
   dependencies:
@@ -2936,7 +2896,7 @@ source-map-url@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.3.0.tgz#7ecaf13b57bcd09da8a40c5d269db33799d4aaf9"
 
-source-map@0.X, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
+source-map@0.X, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
 
@@ -3121,9 +3081,9 @@ tap-parser@^5.1.0:
   optionalDependencies:
     readable-stream "^2"
 
-tapbuffer@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.7.tgz#f5dd59524f710ac675529005f9c254ec68d1732c"
+tapbuffer@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.9.tgz#f0faa78219dffe66a75315c2fda266f17a0c3c52"
   dependencies:
     "@types/istanbul" "^0.4.29"
     beautylog "^6.1.1"
