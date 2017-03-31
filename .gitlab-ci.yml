@@ -54,6 +54,8 @@ pages:
     - npmci command npmpage --publish gitlab
   only:
     - tags
+  tags:
+    - docker
   artifacts:
     expire_in: 1 week
     paths:
