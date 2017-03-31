@@ -47,7 +47,7 @@ let tap = function (configArg) {
      * handle the test files
      */
     let testFilesSmartstream = new plugins.smartstream.Smartstream([
-        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/test.ts')]),
+        plugins.gulp.src([plugins.path.join(paths.cwd, 'test/*.ts')]),
         plugins.gulpTypeScript({
             target: 'ES5',
             emitDecoratorMetadata: true,
