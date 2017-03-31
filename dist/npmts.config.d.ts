@@ -8,5 +8,9 @@ export interface INpmtsConfig {
     ts: any;
     tsOptions: any;
     watch: boolean;
+    runData: {
+        coverageLcovInfo?: string;
+        coverageResult?: number;
+    };
 }
 export declare let run: (argvArg: any) => Promise<{}>;

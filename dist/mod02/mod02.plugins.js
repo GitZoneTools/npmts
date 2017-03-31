@@ -12,5 +12,7 @@ const gulpSourcemaps = require("gulp-sourcemaps");
 exports.gulpSourcemaps = gulpSourcemaps;
 const gulpTypeScript = require("gulp-typescript");
 exports.gulpTypeScript = gulpTypeScript;
+const smartcov = require("smartcov");
+exports.smartcov = smartcov;
 const tapbuffer = require("tapbuffer");
 exports.tapbuffer = tapbuffer;

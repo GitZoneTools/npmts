@@ -6,7 +6,7 @@ const plugins = require("./mod00.plugins");
 exports.run = function (configArg) {
     let done = q.defer();
     let config = configArg;
-    plugins.beautylog.ora.text('now compiling ' + 'TypeScript'.yellow);
+    plugins.beautylog.ora.text('now compiling ' + 'TypeScript');
     plugins.tsn.compileGlobStringObject(config.ts, config.tsOptions, paths.cwd)
         .then(() => {
         plugins.beautylog.ok(`compiled the module's TypeScript!`);

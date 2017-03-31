@@ -14,7 +14,8 @@ exports.run = function (argvArg) {
         testTs: {},
         ts: {},
         tsOptions: {},
-        watch: false
+        watch: false,
+        runData: {}
     };
     // mix with configfile
     plugins.beautylog.ora.text('running npmextra');

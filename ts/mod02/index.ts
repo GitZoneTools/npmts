@@ -61,7 +61,7 @@ let tap = function (configArg: INpmtsConfig) {
     testFilesSmartstream.run()
   ]).then(
     async () => {
-      await npmtsTapBuffer.runTests()
+      configArg.runData.coverageLcovInfo = await npmtsTapBuffer.runTests()
       done.resolve(configArg)
     }, (err) => {
       plugins.beautylog.error('Tests failed!')
@@ -76,25 +76,27 @@ let tap = function (configArg: INpmtsConfig) {
   return done.promise
 }
 
-let handleCoverageData = function (configArg: INpmtsConfig) {
-  let done = q.defer()
-  if (71 >= configArg.coverageTreshold) {
+let handleCoverageData = async (configArg: INpmtsConfig) => {
+  let coverageResult = await plugins.smartcov.get.percentageFromLcovString(
+    configArg.runData.coverageLcovInfo,
+    2
+  )
+  if (coverageResult >= configArg.coverageTreshold) {
     plugins.beautylog.ok(
-      `${(71).toString()}% `
+      `${(coverageResult).toString()}% `
       + `coverage exceeds your treshold of `
       + `${configArg.coverageTreshold.toString()}%`
     )
   } else {
     plugins.beautylog.warn(
-      `${(71).toString()}% `
+      `${(coverageResult).toString()}% `
       + `coverage fails your treshold of `
       + `${configArg.coverageTreshold.toString()}%`
     )
     plugins.beautylog.error('exiting due to coverage failure')
     if (!configArg.watch) { process.exit(1) }
   }
-  done.resolve(configArg)
-  return done.promise
+  return configArg
 }
 
 export let run = function (configArg: INpmtsConfig) {

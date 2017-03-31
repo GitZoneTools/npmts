@@ -60,10 +60,10 @@ let checkDependencies = (configArg) => {
             process.exit(1)
         }
         for (let item in unused.invalidFiles) {
-            plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`)
+            plugins.beautylog.warn(`Watch out: could not parse file ${item}`)
         };
         for (let item in unused.invalidDirs) {
-            plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`)
+            plugins.beautylog.warn(`Watch out: could not parse directory ${item}`)
         }
         done.resolve(configArg)
     })
@@ -86,20 +86,20 @@ let checkDevDependencies = (configArg) => {
     })
     plugins.depcheck(paths.cwd, depcheckOptionsMerged, (unused) => {
         for (let item of unused.devDependencies) {
-            plugins.beautylog.log(`unused devDependency ${item.red}`)
+            plugins.beautylog.log(`unused devDependency ${item}`)
         }
         for (let item in unused.missing) {
-            plugins.beautylog.error(`unused devDependency ${item.red}`)
+            plugins.beautylog.error(`unused devDependency ${item}`)
         }
         if (unused.missing.length > 0) {
             plugins.beautylog.info('exiting due to missing dependencies in package.json')
             process.exit(1)
         }
         for (let item in unused.invalidFiles) {
-            plugins.beautylog.warn(`Watch out: could not parse file ${item.red}`)
+            plugins.beautylog.warn(`Watch out: could not parse file ${item}`)
         }
         for (let item in unused.invalidDirs) {
-            plugins.beautylog.warn(`Watch out: could not parse directory ${item.red}`)
+            plugins.beautylog.warn(`Watch out: could not parse directory ${item}`)
         }
         done.resolve(configArg)
     })

@@ -62,7 +62,7 @@ let tap = function (configArg) {
         testableFilesSmartstream.run(),
         testFilesSmartstream.run()
     ]).then(() => __awaiter(this, void 0, void 0, function* () {
-        yield npmtsTapBuffer.runTests();
+        configArg.runData.coverageLcovInfo = yield npmtsTapBuffer.runTests();
         done.resolve(configArg);
     }), (err) => {
         plugins.beautylog.error('Tests failed!');
@@ -76,15 +76,15 @@ let tap = function (configArg) {
     });
     return done.promise;
 };
-let handleCoverageData = function (configArg) {
-    let done = q.defer();
-    if (71 >= configArg.coverageTreshold) {
-        plugins.beautylog.ok(`${(71).toString()}% `
+let handleCoverageData = (configArg) => __awaiter(this, void 0, void 0, function* () {
+    let coverageResult = yield plugins.smartcov.get.percentageFromLcovString(configArg.runData.coverageLcovInfo, 2);
+    if (coverageResult >= configArg.coverageTreshold) {
+        plugins.beautylog.ok(`${(coverageResult).toString()}% `
             + `coverage exceeds your treshold of `
             + `${configArg.coverageTreshold.toString()}%`);
     }
     else {
-        plugins.beautylog.warn(`${(71).toString()}% `
+        plugins.beautylog.warn(`${(coverageResult).toString()}% `
             + `coverage fails your treshold of `
             + `${configArg.coverageTreshold.toString()}%`);
         plugins.beautylog.error('exiting due to coverage failure');
@@ -92,9 +92,8 @@ let handleCoverageData = function (configArg) {
             process.exit(1);
         }
     }
-    done.resolve(configArg);
-    return done.promise;
-};
+    return configArg;
+});
 exports.run = function (configArg) {
     let done = q.defer();
     let config = configArg;

@@ -8,7 +8,7 @@ import { projectInfo } from '../mod00/mod00.check'
 export let run = function(configArg){
     let done = q.defer()
     let config = configArg
-    plugins.beautylog.ora.text('now looking at ' + 'required assets'.yellow)
+    plugins.beautylog.ora.text('now looking at ' + 'required assets')
     if (config.cli === true) {
         let mainJsPath = projectInfo.packageJson.main
         let cliJsString: string = plugins.smartfile.fs.toStringSync(plugins.path.join(paths.npmtsAssetsDir,'cli.js'))
