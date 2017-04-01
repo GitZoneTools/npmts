@@ -1,4 +1,9 @@
-# Configuration of NPMTS
+---
+name: config
+---
+# Configuration
+## of npmts
+
 npmts can be configured to your needs:
 
 ### npmextra.json
