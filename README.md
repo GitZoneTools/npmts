@@ -36,4 +36,4 @@ This works on your machine and in CI. There is a prebuild docker image available
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
 | By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy.html)
 
-[![repo-footer](https://gitzone.gitlab.io/assets/repo-footer.svg)](https://push.rocks)
+[![repo-footer](https://gitzone.gitlab.io/assets/repo-footer.svg)](https://git.zone)

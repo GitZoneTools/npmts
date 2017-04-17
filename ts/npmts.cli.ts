@@ -7,8 +7,19 @@ import * as NpmtsMods from './npmts.mods'
 import * as NpmtsWatch from './npmts.watch'
 import * as NpmtsShip from './npmts.ship'
 
+/**
+ * smartanalytics
+ * this data is fully anonymized (no Ips or any other personal information is tracked).
+ * It just keeps track which of our tools are really used...
+ * ... so we know where to spend our limited resources for improving them.
+ * Since yarn is out and there is heavy caching going on,
+ * pure download stats are just not reliable enough for us anymore
+ * Feel free to dig into the smartanalytics package, if you are interested in how it works.
+ * It is just an https call to Google Analytics.
+ * Our privacy policy can be found here: https://lossless.gmbh/privacy.html
+ */
 let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts','UA-64087619-2')
-npmtsAnalytics.sendEvent('npm','exec','push.rocks')
+npmtsAnalytics.sendEvent('npmts','exec','git.zone')
 
 export let run = () => {
   let done = q.defer()
