@@ -18,8 +18,8 @@ const NpmtsShip = require("./npmts.ship");
  * It is just an https call to Google Analytics.
  * Our privacy policy can be found here: https://lossless.gmbh/privacy.html
  */
-let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts', 'UA-64087619-2');
-npmtsAnalytics.sendEvent('npmts', 'exec', 'git.zone');
+let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts', 'UA-64087619-5');
+npmtsAnalytics.sendEvent('npm', 'exec', 'git.zone');
 exports.run = () => {
     let done = q.defer();
     let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);

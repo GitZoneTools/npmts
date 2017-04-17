@@ -18,8 +18,8 @@ import * as NpmtsShip from './npmts.ship'
  * It is just an https call to Google Analytics.
  * Our privacy policy can be found here: https://lossless.gmbh/privacy.html
  */
-let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts','UA-64087619-2')
-npmtsAnalytics.sendEvent('npmts','exec','git.zone')
+let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts','UA-64087619-5')
+npmtsAnalytics.sendEvent('npm','exec','git.zone')
 
 export let run = () => {
   let done = q.defer()
