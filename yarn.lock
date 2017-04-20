@@ -66,7 +66,7 @@
   version "0.4.29"
   resolved "https://registry.yarnpkg.com/@types/istanbul/-/istanbul-0.4.29.tgz#29c8cbb747ac57280965545dc58514ba0dbb99af"
 
-"@types/lodash@^4.14.35", "@types/lodash@^4.14.50", "@types/lodash@^4.14.55":
+"@types/lodash@^4.14.50", "@types/lodash@^4.14.55":
   version "4.14.58"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.58.tgz#18d45863b6119c1ffffe935c1f51fe044c8c4102"
 
@@ -1025,14 +1025,7 @@ fs-exists-sync@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/fs-exists-sync/-/fs-exists-sync-0.1.0.tgz#982d6893af918e72d08dec9e8673ff2b5a8d6add"
 
-fs-extra@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-2.0.0.tgz#337352bded4a0b714f3eb84de8cea765e9d37600"
-  dependencies:
-    graceful-fs "^4.1.2"
-    jsonfile "^2.1.0"
-
-fs-extra@^2.1.2:
+fs-extra@^2.0.0, fs-extra@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-2.1.2.tgz#046c70163cef9aad46b0e4a7fa467fb22d71de35"
   dependencies:
@@ -1740,20 +1733,7 @@ liftoff@^2.1.0:
     rechoir "^0.6.2"
     resolve "^1.1.7"
 
-lik@^1.0.24, lik@^1.0.27:
-  version "1.0.27"
-  resolved "https://registry.yarnpkg.com/lik/-/lik-1.0.27.tgz#699a336225109c8b9ccb9d3dd32d7016d1532c8f"
-  dependencies:
-    "@types/lodash" "^4.14.35"
-    "@types/minimatch" "2.x.x"
-    "@types/q" "0.x.x"
-    lodash "^4.16.1"
-    minimatch "^3.0.3"
-    q "^1.4.1"
-    rxjs "^5.0.0-beta.12"
-    typings-global "^1.0.14"
-
-lik@^1.0.30:
+lik@^1.0.24, lik@^1.0.27, lik@^1.0.30:
   version "1.0.30"
   resolved "https://registry.yarnpkg.com/lik/-/lik-1.0.30.tgz#488485088fc0dca9d08ba9744796d1dbf6b1eca4"
   dependencies:
@@ -1891,7 +1871,7 @@ lodash@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.11.1, lodash@^4.13.1, lodash@^4.16.1, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.5.1:
+lodash@^4.11.1, lodash@^4.13.1, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.5.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -2094,11 +2074,7 @@ normalize-package-data@^2.3.2:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
-normalize-path@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.0.1.tgz#47886ac1662760d4261b7d979d241709d3ce3f7a"
-
-normalize-path@^2.1.1:
+normalize-path@^2.0.1, normalize-path@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
   dependencies:
@@ -2560,13 +2536,7 @@ rimraf@2, rimraf@^2.3.3, rimraf@~2.5.1, rimraf@~2.5.4:
   dependencies:
     glob "^7.0.5"
 
-rxjs@^5.0.0-beta.12, rxjs@^5.0.1:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.2.0.tgz#db537de8767c05fa73721587a29e0085307d318b"
-  dependencies:
-    symbol-observable "^1.0.1"
-
-rxjs@^5.3.0:
+rxjs@^5.0.1, rxjs@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.3.0.tgz#d88ccbdd46af290cbdb97d5d8055e52453fabe2d"
   dependencies:
@@ -2673,15 +2643,6 @@ smartcov@^1.0.2:
     smartq "^1.1.1"
     typings-global "^1.0.14"
 
-smartenv@2.0.0, smartenv@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/smartenv/-/smartenv-2.0.0.tgz#ede4e2044efcf9bec318388bb1dab53024ee3d16"
-  dependencies:
-    "@types/q" "0.x.x"
-    lodash "^4.17.2"
-    q "^1.4.1"
-    typings-global "^1.0.14"
-
 smartenv@^1.2.2, smartenv@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/smartenv/-/smartenv-1.2.5.tgz#5e50343ec4653953ef24929fc548cd74ea53205c"
@@ -2689,6 +2650,15 @@ smartenv@^1.2.2, smartenv@^1.2.5:
     beautylog "^4.1.2"
     lodash "^4.11.1"
     q "^1.4.1"
+
+smartenv@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/smartenv/-/smartenv-2.0.0.tgz#ede4e2044efcf9bec318388bb1dab53024ee3d16"
+  dependencies:
+    "@types/q" "0.x.x"
+    lodash "^4.17.2"
+    q "^1.4.1"
+    typings-global "^1.0.14"
 
 smartfile@4.1.6:
   version "4.1.6"

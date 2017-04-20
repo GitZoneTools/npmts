@@ -8,7 +8,6 @@ import * as projectinfo from 'projectinfo'
 import * as path from 'path'
 import * as smartanalytics from 'smartanalytics'
 import * as smartcli from 'smartcli'
-import * as smartenv from 'smartenv'
 import * as smartfile from 'smartfile'
 import * as smartpath from 'smartpath'
 import * as smartstream from 'smartstream'
@@ -26,7 +25,6 @@ export {
     path,
     smartanalytics,
     smartcli,
-    smartenv,
     smartfile,
     smartpath,
     smartstream,
