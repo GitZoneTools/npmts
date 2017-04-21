@@ -2,7 +2,7 @@
 name: Start
 ---
 # npmts
-## Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
+Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 
 ## Availabililty
 [![npm](https://gitzone.gitlab.io/assets/repo-button-npm.svg)](https://www.npmjs.com/package/npmts)
@@ -39,4 +39,4 @@ This works on your machine and in CI. There is a prebuild docker image available
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
 | By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy.html)
 
-[![repo-footer](https://gitzone.gitlab.io/assets/repo-footer.svg)](https://push.rocks)
+[![repo-footer](https://gitzone.gitlab.io/assets/repo-footer.svg)](https:/git.zone)

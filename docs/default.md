@@ -2,7 +2,7 @@
 name: Default Behaviour
 ---
 # Default Behaviour
-## of npmts
+when you don't configure it otherwise.
 
 1. **Config:** Check config in ./npmextra.json (Check out [npmextra](https://www.npmjs.com/package/npmextra))
 1. **Clean:** Clean up from any previous builds (old js files)

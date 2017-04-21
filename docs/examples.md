@@ -2,14 +2,16 @@
 name: Examples
 ---
 # Examples
-## of modules that use npmts
+modules that use npmts in theis development workflow
 
 Module Name | Description
 --- | ---
+[gitzone](https://www.npmjs.com/package/gitzone) | fast npm module prototyping
 [gulp-browser](https://www.npmjs.com/package/gulp-browser) | browserify for gulp
+[npmdocker](https://www.npmjs.com/package/npmdocker) | dockerized npm development
+[smartcli](https://www.npmjs.com/package/smartcli) | easy cli tool creation
 
-
-> We will add more options over time.
+> There are tons more... We will add them here over time.
 
 ### Tips and tricks:
 

@@ -2,9 +2,7 @@
 name: config
 ---
 # Configuration
-## of npmts
-
-npmts can be configured to your needs:
+npmts can be configured to your needs.
 
 ### npmextra.json
 the npmts section in npmextra.json can be used to configure npmts.
