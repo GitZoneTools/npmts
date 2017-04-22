@@ -2586,9 +2586,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-smartanalytics@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/smartanalytics/-/smartanalytics-1.0.5.tgz#ff94fe6ca3f32470ac5eadf6840fd74066554613"
+smartanalytics@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/smartanalytics/-/smartanalytics-1.0.6.tgz#5094a29a53f4e005951680365f20d7125fc713f9"
   dependencies:
     smartq "^1.1.1"
     smartrequest "^1.0.4"
@@ -2987,9 +2987,9 @@ tap-parser@^5.1.0:
   optionalDependencies:
     readable-stream "^2"
 
-tapbuffer@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.10.tgz#e4b910d5c3e64bec3c49d73c835694445de40764"
+tapbuffer@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.11.tgz#e9304c3a6c30331e3833ff0e08e15d07e16c1d50"
   dependencies:
     "@types/istanbul" "^0.4.29"
     beautylog "^6.1.1"
