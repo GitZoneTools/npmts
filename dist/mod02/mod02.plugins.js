@@ -4,7 +4,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("../npmts.plugins"));
-const gulp = require("gulp");
+const gulp = require("smartgulp");
 exports.gulp = gulp;
 const gulpFunction = require("gulp-function");
 exports.gulpFunction = gulpFunction;

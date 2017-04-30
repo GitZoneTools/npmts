@@ -1,5 +1,5 @@
 export * from '../npmts.plugins';
-import * as gulp from 'gulp';
+import * as gulp from 'smartgulp';
 import * as gulpFunction from 'gulp-function';
 import * as gulpSourcemaps from 'gulp-sourcemaps';
 import * as gulpTypeScript from 'gulp-typescript';
