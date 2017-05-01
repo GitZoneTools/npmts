@@ -4,8 +4,6 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("../npmts.plugins"));
-const gulp = require("smartgulp");
-exports.gulp = gulp;
 const gulpFunction = require("gulp-function");
 exports.gulpFunction = gulpFunction;
 const gulpSourcemaps = require("gulp-sourcemaps");
@@ -14,5 +12,7 @@ const gulpTypeScript = require("gulp-typescript");
 exports.gulpTypeScript = gulpTypeScript;
 const smartcov = require("smartcov");
 exports.smartcov = smartcov;
+const smartgulp = require("smartgulp");
+exports.smartgulp = smartgulp;
 const tapbuffer = require("tapbuffer");
 exports.tapbuffer = tapbuffer;

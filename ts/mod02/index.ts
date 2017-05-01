@@ -4,8 +4,6 @@
 import plugins = require('./mod02.plugins')
 import paths = require('../npmts.paths')
 
-let gulp = require('gulp')
-
 import * as q from 'smartq'
 
 import { INpmtsConfig } from '../npmts.config'
@@ -26,7 +24,7 @@ let tap = function (configArg: INpmtsConfig) {
    * handle the testable files
    */
   let testableFilesSmartstream = new plugins.smartstream.Smartstream([
-    gulp.src([ plugins.path.join(paths.cwd, './ts/**/*.ts') ]),
+    plugins.smartgulp.src([ plugins.path.join(paths.cwd, './ts/**/*.ts') ]),
     plugins.gulpSourcemaps.init(),
     plugins.gulpTypeScript({
       target: 'ES5',
@@ -46,7 +44,7 @@ let tap = function (configArg: INpmtsConfig) {
    * handle the test files
    */
   let testFilesSmartstream = new plugins.smartstream.Smartstream([
-    gulp.src([ plugins.path.join(paths.cwd, 'test/*.ts') ]),
+    plugins.smartgulp.src([ plugins.path.join(paths.cwd, 'test/*.ts') ]),
     plugins.gulpTypeScript({
       target: 'ES5',
       emitDecoratorMetadata: true,

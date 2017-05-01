@@ -13,7 +13,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * -------------------------------------------- */
 const plugins = require("./mod02.plugins");
 const paths = require("../npmts.paths");
-let gulp = require('gulp');
 const q = require("smartq");
 /**
  * runs mocha
@@ -29,7 +28,7 @@ let tap = function (configArg) {
      * handle the testable files
      */
     let testableFilesSmartstream = new plugins.smartstream.Smartstream([
-        gulp.src([plugins.path.join(paths.cwd, './ts/**/*.ts')]),
+        plugins.smartgulp.src([plugins.path.join(paths.cwd, './ts/**/*.ts')]),
         plugins.gulpSourcemaps.init(),
         plugins.gulpTypeScript({
             target: 'ES5',
@@ -48,7 +47,7 @@ let tap = function (configArg) {
      * handle the test files
      */
     let testFilesSmartstream = new plugins.smartstream.Smartstream([
-        gulp.src([plugins.path.join(paths.cwd, 'test/*.ts')]),
+        plugins.smartgulp.src([plugins.path.join(paths.cwd, 'test/*.ts')]),
         plugins.gulpTypeScript({
             target: 'ES5',
             emitDecoratorMetadata: true,
