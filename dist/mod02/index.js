@@ -77,7 +77,13 @@ let tap = function (configArg) {
     return done.promise;
 };
 let handleCoverageData = (configArg) => __awaiter(this, void 0, void 0, function* () {
-    let coverageResult = yield plugins.smartcov.get.percentageFromLcovString(configArg.runData.coverageLcovInfo, 2);
+    let coverageResult = 0; // the coverage in percent
+    if (configArg.runData.coverageLcovInfo) {
+        coverageResult = yield plugins.smartcov.get.percentageFromLcovString(configArg.runData.coverageLcovInfo, 2);
+    }
+    else {
+        plugins.beautylog.warn('Hey... Did your tests import and use your module that you are trying to test?');
+    }
     if (coverageResult >= configArg.coverageTreshold) {
         plugins.beautylog.ok(`${(coverageResult).toString()}% `
             + `coverage exceeds your treshold of `

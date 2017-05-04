@@ -77,10 +77,16 @@ let tap = function (configArg: INpmtsConfig) {
 }
 
 let handleCoverageData = async (configArg: INpmtsConfig) => {
-  let coverageResult = await plugins.smartcov.get.percentageFromLcovString(
-    configArg.runData.coverageLcovInfo,
-    2
-  )
+  let coverageResult: number = 0 // the coverage in percent
+  if (configArg.runData.coverageLcovInfo) {
+    coverageResult = await plugins.smartcov.get.percentageFromLcovString(
+      configArg.runData.coverageLcovInfo,
+      2
+    )
+  } else {
+    plugins.beautylog.warn('Hey... Did your tests import and use your module that you are trying to test?')
+  }
+
   if (coverageResult >= configArg.coverageTreshold) {
     plugins.beautylog.ok(
       `${(coverageResult).toString()}% `
