@@ -18,6 +18,9 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 [![node](https://img.shields.io/badge/node->=%206.x.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
+## Quick Demo
+[![asciicast](https://asciinema.org/a/9c3assmh21i49qhe5lmi48sze.png)](https://asciinema.org/a/9c3assmh21i49qhe5lmi48sze?speed=2&t=0)
+
 ## Usage
 NPMTS is your friend when writing, testing, publishing and documenting npm modules written in TypeScript.
 

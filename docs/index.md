@@ -14,12 +14,15 @@ Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
 [![build status](https://GitLab.com/gitzone/npmts/badges/master/build.svg)](https://GitLab.com/gitzone/npmts/commits/master)
 [![coverage report](https://GitLab.com/gitzone/npmts/badges/master/coverage.svg)](https://GitLab.com/gitzone/npmts/commits/master)
 [![npm downloads per month](https://img.shields.io/npm/dm/npmts.svg)](https://www.npmjs.com/package/npmts)
-[![Dependency Status](https://david-dm.org/gitzone/npmts.svg)](https://david-dm.org/gitzone/npmts)
-[![bitHound Dependencies](https://www.bithound.io/github/gitzone/npmts/badges/dependencies.svg)](https://www.bithound.io/github/gitzone/npmts/master/dependencies/npm)
-[![bitHound Code](https://www.bithound.io/github/gitzone/npmts/badges/code.svg)](https://www.bithound.io/github/gitzone/npmts)
+[![Dependency Status](https://david-dm.org/gitzonetools/npmts.svg)](https://david-dm.org/gitzonetools/npmts)
+[![bitHound Dependencies](https://www.bithound.io/github/gitzonetools/npmts/badges/dependencies.svg)](https://www.bithound.io/github/gitzonetools/npmts/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/gitzonetools/npmts/badges/code.svg)](https://www.bithound.io/github/gitzonetools/npmts)
 [![TypeScript](https://img.shields.io/badge/TypeScript-2.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
 [![node](https://img.shields.io/badge/node->=%206.x.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
+## Quick Demo
+[![asciicast](https://asciinema.org/a/9c3assmh21i49qhe5lmi48sze.png)](https://asciinema.org/a/9c3assmh21i49qhe5lmi48sze?speed=2&t=0)
 
 ## Usage
 NPMTS is your friend when writing, testing, publishing and documenting npm modules written in TypeScript.
