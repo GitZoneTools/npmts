@@ -11,17 +11,6 @@ let removeDist = function () {
     return plugins.smartfile.fs.remove(paths.distDir);
 };
 /**
- * remove .d.ts files from testDirctory
- */
-let removeTestDeclarations = function () {
-    let done = q.defer();
-    plugins.smartfile.fs.listFileTree('./test/', '**/*.d.ts').then(fileArray => {
-        let fileArrayToRemove = plugins.smartpath.transform.toAbsolute(fileArray, process.cwd() + '//test/');
-        plugins.smartfile.fs.removeManySync(fileArrayToRemove);
-        done.resolve();
-    });
-};
-/**
  * remove old pages
  */
 let removePages = function () {
@@ -32,7 +21,6 @@ exports.run = function (configArg) {
     plugins.beautylog.ora.text('cleaning up from previous builds...');
     let done = q.defer();
     removeDist()
-        .then(removeTestDeclarations)
         .then(removePages)
         .then(function () {
         plugins.beautylog.ok('Cleaned up from previous builds!');
