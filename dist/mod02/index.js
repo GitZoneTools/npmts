@@ -36,10 +36,10 @@ let tap = function (configArg) {
             experimentalDecorators: true,
             lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
         }),
-        plugins.gulpSourcemaps.write(),
         plugins.gulpFunction.forEach((file) => __awaiter(this, void 0, void 0, function* () {
             file.path = file.path.replace(paths.tsDir, paths.distDir);
         })),
+        plugins.gulpSourcemaps.write(),
         npmtsTapBuffer.pipeTestableFiles(),
         plugins.smartstream.cleanPipe()
     ]);
@@ -48,12 +48,14 @@ let tap = function (configArg) {
      */
     let testFilesSmartstream = new plugins.smartstream.Smartstream([
         plugins.smartgulp.src([plugins.path.join(paths.cwd, 'test/*.ts')]),
+        plugins.gulpSourcemaps.init(),
         plugins.gulpTypeScript({
             target: 'ES5',
             emitDecoratorMetadata: true,
             experimentalDecorators: true,
             lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
         }),
+        plugins.gulpSourcemaps.write(),
         npmtsTapBuffer.pipeTestFiles(),
         plugins.smartstream.cleanPipe()
     ]);
