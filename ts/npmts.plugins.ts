@@ -8,13 +8,13 @@ import * as projectinfo from 'projectinfo'
 import * as path from 'path'
 import * as smartanalytics from 'smartanalytics'
 import * as smartcli from 'smartcli'
+import * as smarterror from 'smarterror'
 import * as smartfile from 'smartfile'
 import * as smartpath from 'smartpath'
 import * as smartstream from 'smartstream'
 import * as smartstring from 'smartstring'
 import * as smartsystem from 'smartsystem'
 import * as through2 from 'through2'
-export let sourceMapSupport = require('source-map-support').install() // display errors correctly during testing
 
 export {
     beautylog,
@@ -25,6 +25,7 @@ export {
     path,
     smartanalytics,
     smartcli,
+    smarterror,
     smartfile,
     smartpath,
     smartstream,
