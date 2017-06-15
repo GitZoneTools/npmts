@@ -110,11 +110,20 @@ let checkNodeVersion = (configArg) => {
 exports.run = (configArg) => {
     let done = q.defer();
     plugins.beautylog.ora.text('Check Module: ...');
-    checkProjectTypings(configArg)
-        .then(checkDependencies)
-        .then(checkDevDependencies)
-        .then(checkNodeVersion)
-        .then(done.resolve)
-        .catch((err) => { console.log(err); });
+    // check cli
+    if (configArg.argv.nocheck) {
+        configArg.checkDependencies = false;
+    }
+    if (configArg.checkDependencies) {
+        checkProjectTypings(configArg)
+            .then(checkDependencies)
+            .then(checkDevDependencies)
+            .then(checkNodeVersion)
+            .then(done.resolve)
+            .catch((err) => { console.log(err); });
+    }
+    else {
+        done.resolve(configArg);
+    }
     return done.promise;
 };

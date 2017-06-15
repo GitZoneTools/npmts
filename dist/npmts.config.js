@@ -3,12 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const plugins = require("./npmts.plugins");
 const paths = require("./npmts.paths");
 const q = require("smartq");
-;
 exports.run = function (argvArg) {
     let done = q.defer();
     let defaultConfig = {
         argv: undefined,
         coverageTreshold: 70,
+        checkDependencies: true,
         mode: 'default',
         test: true,
         testTs: {},
@@ -27,16 +27,17 @@ exports.run = function (argvArg) {
     switch (config.mode) {
         case 'default':
         case 'custom':
+        case 'merge':
             plugins.beautylog.ok('mode is ' + config.mode);
             done.resolve(config);
             break;
         default:
-            plugins.beautylog.error(`mode not recognised!`);
+            plugins.beautylog.error(`mode not recognised! Can be default or custom`);
             process.exit(1);
     }
     ;
     // handle default mode
-    if (config.mode === 'default') {
+    if (config.mode === 'default' || config.mode === 'merge') {
         config.ts = {
             './ts/**/*.ts': './dist/'
         };
