@@ -49,6 +49,12 @@ exports.run = function (argvArg) {
     if (config.argv.notest) {
         config.test = false;
     }
+    if (config.argv.nocoverage) {
+        config.coverage = false;
+    }
+    if (config.argv.nochecks) {
+        config.checkDependencies = false;
+    }
     if (config.argv.watch) {
         config.watch = true;
     }
