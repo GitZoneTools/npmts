@@ -7,6 +7,7 @@ exports.run = function (argvArg) {
     let done = q.defer();
     let defaultConfig = {
         argv: undefined,
+        coverage: true,
         coverageTreshold: 70,
         checkDependencies: true,
         mode: 'default',
@@ -35,7 +36,6 @@ exports.run = function (argvArg) {
             plugins.beautylog.error(`mode not recognised! Can be default or custom`);
             process.exit(1);
     }
-    ;
     // handle default mode
     if (config.mode === 'default' || config.mode === 'merge') {
         config.ts = {
@@ -45,16 +45,13 @@ exports.run = function (argvArg) {
             './test/**/*.ts': './test/'
         };
     }
-    ;
     // mix with commandline
     if (config.argv.notest) {
         config.test = false;
     }
-    ;
     if (config.argv.watch) {
         config.watch = true;
     }
-    ;
     plugins.beautylog.ok('build options are ready!');
     done.resolve(config);
     return done.promise;

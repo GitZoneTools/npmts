@@ -7,6 +7,7 @@
 export declare type npmtsMode = 'default' | 'custom' | 'merge';
 export interface INpmtsConfig {
     argv: any;
+    coverage: boolean;
     coverageTreshold: number;
     checkDependencies: boolean;
     mode: npmtsMode;

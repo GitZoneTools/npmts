@@ -13,6 +13,7 @@ export type npmtsMode = 'default' | 'custom' | 'merge'
 
 export interface INpmtsConfig {
   argv: any
+  coverage: boolean
   coverageTreshold: number
   checkDependencies: boolean
   mode: npmtsMode
@@ -31,6 +32,7 @@ export let run = function (argvArg) {
   let done = q.defer()
   let defaultConfig: INpmtsConfig = {
     argv: undefined,
+    coverage: true,
     coverageTreshold: 70,
     checkDependencies: true,
     mode: 'default',
@@ -65,7 +67,7 @@ export let run = function (argvArg) {
     default:
       plugins.beautylog.error(`mode not recognised! Can be default or custom`)
       process.exit(1)
-  };
+  }
 
   // handle default mode
   if (config.mode === 'default' || config.mode === 'merge') {
@@ -75,15 +77,15 @@ export let run = function (argvArg) {
     config.testTs = {
       './test/**/*.ts': './test/'
     }
-  };
+  }
 
   // mix with commandline
   if (config.argv.notest) {
     config.test = false
-  };
+  }
   if (config.argv.watch) {
     config.watch = true
-  };
+  }
 
   plugins.beautylog.ok('build options are ready!')
   done.resolve(config)

@@ -114,12 +114,19 @@ export let run = function (configArg: INpmtsConfig) {
     plugins.beautylog.ora.text('now starting tests')
     plugins.beautylog.ora.end()
     plugins.beautylog.log('ready for tapbuffer:')
+    if (configArg.coverage) {
+      tap(config)
+        .then(handleCoverageData)
+        .then(() => {
+          done.resolve(config)
+        }).catch(err => { console.log(err) })
+    } else {
+      tap(config)
+        .then(() => {
+          done.resolve(config)
+        }).catch(err => { console.log(err) })
+    }
 
-    tap(config)
-      .then(handleCoverageData)
-      .then(() => {
-        done.resolve(config)
-      }).catch(err => { console.log(err) })
   } else {
     plugins.beautylog.ora.end()
     done.resolve(config)

@@ -109,11 +109,19 @@ exports.run = function (configArg) {
         plugins.beautylog.ora.text('now starting tests');
         plugins.beautylog.ora.end();
         plugins.beautylog.log('ready for tapbuffer:');
-        tap(config)
-            .then(handleCoverageData)
-            .then(() => {
-            done.resolve(config);
-        }).catch(err => { console.log(err); });
+        if (configArg.coverage) {
+            tap(config)
+                .then(handleCoverageData)
+                .then(() => {
+                done.resolve(config);
+            }).catch(err => { console.log(err); });
+        }
+        else {
+            tap(config)
+                .then(() => {
+                done.resolve(config);
+            }).catch(err => { console.log(err); });
+        }
     }
     else {
         plugins.beautylog.ora.end();
