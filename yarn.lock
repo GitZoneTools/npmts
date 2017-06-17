@@ -84,7 +84,7 @@
   version "0.0.27"
   resolved "https://registry.yarnpkg.com/@types/promises-a-plus/-/promises-a-plus-0.0.27.tgz#c64651134614c84b8f5d7114ce8901d36a609780"
 
-"@types/q@0.0.32", "@types/q@0.x.x":
+"@types/q@0.0.32", "@types/q@0.x.x", "@types/q@x.x.x":
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
 
@@ -92,7 +92,7 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.0.0.tgz#57e5465d665b370d4217e69b344b20faa6b724f5"
 
-"@types/q@1.x.x", "@types/q@^1.x.x", "@types/q@x.x.x":
+"@types/q@1.x.x", "@types/q@^1.x.x":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.0.1.tgz#dbccb01bd8f0f801a12a4604c7d7af59bb02ae2f"
 
@@ -2792,9 +2792,9 @@ tap-parser@^5.1.0:
   optionalDependencies:
     readable-stream "^2"
 
-tapbuffer@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.14.tgz#c8e0d4888b1652c1756b0a0beb80862ce8df8a90"
+tapbuffer@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.15.tgz#119ba8e7b4d4f58ff81e3ccaad96e9f91aa03e80"
   dependencies:
     "@types/istanbul" "^0.4.29"
     beautylog "^6.1.1"
