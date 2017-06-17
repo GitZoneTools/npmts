@@ -13,6 +13,9 @@ exports.run = function (argvArg) {
         mode: 'default',
         test: true,
         testTs: {},
+        testConfig: {
+            parallel: true
+        },
         ts: {},
         tsOptions: {},
         watch: false,

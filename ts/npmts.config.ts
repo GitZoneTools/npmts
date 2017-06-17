@@ -19,6 +19,7 @@ export interface INpmtsConfig {
   mode: npmtsMode
   test: boolean
   testTs: any
+  testConfig: any
   ts: any
   tsOptions: any
   watch: boolean
@@ -38,6 +39,9 @@ export let run = function (argvArg) {
     mode: 'default',
     test: true,
     testTs: {},
+    testConfig: {
+      parallel: true
+    },
     ts: {},
     tsOptions: {},
     watch: false,

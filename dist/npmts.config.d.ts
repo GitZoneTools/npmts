@@ -13,6 +13,7 @@ export interface INpmtsConfig {
     mode: npmtsMode;
     test: boolean;
     testTs: any;
+    testConfig: any;
     ts: any;
     tsOptions: any;
     watch: boolean;

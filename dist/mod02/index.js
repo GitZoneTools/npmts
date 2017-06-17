@@ -24,6 +24,7 @@ let tap = function (configArg) {
      * the TabBuffer for npmts
      */
     let npmtsTapBuffer = new plugins.tapbuffer.TabBuffer();
+    npmtsTapBuffer.setConfig(configArg.testConfig);
     /**
      * handle the testable files
      */
