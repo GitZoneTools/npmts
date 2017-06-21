@@ -1,14 +1,17 @@
 import * as q from 'smartq'
 import { ProjectinfoNpm } from 'projectinfo'
 
+// interfaces
+import { INpmtsConfig } from '../npmts.config'
+
 import * as paths from '../npmts.paths'
 
 import * as plugins from './mod00.plugins'
 
 export let projectInfo: ProjectinfoNpm
 
-let checkProjectTypings = (configArg) => {
-  let done = q.defer()
+let checkProjectTypings = (configArg: INpmtsConfig) => {
+  let done = q.defer<INpmtsConfig>()
   plugins.beautylog.ora.text('Check Module: Check Project Typings...')
   projectInfo = new ProjectinfoNpm(paths.cwd)
   if (typeof projectInfo.packageJson.typings === 'undefined') {
@@ -34,8 +37,8 @@ const depcheckOptions = {
   ]
 }
 
-let checkDependencies = (configArg) => {
-  let done = q.defer()
+let checkDependencies = (configArg: INpmtsConfig) => {
+  let done = q.defer<INpmtsConfig>()
   plugins.beautylog.ora.text('Check Module: Check Dependencies...')
   let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
     ignoreDirs: [ // folder with these names will be ignored
@@ -70,8 +73,8 @@ let checkDependencies = (configArg) => {
   return done.promise
 }
 
-let checkDevDependencies = (configArg) => {
-  let done = q.defer()
+let checkDevDependencies = (configArg: INpmtsConfig) => {
+  let done = q.defer<INpmtsConfig>()
   plugins.beautylog.ora.text('Check Module: Check devDependencies...')
   let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
     ignoreDirs: [ // folder with these names will be ignored
@@ -106,31 +109,24 @@ let checkDevDependencies = (configArg) => {
   return done.promise
 }
 
-let checkNodeVersion = (configArg) => {
-  let done = q.defer()
+let checkNodeVersion = (configArg: INpmtsConfig) => {
+  let done = q.defer<INpmtsConfig>()
   plugins.beautylog.ora.text('checking node version')
   done.resolve(configArg)
   return done.promise
 }
 
-export let run = (configArg) => {
-  let done = q.defer()
+export let run = async (configArg: INpmtsConfig) => {
   plugins.beautylog.ora.text('Check Module: ...')
 
-  // check cli
-  if (configArg.argv.nocheck) {
-    configArg.checkDependencies = false
-  }
   if (configArg.checkDependencies) {
-    checkProjectTypings(configArg)
-      .then(checkDependencies)
-      .then(checkDevDependencies)
-      .then(checkNodeVersion)
-      .then(done.resolve)
-      .catch((err) => { console.log(err) })
+    configArg = await checkProjectTypings(configArg)
+    configArg = await checkDependencies(configArg)
+    configArg = await checkDevDependencies(configArg)
+    configArg = await checkNodeVersion(configArg)
+    return configArg
   } else {
-    done.resolve(configArg)
+    configArg = await checkProjectTypings(configArg)
+    return configArg
   }
-
-  return done.promise
 }

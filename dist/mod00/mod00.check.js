@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const q = require("smartq");
 const projectinfo_1 = require("projectinfo");
@@ -107,23 +115,17 @@ let checkNodeVersion = (configArg) => {
     done.resolve(configArg);
     return done.promise;
 };
-exports.run = (configArg) => {
-    let done = q.defer();
+exports.run = (configArg) => __awaiter(this, void 0, void 0, function* () {
     plugins.beautylog.ora.text('Check Module: ...');
-    // check cli
-    if (configArg.argv.nocheck) {
-        configArg.checkDependencies = false;
-    }
     if (configArg.checkDependencies) {
-        checkProjectTypings(configArg)
-            .then(checkDependencies)
-            .then(checkDevDependencies)
-            .then(checkNodeVersion)
-            .then(done.resolve)
-            .catch((err) => { console.log(err); });
+        configArg = yield checkProjectTypings(configArg);
+        configArg = yield checkDependencies(configArg);
+        configArg = yield checkDevDependencies(configArg);
+        configArg = yield checkNodeVersion(configArg);
+        return configArg;
     }
     else {
-        done.resolve(configArg);
+        configArg = yield checkProjectTypings(configArg);
+        return configArg;
     }
-    return done.promise;
-};
+});
