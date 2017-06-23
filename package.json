@@ -34,10 +34,11 @@
   },
   "homepage": "https://gitlab.com/gitzone/npmts#readme",
   "dependencies": {
-    "@types/gulp-sourcemaps": "0.0.30",
+    "@types/gulp-sourcemaps": "0.0.31",
     "@types/minimatch": "^2.0.29",
+    "@types/node": "^8.0.1",
     "@types/through2": "^2.0.33",
-    "beautylog": "6.1.10",
+    "beautylog": "^6.1.10",
     "depcheck": "^0.6.7",
     "early": "^2.1.1",
     "gulp-function": "^2.2.9",
@@ -61,7 +62,7 @@
     "tapbuffer": "^1.0.15",
     "through2": "^2.0.3",
     "tsn": "^2.0.15",
-    "typescript": "^2.3.4",
+    "typescript": "^2.4.0",
     "typings-global": "^1.0.17"
   },
   "devDependencies": {}
