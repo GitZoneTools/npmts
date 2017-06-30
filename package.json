@@ -36,7 +36,6 @@
   "dependencies": {
     "@types/gulp-sourcemaps": "0.0.31",
     "@types/minimatch": "^2.0.29",
-    "@types/node": "^8.0.1",
     "@types/through2": "^2.0.33",
     "beautylog": "^6.1.10",
     "depcheck": "^0.6.7",
@@ -62,8 +61,8 @@
     "tapbuffer": "^1.0.15",
     "through2": "^2.0.3",
     "tsn": "^2.0.15",
-    "typescript": "^2.4.0",
-    "typings-global": "^1.0.17"
+    "typescript": "^2.4.1",
+    "typings-global": "^1.0.19"
   },
   "devDependencies": {}
 }
