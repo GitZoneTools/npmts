@@ -17,7 +17,9 @@
     "check": "(cd test && yarn install && node ../dist/index.js)",
     "checkVersion": "(cd test/ && node ../dist/index.js -v)",
     "checkNoTest": "(cd test && node ../dist/index.js --notest)",
-    "checkNoDocs": "(cd test && node ../dist/index.js --nodocs)"
+    "checkNoDocs": "(cd test && node ../dist/index.js --nodocs)",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -62,7 +64,9 @@
     "through2": "^2.0.3",
     "tsn": "^2.0.15",
     "typescript": "^2.4.1",
-    "typings-global": "^1.0.19"
+    "typings-global": "^1.0.19",
+    "snyk": "^1.36.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "snyk": true
 }
