@@ -2975,9 +2975,9 @@ tap-parser@^5.1.0:
   optionalDependencies:
     readable-stream "^2"
 
-tapbuffer@^1.0.17:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.17.tgz#19f6bd3dcabbc9adfd3bfbe99171b8eba6199e92"
+tapbuffer@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.19.tgz#c6b8ceca669f03cafdefd4720a66039bcfbca33b"
   dependencies:
     "@types/istanbul" "^0.4.29"
     beautylog "^6.1.1"
