@@ -73,8 +73,8 @@
   resolved "https://registry.yarnpkg.com/@types/istanbul/-/istanbul-0.4.29.tgz#29c8cbb747ac57280965545dc58514ba0dbb99af"
 
 "@types/lodash@4.x.x", "@types/lodash@^4.14.50", "@types/lodash@^4.14.55", "@types/lodash@^4.14.64", "@types/lodash@^4.14.67", "@types/lodash@^4.14.68":
-  version "4.14.69"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.69.tgz#2bbd48c1565e02506f48ed8d1e8e53ea493fd0e6"
+  version "4.14.70"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.70.tgz#37bda4acfb3bb79143009cc9d00abd559f7dca30"
 
 "@types/minimatch@2.x.x", "@types/minimatch@^2.0.29":
   version "2.0.29"
@@ -365,7 +365,7 @@ beautylog@^4.1.2:
     q "^1.4.1"
     smartenv "^1.2.2"
 
-beautylog@^6.0.0, beautylog@^6.0.1, beautylog@^6.1.1, beautylog@^6.1.10, beautylog@^6.1.5:
+beautylog@^6.0.0, beautylog@^6.0.1, beautylog@^6.1.10, beautylog@^6.1.5:
   version "6.1.10"
   resolved "https://registry.yarnpkg.com/beautylog/-/beautylog-6.1.10.tgz#9c27e566937684cb689f9372d98cfa5415d50b72"
   dependencies:
@@ -1179,7 +1179,7 @@ graceful-fs@4.X, graceful-fs@^4.0.0, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-gulp-function@^2.2.3, gulp-function@^2.2.9:
+gulp-function@^2.2.9:
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/gulp-function/-/gulp-function-2.2.9.tgz#de513103db9d817e94bb8aab45f30bf286f19ae5"
   dependencies:
@@ -2623,7 +2623,7 @@ smartfile@4.1.6:
     vinyl "^2.0.1"
     vinyl-file "^3.0.0"
 
-smartfile@^4.1.4, smartfile@^4.1.7, smartfile@^4.2.15, smartfile@^4.2.17:
+smartfile@^4.1.4, smartfile@^4.2.15, smartfile@^4.2.17:
   version "4.2.17"
   resolved "https://registry.yarnpkg.com/smartfile/-/smartfile-4.2.17.tgz#9eba8f65eea7e4db51aa30562f6039815a88b125"
   dependencies:
@@ -2716,9 +2716,9 @@ smartrequest@^1.0.4:
     smartq "^1.1.1"
     typings-global "^1.0.17"
 
-smartshell@^1.0.6, smartshell@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/smartshell/-/smartshell-1.0.9.tgz#cf952d753fcdd86f639e6e4903964ed5727ae639"
+smartshell@^1.0.13, smartshell@^1.0.6:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/smartshell/-/smartshell-1.0.13.tgz#277b34e6624df70003e0e3a6c900cd5ebab7eb92"
   dependencies:
     "@types/shelljs" "^0.7.2"
     "@types/which" "^1.0.28"
@@ -2951,7 +2951,7 @@ systemjs@^0.20.12:
   version "0.20.15"
   resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-0.20.15.tgz#ce2c8282f9caee536804b2778348a8723b191774"
 
-tap-mocha-reporter@^3.0.3:
+tap-mocha-reporter@^3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/tap-mocha-reporter/-/tap-mocha-reporter-3.0.6.tgz#12abe97ff409a5a6ecc3d70b6dba34d82184a770"
   dependencies:
@@ -2975,22 +2975,22 @@ tap-parser@^5.1.0:
   optionalDependencies:
     readable-stream "^2"
 
-tapbuffer@^1.0.19:
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.19.tgz#c6b8ceca669f03cafdefd4720a66039bcfbca33b"
+tapbuffer@^1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/tapbuffer/-/tapbuffer-1.0.20.tgz#7926a12bce2021cc843e912bab7fa23e389ced86"
   dependencies:
     "@types/istanbul" "^0.4.29"
-    beautylog "^6.1.1"
-    gulp-function "^2.2.3"
+    beautylog "^6.1.10"
+    gulp-function "^2.2.9"
     istanbul "^0.4.5"
     smarterror "^1.0.3"
-    smartfile "^4.1.7"
+    smartfile "^4.2.17"
     smartinject "^1.0.1"
     smartipc "^1.0.9"
-    smartq "^1.1.1"
-    smartshell "^1.0.9"
-    tap-mocha-reporter "^3.0.3"
-    typings-global "^1.0.14"
+    smartq "^1.1.6"
+    smartshell "^1.0.13"
+    tap-mocha-reporter "^3.0.6"
+    typings-global "^1.0.19"
 
 tapbundle@^1.1.1:
   version "1.1.1"
