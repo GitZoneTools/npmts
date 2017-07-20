@@ -44,7 +44,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-typescript": "^3.2.1",
     "lodash": "^4.17.4",
-    "npmextra": "^2.0.7",
+    "npmextra": "^2.0.8",
     "projectinfo": "^3.0.2",
     "smartanalytics": "^1.0.6",
     "smartchok": "^1.0.11",
@@ -61,7 +61,7 @@
     "tapbuffer": "^1.0.20",
     "through2": "^2.0.3",
     "tsn": "^2.0.15",
-    "typescript": "^2.4.1",
+    "typescript": "^2.4.2",
     "typings-global": "^1.0.19"
   },
   "devDependencies": {}

@@ -386,10 +386,6 @@ binary-extensions@^1.0.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.8.0.tgz#48ec8d16df4377eae5fa5884682480af4d95c774"
 
-bindings@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.2.1.tgz#14ad6113812d2d37d72e67b4cacb4bb726505f11"
-
 block-stream@*:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
@@ -822,10 +818,6 @@ es5-ext@^0.10.12, es5-ext@^0.10.13, es5-ext@^0.10.14, es5-ext@^0.10.9, es5-ext@~
   dependencies:
     es6-iterator "2"
     es6-symbol "~3.1"
-
-es6-error@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/es6-error/-/es6-error-4.0.2.tgz#eec5c726eacef51b7f6b73c20db6e1b13b069c98"
 
 es6-iterator@2, es6-iterator@^2.0.1:
   version "2.0.1"
@@ -1617,20 +1609,6 @@ lcov-parse@0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-0.0.10.tgz#1b0b8ff9ac9c7889250582b70b71315d9da6d9a3"
 
-leakage@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/leakage/-/leakage-0.3.0.tgz#15d698abdc76bbc6439601f4f3020e77e2d50c39"
-  dependencies:
-    es6-error "^4.0.2"
-    left-pad "^1.1.3"
-    memwatch-next "^0.3.0"
-    minimist "^1.2.0"
-    pretty-bytes "^4.0.2"
-
-left-pad@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.1.3.tgz#612f61c033f3a9e08e939f1caebeea41b6f3199a"
-
 levn@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/levn/-/levn-0.3.0.tgz#3b09924edf9f083c0490fdd4c0bc4421e04764ee"
@@ -1833,13 +1811,6 @@ memoizee@^0.4.3, memoizee@^0.4.5:
     next-tick "1"
     timers-ext "0.1"
 
-memwatch-next@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/memwatch-next/-/memwatch-next-0.3.0.tgz#2111050f9a906e0aa2d72a4ec0f0089c78726f8f"
-  dependencies:
-    bindings "^1.2.1"
-    nan "^2.3.2"
-
 merge-stream@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-1.0.1.tgz#4041202d508a342ba00174008df0c251b8c135e1"
@@ -1926,7 +1897,7 @@ multipipe@^0.1.2:
   dependencies:
     duplexer2 "0.0.2"
 
-nan@^2.3.0, nan@^2.3.2:
+nan@^2.3.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
 
@@ -1986,16 +1957,15 @@ npm-run-path@^2.0.0:
   dependencies:
     path-key "^2.0.0"
 
-npmextra@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/npmextra/-/npmextra-2.0.7.tgz#a63969b3e3fa404015cc5bebd1732f7caabef62f"
+npmextra@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/npmextra/-/npmextra-2.0.8.tgz#9fd3c451edee5a65da0e61df331be6f2313f4676"
   dependencies:
     beautylog "^6.1.10"
     smartfile "^4.2.17"
     smartlodash "^1.0.1"
     smartpath "^3.2.8"
     smartq "^1.1.6"
-    tapbundle "^1.1.1"
     taskbuffer "^1.0.22"
     typings-global "^1.0.19"
 
@@ -2234,10 +2204,6 @@ prelude-ls@~1.1.2:
 preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
-
-pretty-bytes@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-4.0.2.tgz#b2bf82e7350d65c6c33aa95aaa5a4f6327f61cd9"
 
 process-nextick-args@^1.0.6, process-nextick-args@~1.0.6:
   version "1.0.7"
@@ -2992,17 +2958,6 @@ tapbuffer@^1.0.20:
     tap-mocha-reporter "^3.0.6"
     typings-global "^1.0.19"
 
-tapbundle@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/tapbundle/-/tapbundle-1.1.1.tgz#ec4172c0e82a77b1f6133fef2606311ede28a62d"
-  dependencies:
-    early "^2.1.1"
-    leakage "^0.3.0"
-    smartchai "^1.0.3"
-    smartdelay "^1.0.3"
-    smartq "^1.1.1"
-    typings-global "^1.0.19"
-
 tar-pack@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/tar-pack/-/tar-pack-3.4.0.tgz#23be2d7f671a8339376cbdb0b8fe3fdebf317984"
@@ -3139,9 +3094,9 @@ typed-function@0.10.5:
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/typed-function/-/typed-function-0.10.5.tgz#2e0f18abd065219fab694a446a65c6d1981832c0"
 
-typescript@^2.1.5, typescript@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
+typescript@^2.1.5, typescript@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.2.tgz#f8395f85d459276067c988aa41837a8f82870844"
 
 typings-global@*, typings-global@^1.0.14, typings-global@^1.0.16, typings-global@^1.0.17, typings-global@^1.0.19, typings-global@^1.0.3:
   version "1.0.19"
@@ -3189,8 +3144,8 @@ unique-stream@^2.0.2:
     through2-filter "^2.0.0"
 
 universalify@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.0.tgz#9eb1c4651debcc670cc94f1a75762332bb967778"
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
 
 urix@^0.1.0, urix@~0.1.0:
   version "0.1.0"
