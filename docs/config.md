@@ -39,11 +39,12 @@ with default behaviour.
 
 | key | default value | description |
 | --- | --- | --- |
-| `"mode"` | `"default"` | "default" will do default stuff and override , "custom" only does what you specify |
+| `"mode"` | `"default"` | "default" will do default stuff and override , "custom" only does what you specify, "merge" will merge default options with whatever you specify on your own |
 | `"test"` | `true` | test your module |
 | `"ts"` | `{"./ts/*.ts":"./","./test/test.ts":"./test/"}` | allows you to define multiple ts portions |
 | `"tsOptions"` | `{"target":"ES5", "declaration":"true"}` | specify options for tsc |
-| `"cli"` | "false" | some modules are designed to be used from cli. If set to true NPMTS will create a cli.js that wires you dist files up for cli use. |
+| `"cli"` | `"false"` | some modules are designed to be used from cli. If set to true NPMTS will create a cli.js that wires you dist files up for cli use. |
+| `"testConfig"` | `{ parallel: true, coverage: true }` | allows you to control test behaviour. `"parallel"` controls wether testfiles are run sequentially or in parallel, and `"coverage` wether to create coverage reports |
 
 ### TypeScript
 by default npmts looks for `./ts/*.ts` and `./test/test.ts` that will compile to
