@@ -7,14 +7,14 @@ exports.run = function (argvArg) {
     let done = q.defer();
     let defaultConfig = {
         argv: undefined,
-        coverage: true,
         coverageTreshold: 70,
         checkDependencies: true,
         mode: 'default',
         test: true,
         testTs: {},
         testConfig: {
-            parallel: true
+            parallel: true,
+            coverage: true
         },
         ts: {},
         tsOptions: {},
@@ -53,7 +53,7 @@ exports.run = function (argvArg) {
         config.test = false;
     }
     if (config.argv.nocoverage) {
-        config.coverage = false;
+        config.testConfig.coverage = false;
     }
     if (config.argv.nochecks) {
         config.checkDependencies = false;

@@ -110,7 +110,7 @@ exports.run = function (configArg) {
         plugins.beautylog.ora.text('now starting tests');
         plugins.beautylog.ora.end();
         plugins.beautylog.log('ready for tapbuffer:');
-        if (configArg.coverage) {
+        if (configArg.testConfig.coverage) {
             tap(config)
                 .then(handleCoverageData)
                 .then(() => {

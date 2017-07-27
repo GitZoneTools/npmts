@@ -33,7 +33,7 @@ npmts will
 
 For more information on how tests are run check out the [tapbuffer module](https://www.npmjs.com/package/tapbuffer).
 
-For more information about how to best write tap tests check out the [tapbundle module's linked docs](https://www.npmjs.com/package/tapbundle)
+For more information about how to best write tap tests check out the [tapbundle module's linked docs](https://www.npmjs.com/package/tapbundle).
 
 This works on your machine and in CI. There is a prebuild docker image available that includes npmts to make CI a breeze:  
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)

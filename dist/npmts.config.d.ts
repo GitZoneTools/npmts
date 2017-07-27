@@ -1,3 +1,4 @@
+import { ITapbufferConfig } from 'tapbuffer';
 /**
  * specifies the different modes available
  * default -> uses default options no matterm what
@@ -7,13 +8,12 @@
 export declare type npmtsMode = 'default' | 'custom' | 'merge';
 export interface INpmtsConfig {
     argv: any;
-    coverage: boolean;
     coverageTreshold: number;
     checkDependencies: boolean;
     mode: npmtsMode;
     test: boolean;
     testTs: any;
-    testConfig: any;
+    testConfig: ITapbufferConfig;
     ts: any;
     tsOptions: any;
     watch: boolean;

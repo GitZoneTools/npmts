@@ -3,6 +3,9 @@ import paths = require('./npmts.paths')
 
 import * as q from 'smartq'
 
+// interfaces
+import { ITapbufferConfig } from 'tapbuffer'
+
 /**
  * specifies the different modes available
  * default -> uses default options no matterm what
@@ -13,13 +16,12 @@ export type npmtsMode = 'default' | 'custom' | 'merge'
 
 export interface INpmtsConfig {
   argv: any
-  coverage: boolean
   coverageTreshold: number
   checkDependencies: boolean
   mode: npmtsMode
   test: boolean
   testTs: any
-  testConfig: any
+  testConfig: ITapbufferConfig
   ts: any
   tsOptions: any
   watch: boolean
@@ -33,14 +35,14 @@ export let run = function (argvArg) {
   let done = q.defer()
   let defaultConfig: INpmtsConfig = {
     argv: undefined,
-    coverage: true,
     coverageTreshold: 70,
     checkDependencies: true,
     mode: 'default',
     test: true,
     testTs: {},
     testConfig: {
-      parallel: true
+      parallel: true,
+      coverage: true
     },
     ts: {},
     tsOptions: {},
@@ -89,7 +91,7 @@ export let run = function (argvArg) {
   }
 
   if (config.argv.nocoverage) {
-    config.coverage = false
+    config.testConfig.coverage = false
   }
 
   if (config.argv.nochecks) {
