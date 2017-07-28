@@ -29,15 +29,6 @@ let tap = function (configArg: INpmtsConfig) {
    */
   let testableFilesSmartstream = new plugins.smartstream.Smartstream([
     plugins.smartgulp.src([ plugins.path.join(paths.cwd, './ts/**/*.ts') ]),
-    plugins.gulpFunction.forEach(async (fileArg: Smartfile) => {
-      let stringToModify = fileArg.contents.toString()
-      let testRegex = /\/\/\smodule\stestimport\nimport[a-zA-Z0-9\*\s]*\sfrom\s'(..\/ts\/index)'/
-      let replacer = (match, group1, offset, completeString: string) => {
-        return match.replace(group1, '../dist/index')
-      }
-      fileArg.setContentsFromString(stringToModify.replace(testRegex, replacer))
-      return fileArg
-    }),
     plugins.gulpSourcemaps.init(),
     plugins.gulpTypeScript({
       target: 'ES5',
@@ -58,6 +49,14 @@ let tap = function (configArg: INpmtsConfig) {
    */
   let testFilesSmartstream = new plugins.smartstream.Smartstream([
     plugins.smartgulp.src([ plugins.path.join(paths.cwd, 'test/*.ts') ]),
+    plugins.gulpFunction.forEach(async (fileArg: Smartfile) => {
+      let stringToModify = fileArg.contents.toString()
+      let testRegex = /\/\/\smodule\stestimport\nimport[a-zA-Z0-9\*\s]*\sfrom\s'(..\/ts\/index)'/
+      let replacer = (match: string, group1: string, offset: number, completeString: string) => {
+        return match.replace(group1, '../dist/index')
+      }
+      fileArg.contents = Buffer.from(stringToModify.replace(testRegex, replacer))
+    }),
     plugins.gulpSourcemaps.init(),
     plugins.gulpTypeScript({
       target: 'ES5',
