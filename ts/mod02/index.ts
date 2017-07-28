@@ -6,7 +6,9 @@ import paths = require('../npmts.paths')
 
 import * as q from 'smartq'
 
+// interfaces
 import { INpmtsConfig } from '../npmts.config'
+import { Smartfile } from 'smartfile'
 
 /**
  * runs mocha
@@ -27,6 +29,15 @@ let tap = function (configArg: INpmtsConfig) {
    */
   let testableFilesSmartstream = new plugins.smartstream.Smartstream([
     plugins.smartgulp.src([ plugins.path.join(paths.cwd, './ts/**/*.ts') ]),
+    plugins.gulpFunction.forEach(async (fileArg: Smartfile) => {
+      let stringToModify = fileArg.contents.toString()
+      let testRegex = /\/\/\smodule\stestimport\nimport[a-zA-Z0-9\*\s]*\sfrom\s'(..\/ts\/index)'/
+      let replacer = (match, group1, offset, completeString: string) => {
+        return match.replace(group1, '../dist/index')
+      }
+      fileArg.setContentsFromString(stringToModify.replace(testRegex, replacer))
+      return fileArg
+    }),
     plugins.gulpSourcemaps.init(),
     plugins.gulpTypeScript({
       target: 'ES5',
