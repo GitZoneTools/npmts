@@ -36,9 +36,6 @@ let tap = function (configArg: INpmtsConfig) {
       experimentalDecorators: true,
       lib: [ 'DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable' ]
     }),
-    plugins.gulpFunction.forEach(async file => {
-      file.path = file.path.replace(paths.tsDir, paths.distDir)
-    }),
     plugins.gulpSourcemaps.write(),
     npmtsTapBuffer.pipeTestableFiles(),
     plugins.smartstream.cleanPipe()
@@ -49,14 +46,6 @@ let tap = function (configArg: INpmtsConfig) {
    */
   let testFilesSmartstream = new plugins.smartstream.Smartstream([
     plugins.smartgulp.src([ plugins.path.join(paths.cwd, 'test/*.ts') ]),
-    plugins.gulpFunction.forEach(async (fileArg: Smartfile) => {
-      let stringToModify = fileArg.contents.toString()
-      let testRegex = /\/\/\smodule\stestimport\nimport[a-zA-Z0-9\*\s]*\sfrom\s'(..\/ts\/index)'/
-      let replacer = (match: string, group1: string, offset: number, completeString: string) => {
-        return match.replace(group1, '../dist/index')
-      }
-      fileArg.contents = Buffer.from(stringToModify.replace(testRegex, replacer))
-    }),
     plugins.gulpSourcemaps.init(),
     plugins.gulpTypeScript({
       target: 'ES5',
