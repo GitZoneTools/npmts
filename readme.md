@@ -38,6 +38,9 @@ For more information about how to best write tap tests check out the [tapbundle 
 This works on your machine and in CI. There is a prebuild docker image available that includes npmts to make CI a breeze:  
 [hosttoday/ht-docker-node:npmts on Dockerhub](https://hub.docker.com/r/hosttoday/ht-docker-node/)
 
+## Changelog
+For breaking changes please see the [changelog](https://gitzone.gitlab.io/npmts/changelog.html).
+
 For further information read the linked docs at the top of this README.
 
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
