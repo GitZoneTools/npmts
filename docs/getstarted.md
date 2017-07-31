@@ -14,8 +14,8 @@ npm install -g npmts # install with npm
 yarn global add npmts # install with yarn
 ```
 
-For the puspose of getting started quickly also install **gitzone**.
-It'll proovide awesome scaffolding for new npmts npm modules and also updates them later on. 
+For the purpose of getting started quickly please also install **gitzone**.
+It'll proovide awesome scaffolding for new npmts maintained modules and also updates them later on. 
 
 ```sh
 npm install -g gitzone # install with npm
