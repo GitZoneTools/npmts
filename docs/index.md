@@ -1,8 +1,9 @@
 ---
-name: Start
+name: Index
+description: best practice npm TypeScript modules
 ---
 # npmts
-Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.
+best practice npm TypeScript modules
 
 ## Availabililty
 [![npm](https://gitzone.gitlab.io/assets/repo-button-npm.svg)](https://www.npmjs.com/package/npmts)

@@ -1,7 +1,7 @@
 {
   "name": "npmts",
   "version": "8.0.1",
-  "description": "Write npm modules with TypeScript without hassle. TypeScript ready. Fully ES6.",
+  "description": "best practice npm TypeScript modules",
   "main": "dist/index.js",
   "bin": {
     "npmts": "assets/cliNpmts.js"
