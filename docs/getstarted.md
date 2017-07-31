@@ -9,7 +9,7 @@ and learn how to quickly write npm TypeScript modules
 
 To use npmts install it using npm or yarn:
 
-```shell
+```sh
 npm install -g npmts # install with npm
 yarn global add npmts # install with yarn
 ```
@@ -17,7 +17,7 @@ yarn global add npmts # install with yarn
 For the puspose of getting started quickly also install **gitzone**.
 It'll proovide awesome scaffolding for new npmts npm modules and also updates them later on. 
 
-```shell
+```sh
 npm install -g gitzone # install with npm
 yarn global add gitzone # install with yarn
 ```
