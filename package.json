@@ -1,6 +1,6 @@
 {
   "name": "npmts",
-  "version": "8.0.8",
+  "version": "8.0.9",
   "description": "best practice npm TypeScript modules",
   "main": "dist/index.js",
   "bin": {
