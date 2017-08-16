@@ -23,13 +23,14 @@ npmtsAnalytics.sendEvent('npm','exec','git.zone')
 
 export let run = async () => {
   let done = q.defer()
+  plugins.beautylog.figletSync('NPMTS')
   let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot)
   // check for updates
   await plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version)
+  plugins.beautylog.log('---------------------------------------------')
   let npmtsCli = new plugins.smartcli.Smartcli()
   npmtsCli.standardTask()
     .then((argvArg) => {
-      plugins.beautylog.figletSync('NPMTS')
       plugins.beautylog.info('npmts version: ' + npmtsProjectInfo.version)
       return NpmtsConfig.run(argvArg)
     })
