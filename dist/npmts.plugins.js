@@ -29,5 +29,7 @@ const smartstring = require("smartstring");
 exports.smartstring = smartstring;
 const smartsystem = require("smartsystem");
 exports.smartsystem = smartsystem;
+const smartupdate = require("smartupdate");
+exports.smartupdate = smartupdate;
 const through2 = require("through2");
 exports.through2 = through2;

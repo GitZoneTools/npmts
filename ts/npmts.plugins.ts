@@ -14,6 +14,7 @@ import * as smartpath from 'smartpath'
 import * as smartstream from 'smartstream'
 import * as smartstring from 'smartstring'
 import * as smartsystem from 'smartsystem'
+import * as smartupdate from 'smartupdate'
 import * as through2 from 'through2'
 
 export {
@@ -31,5 +32,6 @@ export {
     smartstream,
     smartstring,
     smartsystem,
+    smartupdate,
     through2
 }

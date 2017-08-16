@@ -23,6 +23,8 @@ npmtsAnalytics.sendEvent('npm', 'exec', 'git.zone');
 exports.run = () => {
     let done = q.defer();
     let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);
+    // check for updates
+    plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version);
     let npmtsCli = new plugins.smartcli.Smartcli();
     npmtsCli.standardTask()
         .then((argvArg) => {

@@ -13,5 +13,6 @@ import * as smartpath from 'smartpath';
 import * as smartstream from 'smartstream';
 import * as smartstring from 'smartstring';
 import * as smartsystem from 'smartsystem';
+import * as smartupdate from 'smartupdate';
 import * as through2 from 'through2';
-export { beautylog, depcheck, lodash, npmextra, projectinfo, path, smartanalytics, smartcli, smarterror, smartfile, smartpath, smartstream, smartstring, smartsystem, through2 };
+export { beautylog, depcheck, lodash, npmextra, projectinfo, path, smartanalytics, smartcli, smarterror, smartfile, smartpath, smartstream, smartstring, smartsystem, smartupdate, through2 };
