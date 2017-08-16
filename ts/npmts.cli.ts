@@ -21,11 +21,11 @@ import * as NpmtsShip from './npmts.ship'
 let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts','UA-64087619-5')
 npmtsAnalytics.sendEvent('npm','exec','git.zone')
 
-export let run = () => {
+export let run = async () => {
   let done = q.defer()
   let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot)
   // check for updates
-  plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version)
+  await plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version)
   let npmtsCli = new plugins.smartcli.Smartcli()
   npmtsCli.standardTask()
     .then((argvArg) => {
@@ -70,5 +70,5 @@ export let run = () => {
     .catch((err) => { if (err instanceof Error) { console.log(err) } })
   npmtsCli.addVersion(npmtsProjectInfo.version)
   npmtsCli.startParse()
-  return done.promise
+  return await done.promise
 }

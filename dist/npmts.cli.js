@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const q = require("smartq");
 const plugins = require("./npmts.plugins");
@@ -20,11 +28,11 @@ const NpmtsShip = require("./npmts.ship");
  */
 let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts', 'UA-64087619-5');
 npmtsAnalytics.sendEvent('npm', 'exec', 'git.zone');
-exports.run = () => {
+exports.run = () => __awaiter(this, void 0, void 0, function* () {
     let done = q.defer();
     let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);
     // check for updates
-    plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version);
+    yield plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version);
     let npmtsCli = new plugins.smartcli.Smartcli();
     npmtsCli.standardTask()
         .then((argvArg) => {
@@ -70,5 +78,5 @@ exports.run = () => {
     } });
     npmtsCli.addVersion(npmtsProjectInfo.version);
     npmtsCli.startParse();
-    return done.promise;
-};
+    return yield done.promise;
+});
