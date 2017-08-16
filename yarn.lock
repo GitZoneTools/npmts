@@ -339,7 +339,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-beautycolor@^1.0.7, beautycolor@^1.0.9:
+beautycolor@^1.0.10, beautycolor@^1.0.7, beautycolor@^1.0.9:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/beautycolor/-/beautycolor-1.0.10.tgz#4b50758e59115839b3bb2bfe8aaaec9e29c747dd"
   dependencies:
@@ -2906,10 +2906,11 @@ smarttime@^1.0.6:
   dependencies:
     typings-global "^1.0.16"
 
-smartupdate@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.3.tgz#9b8ddac4b6f8c44ebd0e1ccca8d3f613c4970ac1"
+smartupdate@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.4.tgz#73a587569c3788c8b04a3dd6422a6837373416c0"
   dependencies:
+    beautycolor "^1.0.10"
     beautylog "^6.1.10"
     npmextra "^2.0.9"
     smartnpm "^1.0.4"
