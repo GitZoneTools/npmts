@@ -26,7 +26,7 @@ export let run = async () => {
   plugins.beautylog.figletSync('NPMTS')
   let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot)
   // check for updates
-  await plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version)
+  await plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version, 'http://gitzone.gitlab.io/npmts/changelog.html')
   plugins.beautylog.log('---------------------------------------------')
   let npmtsCli = new plugins.smartcli.Smartcli()
   npmtsCli.standardTask()

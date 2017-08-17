@@ -92,8 +92,12 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-2.0.29.tgz#5002e14f75e2d71e564281df0431c8c1b4a2a36a"
 
 "@types/node@*", "@types/node@^8.0.10":
-  version "8.0.22"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.22.tgz#9c6bfee1f45f5e9952ff6b487e657ecca48c7777"
+  version "8.0.23"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.23.tgz#c746697004782346594a0d755c34425bbf3014d2"
+
+"@types/open@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/open/-/open-0.0.29.tgz#3de910012674909db14d608d1fde44ffa7a9ecea"
 
 "@types/promises-a-plus@*":
   version "0.0.27"
@@ -2165,6 +2169,10 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
+open@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/open/-/open-0.0.5.tgz#42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc"
+
 optimist@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
@@ -2833,6 +2841,14 @@ smartnpm@^1.0.4:
     smartrequest "^1.0.6"
     typings-global "^1.0.16"
 
+smartopen@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/smartopen/-/smartopen-1.0.3.tgz#11a5835b50103e09fc9702ec9a884605ad7e584d"
+  dependencies:
+    "@types/open" "^0.0.29"
+    open "^0.0.5"
+    typings-global "^1.0.20"
+
 smartparam@0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/smartparam/-/smartparam-0.1.1.tgz#51c526bf38b0965007b21edd3e96c7e179c93591"
@@ -2906,14 +2922,15 @@ smarttime@^1.0.6:
   dependencies:
     typings-global "^1.0.16"
 
-smartupdate@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.4.tgz#73a587569c3788c8b04a3dd6422a6837373416c0"
+smartupdate@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.5.tgz#f5f51623a5f82504ecee674f6162db50a64599e3"
   dependencies:
     beautycolor "^1.0.10"
     beautylog "^6.1.10"
     npmextra "^2.0.9"
     smartnpm "^1.0.4"
+    smartopen "^1.0.3"
     smarttime "^1.0.6"
     typings-global "^1.0.20"
 
@@ -2933,8 +2950,8 @@ source-map-resolve@^0.3.0:
     urix "~0.1.0"
 
 source-map-support@^0.4.15:
-  version "0.4.15"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.15.tgz#03202df65c06d2bd8c7ec2362a193056fef8d3b1"
+  version "0.4.16"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.16.tgz#16fecf98212467d017d586a2af68d628b9421cd8"
   dependencies:
     source-map "^0.5.6"
 

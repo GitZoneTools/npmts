@@ -33,7 +33,7 @@ exports.run = () => __awaiter(this, void 0, void 0, function* () {
     plugins.beautylog.figletSync('NPMTS');
     let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot);
     // check for updates
-    yield plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version);
+    yield plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version, 'http://gitzone.gitlab.io/npmts/changelog.html');
     plugins.beautylog.log('---------------------------------------------');
     let npmtsCli = new plugins.smartcli.Smartcli();
     npmtsCli.standardTask()
