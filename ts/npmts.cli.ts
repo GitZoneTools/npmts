@@ -15,14 +15,30 @@ import * as NpmtsShip from './npmts.ship'
  * Since yarn is out and there is heavy caching going on,
  * pure download stats are just not reliable enough for us anymore
  * Feel free to dig into the smartanalytics package, if you are interested in how it works.
- * It is just an https call to Google Analytics.
+ * It is just an https call to our own Lossless Analytics API.
  * Our privacy policy can be found here: https://lossless.gmbh/privacy.html
  */
-let npmtsAnalytics = new plugins.smartanalytics.AnalyticsAccount('npmts','UA-64087619-5')
-npmtsAnalytics.sendEvent('npm','exec','git.zone')
+let npmtsAnalytics = new plugins.smartanalytics.Analytics({
+  apiEndPoint: 'https://pubapi-1.lossless.one/analytics',
+  projectId: 'gitzone',
+  appName: 'npmts'
+})
+
+process.nextTick(async () => {
+  // make the analytics call
+  npmtsAnalytics.recordEvent('npmToolExecution', {
+    executionMode: (await NpmtsConfig.configPromise).mode,
+    tsOptions: (await NpmtsConfig.configPromise).tsOptions,
+    watch: (await NpmtsConfig.configPromise).watch,
+    coverageTreshold: (await NpmtsConfig.configPromise).coverageTreshold
+  }).catch(err => {
+    plugins.beautylog.warn('Lossless Analytics API not available...')
+  })
+})
 
 export let run = async () => {
   let done = q.defer()
+
   plugins.beautylog.figletSync('NPMTS')
   let npmtsProjectInfo = new plugins.projectinfo.ProjectinfoNpm(paths.npmtsPackageRoot)
   // check for updates

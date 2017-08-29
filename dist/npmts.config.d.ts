@@ -23,3 +23,4 @@ export interface INpmtsConfig {
     };
 }
 export declare let run: (argvArg: any) => Promise<{}>;
+export declare let configPromise: Promise<INpmtsConfig>;

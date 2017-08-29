@@ -1,7 +1,7 @@
 import plugins = require('./npmts.plugins')
 import paths = require('./npmts.paths')
 
-import * as q from 'smartq'
+import * as smartq from 'smartq'
 
 // interfaces
 import { ITapbufferConfig } from 'tapbuffer'
@@ -32,7 +32,7 @@ export interface INpmtsConfig {
 }
 
 export let run = function (argvArg) {
-  let done = q.defer()
+  let done = smartq.defer()
   let defaultConfig: INpmtsConfig = {
     argv: undefined,
     coverageTreshold: 70,
@@ -104,5 +104,10 @@ export let run = function (argvArg) {
 
   plugins.beautylog.ok('build options are ready!')
   done.resolve(config)
+  configDeferred.resolve(config)
   return done.promise
 }
+
+// config deferred usage
+let configDeferred = smartq.defer<INpmtsConfig>()
+export let configPromise = configDeferred.promise

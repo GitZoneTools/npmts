@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const plugins = require("./npmts.plugins");
 const paths = require("./npmts.paths");
-const q = require("smartq");
+const smartq = require("smartq");
 exports.run = function (argvArg) {
-    let done = q.defer();
+    let done = smartq.defer();
     let defaultConfig = {
         argv: undefined,
         coverageTreshold: 70,
@@ -63,5 +63,9 @@ exports.run = function (argvArg) {
     }
     plugins.beautylog.ok('build options are ready!');
     done.resolve(config);
+    configDeferred.resolve(config);
     return done.promise;
 };
+// config deferred usage
+let configDeferred = smartq.defer();
+exports.configPromise = configDeferred.promise;

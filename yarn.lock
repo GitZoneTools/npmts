@@ -27,22 +27,22 @@
     "@types/promises-a-plus" "*"
 
 "@types/chai-string@^1.1.30":
-  version "1.1.30"
-  resolved "https://registry.yarnpkg.com/@types/chai-string/-/chai-string-1.1.30.tgz#4d8744b31a5a2295fc01c981ed1e2d4c8a070f0a"
+  version "1.1.31"
+  resolved "https://registry.yarnpkg.com/@types/chai-string/-/chai-string-1.1.31.tgz#a22f75d713f69da8c5cf34f8bc808a62cd249405"
   dependencies:
     "@types/chai" "*"
 
 "@types/chai@*":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.0.3.tgz#6c2264b195cd2bb4c95c108487e13df0c8567c3e"
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.0.4.tgz#fe86315d9a66827feeb16f73bc954688ec950e18"
 
 "@types/chai@^3.4.35":
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-3.5.2.tgz#c11cd2817d3a401b7ba0f5a420f35c56139b1c1e"
 
 "@types/chokidar@^1.7.0":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@types/chokidar/-/chokidar-1.7.1.tgz#f958c073fab94c2a9c67cca11ccdb80fd5c1b488"
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@types/chokidar/-/chokidar-1.7.2.tgz#7c6da2d5bd6a47c9bce0f09b904a30770581f605"
   dependencies:
     "@types/node" "*"
 
@@ -63,8 +63,8 @@
     "@types/node" "*"
 
 "@types/glob@*":
-  version "5.0.31"
-  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-5.0.31.tgz#6cb8500bd170750c1948f785cc5828e9cff0c36a"
+  version "5.0.32"
+  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-5.0.32.tgz#aec5cfe987c72f099fdb1184452986aa506d5e8f"
   dependencies:
     "@types/minimatch" "*"
     "@types/node" "*"
@@ -80,20 +80,20 @@
   resolved "https://registry.yarnpkg.com/@types/istanbul/-/istanbul-0.4.29.tgz#29c8cbb747ac57280965545dc58514ba0dbb99af"
 
 "@types/lodash@4.x.x", "@types/lodash@^4.14.50", "@types/lodash@^4.14.55", "@types/lodash@^4.14.64", "@types/lodash@^4.14.67", "@types/lodash@^4.14.68":
-  version "4.14.73"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.73.tgz#9837e47db8643ba5bcef2c7921f37d90f9c24213"
+  version "4.14.74"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.74.tgz#ac3bd8db988e7f7038e5d22bd76a7ba13f876168"
 
-"@types/minimatch@*", "@types/minimatch@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.0.tgz#a8b68c324817169b6004b432a598478a5d8f025a"
+"@types/minimatch@*", "@types/minimatch@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.1.tgz#b683eb60be358304ef146f5775db4c0e3696a550"
 
 "@types/minimatch@2.x.x":
   version "2.0.29"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-2.0.29.tgz#5002e14f75e2d71e564281df0431c8c1b4a2a36a"
 
 "@types/node@*", "@types/node@^8.0.10":
-  version "8.0.24"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.24.tgz#06c580084d9add1fb40c1510ef0b448961246fb1"
+  version "8.0.25"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.25.tgz#66ecaf4df93f5281b48427ee96fbcdfc4f0cdce1"
 
 "@types/open@^0.0.29":
   version "0.0.29"
@@ -108,12 +108,12 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
 
 "@types/q@1.x.x":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@types/q/-/q-1.0.3.tgz#08e99d20f7abfc0fe202b6d5a0921bfafcdea8d0"
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-1.0.5.tgz#02b9d43a1a8e7503d15ed2fecb15ebb18c519b1d"
 
 "@types/semver@^5.3.33":
-  version "5.3.34"
-  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-5.3.34.tgz#6fade409ceb8ae817c1f7f1cfa5375416e97045f"
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-5.4.0.tgz#f3658535af7f1f502acd6da7daf405ffeb1f7ee4"
 
 "@types/shelljs@^0.7.2":
   version "0.7.4"
@@ -135,8 +135,8 @@
     "@types/node" "*"
 
 "@types/vinyl@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/vinyl/-/vinyl-2.0.0.tgz#fd213bf7f4136dde21fe1895500b12c186f8c268"
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/vinyl/-/vinyl-2.0.1.tgz#6b414dfdcd4a785e8e76e87565ed29e79490d9b7"
   dependencies:
     "@types/node" "*"
 
@@ -861,9 +861,9 @@ es-to-primitive@^1.1.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.1"
 
-es5-ext@^0.10.12, es5-ext@^0.10.13, es5-ext@^0.10.14, es5-ext@^0.10.9, es5-ext@~0.10.14, es5-ext@~0.10.2:
-  version "0.10.29"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.29.tgz#768eb2dfc4957bcf35fa0568f193ab71ede53fd8"
+es5-ext@^0.10.12, es5-ext@^0.10.14, es5-ext@^0.10.30, es5-ext@^0.10.9, es5-ext@~0.10.14, es5-ext@~0.10.2:
+  version "0.10.30"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.30.tgz#7141a16836697dbabfaaaeee41495ce29f52c939"
   dependencies:
     es6-iterator "2"
     es6-symbol "~3.1"
@@ -883,7 +883,7 @@ es6-symbol@^3.1, es6-symbol@^3.1.1, es6-symbol@~3.1:
     d "1"
     es5-ext "~0.10.14"
 
-es6-weak-map@^2.0.1:
+es6-weak-map@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/es6-weak-map/-/es6-weak-map-2.0.2.tgz#5e3ab32251ffd1538a1f8e5ffa1357772f92d96f"
   dependencies:
@@ -923,7 +923,7 @@ esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
 
-event-emitter@^0.3.4:
+event-emitter@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/event-emitter/-/event-emitter-0.3.5.tgz#df8c69eef1647923c7157b9ce83840610b02cc39"
   dependencies:
@@ -1119,8 +1119,8 @@ fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
     rimraf "2"
 
 function-bind@^1.0.2, function-bind@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -1257,9 +1257,9 @@ gulp-sourcemaps@^2.6.1:
     through2 "2.X"
     vinyl "1.X"
 
-gulp-typescript@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-3.2.1.tgz#52cd77e9c6844e3b9a8bddd88e884ceb46a5db79"
+gulp-typescript@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-3.2.2.tgz#b7e5e1d3cb35f772e53e604026601826e2be77fc"
   dependencies:
     gulp-util "~3.0.7"
     source-map "~0.5.3"
@@ -1702,8 +1702,8 @@ levn@~0.3.0:
     type-check "~0.3.2"
 
 lik@^1.0.30, lik@^1.0.32, lik@^1.0.38:
-  version "1.0.38"
-  resolved "https://registry.yarnpkg.com/lik/-/lik-1.0.38.tgz#ccff0abd3d9236a5e4b7d80d514c5c210f18469b"
+  version "1.0.40"
+  resolved "https://registry.yarnpkg.com/lik/-/lik-1.0.40.tgz#2893563950263289899b79eb3a4d3c42609711bd"
   dependencies:
     "@types/lodash" "^4.14.67"
     "@types/minimatch" "2.x.x"
@@ -1877,8 +1877,8 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
 mathjs@^3.10.3:
-  version "3.16.1"
-  resolved "https://registry.yarnpkg.com/mathjs/-/mathjs-3.16.1.tgz#ba69b6344ed10b19c17af568a4b718a85eee9900"
+  version "3.16.3"
+  resolved "https://registry.yarnpkg.com/mathjs/-/mathjs-3.16.3.tgz#74f21d553d4cb1a82b480541ae1fcb0bd0f6f0aa"
   dependencies:
     complex.js "2.0.4"
     decimal.js "7.2.3"
@@ -1895,17 +1895,17 @@ mem@^1.1.0:
     mimic-fn "^1.0.0"
 
 memoizee@^0.4.3, memoizee@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/memoizee/-/memoizee-0.4.5.tgz#1bc3ea1e4be056dd475d521979d7be3d5e5b21c8"
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/memoizee/-/memoizee-0.4.9.tgz#ea1c005f5c4c31d89a4a10e24db83fbf61cdd4f3"
   dependencies:
     d "1"
-    es5-ext "^0.10.13"
-    es6-weak-map "^2.0.1"
-    event-emitter "^0.3.4"
+    es5-ext "^0.10.30"
+    es6-weak-map "^2.0.2"
+    event-emitter "^0.3.5"
     is-promise "^2.1"
     lru-queue "0.1"
     next-tick "1"
-    timers-ext "0.1"
+    timers-ext "^0.1.2"
 
 meow@^3.3.0:
   version "3.7.0"
@@ -1990,7 +1990,7 @@ moment-timezone@^0.5.x:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0":
+"moment@>= 2.9.0", moment@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
@@ -2633,9 +2633,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-smartanalytics@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/smartanalytics/-/smartanalytics-1.0.6.tgz#5094a29a53f4e005951680365f20d7125fc713f9"
+smartanalytics@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/smartanalytics/-/smartanalytics-2.0.8.tgz#aaa08a3dacb1702955e00bfb315e7ed6b8470230"
   dependencies:
     smartq "^1.1.1"
     smartrequest "^1.0.4"
@@ -2887,14 +2887,15 @@ smartsystem@^2.0.2:
     typings-global "^1.0.20"
 
 smarttime@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/smarttime/-/smarttime-1.0.9.tgz#a307bde5bb56207a4bc92eeb416de503dae64fec"
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/smarttime/-/smarttime-1.0.10.tgz#6bbcc0e31fb60bb085ad49c126436a5665d1b92a"
   dependencies:
+    moment "^2.18.1"
     typings-global "^1.0.16"
 
-smartupdate@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.9.tgz#d9b0f6a62c42df51221c9ce193e703d2cdaffd26"
+smartupdate@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.10.tgz#b6f8ca780e6c16686ac7d1381a539ff59cbed0de"
   dependencies:
     beautycolor "^1.0.11"
     beautylog "^6.1.10"
@@ -2939,8 +2940,8 @@ source-map-url@~0.3.0:
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.3.0.tgz#7ecaf13b57bcd09da8a40c5d269db33799d4aaf9"
 
 source-map@0.X, source-map@>=0.5.6, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
 
 source-map@^0.1.38:
   version "0.1.43"
@@ -3115,8 +3116,8 @@ symbol-observable@^1.0.1:
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
 systemjs@^0.20.17:
-  version "0.20.17"
-  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-0.20.17.tgz#b3143bb7e02d2f41b9a640351a06024b7b63ae59"
+  version "0.20.18"
+  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-0.20.18.tgz#2dfd55a970cf8a04fa53c998c00d8226a83b1db0"
 
 tap-mocha-reporter@^3.0.6:
   version "3.0.6"
@@ -3235,7 +3236,7 @@ time-stamp@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/time-stamp/-/time-stamp-1.1.0.tgz#764a5a11af50561921b133f3b44e618687e0f5c3"
 
-timers-ext@0.1:
+timers-ext@0.1, timers-ext@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/timers-ext/-/timers-ext-0.1.2.tgz#61cc47a76c1abd3195f14527f978d58ae94c5204"
   dependencies:
