@@ -17,6 +17,10 @@ projectroot
 |- .gitignore        # the normal gitignore file
 |- .gitlab-ci.yml    # the gitlab ci yml file
 |- npmextra.json     # npmextra.json
+|- package.json      # the standard npm module package.json file
+|- readme.md         # the standard project readme
+|- tslint.json       # the standard tslint.json for TypeScript
+|- yarn.lock         # yarn.lock - the standard yarn.lock file
 ```
 
 **in git**
