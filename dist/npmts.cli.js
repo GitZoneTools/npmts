@@ -27,7 +27,7 @@ const NpmtsShip = require("./npmts.ship");
  * Our privacy policy can be found here: https://lossless.gmbh/privacy.html
  */
 let npmtsAnalytics = new plugins.smartanalytics.Analytics({
-    apiEndPoint: 'https://pubapi-1.lossless.one/analytics',
+    apiEndPoint: 'https://pubapi.lossless.one/analytics',
     projectId: 'gitzone',
     appName: 'npmts'
 });
