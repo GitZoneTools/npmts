@@ -20,8 +20,6 @@ mirror:
     - npmci git mirror
   tags:
     - docker
-  only:
-    - tags
 
 testLEGACY:
   stage: test
