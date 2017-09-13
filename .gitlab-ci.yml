@@ -7,11 +7,21 @@ cache:
   key: "$CI_BUILD_STAGE"
 
 stages:
+- mirror
 - test
 - release
 - trigger
-- mirror
 - pages
+
+mirror:
+  image: hosttoday/ht-docker-node:npmci
+  stage: mirror
+  script:
+    - npmci git mirror
+  tags:
+    - docker
+  only:
+    - tags
 
 testLEGACY:
   stage: test
@@ -62,16 +72,6 @@ trigger:
     - tags
   tags:
     - docker
-
-mirror:
-  image: hosttoday/ht-docker-node:npmci
-  stage: mirror
-  script:
-    - npmci git mirror
-  tags:
-    - docker
-  only:
-    - tags
 
 pages:
   image: hosttoday/ht-docker-node:npmci
