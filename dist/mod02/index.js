@@ -14,6 +14,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const plugins = require("./mod02.plugins");
 const paths = require("../npmts.paths");
 const q = require("smartq");
+let testTypeScriptConfig = {
+    target: 'ES5',
+    emitDecoratorMetadata: true,
+    experimentalDecorators: true,
+    lib: [
+        'DOM',
+        'ESNext'
+    ]
+};
 /**
  * runs mocha
  * @returns INpmtsConfig
@@ -31,12 +40,7 @@ let tap = function (configArg) {
     let testableFilesSmartstream = new plugins.smartstream.Smartstream([
         plugins.smartgulp.src([plugins.path.join(paths.cwd, './ts/**/*.ts')]),
         plugins.gulpSourcemaps.init(),
-        plugins.gulpTypeScript({
-            target: 'ES5',
-            emitDecoratorMetadata: true,
-            experimentalDecorators: true,
-            lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
-        }),
+        plugins.gulpTypeScript(testTypeScriptConfig),
         plugins.gulpSourcemaps.write(),
         npmtsTapBuffer.pipeTestableFiles(),
         plugins.smartstream.cleanPipe()
@@ -47,12 +51,7 @@ let tap = function (configArg) {
     let testFilesSmartstream = new plugins.smartstream.Smartstream([
         plugins.smartgulp.src([plugins.path.join(paths.cwd, 'test/*.ts')]),
         plugins.gulpSourcemaps.init(),
-        plugins.gulpTypeScript({
-            target: 'ES5',
-            emitDecoratorMetadata: true,
-            experimentalDecorators: true,
-            lib: ['DOM', 'ES5', 'ES2015.Promise', 'ES2015.Generator', 'ES2015.Iterable']
-        }),
+        plugins.gulpTypeScript(testTypeScriptConfig),
         plugins.gulpSourcemaps.write(),
         npmtsTapBuffer.pipeTestFiles(),
         plugins.smartstream.cleanPipe()
