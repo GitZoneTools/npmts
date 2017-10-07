@@ -2862,9 +2862,9 @@ smarttime@^1.0.10:
     moment "^2.18.1"
     typings-global "^1.0.16"
 
-smartupdate@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.12.tgz#d583b532de240ad6dde7d88d2cadfa4463625ecb"
+smartupdate@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/smartupdate/-/smartupdate-1.0.13.tgz#683c921370ad2a0cf6f45b55cb930f038f00e449"
   dependencies:
     beautycolor "^1.0.11"
     beautylog "^6.1.10"
@@ -3277,9 +3277,13 @@ typed-function@0.10.5:
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/typed-function/-/typed-function-0.10.5.tgz#2e0f18abd065219fab694a446a65c6d1981832c0"
 
-typescript@^2.1.5, typescript@^2.5.2:
+typescript@^2.1.5:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.2.tgz#038a95f7d9bbb420b1bf35ba31d4c5c1dd3ffe34"
+
+typescript@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.3.tgz#df3dcdc38f3beb800d4bc322646b04a3f6ca7f0d"
 
 typings-global@^1.0.14, typings-global@^1.0.16, typings-global@^1.0.17, typings-global@^1.0.19, typings-global@^1.0.20, typings-global@^1.0.3:
   version "1.0.20"
