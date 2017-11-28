@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* ------------------------------------------
  * This module tests the compiled TypeScript files
  * -------------------------------------------- */
-const plugins = require("./mod02.plugins");
+const plugins = require("./mod.plugins");
 const paths = require("../npmts.paths");
 const q = require("smartq");
 let testTypeScriptConfig = {

@@ -6,7 +6,7 @@ import { INpmtsConfig } from '../npmts.config'
 
 import * as paths from '../npmts.paths'
 
-import * as plugins from './mod00.plugins'
+import * as plugins from './mod.plugins'
 
 export let projectInfo: ProjectinfoNpm
 
@@ -17,7 +17,7 @@ let checkProjectTypings = (configArg: INpmtsConfig) => {
   if (typeof projectInfo.packageJson.typings === 'undefined') {
     plugins.beautylog.error(`please add typings field to package.json`)
     process.exit(1)
-  };
+  }
   done.resolve(configArg)
   return done.promise
 }
@@ -64,7 +64,7 @@ let checkDependencies = (configArg: INpmtsConfig) => {
     }
     for (let item in unused.invalidFiles) {
       plugins.beautylog.warn(`Watch out: could not parse file ${item}`)
-    };
+    }
     for (let item in unused.invalidDirs) {
       plugins.beautylog.warn(`Watch out: could not parse directory ${item}`)
     }

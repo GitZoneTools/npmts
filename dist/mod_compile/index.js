@@ -5,11 +5,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Note: Test files are only compiled in memory
  * -------------------------------------------- */
 const q = require("smartq");
-const plugins = require("./mod00.plugins");
-const NpmtsAssets = require("./mod00.assets");
-const NpmtsCheck = require("./mod00.check");
-const NpmtsClean = require("./mod00.clean");
-const NpmtsCompile = require("./mod00.compile");
+const plugins = require("./mod.plugins");
+const NpmtsAssets = require("./mod.assets");
+const NpmtsCheck = require("./mod.check");
+const NpmtsClean = require("./mod.clean");
+const NpmtsCompile = require("./mod.compile");
 exports.run = function (configArg) {
     let done = q.defer();
     plugins.beautylog.ora.text('starting TypeScript Compilation');

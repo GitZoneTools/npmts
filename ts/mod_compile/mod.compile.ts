@@ -2,7 +2,7 @@ import * as q from 'smartq'
 
 import * as paths from '../npmts.paths'
 
-import * as plugins from './mod00.plugins'
+import * as plugins from './mod.plugins'
 
 export let run = function (configArg) {
   let done = q.defer()

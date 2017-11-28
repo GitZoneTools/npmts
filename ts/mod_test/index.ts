@@ -1,7 +1,7 @@
 /* ------------------------------------------
  * This module tests the compiled TypeScript files
  * -------------------------------------------- */
-import plugins = require('./mod02.plugins')
+import plugins = require('./mod.plugins')
 import paths = require('../npmts.paths')
 
 import * as q from 'smartq'

@@ -53,15 +53,15 @@ export let run = async () => {
     .then((configArg: NpmtsConfig.INpmtsConfig) => {
       let done = q.defer()
       plugins.beautylog.ora.start('loading additional modules...')
-      NpmtsMods.mod00.load()
-        .then((mod00) => {
-          return mod00.run(configArg)
+      NpmtsMods.modCompile.load()
+        .then((modCompile) => {
+          return modCompile.run(configArg)
         })
         .then(configArg => {
           let done = q.defer<NpmtsConfig.INpmtsConfig>()
-          NpmtsMods.mod01.load()
-            .then(mod01 => {
-              return mod01.run(configArg)
+          NpmtsMods.modDocs.load()
+            .then(modDocs => {
+              return modDocs.run(configArg)
             })
             .then(configArg => {
               done.resolve(configArg)
@@ -70,9 +70,9 @@ export let run = async () => {
         })
         .then(configArg => {
           let done = q.defer<NpmtsConfig.INpmtsConfig>()
-          NpmtsMods.mod02.load()
-            .then(mod02 => {
-              return mod02.run(configArg)
+          NpmtsMods.modTest.load()
+            .then(modTest => {
+              return modTest.run(configArg)
             })
             .then(configArg => {
               done.resolve(configArg)

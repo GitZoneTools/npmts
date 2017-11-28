@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const q = require("smartq");
 const projectinfo_1 = require("projectinfo");
 const paths = require("../npmts.paths");
-const plugins = require("./mod00.plugins");
+const plugins = require("./mod.plugins");
 let checkProjectTypings = (configArg) => {
     let done = q.defer();
     plugins.beautylog.ora.text('Check Module: Check Project Typings...');
@@ -20,7 +20,6 @@ let checkProjectTypings = (configArg) => {
         plugins.beautylog.error(`please add typings field to package.json`);
         process.exit(1);
     }
-    ;
     done.resolve(configArg);
     return done.promise;
 };
@@ -66,7 +65,6 @@ let checkDependencies = (configArg) => {
         for (let item in unused.invalidFiles) {
             plugins.beautylog.warn(`Watch out: could not parse file ${item}`);
         }
-        ;
         for (let item in unused.invalidDirs) {
             plugins.beautylog.warn(`Watch out: could not parse directory ${item}`);
         }

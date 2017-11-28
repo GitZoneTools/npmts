@@ -1,7 +1,7 @@
 import * as q from 'smartq'
 import paths = require('../npmts.paths')
 
-import plugins = require('./mod00.plugins')
+import plugins = require('./mod.plugins')
 
 /**
  * removes the  dist directory which will be entirely rebuild
