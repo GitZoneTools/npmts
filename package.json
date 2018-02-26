@@ -42,7 +42,7 @@
     "early": "^2.1.1",
     "gulp-function": "^2.2.9",
     "gulp-sourcemaps": "^2.6.1",
-    "gulp-typescript": "^3.2.3",
+    "gulp-typescript": "^4.0.1",
     "lodash": "^4.17.4",
     "npmextra": "^2.0.9",
     "projectinfo": "^3.0.4",
@@ -64,5 +64,7 @@
     "tsn": "^2.0.15",
     "typescript": "^2.6.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^9.4.6"
+  }
 }

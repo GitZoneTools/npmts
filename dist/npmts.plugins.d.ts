@@ -1,4 +1,3 @@
-import 'typings-global';
 import * as beautylog from 'beautylog';
 declare let depcheck: any;
 import * as lodash from 'lodash';
