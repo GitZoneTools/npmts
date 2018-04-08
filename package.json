@@ -38,23 +38,23 @@
     "@types/minimatch": "^3.0.1",
     "@types/through2": "^2.0.33",
     "beautylog": "^6.1.10",
-    "depcheck": "^0.6.8",
+    "depcheck": "^0.6.9",
     "early": "^2.1.1",
     "gulp-function": "^2.2.9",
     "gulp-sourcemaps": "^2.6.1",
-    "gulp-typescript": "^4.0.1",
+    "gulp-typescript": "^4.0.2",
     "lodash": "^4.17.4",
     "npmextra": "^2.0.9",
     "projectinfo": "^3.0.4",
     "smartanalytics": "^2.0.9",
-    "smartchok": "^1.0.11",
+    "smartchok": "1.0.14",
     "smartcli": "^2.0.9",
     "smartcov": "^1.0.2",
     "smarterror": "^1.0.3",
     "smartfile": "^4.2.26",
     "smartgulp": "^1.0.6",
     "smartpath": "^3.2.8",
-    "smartq": "^1.1.6",
+    "smartq": "^1.1.8",
     "smartstream": "^1.0.10",
     "smartstring": "^2.0.28",
     "smartsystem": "^2.0.2",
@@ -62,9 +62,9 @@
     "tapbuffer": "^1.0.31",
     "through2": "^2.0.3",
     "tsn": "^2.0.15",
-    "typescript": "^2.6.2"
+    "typescript": "^2.8.1"
   },
   "devDependencies": {
-    "@types/node": "^9.4.6"
+    "@types/node": "^9.6.2"
   }
 }

@@ -1,0 +1,90 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.10.2
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:debug:20170905':
+    - node-pre-gyp > tar-pack > debug:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+      smartchok > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        reason: None given
+        expires: '2018-05-08T23:12:05.487Z'
+  'npm:tough-cookie:20170905':
+    - node-pre-gyp > request > tough-cookie:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+      smartchok > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        reason: None given
+        expires: '2018-05-08T23:12:05.487Z'
+  'npm:hoek:20180212':
+    - boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - hawk > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > hawk > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > request > hawk > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - hawk > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > hawk > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > hawk > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > request > hawk > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > request > hawk > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - node-pre-gyp > request > hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+    - smartchok > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+  'npm:shelljs:20140723':
+    - tapbuffer > smartshell > shelljs:
+        reason: None given
+        expires: '2018-05-08T23:10:17.169Z'
+patch: {}
