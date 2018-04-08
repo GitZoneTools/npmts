@@ -1,34 +1,34 @@
-import * as q from 'smartq'
-import * as smartchok from 'smartchok'
+import * as q from 'smartq';
+import * as smartchok from 'smartchok';
 
-import * as plugins from './npmts.plugins'
-import * as cli from './npmts.cli'
+import * as plugins from './npmts.plugins';
+import * as cli from './npmts.cli';
 
-import { INpmtsConfig } from './npmts.config'
+import { INpmtsConfig } from './npmts.config';
 
-let npmtsSmartchok: smartchok.Smartchok = null
+let npmtsSmartchok: smartchok.Smartchok = null;
 export let run = (configArg: INpmtsConfig) => {
-  let done = q.defer()
+  let done = q.defer();
   if (configArg.watch && npmtsSmartchok === null) {
-    let pathsToWatch: string[] = []
+    let pathsToWatch: string[] = [];
     for (let key in configArg.ts) {
-      pathsToWatch.push(key)
+      pathsToWatch.push(key);
     }
     for (let key in configArg.testTs) {
-      pathsToWatch.push(key)
+      pathsToWatch.push(key);
     }
-    npmtsSmartchok = new smartchok.Smartchok(pathsToWatch)
-    npmtsSmartchok.getObservableFor('change').then((changeObservableArg) => {
-      plugins.beautylog.info('now watching...')
+    npmtsSmartchok = new smartchok.Smartchok(pathsToWatch);
+    npmtsSmartchok.getObservableFor('change').then(changeObservableArg => {
+      plugins.beautylog.info('now watching...');
       changeObservableArg.subscribe(() => {
-        cli.run()
-      })
-    })
-    npmtsSmartchok.start()
-    done.resolve(configArg)
+        cli.run();
+      });
+    });
+    npmtsSmartchok.start();
+    done.resolve(configArg);
   } else {
-    plugins.beautylog.info('not watching')
-    done.resolve(configArg)
+    plugins.beautylog.info('not watching');
+    done.resolve(configArg);
   }
-  return done.promise
-}
+  return done.promise;
+};

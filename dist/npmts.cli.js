@@ -33,12 +33,14 @@ let npmtsAnalytics = new plugins.smartanalytics.Analytics({
 });
 process.nextTick(() => __awaiter(this, void 0, void 0, function* () {
     // make the analytics call
-    npmtsAnalytics.recordEvent('npmToolExecution', {
+    npmtsAnalytics
+        .recordEvent('npmToolExecution', {
         executionMode: (yield NpmtsConfig.configPromise).mode,
         tsOptions: (yield NpmtsConfig.configPromise).tsOptions,
         watch: (yield NpmtsConfig.configPromise).watch,
         coverageTreshold: (yield NpmtsConfig.configPromise).coverageTreshold
-    }).catch(err => {
+    })
+        .catch(err => {
         plugins.beautylog.warn('Lossless Analytics API not available...');
     });
 }));
@@ -50,21 +52,24 @@ exports.run = () => __awaiter(this, void 0, void 0, function* () {
     yield plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version, 'http://gitzone.gitlab.io/npmts/changelog.html');
     plugins.beautylog.log('---------------------------------------------');
     let npmtsCli = new plugins.smartcli.Smartcli();
-    npmtsCli.standardTask()
-        .then((argvArg) => {
+    npmtsCli
+        .standardTask()
+        .then(argvArg => {
         plugins.beautylog.info('npmts version: ' + npmtsProjectInfo.version);
         return NpmtsConfig.run(argvArg);
     })
         .then((configArg) => {
         let done = q.defer();
         plugins.beautylog.ora.start('loading additional modules...');
-        NpmtsMods.modCompile.load()
-            .then((modCompile) => {
+        NpmtsMods.modCompile
+            .load()
+            .then(modCompile => {
             return modCompile.run(configArg);
         })
             .then(configArg => {
             let done = q.defer();
-            NpmtsMods.modDocs.load()
+            NpmtsMods.modDocs
+                .load()
                 .then(modDocs => {
                 return modDocs.run(configArg);
             })
@@ -75,7 +80,8 @@ exports.run = () => __awaiter(this, void 0, void 0, function* () {
         })
             .then(configArg => {
             let done = q.defer();
-            NpmtsMods.modTest.load()
+            NpmtsMods.modTest
+                .load()
                 .then(modTest => {
                 return modTest.run(configArg);
             })
@@ -88,9 +94,11 @@ exports.run = () => __awaiter(this, void 0, void 0, function* () {
             .then(NpmtsShip.run);
         return done.promise;
     })
-        .catch((err) => { if (err instanceof Error) {
-        console.log(err);
-    } });
+        .catch(err => {
+        if (err instanceof Error) {
+            console.log(err);
+        }
+    });
     npmtsCli.addVersion(npmtsProjectInfo.version);
     npmtsCli.startParse();
     return yield done.promise;

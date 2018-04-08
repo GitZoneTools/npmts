@@ -7,76 +7,84 @@ cache:
   key: "$CI_BUILD_STAGE"
 
 stages:
-- mirror
+- security
 - test
 - release
 - trigger
 - pages
 
 mirror:
-  image: hosttoday/ht-docker-node:npmci
-  stage: mirror
+  stage: security
   script:
-    - npmci git mirror
+  - npmci git mirror
   tags:
-    - docker
+  - docker
+
+snyk:
+  stage: security
+  script:
+    - npmci command yarn global add snyk
+    - npmci command yarn install --ignore-scripts
+    - npmci command snyk test
+  tags:
+  - docker
 
 testLEGACY:
   stage: test
   script:
-    - npmci node install legacy
-    - npmci npm install
-    - npmci npm test
+  - npmci node install legacy
+  - npmci npm install
+  - npmci npm test
   coverage: /\d+.?\d+?\%\s*coverage/
   tags:
-    - docker
+  - docker
   allow_failure: true
 
 testLTS:
   stage: test
   script:
-    - npmci node install lts
-    - npmci npm install
-    - npmci npm test
+  - npmci node install lts
+  - npmci npm install
+  - npmci npm test
   coverage: /\d+.?\d+?\%\s*coverage/
   tags:
-    - docker
+  - docker
     
 testSTABLE:
   stage: test
   script:
-    - npmci node install stable
-    - npmci npm install
-    - npmci npm test
+  - npmci node install stable
+  - npmci npm install
+  - npmci npm test
   coverage: /\d+.?\d+?\%\s*coverage/
   tags:
-    - docker
+  - docker
 
 release:
   stage: release
   script:
-    - npmci npm prepare
-    - npmci npm publish
+  - npmci npm prepare
+  - npmci npm publish
   only:
-    - tags
+  - tags
   tags:
-    - docker
+  - docker
 
 trigger:
   stage: trigger
   script:
-    - npmci trigger
+  - npmci trigger
   only:
-    - tags
+  - tags
   tags:
-    - docker
+  - docker
 
 pages:
   image: hosttoday/ht-docker-node:npmci
   stage: pages
   script:
     - npmci command yarn global add npmpage
-    - npmci command npmpage --publish gitlab
+    - npmci command npmpage
   tags:
     - docker
   only:

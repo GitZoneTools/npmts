@@ -26,13 +26,16 @@ let checkProjectTypings = (configArg) => {
 const depcheckOptions = {
     ignoreBinPackage: false,
     parsers: {
+        // the target parsers
         '*.ts': plugins.depcheck.parser.typescript
     },
     detectors: [
+        // the target detectors
         plugins.depcheck.detector.requireCallExpression,
         plugins.depcheck.detector.importDeclaration
     ],
     specials: [
+        // the target special parsers
         plugins.depcheck.special.eslint,
         plugins.depcheck.special.webpack
     ]
@@ -42,16 +45,18 @@ let checkDependencies = (configArg) => {
     plugins.beautylog.ora.text('Check Module: Check Dependencies...');
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
+            // folder with these names will be ignored
             'test',
             'dist',
             'bower_components'
         ],
         ignoreMatches: [
+            // ignore dependencies that matches these globs
             '@types/*',
             'babel-preset-*'
         ]
     });
-    plugins.depcheck(paths.cwd, depcheckOptionsMerged, (unused) => {
+    plugins.depcheck(paths.cwd, depcheckOptionsMerged, unused => {
         for (let item of unused.dependencies) {
             plugins.beautylog.warn(`Watch out: unused dependency "${item}"`);
         }
@@ -77,16 +82,18 @@ let checkDevDependencies = (configArg) => {
     plugins.beautylog.ora.text('Check Module: Check devDependencies...');
     let depcheckOptionsMerged = plugins.lodash.merge(depcheckOptions, {
         ignoreDirs: [
+            // folder with these names will be ignored
             'ts',
             'dist',
             'bower_components'
         ],
         ignoreMatches: [
+            // ignore dependencies that matches these globs
             '@types/*',
             'babel-preset-*'
         ]
     });
-    plugins.depcheck(paths.cwd, depcheckOptionsMerged, (unused) => {
+    plugins.depcheck(paths.cwd, depcheckOptionsMerged, unused => {
         for (let item of unused.devDependencies) {
             plugins.beautylog.log(`unused devDependency ${item}`);
         }

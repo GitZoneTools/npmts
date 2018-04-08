@@ -1,11 +1,7 @@
-export * from '../npmts.plugins'
+export * from '../npmts.plugins';
 
-import * as tsn from 'tsn'
-import * as smartchok from 'smartchok'
-import * as smartstream from 'smartstream'
+import * as tsn from 'tsn';
+import * as smartchok from 'smartchok';
+import * as smartstream from 'smartstream';
 
-export {
-    tsn,
-    smartchok,
-    smartstream
-}
+export { tsn, smartchok, smartstream };

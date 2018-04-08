@@ -18,10 +18,7 @@ let testTypeScriptConfig = {
     target: 'ES5',
     emitDecoratorMetadata: true,
     experimentalDecorators: true,
-    lib: [
-        'DOM',
-        'ESNext'
-    ]
+    lib: ['DOM', 'ESNext']
 };
 /**
  * runs mocha
@@ -57,13 +54,10 @@ let tap = function (configArg) {
         plugins.smartstream.cleanPipe()
     ]);
     // lets run the smartstream
-    Promise.all([
-        testableFilesSmartstream.run(),
-        testFilesSmartstream.run()
-    ]).then(() => __awaiter(this, void 0, void 0, function* () {
+    Promise.all([testableFilesSmartstream.run(), testFilesSmartstream.run()]).then(() => __awaiter(this, void 0, void 0, function* () {
         configArg.runData.coverageLcovInfo = yield npmtsTapBuffer.runTests();
         done.resolve(configArg);
-    }), (err) => {
+    }), err => {
         plugins.beautylog.error('Tests failed!');
         console.log(err);
         if (configArg.watch) {
@@ -84,14 +78,14 @@ let handleCoverageData = (configArg) => __awaiter(this, void 0, void 0, function
         plugins.beautylog.warn('Hey... Did your tests import and use your module that you are trying to test?');
     }
     if (coverageResult >= configArg.coverageTreshold) {
-        plugins.beautylog.ok(`${(coverageResult).toString()}% `
-            + `coverage exceeds your treshold of `
-            + `${configArg.coverageTreshold.toString()}%`);
+        plugins.beautylog.ok(`${coverageResult.toString()}% ` +
+            `coverage exceeds your treshold of ` +
+            `${configArg.coverageTreshold.toString()}%`);
     }
     else {
-        plugins.beautylog.warn(`${(coverageResult).toString()}% `
-            + `coverage fails your treshold of `
-            + `${configArg.coverageTreshold.toString()}%`);
+        plugins.beautylog.warn(`${coverageResult.toString()}% ` +
+            `coverage fails your treshold of ` +
+            `${configArg.coverageTreshold.toString()}%`);
         plugins.beautylog.error('exiting due to coverage failure');
         if (!configArg.watch) {
             process.exit(1);
@@ -111,13 +105,19 @@ exports.run = function (configArg) {
                 .then(handleCoverageData)
                 .then(() => {
                 done.resolve(config);
-            }).catch(err => { console.log(err); });
+            })
+                .catch(err => {
+                console.log(err);
+            });
         }
         else {
             tap(config)
                 .then(() => {
                 done.resolve(config);
-            }).catch(err => { console.log(err); });
+            })
+                .catch(err => {
+                console.log(err);
+            });
         }
     }
     else {

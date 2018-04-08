@@ -1,8 +1,9 @@
 # Install npmts
+
 Get started with TypeScript awesomeness.
 
-> **npmts-g* checks if the global version of npmts suffices the modules requirements.
-If not it installs npmts locally in the right version during npm install. 
+> \*_npmts-g_ checks if the global version of npmts suffices the modules requirements.
+> If not it installs npmts locally in the right version during npm install.
 
 ```sh
 npm install npmts -g # installs npmts globally

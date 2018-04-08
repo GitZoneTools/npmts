@@ -1,2 +1,1 @@
-export * from '../npmts.plugins'
-
+export * from '../npmts.plugins';

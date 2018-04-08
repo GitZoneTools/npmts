@@ -2,7 +2,9 @@
 name: Get Started
 description: learn how to quickly write npm TypeScript modules
 ---
+
 # Get Started with NPMTS
+
 and learn how to quickly write npm TypeScript modules
 
 ## Step1: Install the tools
@@ -15,7 +17,7 @@ yarn global add npmts # install with yarn
 ```
 
 For the purpose of getting started quickly please also install **gitzone**.
-It'll proovide awesome scaffolding for new npmts maintained modules and also updates them later on. 
+It'll proovide awesome scaffolding for new npmts maintained modules and also updates them later on.
 
 ```sh
 npm install -g gitzone # install with npm
