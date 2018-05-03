@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "(npm run compile && npm run prepareTest && npm run setupCheck && npm run check && npm run checkVersion && npm run checkNoTest && npm run checkNoDocs)",
+    "build": "npm test",
     "testShort": "(npm run compile && npm run check)",
     "prepareTest": "(rm -rf test/)",
     "compile": "(rm -rf dist/ && tsc)",
