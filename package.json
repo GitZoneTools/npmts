@@ -1,6 +1,6 @@
 {
   "name": "@gitzone/npmts",
-  "version": "8.0.31",
+  "version": "8.0.32",
   "description": "best practice npm TypeScript modules",
   "main": "dist/index.js",
   "bin": {
