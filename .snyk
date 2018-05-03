@@ -1,19 +1,19 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.10.2
+version: v1.12.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:debug:20170905':
     - node-pre-gyp > tar-pack > debug:
         reason: None given
         expires: '2018-05-08T23:10:17.169Z'
-      smartchok > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+    - smartchok > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
         reason: None given
         expires: '2018-05-08T23:12:05.487Z'
   'npm:tough-cookie:20170905':
     - node-pre-gyp > request > tough-cookie:
         reason: None given
         expires: '2018-05-08T23:10:17.169Z'
-      smartchok > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+    - smartchok > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
         reason: None given
         expires: '2018-05-08T23:12:05.487Z'
   'npm:hoek:20180212':
@@ -87,4 +87,25 @@ ignore:
     - tapbuffer > smartshell > shelljs:
         reason: None given
         expires: '2018-05-08T23:10:17.169Z'
+  'npm:atob:20180429':
+    - gulp-sourcemaps > css > source-map-resolve > atob:
+        reason: None given
+        expires: '2018-06-02T10:44:49.656Z'
+    - gulp-sourcemaps > @gulp-sourcemaps/identity-map > css > source-map-resolve > atob:
+        reason: None given
+        expires: '2018-06-02T10:44:49.656Z'
+  'npm:deep-extend:20180409':
+    - smartchok > chokidar > fsevents > node-pre-gyp > rc > deep-extend:
+        reason: None given
+        expires: '2018-06-02T10:44:49.656Z'
+    - deep-extend:
+        reason: None given
+        expires: '2018-06-02T10:44:49.656Z'
+    - node-pre-gyp > rc > deep-extend:
+        reason: None given
+        expires: '2018-06-02T10:44:49.656Z'
+  'npm:sshpk:20180409':
+    - smartchok > chokidar > fsevents > node-pre-gyp > request > http-signature > sshpk:
+        reason: None given
+        expires: '2018-06-02T10:44:49.656Z'
 patch: {}
