@@ -34,6 +34,7 @@
   },
   "homepage": "https://gitlab.com/gitzone/npmts#readme",
   "dependencies": {
+    "@pushrocks/smartcli": "^3.0.0",
     "@types/gulp-sourcemaps": "0.0.32",
     "@types/minimatch": "^3.0.1",
     "@types/through2": "^2.0.33",
@@ -43,12 +44,11 @@
     "gulp-function": "^2.2.9",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-typescript": "^4.0.2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.10",
     "npmextra": "^2.0.9",
     "projectinfo": "^3.0.4",
     "smartanalytics": "^2.0.9",
     "smartchok": "1.0.14",
-    "smartcli": "^2.0.9",
     "smartcov": "^1.0.2",
     "smarterror": "^1.0.3",
     "smartfile": "^4.2.26",
@@ -62,9 +62,9 @@
     "tapbuffer": "^1.0.31",
     "through2": "^2.0.3",
     "tsn": "^2.0.15",
-    "typescript": "^2.8.1"
+    "typescript": "^2.8.3"
   },
   "devDependencies": {
-    "@types/node": "^9.6.2"
+    "@types/node": "^10.0.3"
   }
 }

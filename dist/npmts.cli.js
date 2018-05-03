@@ -52,14 +52,13 @@ exports.run = () => __awaiter(this, void 0, void 0, function* () {
     yield plugins.smartupdate.standardHandler.check('npmts', npmtsProjectInfo.version, 'http://gitzone.gitlab.io/npmts/changelog.html');
     plugins.beautylog.log('---------------------------------------------');
     let npmtsCli = new plugins.smartcli.Smartcli();
+    // build
     npmtsCli
-        .standardTask()
-        .then(argvArg => {
-        plugins.beautylog.info('npmts version: ' + npmtsProjectInfo.version);
-        return NpmtsConfig.run(argvArg);
-    })
-        .then((configArg) => {
+        .addCommand('build')
+        .subscribe((argvArg) => __awaiter(this, void 0, void 0, function* () {
         let done = q.defer();
+        plugins.beautylog.info('npmts version: ' + npmtsProjectInfo.version);
+        const configArg = yield NpmtsConfig.run(argvArg);
         plugins.beautylog.ora.start('loading additional modules...');
         NpmtsMods.modCompile
             .load()
@@ -93,13 +92,18 @@ exports.run = () => __awaiter(this, void 0, void 0, function* () {
             .then(NpmtsWatch.run)
             .then(NpmtsShip.run);
         return done.promise;
-    })
-        .catch(err => {
+    }), err => {
         if (err instanceof Error) {
             console.log(err);
         }
     });
+    // standard task
+    npmtsCli.standardTask().subscribe((argvArg) => __awaiter(this, void 0, void 0, function* () {
+        yield npmtsCli.trigger('build');
+    }));
+    // cli metadata
     npmtsCli.addVersion(npmtsProjectInfo.version);
+    // start parsing
     npmtsCli.startParse();
     return yield done.promise;
 });

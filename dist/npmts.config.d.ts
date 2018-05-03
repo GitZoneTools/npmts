@@ -22,5 +22,5 @@ export interface INpmtsConfig {
         coverageResult?: number;
     };
 }
-export declare let run: (argvArg: any) => Promise<{}>;
+export declare let run: (argvArg: any) => Promise<INpmtsConfig>;
 export declare let configPromise: Promise<INpmtsConfig>;

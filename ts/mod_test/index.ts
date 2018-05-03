@@ -108,6 +108,10 @@ let handleCoverageData = async (configArg: INpmtsConfig) => {
   return configArg;
 };
 
+/**
+ * run this module
+ * @param configArg some config for how to run this module
+ */
 export let run = function(configArg: INpmtsConfig) {
   let done = q.defer<INpmtsConfig>();
   let config = configArg;

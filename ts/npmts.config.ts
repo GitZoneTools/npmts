@@ -32,7 +32,7 @@ export interface INpmtsConfig {
 }
 
 export let run = function(argvArg) {
-  let done = smartq.defer();
+  let done = smartq.defer<INpmtsConfig>();
   let defaultConfig: INpmtsConfig = {
     argv: undefined,
     coverageTreshold: 70,

@@ -93,6 +93,10 @@ let handleCoverageData = (configArg) => __awaiter(this, void 0, void 0, function
     }
     return configArg;
 });
+/**
+ * run this module
+ * @param configArg some config for how to run this module
+ */
 exports.run = function (configArg) {
     let done = q.defer();
     let config = configArg;

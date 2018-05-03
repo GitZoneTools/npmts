@@ -5,7 +5,7 @@ import * as npmextra from 'npmextra';
 import * as projectinfo from 'projectinfo';
 import * as path from 'path';
 import * as smartanalytics from 'smartanalytics';
-import * as smartcli from 'smartcli';
+import * as smartcli from '@pushrocks/smartcli';
 import * as smarterror from 'smarterror';
 import * as smartfile from 'smartfile';
 import * as smartpath from 'smartpath';
