@@ -35,7 +35,7 @@
   },
   "homepage": "https://gitlab.com/gitzone/npmts#readme",
   "dependencies": {
-    "@pushrocks/smartcli": "^3.0.0",
+    "@pushrocks/smartcli": "^3.0.1",
     "@types/gulp-sourcemaps": "0.0.32",
     "@types/minimatch": "^3.0.1",
     "@types/through2": "^2.0.33",

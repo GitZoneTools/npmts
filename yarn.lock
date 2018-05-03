@@ -19,9 +19,9 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@pushrocks/smartcli@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@pushrocks/smartcli/-/smartcli-3.0.0.tgz#1840db8c8e5504ac136ce4051f3906158338192a"
+"@pushrocks/smartcli@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@pushrocks/smartcli/-/smartcli-3.0.1.tgz#330ca93f83ecaa23f9213cefa23270105a7728fc"
   dependencies:
     "@types/yargs" "^11.0.0"
     beautylog "^6.1.10"

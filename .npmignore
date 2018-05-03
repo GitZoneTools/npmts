@@ -1,6 +1,0 @@
-compile/
-coverage/
-test/
-docs/
-examples
-.gitignore

@@ -5,3 +5,4 @@ pages/
 public/
 npm-debug/
 .DS_Store
+.yarn/
