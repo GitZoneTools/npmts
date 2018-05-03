@@ -51,11 +51,10 @@ export let run = async () => {
   );
   plugins.beautylog.log('---------------------------------------------');
   let npmtsCli = new plugins.smartcli.Smartcli();
-  
+
   // build
-  npmtsCli
-    .addCommand('build')
-    .subscribe(async (argvArg) => {
+  npmtsCli.addCommand('build').subscribe(
+    async argvArg => {
       let done = q.defer();
       plugins.beautylog.info('npmts version: ' + npmtsProjectInfo.version);
       const configArg: NpmtsConfig.INpmtsConfig = await NpmtsConfig.run(argvArg);
@@ -94,16 +93,18 @@ export let run = async () => {
         .then(NpmtsShip.run);
 
       return done.promise;
-    }, err => {
+    },
+    err => {
       if (err instanceof Error) {
         console.log(err);
       }
-    })
+    }
+  );
 
   // standard task
   npmtsCli.standardTask().subscribe(async argvArg => {
-    await npmtsCli.trigger('build')
-  })
+    await npmtsCli.trigger('build');
+  });
 
   // cli metadata
   npmtsCli.addVersion(npmtsProjectInfo.version);
